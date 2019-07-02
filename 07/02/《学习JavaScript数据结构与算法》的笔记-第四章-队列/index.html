@@ -5,18 +5,18 @@
   
   <title>《学习JavaScript数据结构与算法》的笔记---第四章 队列 | 刷新日记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概念 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。 用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。">
+  <meta name="description" content="概念 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。 用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。        创建一个队列1234class Queue()&amp;#123;    /*通过数组来保存队列的元素*/    item=[];&amp;#125;;  给队列添加一些方法1234567891011121314151617181920212223cla">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《学习JavaScript数据结构与算法》的笔记---第四章 队列">
 <meta property="og:url" content="http://shuaxindiary/07/02/《学习JavaScript数据结构与算法》的笔记-第四章-队列/index.html">
 <meta property="og:site_name" content="刷新日记">
-<meta property="og:description" content="概念 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。 用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。">
+<meta property="og:description" content="概念 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。 用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。        创建一个队列1234class Queue()&amp;#123;    /*通过数组来保存队列的元素*/    item=[];&amp;#125;;  给队列添加一些方法1234567891011121314151617181920212223cla">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://shuaxindiary/img/queue.png">
-<meta property="og:updated_time" content="2019-07-02T15:41:06.411Z">
+<meta property="og:updated_time" content="2019-07-02T15:50:10.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《学习JavaScript数据结构与算法》的笔记---第四章 队列">
-<meta name="twitter:description" content="概念 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。 用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。">
+<meta name="twitter:description" content="概念 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。 用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。        创建一个队列1234class Queue()&amp;#123;    /*通过数组来保存队列的元素*/    item=[];&amp;#125;;  给队列添加一些方法1234567891011121314151617181920212223cla">
 <meta name="twitter:image" content="http://shuaxindiary/img/queue.png">
   
     <link rel="icon" href="/img/bitbug_favicon.ico">
@@ -70,11 +70,13 @@
   <article class="content">
     <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><font size="5">
 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。
-用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。
-</font>
+用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。  
+</font>  
 
 <p><img src="/img/queue.png" alt="示例图"></p>
+<h5 id="创建一个队列"><a href="#创建一个队列" class="headerlink" title="创建一个队列"></a>创建一个队列</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>()</span>&#123;</span><br><span class="line">    <span class="comment">/*通过数组来保存队列的元素*/</span></span><br><span class="line">    item=[];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<h5 id="给队列添加一些方法"><a href="#给队列添加一些方法" class="headerlink" title="给队列添加一些方法"></a>给队列添加一些方法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span></span>&#123;</span><br><span class="line">    item=[];</span><br><span class="line">    <span class="comment">// 给队列队尾添加元素</span></span><br><span class="line">    enqueue(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.push(val);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 给队列队头删除元素</span></span><br><span class="line">    dequeue(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.shift(val);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 返回队列第一个元素</span></span><br><span class="line">    front(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item[<span class="number">0</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 判断队列中是否含有元素</span></span><br><span class="line">    isEmpty(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.length;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 判断队列的元素个数</span></span><br><span class="line">    size()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.length;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
   </article>
   <footer class="f-cf">
     
