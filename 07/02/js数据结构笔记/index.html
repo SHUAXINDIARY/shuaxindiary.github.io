@@ -5,18 +5,18 @@
   
   <title>《学习JavaScript数据结构与算法》的笔记---第三章 栈 | 刷新日记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在js中基本数据类就是存储在栈中。    创建一个栈1234function Stack()&amp;#123;    /*通过数组来保存栈的元素*/    let item=[];&amp;#125;;  给栈添加一些方法 push 添加一个或几个元素到栈顶 pop移">
+  <meta name="description" content="概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在 js中基本数据类就是存储在栈中。 数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。     创建一个栈1234function Stack()&amp;#123;    /*通过数组来保存栈的元素*/    let item=[];&amp;#125;;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《学习JavaScript数据结构与算法》的笔记---第三章 栈">
 <meta property="og:url" content="http://shuaxindiary/07/02/js数据结构笔记/index.html">
 <meta property="og:site_name" content="刷新日记">
-<meta property="og:description" content="概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在js中基本数据类就是存储在栈中。    创建一个栈1234function Stack()&amp;#123;    /*通过数组来保存栈的元素*/    let item=[];&amp;#125;;  给栈添加一些方法 push 添加一个或几个元素到栈顶 pop移">
+<meta property="og:description" content="概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在 js中基本数据类就是存储在栈中。 数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。     创建一个栈1234function Stack()&amp;#123;    /*通过数组来保存栈的元素*/    let item=[];&amp;#125;;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://shuaxindiary/img/stack.png">
-<meta property="og:updated_time" content="2019-07-02T15:31:39.785Z">
+<meta property="og:updated_time" content="2019-07-02T15:42:10.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《学习JavaScript数据结构与算法》的笔记---第三章 栈">
-<meta name="twitter:description" content="概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在js中基本数据类就是存储在栈中。    创建一个栈1234function Stack()&amp;#123;    /*通过数组来保存栈的元素*/    let item=[];&amp;#125;;  给栈添加一些方法 push 添加一个或几个元素到栈顶 pop移">
+<meta name="twitter:description" content="概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在 js中基本数据类就是存储在栈中。 数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。     创建一个栈1234function Stack()&amp;#123;    /*通过数组来保存栈的元素*/    let item=[];&amp;#125;;">
 <meta name="twitter:image" content="http://shuaxindiary/img/stack.png">
   
     <link rel="icon" href="/img/bitbug_favicon.ico">
@@ -69,7 +69,10 @@
   <p class="sub">7月 2, 2019</p>
   <article class="content">
     <h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><font size="5"> 
-栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在js中基本数据类就是存储在栈中。
+栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在
+js中基本数据类就是存储在栈中。
+数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。
+
 </font>
 
 <p><img src="/img/stack.png" alt="示例图"></p>
