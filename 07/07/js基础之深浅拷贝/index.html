@@ -5,17 +5,17 @@
   
   <title>js基础之深浅拷贝 | 刷新日记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习自冴羽的 JavaScript专题之深浅拷贝笔记  本文源码 首要要区分基本数据类型和引用数据类型 基本数据类型:Int,String,Number,Boolean,Undefined,Null 引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp 两者的不同： 基本数据类型存储在 栈 中； 引用数据类型存储在 堆 中；  关于深拷贝">
+  <meta name="description" content="学习自冴羽的 JavaScript专题之深浅拷贝笔记  本文源码 首先要区分基本数据类型和引用数据类型 基本数据类型:Int,String,Number,Boolean,Undefined,Null 引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp 两者的不同： 基本数据类型存储在 栈 中； 引用数据类型存储在 堆 中；  关于深拷贝">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js基础之深浅拷贝">
 <meta property="og:url" content="http://shuaxindiary/07/07/js基础之深浅拷贝/index.html">
 <meta property="og:site_name" content="刷新日记">
-<meta property="og:description" content="学习自冴羽的 JavaScript专题之深浅拷贝笔记  本文源码 首要要区分基本数据类型和引用数据类型 基本数据类型:Int,String,Number,Boolean,Undefined,Null 引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp 两者的不同： 基本数据类型存储在 栈 中； 引用数据类型存储在 堆 中；  关于深拷贝">
+<meta property="og:description" content="学习自冴羽的 JavaScript专题之深浅拷贝笔记  本文源码 首先要区分基本数据类型和引用数据类型 基本数据类型:Int,String,Number,Boolean,Undefined,Null 引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp 两者的不同： 基本数据类型存储在 栈 中； 引用数据类型存储在 堆 中；  关于深拷贝">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-07T05:01:03.025Z">
+<meta property="og:updated_time" content="2019-07-07T05:02:48.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js基础之深浅拷贝">
-<meta name="twitter:description" content="学习自冴羽的 JavaScript专题之深浅拷贝笔记  本文源码 首要要区分基本数据类型和引用数据类型 基本数据类型:Int,String,Number,Boolean,Undefined,Null 引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp 两者的不同： 基本数据类型存储在 栈 中； 引用数据类型存储在 堆 中；  关于深拷贝">
+<meta name="twitter:description" content="学习自冴羽的 JavaScript专题之深浅拷贝笔记  本文源码 首先要区分基本数据类型和引用数据类型 基本数据类型:Int,String,Number,Boolean,Undefined,Null 引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp 两者的不同： 基本数据类型存储在 栈 中； 引用数据类型存储在 堆 中；  关于深拷贝">
   
     <link rel="icon" href="/img/bitbug_favicon.ico">
   
@@ -73,7 +73,7 @@
     <p>学习自冴羽的 <a href="https://github.com/mqyqingfeng/Blog/issues/32" target="_blank" rel="noopener">JavaScript专题之深浅拷贝笔记</a></p>
 <hr>
 <p><a href="https://gitee.com/shuaxinhome/jsjichu.git" target="_blank" rel="noopener">本文源码</a></p>
-<h3 id="首要要区分基本数据类型和引用数据类型"><a href="#首要要区分基本数据类型和引用数据类型" class="headerlink" title="首要要区分基本数据类型和引用数据类型"></a>首要要区分基本数据类型和引用数据类型</h3><ol>
+<h3 id="首先要区分基本数据类型和引用数据类型"><a href="#首先要区分基本数据类型和引用数据类型" class="headerlink" title="首先要区分基本数据类型和引用数据类型"></a>首先要区分基本数据类型和引用数据类型</h3><ol>
 <li>基本数据类型:Int,String,Number,Boolean,Undefined,Null</li>
 <li>引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp</li>
 <li>两者的不同：<br> 基本数据类型存储在 <strong><em>栈</em></strong> 中；<br> 引用数据类型存储在 <strong><em>堆</em></strong> 中；</li>
