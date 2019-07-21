@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>js模块化 | 刷新日记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前端js模块化规范1.CommonJS2.ES63.AMD的RequireJS4.还有其他的，比如CMD的seajs等 CommonJS  学习更多1.一个文件就是一个模块2.通过requie导入模块3.通过exports和module.exports导出模块4.主要 作用在Node(vue-cli脚手架环境里也可以用)5.CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js模块化">
+<meta property="og:url" content="http://shuaxindiary/07/21/js模块化/index.html">
+<meta property="og:site_name" content="刷新日记">
+<meta property="og:description" content="前端js模块化规范1.CommonJS2.ES63.AMD的RequireJS4.还有其他的，比如CMD的seajs等 CommonJS  学习更多1.一个文件就是一个模块2.通过requie导入模块3.通过exports和module.exports导出模块4.主要 作用在Node(vue-cli脚手架环境里也可以用)5.CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-21T04:37:00.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js模块化">
+<meta name="twitter:description" content="前端js模块化规范1.CommonJS2.ES63.AMD的RequireJS4.还有其他的，比如CMD的seajs等 CommonJS  学习更多1.一个文件就是一个模块2.通过requie导入模块3.通过exports和module.exports导出模块4.主要 作用在Node(vue-cli脚手架环境里也可以用)5.CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面">
+  
+    <link rel="icon" href="/img/bitbug_favicon.ico">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">ShuaXin diary</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+          
+            <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn iconfont icon-douban"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORIES</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">js模块化</h2>
+  <p class="sub">7月 21, 2019</p>
+  <article class="content">
+    <h1 id="前端js模块化规范"><a href="#前端js模块化规范" class="headerlink" title="前端js模块化规范"></a>前端js模块化规范</h1><p>1.CommonJS<br>2.ES6<br>3.AMD的RequireJS<br>4.还有其他的，比如CMD的seajs等</p>
+<h1 id="CommonJS-学习更多"><a href="#CommonJS-学习更多" class="headerlink" title="CommonJS  学习更多"></a>CommonJS  <a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank" rel="noopener">学习更多</a></h1><p>1.一个文件就是一个模块<br>2.通过requie导入模块<br>3.通过exports和module.exports导出模块<br>4.<strong>主要</strong> 作用在Node(vue-cli脚手架环境里也可以用)<br>5.CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。</p>
+<p><strong><em>实例：在node环境中编写</em></strong></p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// one.js</span></span><br><span class="line"><span class="keyword">let</span> sayhi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'这是one.js文件的sayhi函数'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    exports.sayhi=sayhi;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    <span class="comment">// es6语法 键值一样时，可以只写一个</span></span><br><span class="line">    sayhi</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="comment">/*真实开发时注意导入路径*/</span></span><br><span class="line"><span class="keyword">let</span> one=<span class="built_in">require</span>(<span class="string">'one.js'</span>);</span><br><span class="line">one.sayhi();<span class="comment">//控制台打印 这是one.js文件的sayhi函数</span></span><br></pre></td></tr></table></figure></code></pre><h1 id="ES6-学习更多"><a href="#ES6-学习更多" class="headerlink" title="ES6  学习更多"></a>ES6  <a href="http://es6.ruanyifeng.com/#docs/module" target="_blank" rel="noopener">学习更多</a></h1><p>1.一个文件就是一个模块<br>2.通过export和export default导出模块</p>
+<pre><code>两个的区别：
+    1.  通过export导出的对象属性方法，在导入时也必须安其导出时的名字进行导入
+    2.  通过export default 导出的对象属性方法时，
+        导入可以任意起名，然后通过该名来调用导入文件内部的成员</code></pre><p>3.通过import {<strong>*}  from *</strong>导入模块</p>
+<p><strong><em>实例：在vue-cli脚手架环境中编写</em></strong></p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**使用export导出  */</span></span><br><span class="line"> <span class="comment">// one.js</span></span><br><span class="line"> <span class="keyword">let</span> sayhi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'这是one.js文件的sayhi函数'</span>);</span><br><span class="line"> &#125;;</span><br><span class="line"> <span class="keyword">export</span> &#123;sayhi&#125;;</span><br><span class="line"> <span class="comment">// main.js</span></span><br><span class="line"> <span class="comment">/*真实开发时注意导入路径*/</span></span><br><span class="line"> <span class="keyword">import</span> &#123;sayhi&#125; <span class="keyword">from</span> <span class="string">'one'</span>;</span><br><span class="line"> sayhi();<span class="comment">//这是one.js文件的sayhi函数</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*使用export default导出  */</span></span><br><span class="line"><span class="comment">// one.js</span></span><br><span class="line"><span class="keyword">let</span> sayhi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'这是one.js文件的sayhi函数'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    sayhi</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="comment">/*真实开发时注意导入路径*/</span></span><br><span class="line"><span class="keyword">import</span> one <span class="keyword">from</span> <span class="string">'one'</span>;</span><br><span class="line">one.sayhi();<span class="comment">//这是one.js文件的sayhi函数</span></span><br></pre></td></tr></table></figure></code></pre><h1 id="AMD-的-RequireJS-学习更多"><a href="#AMD-的-RequireJS-学习更多" class="headerlink" title="AMD 的 RequireJS 学习更多"></a>AMD 的 RequireJS <a href="http://javascript.ruanyifeng.com/tool/requirejs.html" target="_blank" rel="noopener">学习更多</a></h1><p>1.在es6出来之前，主要使用就是CommonJS和RequireJS<br>2.不同于CommonJS的同步加载，RequireJS是异步加载(所以支持回调函数)<br>3.通过defin定义模块<br>4.通过require加载模块(注意require中的依赖是一个数组，即使只有一个依赖，你也必须使用数组来定义))</p>
+<p><strong><em>实例：引入requirejs后编写</em></strong></p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// one.js</span></span><br><span class="line">    define(&#123;</span><br><span class="line">        sayhi()&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'这是sayhi'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">// 以上也可以写成</span></span><br><span class="line">    define(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            sayhi() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'这是saihi'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">// main.js  注意实际开发时的路径</span></span><br><span class="line">&lt;script src=<span class="string">"https://cdn.bootcss.com/require.js/2.3.6/require.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="built_in">require</span>([<span class="string">'a'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">        a.sayhi();<span class="comment">//这是sayhi</span></span><br><span class="line">    &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></code></pre><p>5.当定义模块中依赖其他模块时，把导入的模块当作参数传递进去，再使用</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// one.js</span></span><br><span class="line">    define([<span class="string">'./b'</span>],<span class="function"><span class="keyword">function</span> (<span class="params">b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            sayhi() &#123;</span><br><span class="line">                <span class="comment">// console.log('这是saihi');</span></span><br><span class="line">                b.sayhi();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">// main.js  注意实际开发时的路径</span></span><br><span class="line">&lt;script src=<span class="string">"https://cdn.bootcss.com/require.js/2.3.6/require.js"</span>&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">    <span class="built_in">require</span>([<span class="string">'a'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">        a.sayhi();<span class="comment">//这是sayhi</span></span><br><span class="line">    &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></code></pre>
+  </article>
+  <footer class="f-cf">
+    
+    
+      <a href="/07/19/熟悉小程序开发目录/" class="link f-fr">熟悉小程序开发目录⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  986384495@qq.com
+  
+  
+  
+  · <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn">GitHub</a>
+  
+  
+  
+  · <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn">Douban</a>
+  
+  
+  
+  <span class="copyright"></span>
+  
+  <!-- 不蒜子统计 -->
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+    本站访客数<span id="busuanzi_value_site_uv"></span>人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</footer>
+  </div>
+</body>
+</html>
