@@ -8,11 +8,11 @@
   <meta name="description" content="前端js模块化规范1.CommonJS2.ES63.AMD的RequireJS4.还有其他的，比如CMD的seajs等 CommonJS  学习更多1.一个文件就是一个模块2.通过requie导入模块3.通过exports和module.exports导出模块4.主要 作用在Node(vue-cli脚手架环境里也可以用)5.CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js模块化">
-<meta property="og:url" content="http://shuaxindiary/07/21/js模块化/index.html">
+<meta property="og:url" content="http://shuaxindiary/2019/07/21/js模块化/index.html">
 <meta property="og:site_name" content="刷新日记">
 <meta property="og:description" content="前端js模块化规范1.CommonJS2.ES63.AMD的RequireJS4.还有其他的，比如CMD的seajs等 CommonJS  学习更多1.一个文件就是一个模块2.通过requie导入模块3.通过exports和module.exports导出模块4.主要 作用在Node(vue-cli脚手架环境里也可以用)5.CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-21T04:37:00.048Z">
+<meta property="og:updated_time" content="2019-07-22T04:57:12.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js模块化">
 <meta name="twitter:description" content="前端js模块化规范1.CommonJS2.ES63.AMD的RequireJS4.还有其他的，比如CMD的seajs等 CommonJS  学习更多1.一个文件就是一个模块2.通过requie导入模块3.通过exports和module.exports导出模块4.主要 作用在Node(vue-cli脚手架环境里也可以用)5.CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面">
@@ -71,13 +71,13 @@
   <p class="sub">7月 21, 2019</p>
   <article class="content">
     <h1 id="前端js模块化规范"><a href="#前端js模块化规范" class="headerlink" title="前端js模块化规范"></a>前端js模块化规范</h1><p>1.CommonJS<br>2.ES6<br>3.AMD的RequireJS<br>4.还有其他的，比如CMD的seajs等</p>
-<h1 id="CommonJS-学习更多"><a href="#CommonJS-学习更多" class="headerlink" title="CommonJS  学习更多"></a>CommonJS  <a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank" rel="noopener">学习更多</a></h1><p>1.一个文件就是一个模块<br>2.通过requie导入模块<br>3.通过exports和module.exports导出模块<br>4.<strong>主要</strong> 作用在Node(vue-cli脚手架环境里也可以用)<br>5.CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。</p>
+<h1 id="CommonJS-学习更多"><a href="#CommonJS-学习更多" class="headerlink" title="CommonJS  学习更多"></a>CommonJS  <a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank" rel="noopener">学习更多</a></h1><p>1.一个文件就是一个模块<br>2.通过requie导入模块<br>3.通过exports和module.exports导出模块<br>4.<strong>主要</strong> 作用在Node(vue-cli脚手架环境里也可以用)<br>5.CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作<br>6.引入时，是整体加载引入的文件模块，生成一个对象,然后从该对象里获取内部属性<br>7.运行时加载</p>
 <p><strong><em>实例：在node环境中编写</em></strong></p>
 <pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// one.js</span></span><br><span class="line"><span class="keyword">let</span> sayhi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'这是one.js文件的sayhi函数'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    exports.sayhi=sayhi;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    <span class="comment">// es6语法 键值一样时，可以只写一个</span></span><br><span class="line">    sayhi</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="comment">/*真实开发时注意导入路径*/</span></span><br><span class="line"><span class="keyword">let</span> one=<span class="built_in">require</span>(<span class="string">'one.js'</span>);</span><br><span class="line">one.sayhi();<span class="comment">//控制台打印 这是one.js文件的sayhi函数</span></span><br></pre></td></tr></table></figure></code></pre><h1 id="ES6-学习更多"><a href="#ES6-学习更多" class="headerlink" title="ES6  学习更多"></a>ES6  <a href="http://es6.ruanyifeng.com/#docs/module" target="_blank" rel="noopener">学习更多</a></h1><p>1.一个文件就是一个模块<br>2.通过export和export default导出模块</p>
 <pre><code>两个的区别：
     1.  通过export导出的对象属性方法，在导入时也必须安其导出时的名字进行导入
     2.  通过export default 导出的对象属性方法时，
-        导入可以任意起名，然后通过该名来调用导入文件内部的成员</code></pre><p>3.通过import {<strong>*}  from *</strong>导入模块</p>
+        导入可以任意起名，然后通过该名来调用导入文件内部的成员</code></pre><p>3.通过import {<strong>*}  from *</strong>导入模块<br>4.编译时加载，ES6模块不时对象，而是通过export指定输出的代码，再通过import输入</p>
 <p><strong><em>实例：在vue-cli脚手架环境中编写</em></strong></p>
 <pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**使用export导出  */</span></span><br><span class="line"> <span class="comment">// one.js</span></span><br><span class="line"> <span class="keyword">let</span> sayhi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'这是one.js文件的sayhi函数'</span>);</span><br><span class="line"> &#125;;</span><br><span class="line"> <span class="keyword">export</span> &#123;sayhi&#125;;</span><br><span class="line"> <span class="comment">// main.js</span></span><br><span class="line"> <span class="comment">/*真实开发时注意导入路径*/</span></span><br><span class="line"> <span class="keyword">import</span> &#123;sayhi&#125; <span class="keyword">from</span> <span class="string">'one'</span>;</span><br><span class="line"> sayhi();<span class="comment">//这是one.js文件的sayhi函数</span></span><br></pre></td></tr></table></figure>
 
@@ -89,7 +89,7 @@
   <footer class="f-cf">
     
     
-      <a href="/07/19/熟悉小程序开发目录/" class="link f-fr">熟悉小程序开发目录⟶</a>
+      <a href="/2019/07/19/熟悉小程序开发目录/" class="link f-fr">熟悉小程序开发目录⟶</a>
     
   </footer>
 </section></div>
