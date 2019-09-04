@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>学习JavaScript数据结构与算法》笔记---集合 | 刷新日记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文源码 这里概念 集合是由一组无序且唯一的项组成的。 可以理解成一种特殊的数组 1.特殊在里面的元素没有顺序，不能重复 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份 和数学中的集合一样，也有并集、交集、差集、子集的概念。  ES6的set结构就是一个集合集合常见的实现方式是哈希表封装一个集合类12345function SetCustomer()&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习JavaScript数据结构与算法》笔记---集合">
+<meta property="og:url" content="http://shuaxindiary/2019/09/04/js数据结构笔记6/index.html">
+<meta property="og:site_name" content="刷新日记">
+<meta property="og:description" content="本文源码 这里概念 集合是由一组无序且唯一的项组成的。 可以理解成一种特殊的数组 1.特殊在里面的元素没有顺序，不能重复 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份 和数学中的集合一样，也有并集、交集、差集、子集的概念。  ES6的set结构就是一个集合集合常见的实现方式是哈希表封装一个集合类12345function SetCustomer()&amp;#123;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-04T11:03:34.024Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习JavaScript数据结构与算法》笔记---集合">
+<meta name="twitter:description" content="本文源码 这里概念 集合是由一组无序且唯一的项组成的。 可以理解成一种特殊的数组 1.特殊在里面的元素没有顺序，不能重复 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份 和数学中的集合一样，也有并集、交集、差集、子集的概念。  ES6的set结构就是一个集合集合常见的实现方式是哈希表封装一个集合类12345function SetCustomer()&amp;#123;">
+  
+    <link rel="icon" href="/img/bitbug_favicon.ico">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">ShuaXin diary</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+          
+            <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn iconfont icon-douban"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORIES</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">学习JavaScript数据结构与算法》笔记---集合</h2>
+  <p class="sub">9月 4, 2019</p>
+  <article class="content">
+    <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%9B%86%E5%90%88%E7%BB%93%E6%9E%84.html" target="_blank" rel="noopener">这里</a></h1><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ol>
+<li>集合是由一组<strong><em>无序</em></strong>且<strong><em>唯一</em></strong>的项组成的。</li>
+<li>可以理解成一种特殊的数组<br> 1.特殊在里面的元素没有顺序，不能重复<br> 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份</li>
+<li>和数学中的集合一样，也有并集、交集、差集、子集的概念。</li>
+</ol>
+<h1 id="ES6的set结构就是一个集合"><a href="#ES6的set结构就是一个集合" class="headerlink" title="ES6的set结构就是一个集合"></a>ES6的set结构就是一个集合</h1><h1 id="集合常见的实现方式是哈希表"><a href="#集合常见的实现方式是哈希表" class="headerlink" title="集合常见的实现方式是哈希表"></a>集合常见的实现方式是哈希表</h1><h1 id="封装一个集合类"><a href="#封装一个集合类" class="headerlink" title="封装一个集合类"></a>封装一个集合类</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SetCustomer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 通过对象来存储我们的元素 也可以用数组 对象方便操作</span></span><br><span class="line">    <span class="comment">// 属性</span></span><br><span class="line">    <span class="keyword">this</span>.items = &#123;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="动手封装集合的常见操作"><a href="#动手封装集合的常见操作" class="headerlink" title="动手封装集合的常见操作"></a>动手封装集合的常见操作</h1><blockquote>
+<p><strong><em>基本方法</em></strong><br>1.add(value)向集合添加一个新的项</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SetCustomer.prototype.add = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.items[value] = value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2.remove(vlaue)移除集合的一项</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SetCustomer.prototype.remove = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.has(value)) &#123;</span><br><span class="line">        <span class="keyword">delete</span> <span class="keyword">this</span>.items[value];</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3.has(value)判断集合有无指定的一项?返回true:返回false</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SetCustomer.prototype.has = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.items.hasOwnProperty(value)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4.clear()移除集合所有项</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SetCustomer.prototype.clear = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.items = &#123;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>5.size()返回集合包含项的个数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SetCustomer.prototype.size = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.items).length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>6.values()返回一个包含集合所有值的数组</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SetCustomer.prototype.values = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 因为存储集合时键值保持一致的 所以取键也行</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.items);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><em>封装两个集合的求集操作</em></strong><br>1.并集：对于给定的2个集合，返回一个包含两个集合中 所有的 元素的新集合</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">SetCustomer.prototype.union = <span class="function"><span class="keyword">function</span> (<span class="params">otherSet</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.创建新集合</span></span><br><span class="line">    <span class="keyword">let</span> unionSet = <span class="keyword">new</span> SetCustomer();</span><br><span class="line">    <span class="comment">// 2.将A集合元素添加到新集合</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.size(); i++) &#123;</span><br><span class="line">        unionSet.add(<span class="keyword">this</span>.values()[i]);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 3.将B集合添加到新集合</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; otherSet.size(); i++) &#123;</span><br><span class="line">        unionSet.add(otherSet.values()[i]);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 4.返回新集合</span></span><br><span class="line">    <span class="keyword">return</span> unionSet;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2.交集：对于给定的2个集合，返回一个包含两个集合中 共有的 元素的新集合</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> SetCustomer.prototype.intersection = <span class="function"><span class="keyword">function</span> (<span class="params">otherSet</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> insSet = <span class="keyword">new</span> SetCustomer();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (otherSet.has(<span class="keyword">this</span>.values()[i])) &#123;</span><br><span class="line">            insSet.add(<span class="keyword">this</span>.values()[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> insSet;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3.差集：对于给定的2个集合，返回一个包含所有存在A但不存在B集合的所有元素的新集合</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SetCustomer.prototype.difference = <span class="function"><span class="keyword">function</span> (<span class="params">otherSet</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> diffSet = <span class="keyword">new</span> SetCustomer();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!otherSet.has(<span class="keyword">this</span>.values()[i])) &#123;</span><br><span class="line">            diffSet.add(<span class="keyword">this</span>.values()[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> diffSet;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4.子集：验证一个集合是否是另一个集合的子集</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SetCustomer.prototype.subset = <span class="function"><span class="keyword">function</span> (<span class="params">otherSet</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.size() &gt; otherSet.size) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.size(); i++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (!otherSet.has(<span class="keyword">this</span>.values()[i])) &#123;</span><br><span class="line">                            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+  </article>
+  <footer class="f-cf">
+    
+    
+      <a href="/2019/09/03/vuejs基础复习-1/" class="link f-fr">vuejs基础复习---1⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  986384495@qq.com
+  
+  
+  
+  · <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn">GitHub</a>
+  
+  
+  
+  · <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn">Douban</a>
+  
+  
+  
+  <span class="copyright"></span>
+  
+  <!-- 不蒜子统计 -->
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+    本站访客数<span id="busuanzi_value_site_uv"></span>人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</footer>
+  </div>
+</body>
+</html>
