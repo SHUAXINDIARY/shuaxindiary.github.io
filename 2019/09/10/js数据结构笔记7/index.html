@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>学习JavaScript数据结构与算法》笔记---哈希表 | 刷新日记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文源码 这里理论特点  1.基于数组创建的一种数据结构2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)  和数组对比  优点  比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)    缺点  key值不可以重复哈希表没有顺序，不能以一定的顺序遍历   哈希函数  1.当在一百万数据的数组中，根据内容查找一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习JavaScript数据结构与算法》笔记---哈希表">
+<meta property="og:url" content="http://shuaxindiary/2019/09/10/js数据结构笔记7/index.html">
+<meta property="og:site_name" content="刷新日记">
+<meta property="og:description" content="本文源码 这里理论特点  1.基于数组创建的一种数据结构2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)  和数组对比  优点  比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)    缺点  key值不可以重复哈希表没有顺序，不能以一定的顺序遍历   哈希函数  1.当在一百万数据的数组中，根据内容查找一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://shuaxindiary/img/hash.jpg">
+<meta property="og:updated_time" content="2019-09-10T13:59:41.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习JavaScript数据结构与算法》笔记---哈希表">
+<meta name="twitter:description" content="本文源码 这里理论特点  1.基于数组创建的一种数据结构2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)  和数组对比  优点  比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)    缺点  key值不可以重复哈希表没有顺序，不能以一定的顺序遍历   哈希函数  1.当在一百万数据的数组中，根据内容查找一">
+<meta name="twitter:image" content="http://shuaxindiary/img/hash.jpg">
+  
+    <link rel="icon" href="/img/bitbug_favicon.ico">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">ShuaXin diary</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+          
+            <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn iconfont icon-douban"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORIES</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">学习JavaScript数据结构与算法》笔记---哈希表</h2>
+  <p class="sub">9月 10, 2019</p>
+  <article class="content">
+    <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%A1%88%E4%BE%8B.html" target="_blank" rel="noopener">这里</a></h1><h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h1><p><strong><em>特点</em></strong></p>
+<blockquote>
+<p>1.基于数组创建的一种数据结构<br>2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储<br>3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)</p>
+</blockquote>
+<p><strong><em>和数组对比</em></strong></p>
+<blockquote>
+<p><strong>优点</strong></p>
+<blockquote>
+<p>比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>缺点</strong></p>
+<blockquote>
+<p>key值不可以重复<br>哈希表没有顺序，不能以一定的顺序遍历</p>
+</blockquote>
+</blockquote>
+<p><strong><em>哈希函数</em></strong></p>
+<blockquote>
+<p>1.当在一百万数据的数组中，根据内容查找一个元素和根据那个元素的下标来查找时，时间差距很大<br><img src="/img/hash.jpg" alt="对比图"><br>2.哈希函数做的事就是把一个元素的key值转换成一个数字，然后在数组中以这个数字为下表存入数据<br>3.查找时，也是根据存入时哈希化(使用哈希函数对key进行转换的过程)的key值条件,先对其哈希化然后通过哈希化后的数字去数组中查找<br>4.一个好的哈希函数应该具有2个特点:</p>
+<ul>
+<li>1.快速计算(减少乘法，乘法比加法在计算机中更耗费性能)</li>
+<li>2.哈希后的数组下标要尽可能平均</li>
+</ul>
+</blockquote>
+<p><strong><em>冲突</em></strong></p>
+<blockquote>
+<p>当哈希化key值后出现的数字发生重复时这种现象叫做冲突<br>冲突的解决方案</p>
+<blockquote>
+<p>1.链地址法(用的更多，下文代码实现也使用这种方式)</p>
+<ul>
+<li>存储元素时，用数组或链表进行存储</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>2.开放地址法(寻找还是空的位置来存储)</p>
+<ul>
+<li>线性探测：以一定的规则来寻找下一个空位置来存储，这个规则得出的数一般是一个质数，称做步长.</li>
+</ul>
+</blockquote>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><strong><em>封装哈希表</em></strong></p>
+<blockquote>
+<p>封装方法：</p>
+<blockquote>
+<p>哈希函数—hash(key)</p>
+<ul>
+<li>传入要哈希的key，然后将该key值每个字母转换成ASCII码做和在进行一定的处理，以下函数规则参考自《学习JavaScript数据结构与算法》</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>存储元素—put(obj)</p>
+<ul>
+<li>传入要存储的元素(下文是存储一个对象)，存储时先通过哈希函数将某个属性(下文是name)哈希化得到要存储的位置，然后在存储时进行判断：1.该位置为空，直接插入；2.不为空，对比查看name值是否相同，不同插入在最后，若相同，覆盖；</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>获取元素—get(str)</p>
+<ul>
+<li>传入要查找的的内容(存储时哈希化的属性name)，查找时先通过哈希函数将查找值哈希化得到目标位置，然后直接查找，有返回整个对象；无，返回null</li>
+</ul>
+</blockquote>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">HashTable</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//  存储元素的数组</span></span><br><span class="line">            <span class="keyword">this</span>.items = [];</span><br><span class="line">            <span class="comment">// 哈希函数</span></span><br><span class="line">            HashTable.prototype.hash = <span class="function"><span class="keyword">function</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">let</span> hashCode = <span class="number">5381</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; key.length; i++) &#123;</span><br><span class="line">                    hashCode = <span class="number">33</span> * hashCode + key.charCodeAt();</span><br><span class="line">                &#125;;</span><br><span class="line">                <span class="keyword">return</span> hashCode % <span class="number">1013</span>;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="comment">// 存和改</span></span><br><span class="line">            HashTable.prototype.put = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">let</span> index = <span class="keyword">this</span>.hash(obj.name);</span><br><span class="line">                <span class="comment">// 初始化该位置</span></span><br><span class="line">                <span class="keyword">let</span> current = <span class="keyword">this</span>.items[index];</span><br><span class="line">                <span class="comment">// 判断要存储位置是否为空</span></span><br><span class="line">                <span class="keyword">if</span> (current == <span class="literal">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.items[index] = [];</span><br><span class="line">                    current = <span class="keyword">this</span>.items[index];</span><br><span class="line">                    <span class="comment">// 为空 直接插入到第一个位置</span></span><br><span class="line">                    current.push(obj);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 不为空 判断和里面的元素是否相同</span></span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; current.length; i++) &#123;</span><br><span class="line">                        <span class="comment">// 相同修改</span></span><br><span class="line">                        <span class="keyword">if</span> (current[i].name == obj.name) &#123;</span><br><span class="line">                            current[i] = obj;</span><br><span class="line">                            <span class="keyword">return</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;;</span><br><span class="line">                    <span class="comment">// 不同 插入到最后</span></span><br><span class="line">                    current.push(obj);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="comment">// 取</span></span><br><span class="line">            HashTable.prototype.get = <span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">let</span> index = <span class="keyword">this</span>.hash(str);</span><br><span class="line">                <span class="keyword">let</span> current = <span class="keyword">this</span>.items[index];</span><br><span class="line">                <span class="keyword">if</span> (current != <span class="literal">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; current.length; i++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (current[i].name == str) &#123;</span><br><span class="line">                            <span class="keyword">return</span> current[i];</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 测试代码  </span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> hs = <span class="keyword">new</span> HashTable();</span><br><span class="line">        <span class="comment">// 创建一个对象并存如</span></span><br><span class="line">        <span class="keyword">let</span> shuaxin = &#123;</span><br><span class="line">            name: <span class="string">"shuaxin"</span>,</span><br><span class="line">            phone: <span class="string">'158****26**'</span></span><br><span class="line">        &#125;;</span><br><span class="line">        hs.put(shuaxin);</span><br><span class="line"><span class="comment">// 测试哈希表和数组查找效率对比</span></span><br><span class="line"><span class="comment">// 先给数组空的位置插入模拟数据 100w</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">insert</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (hs.items[i] == <span class="literal">null</span>) &#123;</span><br><span class="line">                    hs.items[i] = [&#123;</span><br><span class="line">                        name: <span class="string">"demo"</span>,</span><br><span class="line">                        phone: <span class="string">"456"</span></span><br><span class="line">                    &#125;];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line">        insert();</span><br><span class="line">        <span class="comment">// 数组普通的对比查找</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">            <span class="comment">// console.log(str);</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> hs.items) &#123;</span><br><span class="line">                <span class="keyword">if</span> (str == hs.items[i][<span class="number">0</span>].name) &#123;</span><br><span class="line">                    <span class="keyword">return</span> hs.items[i][<span class="number">0</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 上文图片的结果</span></span><br><span class="line">        <span class="built_in">console</span>.warn(<span class="string">'100w数据中效率对比'</span>);</span><br><span class="line">        <span class="comment">// 250+ms</span></span><br><span class="line">        <span class="built_in">console</span>.time(<span class="string">'遍历查找'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(find(<span class="string">'shuaxin'</span>));</span><br><span class="line">        <span class="built_in">console</span>.timeEnd(<span class="string">'遍历查找'</span>);</span><br><span class="line">        <span class="comment">// 1ms左右</span></span><br><span class="line">        <span class="built_in">console</span>.time(<span class="string">'哈希查找'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(hs.get(<span class="string">'shuaxin'</span>));</span><br><span class="line">        <span class="built_in">console</span>.timeEnd(<span class="string">'哈希查找'</span>);</span><br></pre></td></tr></table></figure>
+  </article>
+  <footer class="f-cf">
+    
+    
+      <a href="/2019/09/04/js数据结构笔记6/" class="link f-fr">学习JavaScript数据结构与算法》笔记---集合⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  986384495@qq.com
+  
+  
+  
+  · <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn">GitHub</a>
+  
+  
+  
+  · <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn">Douban</a>
+  
+  
+  
+  <span class="copyright"></span>
+  
+  <!-- 不蒜子统计 -->
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+    本站访客数<span id="busuanzi_value_site_uv"></span>人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</footer>
+  </div>
+</body>
+</html>
