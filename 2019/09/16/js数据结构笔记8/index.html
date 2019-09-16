@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>《学习JavaScript数据结构与算法》笔记---树 | 刷新日记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文源码 这里什么是树 1.一种非线性结构,由n(n&amp;gt;=1)个有限节点组成的有层次关系的集合2.如下图：3.HTML的所有dom节点其实就是一棵dom树，如图  树的特点 优点  1.因为基于链表实现，所以集成了链表的优点；但又因为非线性结构的原因查询比链表有效率； 2.虽然查询效率不集哈希表，但比哈希表节省空间； 3.也改善了数组插入和删除时，效率低下的原因； 4.可以表示一对多的关系；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《学习JavaScript数据结构与算法》笔记---树">
+<meta property="og:url" content="http://shuaxindiary/2019/09/16/js数据结构笔记8/index.html">
+<meta property="og:site_name" content="刷新日记">
+<meta property="og:description" content="本文源码 这里什么是树 1.一种非线性结构,由n(n&amp;gt;=1)个有限节点组成的有层次关系的集合2.如下图：3.HTML的所有dom节点其实就是一棵dom树，如图  树的特点 优点  1.因为基于链表实现，所以集成了链表的优点；但又因为非线性结构的原因查询比链表有效率； 2.虽然查询效率不集哈希表，但比哈希表节省空间； 3.也改善了数组插入和删除时，效率低下的原因； 4.可以表示一对多的关系；">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://shuaxindiary/img/tree.jpg">
+<meta property="og:image" content="http://shuaxindiary/img/domtree.gif">
+<meta property="og:image" content="http://shuaxindiary/img/tree.jpg">
+<meta property="og:image" content="http://shuaxindiary/img/treedemo.jpg">
+<meta property="og:image" content="http://shuaxindiary/img/bst.jpg">
+<meta property="og:updated_time" content="2019-09-16T12:33:32.500Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《学习JavaScript数据结构与算法》笔记---树">
+<meta name="twitter:description" content="本文源码 这里什么是树 1.一种非线性结构,由n(n&amp;gt;=1)个有限节点组成的有层次关系的集合2.如下图：3.HTML的所有dom节点其实就是一棵dom树，如图  树的特点 优点  1.因为基于链表实现，所以集成了链表的优点；但又因为非线性结构的原因查询比链表有效率； 2.虽然查询效率不集哈希表，但比哈希表节省空间； 3.也改善了数组插入和删除时，效率低下的原因； 4.可以表示一对多的关系；">
+<meta name="twitter:image" content="http://shuaxindiary/img/tree.jpg">
+  
+    <link rel="icon" href="/img/bitbug_favicon.ico">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">ShuaXin diary</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+          
+            <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn iconfont icon-douban"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORIES</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">《学习JavaScript数据结构与算法》笔记---树</h2>
+  <p class="sub">9月 16, 2019</p>
+  <article class="content">
+    <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E6%A0%91.html" target="_blank" rel="noopener">这里</a></h1><h1 id="什么是树"><a href="#什么是树" class="headerlink" title="什么是树"></a>什么是树</h1><blockquote>
+<p>1.一种非线性结构,由n(n&gt;=1)个有限节点组成的有层次关系的集合<br>2.如下图：<br><img src="/img/tree.jpg" alt="树"><br>3.HTML的所有dom节点其实就是一棵dom树，如图<br><img src="/img/domtree.gif" alt="dom树"></p>
+</blockquote>
+<h1 id="树的特点"><a href="#树的特点" class="headerlink" title="树的特点"></a>树的特点</h1><blockquote>
+<p><strong><em>优点</em></strong></p>
+<ul>
+<li>1.因为基于链表实现，所以集成了链表的优点；但又因为非线性结构的原因查询比链表有效率；</li>
+<li>2.虽然查询效率不集哈希表，但比哈希表节省空间；</li>
+<li>3.也改善了数组插入和删除时，效率低下的原因；</li>
+<li>4.可以表示一对多的关系；</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong><em>缺点</em></strong></p>
+<ul>
+<li>1.移除有很多子节点的一个节点时很麻烦；</li>
+<li>2.查找效率没有哈希表更有效率</li>
+</ul>
+</blockquote>
+<hr>
+<p><strong><strong>存在即合理，根据自己会继续要选择合适的结构</strong></strong></p>
+<hr>
+<h1 id="关于树的一些术语"><a href="#关于树的一些术语" class="headerlink" title="关于树的一些术语"></a>关于树的一些术语</h1><p><img src="/img/tree.jpg" alt="树"></p>
+<blockquote>
+<p>1.位于顶部的节点叫做根节点；图中的A<br>2.树中的每个元素叫做节点；图中的所有圆点<br>3.内部节点：有子节点的节点；图中的abcde<br>4.外部节点也叫叶节点：没有子节点的节点；图中的#<br>5.父节点：a时bc的父节点；是其他节点的祖先节点；<br>6.子节点：bc是a的子节点；<br>7.子树：由某个子节点和他的子节点组成的树；<br>8.节点的度:节点的子节点个数<br>9.节点的层：根节点是1层(或0层),子节点层数依次加一；<br>10.树的深度：层数最大的节点；是树的深度</p>
+</blockquote>
+<h1 id="一些常见树"><a href="#一些常见树" class="headerlink" title="一些常见树"></a>一些常见树</h1><blockquote>
+<p><strong><em>二叉树(Binary Tree)</em></strong></p>
+<ul>
+<li>1.每个节点的子节点个数最多只有2个；一个左节点，一个右节点</li>
+<li>2.二叉树i层的最大节点树为 2的i-1次方,i&gt;=1;</li>
+<li>3.深度为k的二叉树的最大节点总数为 2的k次方后再-1；k&gt;=1</li>
+<li>4.非空二叉树的叶结点个数n0=n2+1； n2为叶节点个数</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong><em>完美二叉树</em></strong></p>
+<ul>
+<li>除过根节点其他所有子节点都有2个子节点的二叉树</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong><em>完全二叉树(Complete Binary Tree)</em></strong></p>
+<ul>
+<li>1.除过根节点其他所有子节点都有2个子节点；</li>
+<li>2.且最后一层从左到右叶节点连续存在，只缺右边若干接点的二叉树</li>
+<li>3.完美二叉树时特殊的完全二叉树</li>
+<li>4.举例子<br><img src="/img/treedemo.jpg" alt="完全二叉树"></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong><font color="red">二叉搜索树(Binary Search Tree)</font></strong>   <strong><strong>重点</strong></strong></p>
+<ul>
+<li>非空<strong><em>左</em></strong>子树的所有值<strong><em>小于</em></strong>其根节点；</li>
+<li>非空<strong><em>右</em></strong>子树的所有值<strong><em>大于</em></strong>其根节点；</li>
+<li>每一个子树也都满足二叉搜索树规则；<br><img src="/img/bst.jpg" alt="二叉搜索树">;</li>
+</ul>
+</blockquote>
+
+  </article>
+  <footer class="f-cf">
+    
+    
+      <a href="/2019/09/10/js数据结构笔记7/" class="link f-fr">《学习JavaScript数据结构与算法》笔记---哈希表⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  986384495@qq.com
+  
+  
+  
+  · <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn">GitHub</a>
+  
+  
+  
+  · <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn">Douban</a>
+  
+  
+  
+  <span class="copyright"></span>
+  
+  <!-- 不蒜子统计 -->
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+    本站访客数<span id="busuanzi_value_site_uv"></span>人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</footer>
+  </div>
+</body>
+</html>
