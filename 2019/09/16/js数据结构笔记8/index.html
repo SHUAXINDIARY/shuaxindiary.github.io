@@ -17,7 +17,8 @@
 <meta property="og:image" content="http://shuaxindiary/img/tree.jpg">
 <meta property="og:image" content="http://shuaxindiary/img/treedemo.jpg">
 <meta property="og:image" content="http://shuaxindiary/img/bst.jpg">
-<meta property="og:updated_time" content="2019-09-16T12:33:32.500Z">
+<meta property="og:image" content="http://shuaxindiary/img/notbts.jpg">
+<meta property="og:updated_time" content="2019-09-17T00:58:08.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《学习JavaScript数据结构与算法》笔记---树">
 <meta name="twitter:description" content="本文源码 这里什么是树 1.一种非线性结构,由n(n&amp;gt;=1)个有限节点组成的有层次关系的集合2.如下图：3.HTML的所有dom节点其实就是一棵dom树，如图  树的特点 优点  1.因为基于链表实现，所以集成了链表的优点；但又因为非线性结构的原因查询比链表有效率； 2.虽然查询效率不集哈希表，但比哈希表节省空间； 3.也改善了数组插入和删除时，效率低下的原因； 4.可以表示一对多的关系；">
@@ -91,7 +92,7 @@
 <blockquote>
 <p><strong><em>缺点</em></strong></p>
 <ul>
-<li>1.移除有很多子节点的一个节点时很麻烦；</li>
+<li>1.查找删除效率取决该树的深度，深度越大效率越低</li>
 <li>2.查找效率没有哈希表更有效率</li>
 </ul>
 </blockquote>
@@ -132,6 +133,16 @@
 <li>非空<strong><em>左</em></strong>子树的所有值<strong><em>小于</em></strong>其根节点；</li>
 <li>非空<strong><em>右</em></strong>子树的所有值<strong><em>大于</em></strong>其根节点；</li>
 <li>每一个子树也都满足二叉搜索树规则；<br><img src="/img/bst.jpg" alt="二叉搜索树">;</li>
+</ul>
+</blockquote>
+<h1 id="非平衡树"><a href="#非平衡树" class="headerlink" title="非平衡树"></a>非平衡树</h1><blockquote>
+<p>1.一颗左右子树节点分布不平衡的树，叫做非平衡树<br>2.一颗非平衡树相当于写了一个链表，体现不出树的优势；<br><img src="/img/notbts.jpg" alt="非平衡二叉树">;</p>
+</blockquote>
+<h1 id="平衡树"><a href="#平衡树" class="headerlink" title="平衡树"></a>平衡树</h1><blockquote>
+<p>1.也是二叉搜索树<br>2.每个节点的左子树节点个数和右子树节点个数相近<br>3.在二叉搜索树的实现上多封装了一些条件来保证不会出现非平衡树那样的情况的树<br>常见平衡树:</p>
+<ul>
+<li>AVL树:不常用</li>
+<li><strong><em>红黑树</em></strong></li>
 </ul>
 </blockquote>
 
