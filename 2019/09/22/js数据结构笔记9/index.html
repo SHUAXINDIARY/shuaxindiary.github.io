@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>学习JavaScript数据结构与算法》笔记---红黑树 | 刷新日记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是红黑树 1.为了解决二叉搜索树出现非平衡树的情况而出现的优化方案；2.当插入一个节点使树不平衡时，通过一些规则和一些处理方式来让树保持平衡；这个平衡后的树叫做红黑树  为什么需要红黑树？1.假如现在要向一颗BST插入10 9 8 7 6 5 4 3 2 1这样一组数，最后的结果就是每个数依次出现在上一个节点的左子树的情况，这样就相当于一个链表，体现不出我们使用树结构的优势，所以需要一些措施让">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习JavaScript数据结构与算法》笔记---红黑树">
+<meta property="og:url" content="http://shuaxindiary/2019/09/22/js数据结构笔记9/index.html">
+<meta property="og:site_name" content="刷新日记">
+<meta property="og:description" content="什么是红黑树 1.为了解决二叉搜索树出现非平衡树的情况而出现的优化方案；2.当插入一个节点使树不平衡时，通过一些规则和一些处理方式来让树保持平衡；这个平衡后的树叫做红黑树  为什么需要红黑树？1.假如现在要向一颗BST插入10 9 8 7 6 5 4 3 2 1这样一组数，最后的结果就是每个数依次出现在上一个节点的左子树的情况，这样就相当于一个链表，体现不出我们使用树结构的优势，所以需要一些措施让">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://shuaxindiary/img/rbt.jpg">
+<meta property="og:image" content="http://shuaxindiary/img/anli.png">
+<meta property="og:image" content="http://shuaxindiary/img/anli2.png">
+<meta property="og:image" content="http://shuaxindiary/img/anli3.png">
+<meta property="og:image" content="http://shuaxindiary/img/anli4.png">
+<meta property="og:updated_time" content="2019-09-22T01:34:06.055Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习JavaScript数据结构与算法》笔记---红黑树">
+<meta name="twitter:description" content="什么是红黑树 1.为了解决二叉搜索树出现非平衡树的情况而出现的优化方案；2.当插入一个节点使树不平衡时，通过一些规则和一些处理方式来让树保持平衡；这个平衡后的树叫做红黑树  为什么需要红黑树？1.假如现在要向一颗BST插入10 9 8 7 6 5 4 3 2 1这样一组数，最后的结果就是每个数依次出现在上一个节点的左子树的情况，这样就相当于一个链表，体现不出我们使用树结构的优势，所以需要一些措施让">
+<meta name="twitter:image" content="http://shuaxindiary/img/rbt.jpg">
+  
+    <link rel="icon" href="/img/bitbug_favicon.ico">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">ShuaXin diary</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+          
+            <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn iconfont icon-douban"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORIES</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">学习JavaScript数据结构与算法》笔记---红黑树</h2>
+  <p class="sub">9月 22, 2019</p>
+  <article class="content">
+    <h1 id="什么是红黑树"><a href="#什么是红黑树" class="headerlink" title="什么是红黑树"></a>什么是红黑树</h1><blockquote>
+<p>1.为了解决二叉搜索树出现非平衡树的情况而出现的优化方案；<br>2.当插入一个节点使树不平衡时，通过一些规则和一些处理方式来让树保持平衡；这个平衡后的树叫做红黑树</p>
+</blockquote>
+<h1 id="为什么需要红黑树？"><a href="#为什么需要红黑树？" class="headerlink" title="为什么需要红黑树？"></a>为什么需要红黑树？</h1><p>1.假如现在要向一颗BST插入10 9 8 7 6 5 4 3 2 1这样一组数，最后的结果就是每个数依次出现在上一个节点的左子树的情况，这样就相当于一个链表，体现不出我们使用树结构的优势，所以需要一些措施让每次插入的节点尽量出现在左右两端，避免出现这样的极端的情况。<br>2.红黑树是这种处理方式的一种常用结构。</p>
+<h1 id="红黑树的特点"><a href="#红黑树的特点" class="headerlink" title="红黑树的特点"></a>红黑树的特点</h1><blockquote>
+<p>1.满足二叉搜索树的所有特征<br>2.节点是红色或者黑色<br>3.根节点是黑色<br>4.每个叶子节点都是黑色的null节点</p>
+<ul>
+<li><font color="black">注:可以理解成当一个节点没有子节点时我们用null节点给他补齐</font></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>5.每个红色的节点的两个子节点都是黑色</p>
+<ul>
+<li><font color="black">注:从每个叶子节点到根节点的路径上不能有两个连续的红色节点</font></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>6.从任意节点开始到其每个叶子节点的所有路径都包含相同数目的黑色节点</p>
+</blockquote>
+<h1 id="红黑树的相对平衡"><a href="#红黑树的相对平衡" class="headerlink" title="红黑树的相对平衡"></a>红黑树的相对平衡</h1><blockquote>
+<p>1.从根节点到叶子节点的最长可能路径，不会超过最短可能路径的两倍长</p>
+<ul>
+<li>特点5决定了不可能有2个相连的红色节点</li>
+<li>最短路径可能全部都是黑色节点(根节点没有子节点的情况，补全两个null节点)</li>
+<li>最长的可能路径只可能是红黑交替</li>
+<li>特点6表明了所有路径都有相同数目的黑色节点</li>
+<li>这就表明了没有路径能多余任何其他路径的2倍长</li>
+<li>注：首先每次插入新节点的颜色都是红色</li>
+</ul>
+<p>2.结果就是这个数基本是平衡的<br>3.虽然不可能完全平衡，但是可以保证在极端的情况下，效率依旧相对比链表高</p>
+</blockquote>
+<h1 id="插入节点时变化规则"><a href="#插入节点时变化规则" class="headerlink" title="插入节点时变化规则"></a>插入节点时变化规则</h1><blockquote>
+<p>1.变色</p>
+<ul>
+<li>为了重新符合红黑树的规则，尝试把节点在黑红两色之间变换</li>
+</ul>
+<p>2.左旋转</p>
+<ul>
+<li>逆时针旋转红黑树的2个节点，使得父节点被自己的右子节点取代，自己成为自己的左子节点</li>
+</ul>
+<p>3.右旋转</p>
+<ul>
+<li>顺时针旋转红黑树的2个节点，使得父节点被自己的左子节点取代，自己成为自己的右子节点</li>
+</ul>
+</blockquote>
+<p><img src="/img/rbt.jpg" alt="红黑树变化"></p>
+<h1 id="节点插入时根据以下几点情况做对应的处理："><a href="#节点插入时根据以下几点情况做对应的处理：" class="headerlink" title="节点插入时根据以下几点情况做对应的处理："></a>节点插入时根据以下几点情况做对应的处理：</h1><p><font color="red"><strong><em>说明：插入节点为N；父节点为p；祖父节点为G；其父亲兄弟节点为U</em></strong></font></p>
+<blockquote>
+<p>情况1:新节点N位于树的根上时，没有父节点；直接将红色节点变成黑色节点即可</p>
+</blockquote>
+<blockquote>
+<p>情况2:新节点父节点为黑色；性质4没有失效，性质5也没问题；新节点不变，还是红色</p>
+</blockquote>
+<blockquote>
+<p>情况3:当p和u都是红色节点的时候；将pu变成黑色，g变成红色</p>
+</blockquote>
+<blockquote>
+<p>情况4:N的父节点是红色，叔叔节点是黑，祖父节点是黑色，然后N是左子节点时： 先把父节点变黑，在把祖父节点变红，再以插入节点的g节点为root节点右旋转；</p>
+</blockquote>
+<blockquote>
+<p>情况5:N的父亲节点是红色，叔叔节点是黑色，然后N是右子节点时： 先以p节点为根节点进行左旋转，然后将p节点作为新插入节点来考虑(这时情况就是情况4)</p>
+</blockquote>
+<h1 id="通过案例理解红黑树的变化规则和插入操作的情况："><a href="#通过案例理解红黑树的变化规则和插入操作的情况：" class="headerlink" title="通过案例理解红黑树的变化规则和插入操作的情况："></a>通过案例理解红黑树的变化规则和插入操作的情况：</h1><p><font color="red"><strong><em>假设现在要依次插入10 9 8 7 6 5 4 3 2 1到一个BST</em></strong></font></p>
+<blockquote>
+<p>1.插入10</p>
+<ul>
+<li>1.因为是第一个节点，所以作为root节点</li>
+<li>2.因为红黑树插入节点时都是红色节点，但root’节点必须要是黑色</li>
+<li>3.所以对该节点变色</li>
+<li>4.插入完成</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>2.插入9</p>
+<ul>
+<li>1.因为比10小，所以插入到左子节点</li>
+<li>2.满足红黑节点相连等特点，所以不进行处理，直接插入</li>
+<li>3.插入完成</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>3.插入8</p>
+<ul>
+<li>1.比9小，插入到9的左子节点</li>
+<li>2.但因为和9节点都是红色节点，违背红节点的2个子节点必须是黑色，所以要进行处理</li>
+<li>3.这时满足情况4的条件，先进行情况4的变色规则，然后进行右旋转</li>
+<li>4.插入完成</li>
+</ul>
+</blockquote>
+<h1 id="剩下的画了图"><a href="#剩下的画了图" class="headerlink" title="剩下的画了图"></a>剩下的画了图</h1><p><img src="/img/anli.png" alt="案例"></p>
+<p><img src="/img/anli2.png" alt="案例"></p>
+<p><img src="/img/anli3.png" alt="案例"></p>
+<p><img src="/img/anli4.png" alt="案例"></p>
+
+  </article>
+  <footer class="f-cf">
+    
+    
+      <a href="/2019/09/16/js数据结构笔记8/" class="link f-fr">《学习JavaScript数据结构与算法》笔记---树⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  986384495@qq.com
+  
+  
+  
+  · <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn">GitHub</a>
+  
+  
+  
+  · <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn">Douban</a>
+  
+  
+  
+  <span class="copyright"></span>
+  
+  <!-- 不蒜子统计 -->
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+    本站访客数<span id="busuanzi_value_site_uv"></span>人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</footer>
+  </div>
+</body>
+</html>
