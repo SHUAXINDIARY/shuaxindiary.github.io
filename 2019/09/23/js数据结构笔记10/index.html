@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>学习JavaScript数据结构与算法》笔记---图论 | 刷新日记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文源码 这里什么是图1.图是网络结构的抽象模型2.由一组边连接的顶点(或节点)组成  图和树的区别1.树和链表也是图的一种2.但是和树不同，树的左右两个子树的节点不可以相连，图可以(如上图) 图可以干嘛 用来抽象实际生活中某些关系网的结构，比如  1.人际关系网抽象成图，每个人就是这张图中的点，人与人之间的关系就是点点之间的连线 2.地铁站点图，每个站就是一个顶点，站与站之间的路线就是一条边">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习JavaScript数据结构与算法》笔记---图论">
+<meta property="og:url" content="http://shuaxindiary/2019/09/23/js数据结构笔记10/index.html">
+<meta property="og:site_name" content="刷新日记">
+<meta property="og:description" content="本文源码 这里什么是图1.图是网络结构的抽象模型2.由一组边连接的顶点(或节点)组成  图和树的区别1.树和链表也是图的一种2.但是和树不同，树的左右两个子树的节点不可以相连，图可以(如上图) 图可以干嘛 用来抽象实际生活中某些关系网的结构，比如  1.人际关系网抽象成图，每个人就是这张图中的点，人与人之间的关系就是点点之间的连线 2.地铁站点图，每个站就是一个顶点，站与站之间的路线就是一条边">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://shuaxindiary/img/Graph.jpg">
+<meta property="og:image" content="http://shuaxindiary/img/graph2.png">
+<meta property="og:image" content="http://shuaxindiary/img/graph3.png">
+<meta property="og:image" content="http://shuaxindiary/img/graph4.png">
+<meta property="og:image" content="http://shuaxindiary/img/graph5.png">
+<meta property="og:image" content="http://shuaxindiary/img/graph6.png">
+<meta property="og:updated_time" content="2019-09-23T06:37:00.178Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习JavaScript数据结构与算法》笔记---图论">
+<meta name="twitter:description" content="本文源码 这里什么是图1.图是网络结构的抽象模型2.由一组边连接的顶点(或节点)组成  图和树的区别1.树和链表也是图的一种2.但是和树不同，树的左右两个子树的节点不可以相连，图可以(如上图) 图可以干嘛 用来抽象实际生活中某些关系网的结构，比如  1.人际关系网抽象成图，每个人就是这张图中的点，人与人之间的关系就是点点之间的连线 2.地铁站点图，每个站就是一个顶点，站与站之间的路线就是一条边">
+<meta name="twitter:image" content="http://shuaxindiary/img/Graph.jpg">
+  
+    <link rel="icon" href="/img/bitbug_favicon.ico">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">ShuaXin diary</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+          
+            <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn iconfont icon-douban"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORIES</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">学习JavaScript数据结构与算法》笔记---图论</h2>
+  <p class="sub">9月 23, 2019</p>
+  <article class="content">
+    <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E5%9B%BE%E8%AE%BA.html" target="_blank" rel="noopener">这里</a></h1><h1 id="什么是图"><a href="#什么是图" class="headerlink" title="什么是图"></a>什么是图</h1><p>1.图是网络结构的抽象模型<br>2.由一组边连接的顶点(或节点)组成</p>
+<p><img src="/img/Graph.jpg" alt="图"></p>
+<h1 id="图和树的区别"><a href="#图和树的区别" class="headerlink" title="图和树的区别"></a>图和树的区别</h1><p>1.树和链表也是图的一种<br>2.但是和树不同，树的左右两个子树的节点不可以相连，图可以(如上图)</p>
+<h1 id="图可以干嘛"><a href="#图可以干嘛" class="headerlink" title="图可以干嘛"></a>图可以干嘛</h1><blockquote>
+<p>用来抽象实际生活中某些关系网的结构，比如</p>
+<ul>
+<li>1.人际关系网抽象成图，每个人就是这张图中的点，人与人之间的关系就是点点之间的连线</li>
+<li>2.地铁站点图，每个站就是一个顶点，站与站之间的路线就是一条边</li>
+</ul>
+</blockquote>
+<h1 id="关于图的术语"><a href="#关于图的术语" class="headerlink" title="关于图的术语"></a>关于图的术语</h1><blockquote>
+<p><strong><em>顶点</em></strong>：图中的一个点；比如在地铁图中的某一站；人际关系网中某个人</p>
+</blockquote>
+<blockquote>
+<p><strong><em>边</em></strong>：顶点之间的距离；比如地铁图中两站之间的距离</p>
+</blockquote>
+<blockquote>
+<p><strong><em>相邻顶点</em></strong>：一条边链接在一起的2个顶点称为相邻顶点</p>
+</blockquote>
+<blockquote>
+<p><strong><em>度</em></strong>：一个顶点的度是相邻顶点的数量</p>
+</blockquote>
+<blockquote>
+<p><strong><em>出度</em></strong>：某个顶点指向别的顶点的数量</p>
+</blockquote>
+<blockquote>
+<p><strong><em>入度</em></strong>：别的顶点指向某个顶点的数量</p>
+</blockquote>
+<blockquote>
+<p><strong><em>路径</em></strong>：两顶点之间经过的所有顶点构成的一个顶点序列称为路径，可以有多个；</p>
+</blockquote>
+<ul>
+<li><strong>简单路径</strong>：顶点序列中不包含重复的顶点</li>
+<li><strong>回路</strong>：顶点序列的第一项和最后一项是同一个顶点；就是从一个顶点出发转一圈又回到该点</li>
+</ul>
+<blockquote>
+<p><strong>无向图</strong>：假设有AB两个顶点通过一条边连接在一起，可以从A-B也可以从B-A，这条边没有方向，就称为无向图；(如上图)</p>
+</blockquote>
+<blockquote>
+<p><strong>有向图</strong>：假设有AB两个顶点通过一条边连接在一起，只可以从A-&gt;B或B-&gt;A，称为有向图(下图)</p>
+</blockquote>
+<p><img src="/img/graph2.png" alt="有向图"></p>
+<blockquote>
+<p><strong>无权图</strong>：图中的边没有携带权重，称为无权图(上面两个图都是)</p>
+</blockquote>
+<blockquote>
+<p><strong>带权图</strong>：边有一定的权重；这个权重可以表示各种想表示的数据，比如花费时间，顺序，等等</p>
+</blockquote>
+<p><img src="/img/graph3.png" alt="带权图"></p>
+<h1 id="用代码表示图"><a href="#用代码表示图" class="headerlink" title="用代码表示图"></a>用代码表示图</h1><blockquote>
+<p><strong><em>使用邻接矩阵(表示顶点之间相邻关系的矩阵)</em></strong></p>
+<ul>
+<li>1.用数字或者字母表示顶点，然后用一维数组存放顶点(和顶点包含的数据)</li>
+<li>2.用一个二维数组表示顶点之间的链接(边);<ul>
+<li>2.1假设a-b相连，即表示1，不相连表示0;</li>
+<li>2.2顶点到自己本身没有边，成为自回路，也用0表示</li>
+<li>2.3如果边带权重，当两点相连时，可以把这个数字按一定规则来表示</li>
+<li>2.4邻接矩阵表示无向图时，一定是对称的</li>
+</ul>
+</li>
+<li>3.邻接矩阵的问题：<ul>
+<li>3.1表示稀疏图(顶点之间的边很少的图)的时候会浪费很多内存空间,因为用0表示了很多不存在的边</li>
+</ul>
+</li>
+<li>4.多用于表示无向图</li>
+</ul>
+</blockquote>
+<p><img src="/img/graph4.png" alt="邻接矩阵"></p>
+<blockquote>
+<p><strong><em>使用邻接表(本文也是用这种方式)</em></strong></p>
+<ul>
+<li>1.邻接表由顶点和相邻顶点的顶点列表组成</li>
+<li>2.数组/链表/字典(哈希表)都可以实现</li>
+<li>3.多用于表示有向图</li>
+<li>4.邻接表的问题<ul>
+<li>4.1计算出度比较简单</li>
+<li>4.2计算入度非常麻烦</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><img src="/img/graph5.png" alt="邻接表"></p>
+<h1 id="关于图的遍历"><a href="#关于图的遍历" class="headerlink" title="关于图的遍历"></a>关于图的遍历</h1><blockquote>
+<p>1.需要注意的时，遍历时不能重复访问某个节点，且需要指定第一个要访问的节点，一般对图的遍历常用的有一下2种算法</p>
+</blockquote>
+<blockquote>
+<p>2.广度优先算法(BFS)</p>
+<ul>
+<li>特点：优先遍历当前访问节点的相邻节点 ，属于一层一层遍历</li>
+<li>使用队列实现</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>3.深度优先算法(DFS)</p>
+<ul>
+<li>特点：有点类似树的先序遍历，沿着路径，一条路径的节点全部访问完毕后，再返回有分支路径的节点去访问另一条路径；</li>
+<li>可以使用栈，或者递归(本文使用递归)来实现</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>4.上述的两种方式遍历结果的区别：如图</p>
+</blockquote>
+<p><img src="/img/graph6.png" alt="遍历"></p>
+<h1 id="表示节点的状态"><a href="#表示节点的状态" class="headerlink" title="表示节点的状态"></a>表示节点的状态</h1><blockquote>
+<p><strong><em>白色</em></strong>：表示顶点还没有被访问<br><strong><em>灰色</em></strong>：表示该顶点被访问过，但未被探索过(就是和他连接的点还未被访问)<br><strong><em>黑色</em></strong>：表示该顶点被访问过且被完全探索过(该点和该点相连的顶点都被访问过)</p>
+</blockquote>
+<h1 id="遍历算法"><a href="#遍历算法" class="headerlink" title="遍历算法"></a>遍历算法</h1><blockquote>
+<p>开始前先做一点说明</p>
+<ul>
+<li>1.我们用一个数组存储所有的顶点</li>
+<li>2.然后用一个对象存储相连点的关系：key为一个点，value是一个数组，存储和该点相连的点</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Graph</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.vertexes = [];</span><br><span class="line">   <span class="keyword">this</span>.eage = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><em>BFS</em></strong><br>实现思路：</p>
+<ul>
+<li>1.每次访问一个节点时，把和它相连的节点插入队列</li>
+<li>2.一个节点访问完毕后，在读取队列中先进队列的节点开始访问，</li>
+<li>3.然后重复执行12，直到队列为空，结束</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数：指定第一个访问节点  callback</span></span><br><span class="line">Graph.prototype.BFS = <span class="function"><span class="keyword">function</span> (<span class="params">initV, handler</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.check(initV)) &#123;</span><br><span class="line">        <span class="comment">// 1.初始化颜色</span></span><br><span class="line">        <span class="keyword">let</span> color = <span class="keyword">this</span>.initColor();</span><br><span class="line">        <span class="comment">// 2.创建队列</span></span><br><span class="line">        <span class="keyword">let</span> que = <span class="keyword">new</span> Queue();</span><br><span class="line">        <span class="comment">// 3.将第一个顶点插入队列</span></span><br><span class="line">        que.enqueue(initV);</span><br><span class="line">        <span class="comment">// 4.循环队列取出元素</span></span><br><span class="line">        <span class="keyword">while</span> (!que.isEmpty()) &#123;</span><br><span class="line">            <span class="comment">// 4.1取出顶点</span></span><br><span class="line">            <span class="keyword">let</span> v = que.dequeue();</span><br><span class="line">            <span class="comment">// 4.2获取顶点的相邻顶点</span></span><br><span class="line">            <span class="keyword">let</span> vList = <span class="keyword">this</span>.eage[v];</span><br><span class="line">            <span class="comment">// 4.3将v颜色设置成灰色</span></span><br><span class="line">            color[v] = <span class="string">'gray'</span>;</span><br><span class="line">            <span class="comment">// 4.4把相邻顶点插入队列 </span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; vList.length; i++) &#123;</span><br><span class="line">                <span class="comment">// 遍历相邻节点</span></span><br><span class="line">                <span class="keyword">let</span> e = vList[i];</span><br><span class="line">                <span class="comment">// 检查该点之前有没有被访问过</span></span><br><span class="line">                <span class="keyword">if</span> (color[e] == <span class="string">'white'</span>) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(e);</span><br><span class="line">                    color[e] = <span class="string">'gray'</span>;</span><br><span class="line">                    que.enqueue(e);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 4.5.访问v节点</span></span><br><span class="line">            handler(v);</span><br><span class="line">            <span class="comment">// 4.6访问完毕</span></span><br><span class="line">            color[v] = <span class="string">'black'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">'检查顶点是否存在'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><em>DFS</em></strong><br>实现思路：</p>
+<ul>
+<li>通过递归函数，访问一个节点的相邻节点</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数：指定第一个访问节点  callback</span></span><br><span class="line">Graph.prototype.DFS = <span class="function"><span class="keyword">function</span> (<span class="params">initV, handler</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.check(initV)) &#123;</span><br><span class="line">        <span class="comment">// 1.初始化颜色</span></span><br><span class="line">        <span class="keyword">let</span> color = <span class="keyword">this</span>.initColor();</span><br><span class="line">        <span class="keyword">this</span>.recurrence(initV, color, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">'检查顶点是否存在'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 递归访问顶点</span></span><br><span class="line">    Graph.prototype.recurrence = <span class="function"><span class="keyword">function</span> (<span class="params">v, color, handler</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 1标记正在访问</span></span><br><span class="line">        color[v] = <span class="string">'gray'</span>;</span><br><span class="line">        <span class="comment">// 2处理顶点</span></span><br><span class="line">        handler(v);</span><br><span class="line">        <span class="comment">// 3探索该点相邻顶点</span></span><br><span class="line">        <span class="keyword">let</span> vList = <span class="keyword">this</span>.eage[v];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> vList) &#123;</span><br><span class="line">            <span class="keyword">let</span> e = vList[i];</span><br><span class="line">            <span class="keyword">if</span> (color[e] == <span class="string">'white'</span>) &#123;</span><br><span class="line">                color[e] = <span class="string">'gray'</span>;</span><br><span class="line">                <span class="comment">// 递归探索该点</span></span><br><span class="line">                <span class="keyword">this</span>.recurrence(e, color, handler);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 4标记探索完成</span></span><br><span class="line">    color[v] = <span class="string">"black"</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+  </article>
+  <footer class="f-cf">
+    
+    
+      <a href="/2019/09/22/js数据结构笔记9/" class="link f-fr">学习JavaScript数据结构与算法》笔记---红黑树⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  986384495@qq.com
+  
+  
+  
+  · <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn">GitHub</a>
+  
+  
+  
+  · <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn">Douban</a>
+  
+  
+  
+  <span class="copyright"></span>
+  
+  <!-- 不蒜子统计 -->
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+    本站访客数<span id="busuanzi_value_site_uv"></span>人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</footer>
+  </div>
+</body>
+</html>
