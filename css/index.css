@@ -249,20 +249,44 @@ body {
       padding: 0;
       margin-bottom: 15px;
       color: #ffffff;
-      background-color: #363636; }
+      background-color: #002a38; }
       .article > .content pre .comment,
       .article > .content .highlight .comment {
-        color: #9b9999; }
+        color: #8f8f8f; }
       .article > .content pre .gutter,
       .article > .content .highlight .gutter {
         text-align: right; }
+        .article > .content pre .gutter span,
+        .article > .content .highlight .gutter span {
+          color: #5f7988; }
         .article > .content pre .gutter pre,
         .article > .content .highlight .gutter pre {
-          background-color: #605e5e;
+          background-color: #002a38;
           padding: 0 10px; }
       .article > .content pre .code,
       .article > .content .highlight .code {
         padding: 0 10px; }
+        .article > .content pre .code .literal,
+        .article > .content .highlight .code .literal {
+          color: #795548; }
+        .article > .content pre .code .number,
+        .article > .content .highlight .code .number {
+          color: #009688; }
+        .article > .content pre .code .line,
+        .article > .content .highlight .code .line {
+          color: #4d658b; }
+          .article > .content pre .code .line .keyword,
+          .article > .content .highlight .code .line .keyword {
+            color: #ddd6ca; }
+          .article > .content pre .code .line .string,
+          .article > .content .highlight .code .line .string {
+            color: #c7cfc0 !important; }
+          .article > .content pre .code .line .function .keyword,
+          .article > .content .highlight .code .line .function .keyword {
+            color: #98c2db; }
+          .article > .content pre .code .line .function .params,
+          .article > .content .highlight .code .line .function .params {
+            color: #c03e6b !important; }
     .article > .content ul,
     .article > .content ol {
       margin: 15px 0;
