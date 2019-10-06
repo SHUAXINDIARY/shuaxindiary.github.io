@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>vue基础复习3---vuex | 刷新日记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基本概念 1.在每一个组件内部，都有一份属于该组件的data，页面显示的数据也依赖于此，我们也可以通过函数等来改变data中的数据，整个流程就像下图一样  state相当于组件的data view相当于显示data数据的html结构 action相当于一些事件触发的函数    2.通过action改变state的数据，view来实时显示state中的数据3.vuex就是一个所有组件一起维护的一个d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue基础复习3---vuex">
+<meta property="og:url" content="http://shuaxindiary/2019/10/06/vuejs基础复习-3/index.html">
+<meta property="og:site_name" content="刷新日记">
+<meta property="og:description" content="基本概念 1.在每一个组件内部，都有一份属于该组件的data，页面显示的数据也依赖于此，我们也可以通过函数等来改变data中的数据，整个流程就像下图一样  state相当于组件的data view相当于显示data数据的html结构 action相当于一些事件触发的函数    2.通过action改变state的数据，view来实时显示state中的数据3.vuex就是一个所有组件一起维护的一个d">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://shuaxindiary/img/vuex1.png">
+<meta property="og:image" content="http://shuaxindiary/img/vuex2.png">
+<meta property="og:image" content="http://shuaxindiary/img/vuex3.png">
+<meta property="og:updated_time" content="2019-10-06T11:48:38.560Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue基础复习3---vuex">
+<meta name="twitter:description" content="基本概念 1.在每一个组件内部，都有一份属于该组件的data，页面显示的数据也依赖于此，我们也可以通过函数等来改变data中的数据，整个流程就像下图一样  state相当于组件的data view相当于显示data数据的html结构 action相当于一些事件触发的函数    2.通过action改变state的数据，view来实时显示state中的数据3.vuex就是一个所有组件一起维护的一个d">
+<meta name="twitter:image" content="http://shuaxindiary/img/vuex1.png">
+  
+    <link rel="icon" href="/img/bitbug_favicon.ico">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">ShuaXin diary</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+          
+            <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn iconfont icon-douban"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORIES</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">vue基础复习3---vuex</h2>
+  <p class="sub">10月 6, 2019</p>
+  <article class="content">
+    <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><blockquote>
+<p>1.在每一个组件内部，都有一份属于该组件的data，页面显示的数据也依赖于此，我们也可以通过函数等来改变data中的数据，整个流程就像下图一样<br><img src="/img/vuex1.png" alt="vuex1"></p>
+<ul>
+<li>state相当于组件的data</li>
+<li>view相当于显示data数据的html结构</li>
+<li>action相当于一些事件触发的函数</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>2.通过action改变state的数据，view来实时显示state中的数据<br>3.vuex就是一个所有组件一起维护的一个data<br>4.因为3，所以他是最强大的组件通信方式</p>
+</blockquote>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><blockquote>
+<p>核心概念</p>
+<ul>
+<li>State——-相当于组件的data存放具体数据</li>
+<li>Getters—–相当于组件的计算属性</li>
+<li>Mutations—存放更改state中数据的事件(就是一个一个的函数)</li>
+<li>Actions—–用来处理异步操作的事件</li>
+<li>Module——对state数据进行模块化划分<br><img src="/img/vuex2.png" alt="vuex2"><br>通过commit触发mutations的事件来改变state的数据，组件显示state的数据<br>当有异步操作时，通过dispatch触发actions内部的事件，然后传递给mutations的事件，在改变state的数据</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>代码演示</p>
+<ul>
+<li>使用vue-cli创建一个项目(目录如下图)<br><img src="/img/vuex3.png" alt="项目目录"></li>
+<li>store中存放我们的vuex代码(store.js)</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>代码实现</p>
+<ul>
+<li>store.js</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store=<span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;&#125;,</span><br><span class="line">    getters:&#123;&#125;,</span><br><span class="line">    mutations:&#123;&#125;,</span><br><span class="line">    actions:&#123;&#125;,</span><br><span class="line">    modules:&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><em>state使用</em></strong> 在A组件中获取state的数据并显示</p>
+<ul>
+<li>A组件($store.state.name—获取vuex的数据)</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &#123;&#123;$store.state.name&#125;&#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    name:<span class="string">'A'</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>store.js<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store=<span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        name:<span class="string">'Vuex学习'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;&#125;,</span><br><span class="line">    mutations:&#123;&#125;,</span><br><span class="line">    actions:&#123;&#125;,</span><br><span class="line">    modules:&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p><strong>getters使用1</strong> 获取数据后添加一段字符串在显示</p>
+<ul>
+<li>A组件</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &#123;&#123;$store.getters.addStr&#125;&#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    name:<span class="string">'A'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>store.js<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store=<span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        name:<span class="string">'Vuex学习'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 默认参数1 state， 等同于this.state</span></span><br><span class="line">    <span class="comment">// 默认参数2 getters 等同于this.getters</span></span><br><span class="line">    getters:&#123;</span><br><span class="line">        addStr(state)&#123;</span><br><span class="line">            <span class="keyword">return</span> state.name+<span class="string">'111'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mutations:&#123;&#125;,</span><br><span class="line">    actions:&#123;&#125;,</span><br><span class="line">    modules:&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p><strong>getters使用2</strong> 获取数据后添加一段字符串在显示，添加的字符串是组件传递过去的</p>
+<ul>
+<li>A组件</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &#123;&#123;$store.getters.addStr(<span class="string">'A组件'</span>)&#125;&#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    name:<span class="string">'A'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>store.js<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store=<span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        name:<span class="string">'Vuex学习'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;</span><br><span class="line">        addStr(state)&#123;</span><br><span class="line">            <span class="comment">// 通过返回一个函数 然后接受组件传递的参数</span></span><br><span class="line">            <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> state.name+str;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mutations:&#123;&#125;,</span><br><span class="line">    actions:&#123;&#125;,</span><br><span class="line">    modules:&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p><strong>mutations使用</strong> 当点击按钮后，改变state中的name</p>
+<ul>
+<li>A组件</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &#123;&#123;$store.state.name&#125;&#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click='change'&gt;btn&lt;/</span>button&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">export default&#123;</span></span><br><span class="line"><span class="regexp">    name:'A',</span></span><br><span class="line"><span class="regexp">    methods:&#123;</span></span><br><span class="line"><span class="regexp">        change()&#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ 1.通过commit(事件类型)触发mutations的事件</span></span><br><span class="line"><span class="regexp">            this.$store.commit('changeName');</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ 2.通过对象类型触发</span></span><br><span class="line"><span class="regexp">            this.$store.commit(&#123;</span></span><br><span class="line"><span class="regexp">                /</span><span class="regexp">/ 触发事件类型</span></span><br><span class="line"><span class="regexp">                type:'changeName',</span></span><br><span class="line"><span class="regexp">                /</span><span class="regexp">/ 传递的参数</span></span><br><span class="line"><span class="regexp">                num:0</span></span><br><span class="line"><span class="regexp">            &#125;);</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>store.js<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store=<span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        name:<span class="string">'Vuex学习'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;&#125;,</span><br><span class="line">    mutations:&#123;</span><br><span class="line">        <span class="comment">// 默认参数1.state</span></span><br><span class="line">        <span class="comment">// 默认参数2.payload 这个参数是接受触发该事件时传递的参数</span></span><br><span class="line">        <span class="comment">// 注:如果是以对象格式触发该事件时，payload接受到的是一个对象</span></span><br><span class="line">        changeName(state,payload)&#123;</span><br><span class="line">            state.name=<span class="string">'mutations使用'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions:&#123;&#125;,</span><br><span class="line">    modules:&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p><strong>actions</strong> 当点击按钮后，先发送actions，进行异步操作后，触发mutations的事件，在改变state的name</p>
+<ul>
+<li>A组件</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &#123;&#123;$store.state.name&#125;&#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click='change'&gt;btn&lt;/</span>button&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">export default&#123;</span></span><br><span class="line"><span class="regexp">    name:'A',</span></span><br><span class="line"><span class="regexp">    methods:&#123;</span></span><br><span class="line"><span class="regexp">        change()&#123;</span></span><br><span class="line"><span class="regexp">            this.$sotre.dispatch('asyncChange');</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>store.js<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store=<span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        name:<span class="string">'Vuex学习'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;&#125;,</span><br><span class="line">    mutations:&#123;</span><br><span class="line">        <span class="comment">// 默认参数1.state</span></span><br><span class="line">        <span class="comment">// 默认参数2.payload 这个参数是接受触发该事件时传递的参数</span></span><br><span class="line">        <span class="comment">// 注:如果是以对象格式触发该事件时，payload接受到的是一个对象</span></span><br><span class="line">        changeName(state,payload)&#123;</span><br><span class="line">            state.name=<span class="string">'mutations使用'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions:&#123;</span><br><span class="line">        <span class="comment">// 默认参数1.context 就是store对象;</span></span><br><span class="line">        <span class="comment">// 默认参数2.payload为接受的参数对象</span></span><br><span class="line">        asyncChange(context,payload)&#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">                context.commit(<span class="string">'changeName'</span>);</span><br><span class="line">            &#125;,<span class="number">1000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    modules:&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p><strong><em>module的使用</em></strong></p>
+<ul>
+<li>用来模块化state中的数据的</li>
+<li>store.js</li>
+<li>A组件</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &#123;&#123;$store.state.personInfo.name&#125;&#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    name:<span class="string">'A'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store=<span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        name:<span class="string">'Vuex学习'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;&#125;,</span><br><span class="line">    mutations:&#123;&#125;,</span><br><span class="line">    actions:&#123;&#125;,</span><br><span class="line">    modules:&#123;</span><br><span class="line">        perosonInfo:&#123;</span><br><span class="line">            state:&#123;</span><br><span class="line">                name:<span class="string">'man'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            getters:&#123;&#125;,</span><br><span class="line">            mutations:&#123;&#125;,</span><br><span class="line">            <span class="comment">// 需要注意 模块中的actions的context指向的是该模块</span></span><br><span class="line">            <span class="comment">// 如果想要获取根state:  context.rootstate即可</span></span><br><span class="line">            actions:&#123;&#125;,</span><br><span class="line">            modules:&#123;</span><br><span class="line">        &#125;,</span><br><span class="line">        animalInfo:&#123;</span><br><span class="line">            state:&#123;</span><br><span class="line">                name:<span class="string">'dog'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            getters:&#123;&#125;,</span><br><span class="line">            mutations:&#123;&#125;,</span><br><span class="line">            actions:&#123;&#125;,</span><br><span class="line">            modules:&#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="以上就是vuex基本使用，详细可以参考官方文档"><a href="#以上就是vuex基本使用，详细可以参考官方文档" class="headerlink" title="以上就是vuex基本使用，详细可以参考官方文档"></a>以上就是vuex基本使用，详细可以参考官方文档</h1>
+  </article>
+  <footer class="f-cf">
+    
+    
+      <a href="/2019/09/26/vuejs基础复习-2/" class="link f-fr">vuejs基础复习2---组件/组件通信⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  986384495@qq.com
+  
+  
+  
+  · <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn">GitHub</a>
+  
+  
+  
+  · <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn">Douban</a>
+  
+  
+  
+  <span class="copyright"></span>
+  
+  <!-- 不蒜子统计 -->
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+    本站访客数<span id="busuanzi_value_site_uv"></span>人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</footer>
+  </div>
+</body>
+</html>
