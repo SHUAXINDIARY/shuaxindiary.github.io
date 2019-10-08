@@ -1,243 +1,1438 @@
 <!DOCTYPE html>
-<html lang=zh>
-<head><meta name="generator" content="Hexo 3.9.0">
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="学习笔记&amp;&amp;采坑记录">
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
 <meta property="og:type" content="website">
 <meta property="og:title" content="刷新日记">
 <meta property="og:url" content="http://shuaxindiary/page/2/index.html">
 <meta property="og:site_name" content="刷新日记">
-<meta property="og:description" content="学习笔记&amp;&amp;采坑记录">
+<meta property="og:description" content="学习笔记&amp;&amp;踩坑记录">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刷新日记">
-<meta name="twitter:description" content="学习笔记&amp;&amp;采坑记录">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>刷新日记</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- rss -->
-    
-    
+<meta name="twitter:description" content="学习笔记&amp;&amp;踩坑记录">
+  <link rel="canonical" href="http://shuaxindiary/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>刷新日记</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body>
-    
-    <div class="content index width mx-auto px2 my4">
-        
-          <header id="header">
-  <a href="/">
-  
-    
-      <div id="logo" style="background-image: url(/images/logo.png);"></div>
-    
-  
-    <div id="title">
-      <h1>刷新日记</h1>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新日记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-  </a>
-  <div id="nav">
-    <ul>
-      <li class="icon">
-        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
-      </li>
-       
-        <li><a href="/">Home</a></li>
-       
-        <li><a href="/about/">About</a></li>
-       
-        <li><a href="/archives/">Archives</a></li>
-      
-    </ul>
   </div>
-</header>
 
-        
-        <section id="about">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
   
-    <p>学习笔记&amp;&amp;采坑记录</p>
-
-  
-  <p style="display: inline">
-    
-      Find me on
-      <ul id="sociallinks">
+  <ul id="menu" class="menu">
+      
+      
+      
         
-          <li><a class="icon" target="_blank" href="https://github.com/SHUAXINDIARY" title="github"><i class="fa fa-github"></i></a></li>
-        
-          <li><a class="icon" target="_blank" href="https://www.douban.com/people/91950904/" title="sticky-note"><i class="fa fa-sticky-note"></i></a></li>
-        
-      </ul>.
-    
-  </p>
-</section>
-
-<section id="writing">
-  <span class="h1"><a href="/archives">Writing</a></span>
-  <ul class="post-list">
-    
+        <li class="menu-item menu-item-home">
       
     
-    
-      <li class="post-item">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
         
-    <div class="meta">
-        <time datetime="2019-10-08T09:06:13.000Z" itemprop="datePublished">2019-10-08</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2019/10/08/正则表达式/">正则表达式</a>
+        <li class="menu-item menu-item-about">
+      
     
 
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
-</span>
-      </li>
-    
-      <li class="post-item">
+  </li>
+      
+      
+      
         
-    <div class="meta">
-        <time datetime="2019-10-06T10:22:27.000Z" itemprop="datePublished">2019-10-06</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2019/10/06/vuejs基础复习-3/">vue基础复习3---vuex</a>
+        <li class="menu-item menu-item-categories">
+      
     
 
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
-</span>
-      </li>
-    
-      <li class="post-item">
+  </li>
+      
+      
+      
         
-    <div class="meta">
-        <time datetime="2019-09-26T03:26:06.000Z" itemprop="datePublished">2019-09-26</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2019/09/26/vuejs基础复习-2/">vuejs基础复习2---组件/组件通信</a>
+        <li class="menu-item menu-item-archives">
+      
     
 
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2019-09-23T05:44:45.000Z" itemprop="datePublished">2019-09-23</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2019/09/23/js数据结构笔记10/">《学习JavaScript数据结构与算法》笔记---图论</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2019-09-22T00:51:25.000Z" itemprop="datePublished">2019-09-22</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2019/09/22/js数据结构笔记9/">《学习JavaScript数据结构与算法》笔记---红黑树</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2019-09-16T06:39:15.000Z" itemprop="datePublished">2019-09-16</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2019/09/16/js数据结构笔记8/">《学习JavaScript数据结构与算法》笔记---树</a>
-    
-
-
-</span>
-      </li>
-    
+  </li>
   </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+        
   
-</section>
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/09/03/js数据结构笔记4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/03/js数据结构笔记4/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---(单向)链表</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-03 19:04:43 / 修改时间：20:12:42" itemprop="dateCreated datePublished" datetime="2019-09-03T19:04:43+08:00">2019-09-03</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%93%BE%E8%A1%A8.html" target="_blank" rel="noopener">这里</a></h1><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>1.类似于数组一样存储多个数据的数据结构<br>2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针<br><img src="/img/linked.jpg" alt="示例图"></p>
+<h1 id="和数组对比"><a href="#和数组对比" class="headerlink" title="和数组对比"></a>和数组对比</h1><blockquote>
+<p><strong><em>链表的优点</em></strong><br>1.内存空间不是必须连续的。可以实现灵活的内存管理<br>2.链表不必再创建时就确定大小，并且大小可以无限延伸下去<br>3.链表再插入和删除数据时，时间复杂度低，效率高</p>
+</blockquote>
+<blockquote>
+<p><strong><em>链表的缺点</em></strong><br>1.访问任何一个位置的元素时，都需要从头开始访问(无法跳过第一或任何一个元素)<br>2.无法通过下标直接访问元素</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong><em>数组的优点</em></strong><br>1.占用内存空间少<br>2.数组内的数据可以随机访问<br>3.数据查找效率较高（内存连续）</p>
+</blockquote>
+<blockquote>
+<p><strong><em>数组的缺点</em></strong><br>1.插入和删除效率低，因为要移动操作元素之后的所有元素(无法跳过第一或任何一个元素)<br>2.数组大小固定，不能动态拓展(大多数语言是这样js的是动态的)</p>
+</blockquote>
+<h1 id="封装一个单向链表"><a href="#封装一个单向链表" class="headerlink" title="封装一个单向链表"></a>封装一个单向链表</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LinkedList</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 链表头</span></span><br><span class="line">    <span class="keyword">this</span>.head=<span class="literal">null</span>;</span><br><span class="line">    <span class="comment">// 链表长度</span></span><br><span class="line">    <span class="keyword">this</span>.length=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 节点类 </span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Node</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">        <span class="comment">// 存储节点包含的数据</span></span><br><span class="line">        <span class="keyword">this</span>.data=data;</span><br><span class="line">        <span class="comment">// 存储指向下一个节点的指针(引用)</span></span><br><span class="line">        <span class="keyword">this</span>.next=<span class="literal">null</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="封装一些基本方法"><a href="#封装一些基本方法" class="headerlink" title="封装一些基本方法"></a>封装一些基本方法</h1><p><strong><em>只列举插入、添加、删除三个方法，其他方法可以查看源代码</em></strong><br>1.append(data)—-给链表尾部追加节点方法，参数:节点数据 不返回结果<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">LinkedList.prototype.append = <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.创建新节点</span></span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">new</span> Node(data);</span><br><span class="line">    <span class="comment">// 2.判断是否是第一个节点  也可以根据heae是否为空判断</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.length === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.head = node;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 当前第一个节点</span></span><br><span class="line">        <span class="keyword">let</span> current = <span class="keyword">this</span>.head;</span><br><span class="line">        <span class="comment">// 通过判断每个节点的next是否为空来找到最后一个元素 </span></span><br><span class="line">        <span class="keyword">while</span> (current.next) &#123;</span><br><span class="line">            current = current.next;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 然后给将最后一个元素的next指向我们新添加的元素</span></span><br><span class="line">        current.next = node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 3.更新长度</span></span><br><span class="line">    <span class="keyword">this</span>.length++;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/img/insert0.png" alt="第一种情况"><br><img src="/img/insert1.png" alt="第二种情况"></p>
+<p><strong><em>不理解的时候画图就好了</em></strong></p>
+<p>2.toString()—-打印每个节点data内容<br>3.insert(position,data)—-向特定位置插入节点，参数:位置索引,插入数据  成功返回1，失败返回0</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">LinkedList.prototype.insert = <span class="function"><span class="keyword">function</span> (<span class="params">position, data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.对position做越界判断  即插入位置是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (position &gt;= <span class="number">0</span> &amp;&amp; position &lt;= <span class="keyword">this</span>.length) &#123;</span><br><span class="line">        <span class="keyword">let</span> node = <span class="keyword">new</span> Node(data);</span><br><span class="line">        <span class="comment">// 2.插入位置是第一个时</span></span><br><span class="line">        <span class="keyword">if</span> (position === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 让要插入的节点的指针指向原来的第一个节点</span></span><br><span class="line">            node.next = <span class="keyword">this</span>.head;</span><br><span class="line">            <span class="comment">// 让head指向要插入的节点</span></span><br><span class="line">            <span class="keyword">this</span>.head = node;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 标识每一个节点的位置  previous保存前一个节点 </span></span><br><span class="line">            <span class="keyword">let</span> index = <span class="number">0</span>,</span><br><span class="line">                current = <span class="keyword">this</span>.head,</span><br><span class="line">                previous;</span><br><span class="line">                <span class="comment">// 当index=position时跳出循环</span></span><br><span class="line">            <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">                previous = current;</span><br><span class="line">                current = current.next;</span><br><span class="line">            &#125;;</span><br><span class="line">            node.next = current;</span><br><span class="line">            previous.next = node;</span><br><span class="line">        &#125;;</span><br><span class="line">        this.length++;</span><br><span class="line">        return true;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>4.get(position)—–获取指定位置节点的数据 参数:位置索引  返回获取到的数据或-1<br>5.indexof(data)—–在链表中查找指定数据 参数:要查找的数据 返回目标数据节点位置 ，没有返回-1<br>6.update(position,data)—–修改指定位置的数据 参数:位置索引,要修改的数据  成功返回1，失败返回0<br>7.removeAt(position)—–删除指定位置的节点 参数:位置索引 成功返回删除节点data，失败返回-1</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">LinkedList.prototype.removeAt = <span class="function"><span class="keyword">function</span> (<span class="params">position</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 越界判断</span></span><br><span class="line">    <span class="keyword">if</span> (position &gt;= <span class="number">0</span> &amp;&amp; position &lt;= <span class="keyword">this</span>.length) &#123;</span><br><span class="line">        <span class="keyword">let</span> index = <span class="number">0</span>,</span><br><span class="line">            current = <span class="keyword">this</span>.head,</span><br><span class="line">            previous;</span><br><span class="line">        <span class="keyword">if</span> (position === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.head = current.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">                previous = current;</span><br><span class="line">                current = current.next;</span><br><span class="line">            &#125;;</span><br><span class="line">            previous.next = current.next;</span><br><span class="line">        &#125;</span><br><span class="line">        // 更新长度</span><br><span class="line">        this.length--;</span><br><span class="line">        return current.data;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>8.remove(data)—–根据data移除该data所在节点 参数:要删除的数据 成功返回删除节点data，失败返回-1<br>9.size()—–返回链表对的元素个数<br>10.isEmpty()——判断链表是否为空</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/09/02/js数据结构笔记3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/02/js数据结构笔记3/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---队列之优先队列</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-02 14:51:44" itemprop="dateCreated datePublished" datetime="2019-09-02T14:51:44+08:00">2019-09-02</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-03 19:05:55" itemprop="dateModified" datetime="2019-09-03T19:05:55+08:00">2019-09-03</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97.html" target="_blank" rel="noopener">这里</a></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>1.优先队列和队列的主要区别就是，队列中每个元素不仅含有自身的元素，还有一个代表该元素优先级的标识。<br>2.在插入新的元素到队列时，根据该元素的优先级来决定它插入的正确位置。<br>3.优先队列具有最高级先出队列的行为特征</p>
+</blockquote>
+<h3 id="封装优先级队列"><a href="#封装优先级队列" class="headerlink" title="封装优先级队列"></a>封装优先级队列</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PriorityQueue</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 封装属性 用数组来存储元素</span></span><br><span class="line">   <span class="keyword">this</span>.items = [];</span><br><span class="line">   <span class="comment">// 创建一个包含元素内容和优先级的类</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">QueueElement</span>(<span class="params">element, priority</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.element = element;</span><br><span class="line">       <span class="keyword">this</span>.priority = priority;</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="comment">// 实现插入方法</span></span><br><span class="line">   PriorityQueue.prototype.enqueue = <span class="function"><span class="keyword">function</span> (<span class="params">element, priority</span>) </span>&#123;</span><br><span class="line">       <span class="comment">// 创建QueueElement</span></span><br><span class="line">       <span class="keyword">let</span> queueElement = <span class="keyword">new</span> QueueElement(element, priority);</span><br><span class="line">       <span class="comment">// 判断队列是否为空?直接插入:和已有元素对比优先级后插入</span></span><br><span class="line">       <span class="keyword">if</span> (<span class="keyword">this</span>.items.length===<span class="number">0</span>) &#123;</span><br><span class="line">           <span class="keyword">this</span>.items.push(queueElement);</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">let</span> added=<span class="literal">false</span>;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> <span class="keyword">this</span>.items)&#123;</span><br><span class="line">               <span class="keyword">if</span>(queueElement.priority&lt;<span class="keyword">this</span>.items[i].priority)&#123;</span><br><span class="line">                   <span class="keyword">this</span>.items.splice(i,<span class="number">0</span>,queueElement);</span><br><span class="line">                   added=<span class="literal">true</span>;</span><br><span class="line">                   <span class="keyword">break</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;;</span><br><span class="line">           <span class="keyword">if</span> (!added) &#123;</span><br><span class="line">               <span class="keyword">this</span>.items.push(queueElement);</span><br><span class="line">           &#125;;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> pq = <span class="keyword">new</span> PriorityQueue();</span><br><span class="line">    pq.enqueue(<span class="string">'a'</span>,<span class="number">1</span>);</span><br><span class="line">    pq.enqueue(<span class="string">'b'</span>,<span class="number">20</span>);</span><br><span class="line">    pq.enqueue(<span class="string">'taotao'</span>,<span class="number">19</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(pq.items);</span><br><span class="line">    <span class="comment">/* 控制台打印内容</span></span><br><span class="line"><span class="comment">    (3) [QueueElement, QueueElement, QueueElement]</span></span><br><span class="line"><span class="comment">        0: QueueElement &#123;element: "a", priority: 1&#125;</span></span><br><span class="line"><span class="comment">        1: QueueElement &#123;element: "taotao", priority: 19&#125;</span></span><br><span class="line"><span class="comment">        2: QueueElement &#123;element: "b", priority: 20&#125;</span></span><br><span class="line"><span class="comment">        length: 3</span></span><br><span class="line"><span class="comment">        __proto__: Array(0)</span></span><br><span class="line"><span class="comment">        */</span></span><br></pre></td></tr></table></figure>
 
 
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/08/14/mongoose使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/08/14/mongoose使用/" class="post-title-link" itemprop="url">mongoose简单入门</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-14 09:51:57 / 修改时间：13:55:49" itemprop="dateCreated datePublished" datetime="2019-08-14T09:51:57+08:00">2019-08-14</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-mongoose是什么？"><a href="#1-mongoose是什么？" class="headerlink" title="1.mongoose是什么？"></a>1.mongoose是什么？</h1><p>mongoose是一个nodejs操作mongodb数据库的中间件</p>
+<h1 id="2-使用前准备"><a href="#2-使用前准备" class="headerlink" title="2.使用前准备"></a>2.使用前准备</h1><p>1.安装mongodb <a href="http://downloads.mongodb.com/" target="_blank" rel="noopener">下载</a><br>2.选择服务端然后对应系统版本，推荐下载msi格式(这个可以一步一步安装，比较方便)<br>3.下载后在安装目录里(与bing目录同级下)创建 data文件夹(存放数据库集合的)<br>4.通过cmd启动mongdb<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.进入bin目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. mongod --dbpath (这里的路径是第三部创建的data文件夹的而路径)</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.看到控制台打印出 waiting forconnections on port 27017(默认端口) 即启动成功</p>
+<p>5.将mongodb添加到本地服务中<br>&nbsp;&nbsp;&nbsp;1.在第三部的data文件中创建log文件夹<br>&nbsp;&nbsp;&nbsp;2.在log文件夹中创建mongodb.log文件<br>&nbsp;&nbsp;&nbsp;3.输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod.exe --logpath (这里写你log文件的路径) --logappend --dbpath (这里写你data文件夹的路径) --directoryperdb --serviceName MongoDB --install</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;4.通过管理员启动cmd，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 启动mongodb服务 --&gt;</span><br><span class="line">net start MongoDB</span><br><span class="line">&lt;!-- 关闭mngodb服务 --&gt;</span><br><span class="line">net stop MongoDB</span><br><span class="line">&lt;!-- 卸载mongodb服务 --&gt;</span><br><span class="line">mongod.exe --remove --serviceName &quot;MongoDB&quot;</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;5.遇到无法启动的问题 删除data目录下的 mongod.lock和storage.bson文件重新启动即可<br>&nbsp;&nbsp;&nbsp;7.安装nodejs <a href="http://nodejs.cn/" target="_blank" rel="noopener">nodejs中文网</a></p>
+<h1 id="3-基本增删改查使用-最近几天用过的一些基本的操作-中文文档"><a href="#3-基本增删改查使用-最近几天用过的一些基本的操作-中文文档" class="headerlink" title="3.基本增删改查使用(最近几天用过的一些基本的操作) 中文文档"></a>3.基本增删改查使用(最近几天用过的一些基本的操作) <a href="http://www.mongoosejs.net/docs/index.html" target="_blank" rel="noopener">中文文档</a></h1><p>1.安装mongoose</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mongoose --save</span><br></pre></td></tr></table></figure>
+
+<p>2.引入mongoose</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose=requie(<span class="string">'mongoose'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>3.连接本地数据库</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数是mongodb:+数据库地址/数据库名称 </span></span><br><span class="line"><span class="comment">// useNewUrlParser 是设置新的url解析</span></span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/mongo-relation'</span>, &#123; <span class="attr">useNewUrlParser</span>: <span class="literal">true</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>3.创建集合,以创建一个users集合(即数据库表)为例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mongoose通过model来对应数据库中的集合 </span></span><br><span class="line"><span class="comment">// 第一个参数时 是集合名 第二个参数是设置集合的键以及类型</span></span><br><span class="line"><span class="keyword">const</span> Users=mongoose.model(<span class="string">'Users'</span>,<span class="keyword">new</span> mongoose.Scema(&#123;</span><br><span class="line">    name:&#123;</span><br><span class="line">        type:<span class="built_in">String</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+
+<p>4.插入数据，向users集合中插入2行文档(即数据)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> insert=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">await</span> Users.insertMany([&#123;</span><br><span class="line">        name:<span class="string">'刷新1'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:<span class="string">'shuaxin'</span></span><br><span class="line">    &#125;]);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'插入成功'</span>);</span><br><span class="line">&#125;;</span><br><span class="line">insert();</span><br></pre></td></tr></table></figure>
+
+<p>5.查找数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> find=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 查找集合中所有数据</span></span><br><span class="line">    <span class="keyword">const</span> users=<span class="keyword">await</span> Users.find();</span><br><span class="line">    cosnole.log(users);</span><br><span class="line">    <span class="comment">// 根据条件查找</span></span><br><span class="line">    <span class="keyword">const</span> findUser=<span class="keyword">await</span> Users.find().where(&#123;</span><br><span class="line">        name:<span class="string">'刷新1'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    cosnole.log(findUser);</span><br><span class="line">    <span class="comment">// 限制条数查找</span></span><br><span class="line">    <span class="keyword">const</span> twoUsers = <span class="keyword">await</span> Users.find().limit(<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(twoUsers);</span><br><span class="line">    <span class="comment">// 更多使用可以看官网</span></span><br><span class="line">&#125;;</span><br><span class="line">find();</span><br></pre></td></tr></table></figure>
+
+<p>6.修改数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> updata=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 先查找要修改的数据</span></span><br><span class="line">    <span class="keyword">const</span> target=<span class="keyword">await</span> Users.find().where(&#123;</span><br><span class="line">        name:<span class="string">'刷新1'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    target.name=<span class="string">'刷新2'</span>;</span><br><span class="line">    <span class="comment">// 保存修改的数据</span></span><br><span class="line">    <span class="keyword">await</span> Users.save();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'修改成功'</span>);</span><br><span class="line">&#125;;</span><br><span class="line">update();</span><br></pre></td></tr></table></figure>
+
+<p>7.删除数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> del=aync <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 先查找要删除的数据</span></span><br><span class="line">    <span class="keyword">const</span> target=<span class="keyword">await</span> Users.find().where(&#123;</span><br><span class="line">        name:<span class="string">'刷新2'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 直接删除</span></span><br><span class="line">    <span class="keyword">await</span> product.remove();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'删除成功'</span>);</span><br><span class="line">&#125;;</span><br><span class="line">del();</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-集合之间的关联"><a href="#4-集合之间的关联" class="headerlink" title="4.集合之间的关联"></a>4.集合之间的关联</h1><p>1.创建一个性别集合(Gender)和用户(Users)集合<br>2.性别集合插入男(man)和女(woman)属性<br>3.在用户集合键类型设置时,性别类型性别集合中对应性别的id，ref为指向性别集合</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gender:&#123;<span class="attr">type</span>: mongoose.SchemaTypes.ObjectId, <span class="attr">ref</span>: <span class="string">'Gender'</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.插入数据时，先获取性别集合中对应的性别，然后设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取性别</span></span><br><span class="line"><span class="keyword">const</span> man=<span class="keyword">await</span> Gender.findOne(&#123;<span class="attr">gender</span>:<span class="string">'男'</span>&#125;);</span><br><span class="line"><span class="keyword">const</span> woman=<span class="keyword">await</span> Gender.findOne(&#123;<span class="attr">gender</span>:<span class="string">'女'</span>&#125;);</span><br><span class="line"><span class="comment">// 插入数据</span></span><br><span class="line"><span class="keyword">const</span> res=<span class="keyword">await</span> Users.insertMany([&#123;</span><br><span class="line">    name:<span class="string">'刷新'</span>,</span><br><span class="line">    gender:man</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    name:<span class="string">'tao'</span>,</span><br><span class="line">    gender:man</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    name:<span class="string">'guiyi'</span>,</span><br><span class="line">    gender:woman</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose=<span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/userMsg'</span>, &#123; <span class="attr">useNewUrlParser</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 性别集合</span></span><br><span class="line"><span class="keyword">const</span> Gender=mongoose.model(<span class="string">'Gender'</span>,<span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    gender:&#123;</span><br><span class="line">        type:<span class="built_in">String</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)); </span><br><span class="line"><span class="comment">// 用户集合</span></span><br><span class="line"><span class="keyword">const</span> Users=mongoose.model(<span class="string">'Users'</span>,<span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name:&#123;<span class="attr">type</span>:<span class="built_in">String</span>&#125;,</span><br><span class="line">    gender:&#123;<span class="attr">type</span>: mongoose.SchemaTypes.ObjectId, <span class="attr">ref</span>: <span class="string">'Gender'</span>&#125;</span><br><span class="line">&#125;));</span><br><span class="line"><span class="comment">// 向gender中插入数据</span></span><br><span class="line"><span class="keyword">const</span> insertGender=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">await</span> Gender.insertMany([&#123;</span><br><span class="line">        gender:<span class="string">'男'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        gender:<span class="string">'女'</span></span><br><span class="line">    &#125;]);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 向users中插入数据</span></span><br><span class="line"><span class="keyword">const</span> insertUser=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> man=<span class="keyword">await</span> Gender.findOne(&#123;<span class="attr">gender</span>:<span class="string">'男'</span>&#125;);</span><br><span class="line">    <span class="keyword">const</span> woman=<span class="keyword">await</span> Gender.findOne(&#123;<span class="attr">gender</span>:<span class="string">'女'</span>&#125;);</span><br><span class="line">    <span class="keyword">const</span> res=<span class="keyword">await</span> Users.insertMany([&#123;</span><br><span class="line">        name:<span class="string">'刷新'</span>,</span><br><span class="line">        gender:man</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:<span class="string">'tao'</span>,</span><br><span class="line">        gender:man</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:<span class="string">'guiyi'</span>,</span><br><span class="line">        gender:woman</span><br><span class="line">    &#125;]);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> main=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> gender=<span class="keyword">await</span> Gender.find();</span><br><span class="line">    <span class="keyword">const</span> users=<span class="keyword">await</span> Users.find();</span><br><span class="line">    <span class="comment">// 当Gender中没有数据时 执行insertGender</span></span><br><span class="line">    <span class="keyword">if</span> (gender.length==<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">await</span> insertGender();</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'插入成功'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 当Gender中有数据时 直接打印</span></span><br><span class="line">        <span class="built_in">console</span>.log(gender);</span><br><span class="line">        <span class="keyword">if</span>(users.length==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="comment">// 当Users中没有数据时 执行insertGender</span></span><br><span class="line">            <span class="keyword">await</span> insertUser();</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'用户插入成功'</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//  当Users中有数据时 执行insertUsers</span></span><br><span class="line">            <span class="comment">//  populate('gender') 显示分类属性的详细信息</span></span><br><span class="line">            <span class="keyword">const</span> usersDeatl=<span class="keyword">await</span> Users.find().populate(<span class="string">'gender'</span>);</span><br><span class="line">            <span class="built_in">console</span>.log(usersDeatl);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">main();</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/23/js模拟重载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/07/23/js模拟重载/" class="post-title-link" itemprop="url">js模拟重载</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-23 10:05:48 / 修改时间：12:06:44" itemprop="dateCreated datePublished" datetime="2019-07-23T10:05:48+08:00">2019-07-23</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD.html" target="_blank" rel="noopener">这里</a></h1><h1 id="重载是什么"><a href="#重载是什么" class="headerlink" title="重载是什么"></a>重载是什么</h1><pre><code>定义：函数名相同,函数的参数列表不同(包括参数个数和参数类型)，至于返回类型可同可不同</code></pre><h1 id="js没有实现重载"><a href="#js没有实现重载" class="headerlink" title="js没有实现重载"></a>js没有实现重载</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> calculate=&#123;</span><br><span class="line">    add(a)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">    &#125;,</span><br><span class="line">    add(a,b)&#123;</span><br><span class="line">        cosole.log(a+b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">calculate.add(<span class="number">5</span>);<span class="comment">// NaN  因为第二个参数未定义</span></span><br><span class="line">calculate.add(<span class="number">5</span>,<span class="number">5</span>);<span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>根据上面的例子发现，当有两个重名的方法的时候，会执行后面的那一个</code></pre><h1 id="模拟重载"><a href="#模拟重载" class="headerlink" title="模拟重载"></a>模拟重载</h1><p>虽然js本身不支持重载，但是我们可以通过 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank" rel="noopener">arguments对象</a>和<a href="http://es6.ruanyifeng.com/?search=rest&x=0&y=0#docs/function#rest-%E5%8F%82%E6%95%B0" target="_blank" rel="noopener">rest参数</a>来模拟重载的效果</p>
+<h1 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h1><p>arguments对象版本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> calculate = &#123;</span><br><span class="line">    <span class="comment">// arguments版本</span></span><br><span class="line">    add_arguments() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`arg是数组吗:<span class="subst">$&#123;<span class="built_in">arguments</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span>&#125;</span>`</span>);</span><br><span class="line">        <span class="keyword">let</span> argCount = <span class="built_in">arguments</span>.length;</span><br><span class="line">        <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">switch</span> (argCount) &#123;</span><br><span class="line">            <span class="comment">// 当传入一个参数的时候，直接返回该值</span></span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                sum = <span class="built_in">arguments</span>[<span class="number">0</span>];</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`sum=<span class="subst">$&#123;sum&#125;</span>`</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                <span class="comment">// 当参数个数大于一个时，进行求和</span></span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> <span class="built_in">arguments</span>) &#123;</span><br><span class="line">                    sum += <span class="built_in">arguments</span>[i];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`sum=<span class="subst">$&#123;sum&#125;</span>`</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> calculate.add_arguments(<span class="number">1</span>);<span class="comment">//1</span></span><br><span class="line"> calculate.add_arguments(<span class="number">1</span>, <span class="number">1</span>, <span class="number">100</span>);<span class="comment">//102</span></span><br></pre></td></tr></table></figure>
+
+<p>rest参数版本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> calculate=&#123;</span><br><span class="line">    <span class="comment">// rest参数版本</span></span><br><span class="line">    add_rest(one, ...arg) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`arg是数组吗:<span class="subst">$&#123;arg <span class="keyword">instanceof</span> <span class="built_in">Array</span>&#125;</span>`</span>);</span><br><span class="line">        <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 当传入一个参数的时候，直接返回该值</span></span><br><span class="line">        <span class="keyword">if</span> (arg.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">'参数只有一个'</span>);</span><br><span class="line">            <span class="built_in">console</span>.log(one);</span><br><span class="line">            sum = one;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 当参数个数大于一个时，进行求和</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`参数有<span class="subst">$&#123;arg.length+<span class="number">1</span>&#125;</span>个`</span>);</span><br><span class="line">            sum = one;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arg) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(arg[i]);</span><br><span class="line">                sum += arg[i];</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="built_in">console</span>.log(sum);</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">calculate.add_rest(<span class="number">0</span>);<span class="comment">//0</span></span><br><span class="line">calculate.add_rest(<span class="number">0</span>,<span class="number">10</span>);<span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/21/js模块化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/07/21/js模块化/" class="post-title-link" itemprop="url">js模块化</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-21 10:43:20" itemprop="dateCreated datePublished" datetime="2019-07-21T10:43:20+08:00">2019-07-21</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-07-22 12:57:12" itemprop="dateModified" datetime="2019-07-22T12:57:12+08:00">2019-07-22</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前端js模块化规范"><a href="#前端js模块化规范" class="headerlink" title="前端js模块化规范"></a>前端js模块化规范</h1><p>1.CommonJS<br>2.ES6<br>3.AMD的RequireJS<br>4.还有其他的，比如CMD的seajs等</p>
+<h1 id="CommonJS-学习更多"><a href="#CommonJS-学习更多" class="headerlink" title="CommonJS  学习更多"></a>CommonJS  <a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank" rel="noopener">学习更多</a></h1><p>1.一个文件就是一个模块<br>2.通过requie导入模块<br>3.通过exports和module.exports导出模块<br>4.<strong>主要</strong> 作用在Node(vue-cli脚手架环境里也可以用)<br>5.CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作<br>6.引入时，是整体加载引入的文件模块，生成一个对象,然后从该对象里获取内部属性<br>7.运行时加载</p>
+<p><strong><em>实例：在node环境中编写</em></strong></p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// one.js</span></span><br><span class="line"><span class="keyword">let</span> sayhi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'这是one.js文件的sayhi函数'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    exports.sayhi=sayhi;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    <span class="comment">// es6语法 键值一样时，可以只写一个</span></span><br><span class="line">    sayhi</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="comment">/*真实开发时注意导入路径*/</span></span><br><span class="line"><span class="keyword">let</span> one=<span class="built_in">require</span>(<span class="string">'one.js'</span>);</span><br><span class="line">one.sayhi();<span class="comment">//控制台打印 这是one.js文件的sayhi函数</span></span><br></pre></td></tr></table></figure></code></pre><h1 id="ES6-学习更多"><a href="#ES6-学习更多" class="headerlink" title="ES6  学习更多"></a>ES6  <a href="http://es6.ruanyifeng.com/#docs/module" target="_blank" rel="noopener">学习更多</a></h1><p>1.一个文件就是一个模块<br>2.通过export和export default导出模块</p>
+<pre><code>两个的区别：
+    1.  通过export导出的对象属性方法，在导入时也必须安其导出时的名字进行导入
+    2.  通过export default 导出的对象属性方法时，
+        导入可以任意起名，然后通过该名来调用导入文件内部的成员</code></pre><p>3.通过import {<strong>*}  from *</strong>导入模块<br>4.编译时加载，ES6模块不时对象，而是通过export指定输出的代码，再通过import输入</p>
+<p><strong><em>实例：在vue-cli脚手架环境中编写</em></strong></p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**使用export导出  */</span></span><br><span class="line"> <span class="comment">// one.js</span></span><br><span class="line"> <span class="keyword">let</span> sayhi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'这是one.js文件的sayhi函数'</span>);</span><br><span class="line"> &#125;;</span><br><span class="line"> <span class="keyword">export</span> &#123;sayhi&#125;;</span><br><span class="line"> <span class="comment">// main.js</span></span><br><span class="line"> <span class="comment">/*真实开发时注意导入路径*/</span></span><br><span class="line"> <span class="keyword">import</span> &#123;sayhi&#125; <span class="keyword">from</span> <span class="string">'one'</span>;</span><br><span class="line"> sayhi();<span class="comment">//这是one.js文件的sayhi函数</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*使用export default导出  */</span></span><br><span class="line"><span class="comment">// one.js</span></span><br><span class="line"><span class="keyword">let</span> sayhi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'这是one.js文件的sayhi函数'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    sayhi</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="comment">/*真实开发时注意导入路径*/</span></span><br><span class="line"><span class="keyword">import</span> one <span class="keyword">from</span> <span class="string">'one'</span>;</span><br><span class="line">one.sayhi();<span class="comment">//这是one.js文件的sayhi函数</span></span><br></pre></td></tr></table></figure></code></pre><h1 id="AMD-的-RequireJS-学习更多"><a href="#AMD-的-RequireJS-学习更多" class="headerlink" title="AMD 的 RequireJS 学习更多"></a>AMD 的 RequireJS <a href="http://javascript.ruanyifeng.com/tool/requirejs.html" target="_blank" rel="noopener">学习更多</a></h1><p>1.在es6出来之前，主要使用就是CommonJS和RequireJS<br>2.不同于CommonJS的同步加载，RequireJS是异步加载(所以支持回调函数)<br>3.通过defin定义模块<br>4.通过require加载模块(注意require中的依赖是一个数组，即使只有一个依赖，你也必须使用数组来定义))</p>
+<p><strong><em>实例：引入requirejs后编写</em></strong></p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// one.js</span></span><br><span class="line">    define(&#123;</span><br><span class="line">        sayhi()&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'这是sayhi'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">// 以上也可以写成</span></span><br><span class="line">    define(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            sayhi() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'这是saihi'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">// main.js  注意实际开发时的路径</span></span><br><span class="line">&lt;script src=<span class="string">"https://cdn.bootcss.com/require.js/2.3.6/require.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="built_in">require</span>([<span class="string">'a'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">        a.sayhi();<span class="comment">//这是sayhi</span></span><br><span class="line">    &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></code></pre><p>5.当定义模块中依赖其他模块时，把导入的模块当作参数传递进去，再使用</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// one.js</span></span><br><span class="line">    define([<span class="string">'./b'</span>],<span class="function"><span class="keyword">function</span> (<span class="params">b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            sayhi() &#123;</span><br><span class="line">                <span class="comment">// console.log('这是saihi');</span></span><br><span class="line">                b.sayhi();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">// main.js  注意实际开发时的路径</span></span><br><span class="line">&lt;script src=<span class="string">"https://cdn.bootcss.com/require.js/2.3.6/require.js"</span>&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">    <span class="built_in">require</span>([<span class="string">'a'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">        a.sayhi();<span class="comment">//这是sayhi</span></span><br><span class="line">    &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></code></pre>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/19/熟悉小程序开发目录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/07/19/熟悉小程序开发目录/" class="post-title-link" itemprop="url">熟悉小程序开发目录</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-19 22:25:10" itemprop="dateCreated datePublished" datetime="2019-07-19T22:25:10+08:00">2019-07-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-26 10:06:51" itemprop="dateModified" datetime="2019-09-26T10:06:51+08:00">2019-09-26</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" href="/css/prism.css">>
+<script src="../source/js/prism.js"></script>
+
+<h1 id="新项目默认目录"><a href="#新项目默认目录" class="headerlink" title="新项目默认目录"></a>新项目默认目录</h1><pre><code>/pages--------存放小程序所有界面
+    -/index---首页
+        /*
+            每一个界面都是由以下四个文件组成
+            1.index.js-----页面交互(web的js文件)
+            2.index.json---页面配置文件
+            3.index.wxml---页面结构(web的html文件)
+            4.index.wxss---页面样式(web的css文件)
+        */*
+    -/logs----log信息页
+/untils
+    -/until.js---官方默认有格式化时间的代码
+    /*全局就是对整个程序所有页面作用*/
+app.js-----------小程序全局js文件
+app.json---------小程序全局配置文件
+app.wxss---------小程序全局css文件
+project.config.json--项目相关信息文件
+sitemap.json-----小程序内搜索配置相关文件</code></pre><h1 id="和传统web开发的区别"><a href="#和传统web开发的区别" class="headerlink" title="和传统web开发的区别"></a>和传统web开发的区别</h1><p>1.json文件不再是模拟数据时使用,而是作为配置小程序使用</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &lt;!-- 配置该程序有几个页面 --&gt;</span><br><span class="line">    <span class="string">"pages"</span>: [</span><br><span class="line">        <span class="string">"pages/index/index"</span>,</span><br><span class="line">        <span class="string">"pages/logs/logs"</span></span><br><span class="line">    ],</span><br><span class="line">    &lt;!-- 配置程序页面样式等 --&gt;</span><br><span class="line">    <span class="string">"window"</span>: &#123;</span><br><span class="line">        <span class="string">"backgroundTextStyle"</span>: <span class="string">"light"</span>,</span><br><span class="line">        <span class="string">"navigationBarBackgroundColor"</span>: <span class="string">"#fff"</span>,</span><br><span class="line">        <span class="string">"navigationBarTitleText"</span>: <span class="string">"WeChat"</span>,</span><br><span class="line">        <span class="string">"navigationBarTextStyle"</span>: <span class="string">"black"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"sitemapLocation"</span>: <span class="string">"sitemap.json"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h1 id="语法上和vue的一些使用区别"><a href="#语法上和vue的一些使用区别" class="headerlink" title="语法上和vue的一些使用区别"></a>语法上和vue的一些使用区别</h1><p>1.更改data属性时</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//vue里更改data属性</span></span><br><span class="line"> data:&#123;</span><br><span class="line">     name:<span class="string">'test'</span></span><br><span class="line"> &#125;,</span><br><span class="line"> methods:&#123;</span><br><span class="line">     update()&#123;</span><br><span class="line">         <span class="keyword">this</span>.data=<span class="string">'tes2'</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//微信里更改data属性</span></span><br><span class="line">data:&#123;</span><br><span class="line">     name:<span class="string">'test'</span></span><br><span class="line"> &#125;,</span><br><span class="line"> <span class="comment">// 微信里方法和data并列，不用像vue那样全写在methods对象里</span></span><br><span class="line"> update()&#123;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        name:<span class="string">'test3'</span></span><br><span class="line">    &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></code></pre><p>2.点击事件传值</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vue 绑定一个事件是 v-on:(js原生事件名)click='方法名'</span></span><br><span class="line"><span class="comment">// 传递参数向普通js一样传递即可</span></span><br><span class="line">&lt;div @click=<span class="string">'hint("hi")'</span>&gt; &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">methods:&#123;</span><br><span class="line">    hint(str)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(str);<span class="comment">//hi</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 微信通过bindTap绑定点击事件 其他事件查看文档 </span></span><br><span class="line">&lt;view data-hintstr=<span class="string">'hi'</span> bindTap=<span class="string">'hint'</span>&gt;&lt;/view&gt;</span><br><span class="line">hint(e)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.currentTarget.dataset.hintstr);<span class="comment">//hi</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>3.微信里的页面标签<br>    view==div<br>    text==p<br>    block用wx:for时使用<br>    wxss和js都是和传统web一致</p>
+<p>4.小程序官方封装好了ajax的请求，类似axios那样的</p>
+<p>5。。。继续摸索中。。。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/07/js基础之深浅拷贝/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/07/07/js基础之深浅拷贝/" class="post-title-link" itemprop="url">js基础之深浅拷贝</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-07 12:11:14 / 修改时间：13:02:48" itemprop="dateCreated datePublished" datetime="2019-07-07T12:11:14+08:00">2019-07-07</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>学习自冴羽的 <a href="https://github.com/mqyqingfeng/Blog/issues/32" target="_blank" rel="noopener">JavaScript专题之深浅拷贝笔记</a></p>
+<hr>
+<p><a href="https://gitee.com/shuaxinhome/jsjichu.git" target="_blank" rel="noopener">本文源码</a></p>
+<h3 id="首先要区分基本数据类型和引用数据类型"><a href="#首先要区分基本数据类型和引用数据类型" class="headerlink" title="首先要区分基本数据类型和引用数据类型"></a>首先要区分基本数据类型和引用数据类型</h3><ol>
+<li>基本数据类型:Int,String,Number,Boolean,Undefined,Null</li>
+<li>引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp</li>
+<li>两者的不同：<br> 基本数据类型存储在 <strong><em>栈</em></strong> 中；<br> 引用数据类型存储在 <strong><em>堆</em></strong> 中；</li>
+</ol>
+<h3 id="关于深拷贝"><a href="#关于深拷贝" class="headerlink" title="关于深拷贝"></a>关于深拷贝</h3><p>当初始化一个变量并赋值，将这个变量记作a，然后再定义一个变量，让其等于a；如果改变a的值，b的值不会跟着改变的情况就是深拷贝。</p>
+<p><strong><em>基本数据类型都是深拷贝</em></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="number">99</span>;</span><br><span class="line"><span class="keyword">let</span> b=a;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`a=<span class="subst">$&#123;a&#125;</span>`</span>);<span class="comment">//99</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`b=<span class="subst">$&#123;b&#125;</span>`</span>);<span class="comment">//99</span></span><br><span class="line">a=<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`a=<span class="subst">$&#123;a&#125;</span>`</span>);<span class="comment">//100</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`b=<span class="subst">$&#123;b&#125;</span>`</span>);<span class="comment">//99</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="关于浅拷贝"><a href="#关于浅拷贝" class="headerlink" title="关于浅拷贝"></a>关于浅拷贝</h3><p>当初始化一个变量并赋值，将这个变量记作a，然后再定义一个变量，让其等于a；如果改变a的值，b的值也跟着改变的情况就是浅拷贝。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> brr=arr;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line">arr[<span class="number">0</span>]=<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[100,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[100,2,3]</span></span><br></pre></td></tr></table></figure>
+
+<p>对于这种数组内元素都是基本数据类型的情况，可以使用Arrary提供的两个方法实现 <strong><em>伪深拷贝</em></strong> 的情况</p>
+<ol>
+<li><p>contact:连接两个数组，并返回新的结果</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> brr=arr.concat();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line">arr[<span class="number">0</span>]=<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[100,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>slice:截取数组的一部分，返回一个新的结果</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> brr=arr.slice();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line">arr[<span class="number">0</span>]=<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[100,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="对数组进行深拷贝"><a href="#对数组进行深拷贝" class="headerlink" title="对数组进行深拷贝"></a>对数组进行深拷贝</h3><p>上面也提到concat和slice只能对元素都是基本数据类型的情况进行伪深拷贝，通过学习冴羽的文章了解到，可以通过json的方法进行深拷贝。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newobjarr = [&#123;</span><br><span class="line">        name: <span class="string">'wade'</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        age: <span class="number">1</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="keyword">let</span> newobjbrr = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(newobjarr));</span><br><span class="line"><span class="built_in">console</span>.warn(<span class="string">'初始化'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`newobjarr=<span class="subst">$&#123;newobjarr[<span class="number">0</span>].name&#125;</span>`</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`newobjbrr=<span class="subst">$&#123;newobjbrr[<span class="number">0</span>].name&#125;</span>`</span>);</span><br><span class="line"><span class="built_in">console</span>.warn(<span class="string">'重新赋值后'</span>);</span><br><span class="line">newobjarr[<span class="number">0</span>].name = <span class="string">'kobe'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`newobjarr=<span class="subst">$&#123;newobjarr[<span class="number">0</span>].name&#125;</span>`</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`newobjbrr=<span class="subst">$&#123;newobjbrr[<span class="number">0</span>].name&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
+
+<p>但这种方法也有局限，如果元素是函数的话，也不行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'a'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> two=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'b'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> sx = [one,two];</span><br><span class="line"><span class="keyword">let</span> gy=<span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(sx));</span><br><span class="line"><span class="built_in">console</span>.log(sx);<span class="comment">//[f,f]</span></span><br><span class="line"><span class="built_in">console</span>.log(gy);<span class="comment">//[null,null]</span></span><br></pre></td></tr></table></figure>
+
+<p>所以动手来实现一个深拷贝函数</p>
+<h3 id="动手写一个深拷贝函数"><a href="#动手写一个深拷贝函数" class="headerlink" title="动手写一个深拷贝函数"></a>动手写一个深拷贝函数</h3><p>思路：<br>    1.需要对传递进来的对象判断，是数组还是对象<br>    2.然后把要被复制的对象的每一个键值对进行复制即可<br>    3.当元素是一个对象的时候，通过递归再一次调用本函数<br>    - <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" target="_blank" rel="noopener">hasOwnProperty()</a> 方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性（也就是是否有指定的键）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepCopy = <span class="function"><span class="keyword">function</span> (<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> arg != <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'只能传入对象'</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 通过instanceof判断传递进来的是数组还是对象</span></span><br><span class="line">    <span class="keyword">let</span> newarg = arg <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arg) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arg.hasOwnProperty(i)) &#123;</span><br><span class="line">            newarg[i] = <span class="keyword">typeof</span> arg[i] === <span class="string">'object'</span> ? deepCopy(arg[i]) : arg[i];</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> newarg;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/02/js数据结构笔记2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/07/02/js数据结构笔记2/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---队列</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-02 23:04:43" itemprop="dateCreated datePublished" datetime="2019-07-02T23:04:43+08:00">2019-07-02</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-03 19:44:23" itemprop="dateModified" datetime="2019-09-03T19:44:23+08:00">2019-09-03</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%98%9F%E5%88%97.html" target="_blank" rel="noopener">这里</a></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><font size="5">
+队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。
+用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。  
+</font>  
+
+<p><img src="/img/queue.png" alt="示例图"></p>
+<h5 id="创建一个队列"><a href="#创建一个队列" class="headerlink" title="创建一个队列"></a>创建一个队列</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>()</span>&#123;</span><br><span class="line">    <span class="comment">/*通过数组来保存队列的元素*/</span></span><br><span class="line">    item=[];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="给队列添加一些方法"><a href="#给队列添加一些方法" class="headerlink" title="给队列添加一些方法"></a>给队列添加一些方法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span></span>&#123;</span><br><span class="line">    item=[];</span><br><span class="line">    <span class="comment">// 给队列队尾添加元素</span></span><br><span class="line">    enqueue(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.push(val);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 给队列队头删除元素</span></span><br><span class="line">    dequeue(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.shift(val);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 返回队列第一个元素</span></span><br><span class="line">    front(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item[<span class="number">0</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 判断队列中是否含有元素</span></span><br><span class="line">    isEmpty(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.length;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 判断队列的元素个数</span></span><br><span class="line">    size()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.length;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/02/js数据结构笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/07/02/js数据结构笔记/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---栈</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-02 11:38:10" itemprop="dateCreated datePublished" datetime="2019-07-02T11:38:10+08:00">2019-07-02</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-03 19:44:14" itemprop="dateModified" datetime="2019-09-03T19:44:14+08:00">2019-09-03</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E6%A0%88.html" target="_blank" rel="noopener">这里</a></h1><h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><font size="5"> 
+栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在
+js中基本数据类就是存储在栈中。
+数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。
+
+</font>
+
+<p><img src="/img/stack.png" alt="示例图"></p>
+<h5 id="创建一个栈"><a href="#创建一个栈" class="headerlink" title="创建一个栈"></a>创建一个栈</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">/*通过数组来保存栈的元素*/</span></span><br><span class="line">    <span class="keyword">let</span> item=[];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="给栈添加一些方法"><a href="#给栈添加一些方法" class="headerlink" title="给栈添加一些方法"></a>给栈添加一些方法</h5><ol>
+<li>push 添加一个或几个元素到栈顶</li>
+<li>pop移除并返回栈顶的元素</li>
+<li>isEmpty 判断栈是不是空的</li>
+<li>clear 清空栈内的元素</li>
+<li>size返回栈内元素个数</li>
+<li>peek返回栈顶的元素</li>
+</ol>
+<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 通过数组保存栈的元素</span></span><br><span class="line">    <span class="keyword">let</span> item = [];</span><br><span class="line">    <span class="keyword">this</span>.push = <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.push(val);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.pop = <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.pop(val);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.isEmpty = <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.length == <span class="number">0</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.clear = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        item = [];</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.size = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.length;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.peek = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item[item.length - <span class="number">1</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.print = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=item.length<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(item[i]);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>ES6版本</em></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    item = [];</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;&#125;;</span><br><span class="line">    push(val) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.push(val);</span><br><span class="line">    &#125;;</span><br><span class="line">    print() &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="keyword">this</span>.item.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.item[i]);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    pop(val) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.pop(val);</span><br><span class="line">    &#125;;</span><br><span class="line">    isEmpty(val) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.length == <span class="number">0</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="keyword">this</span>.item = [];</span><br><span class="line">    &#125;;</span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.length;</span><br><span class="line">    &#125;;</span><br><span class="line">    peek() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item[<span class="keyword">this</span>.item.length - <span class="number">1</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="demo-做一个10进制和其他进制的转换"><a href="#demo-做一个10进制和其他进制的转换" class="headerlink" title="demo 做一个10进制和其他进制的转换"></a>demo 做一个10进制和其他进制的转换</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*有两个参数 第一个参数要转换的数字 第二个参数是要转换成的进制*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">conversion</span>(<span class="params">num, type</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (num / type) &#123;</span><br><span class="line">        stack.push(num % type);</span><br><span class="line">        <span class="comment">// 确保每次计算后都是整数</span></span><br><span class="line">        num = <span class="built_in">parseInt</span>(num / type);</span><br><span class="line">    &#125;;</span><br><span class="line">    stack.print();</span><br><span class="line">    <span class="comment">// 处理完成后对栈进行清除</span></span><br><span class="line">    stack.clear();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/01/hexo常用配置和命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/07/01/hexo常用配置和命令/" class="post-title-link" itemprop="url">hexo常用配置和命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-01 12:21:54" itemprop="dateCreated datePublished" datetime="2019-07-01T12:21:54+08:00">2019-07-01</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-07-19 22:37:34" itemprop="dateModified" datetime="2019-07-19T22:37:34+08:00">2019-07-19</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>内容转载自(<a href="https://chars.tech/blog/build-blog-by-hexo/" target="_blank" rel="noopener">https://chars.tech/blog/build-blog-by-hexo/</a>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">常用命令：</span><br><span class="line">hexo help #查看帮助</span><br><span class="line">hexo init #初始化一个目录</span><br><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成网页，可以在 public 目录查看整个网站的文件</span><br><span class="line">hexo server #本地预览，&apos;Ctrl+C&apos;关闭</span><br><span class="line">hexo deploy #部署.deploy目录</span><br><span class="line">hexo clean #清除缓存，强烈建议每次执行命令前先清理缓存，每次部署前先删除 .deploy 文件夹</span><br><span class="line"></span><br><span class="line">简写：</span><br><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h1 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Hexo Configuration</span><br><span class="line">## Docs: http://hexo.io/docs/configuration.html</span><br><span class="line">## Source: https://github.com/hexojs/hexo/</span><br><span class="line"># Site #站点信息</span><br><span class="line">title:  #标题</span><br><span class="line">subtitle:  #副标题</span><br><span class="line">description:  #站点描述，给搜索引擎看的</span><br><span class="line">author:  #作者</span><br><span class="line">email:  #电子邮箱</span><br><span class="line">language: zh-CN #语言</span><br><span class="line"># URL #链接格式</span><br><span class="line">url:  #网址</span><br><span class="line">root: / #根目录</span><br><span class="line">permalink: :year/:month/:day/:title/ #文章的链接格式</span><br><span class="line">tag_dir: tags #标签目录</span><br><span class="line">archive_dir: archives #存档目录</span><br><span class="line">category_dir: categories #分类目录</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">permalink_defaults:</span><br><span class="line"># Directory #目录</span><br><span class="line">source_dir: source #源文件目录</span><br><span class="line">public_dir: public #生成的网页文件目录</span><br><span class="line"># Writing #写作</span><br><span class="line">new_post_name: :title.md #新文章标题</span><br><span class="line">default_layout: post #默认的模板，包括 post、page、photo、draft（文章、页面、照片、草稿）</span><br><span class="line">titlecase: false #标题转换成大写</span><br><span class="line">external_link: true #在新选项卡中打开连接</span><br><span class="line">filename_case: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">highlight: #语法高亮</span><br><span class="line">  enable: true #是否启用</span><br><span class="line">  line_number: true #显示行号</span><br><span class="line">  tab_replace:</span><br><span class="line"># Category &amp; Tag #分类和标签</span><br><span class="line">default_category: uncategorized #默认分类</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"># Archives</span><br><span class="line">2: 开启分页</span><br><span class="line">1: 禁用分页</span><br><span class="line">0: 全部禁用</span><br><span class="line">archive: 2</span><br><span class="line">category: 2</span><br><span class="line">tag: 2</span><br><span class="line"># Server #本地服务器</span><br><span class="line">port: 4000 #端口号</span><br><span class="line">server_ip: localhost #IP 地址</span><br><span class="line">logger: false</span><br><span class="line">logger_format: dev</span><br><span class="line"># Date / Time format #日期时间格式</span><br><span class="line">date_format: YYYY-MM-DD #参考http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">time_format: H:mm:ss</span><br><span class="line"># Pagination #分页</span><br><span class="line">per_page: 10 #每页文章数，设置成 0 禁用分页</span><br><span class="line">pagination_dir: page</span><br><span class="line"># Disqus #Disqus评论，替换为多说</span><br><span class="line">disqus_shortname:</span><br><span class="line"># Extensions #拓展插件</span><br><span class="line">theme: landscape-plus #主题</span><br><span class="line">exclude_generator:</span><br><span class="line">plugins: #插件，例如生成 RSS 和站点地图的</span><br><span class="line">- hexo-generator-feed</span><br><span class="line">- hexo-generator-sitemap</span><br><span class="line"># Deployment #部署，将 lmintlcx 改成用户名</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: github创库地址.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+
+
+
+      </div>
 
     </div>
-    
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2019 刷新
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Archives</a></li>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.1</div>
+
         
-      </ul>
-    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
   </div>
-</footer>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
 
 </body>
 </html>
-<!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
-<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
-
-
-<!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- Google Analytics -->
-
-<!-- Disqus Comments -->
-
-

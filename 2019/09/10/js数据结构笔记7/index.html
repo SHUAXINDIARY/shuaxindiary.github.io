@@ -1,12 +1,61 @@
 <!DOCTYPE html>
-<html lang=zh>
-<head><meta name="generator" content="Hexo 3.9.0">
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="本文源码 这里理论特点  1.基于数组创建的一种数据结构2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)  和数组对比  优点  比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)    缺点  key值不可以重复哈希表没有顺序，不能以一定的顺序遍历   哈希函数  1.当在一百万数据的数组中，根据内容查找一">
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="本文源码 这里理论特点  1.基于数组创建的一种数据结构2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)  和数组对比  优点  比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)    缺点  key值不可以重复哈希表没有顺序，不能以一定的顺序遍历   哈希函数  1.当在一百万数据的数组中，根据内容查找一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《学习JavaScript数据结构与算法》笔记---哈希表">
 <meta property="og:url" content="http://shuaxindiary/2019/09/10/js数据结构笔记7/index.html">
@@ -19,120 +68,225 @@
 <meta name="twitter:title" content="《学习JavaScript数据结构与算法》笔记---哈希表">
 <meta name="twitter:description" content="本文源码 这里理论特点  1.基于数组创建的一种数据结构2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)  和数组对比  优点  比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)    缺点  key值不可以重复哈希表没有顺序，不能以一定的顺序遍历   哈希函数  1.当在一百万数据的数组中，根据内容查找一">
 <meta name="twitter:image" content="http://shuaxindiary/img/hash.jpg">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>《学习JavaScript数据结构与算法》笔记---哈希表</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- rss -->
-    
-    
-</head>
-
-<body>
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Archives</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2019/09/16/js数据结构笔记8/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/09/04/js数据结构笔记6/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shuaxindiary/2019/09/10/js数据结构笔记7/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&text=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&title=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&is_video=false&description=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=《学习JavaScript数据结构与算法》笔记---哈希表&body=Check out this article: http://shuaxindiary/2019/09/10/js数据结构笔记7/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&title=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&title=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&title=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&title=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&name=《学习JavaScript数据结构与算法》笔记---哈希表&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#本文源码-这里"><span class="toc-number">1.</span> <span class="toc-text">本文源码 这里</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#理论"><span class="toc-number">2.</span> <span class="toc-text">理论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码实现"><span class="toc-number">3.</span> <span class="toc-text">代码实现</span></a></li></ol>
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index width mx-auto px2 my4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        《学习JavaScript数据结构与算法》笔记---哈希表
-    </h1>
+  <link rel="canonical" href="http://shuaxindiary/2019/09/10/js数据结构笔记7/">
 
 
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
 
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">刷新日记</span>
-      </span>
-      
-    <div class="postdate">
-        <time datetime="2019-09-10T13:20:45.000Z" itemprop="datePublished">2019-09-10</time>
-    </div>
-
-
-      
-
-    </div>
-  </header>
+  <title>《学习JavaScript数据结构与算法》笔记---哈希表 | 刷新日记</title>
   
 
-  <div class="content" itemprop="articleBody">
-    <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%A1%88%E4%BE%8B.html" target="_blank" rel="noopener">这里</a></h1><h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h1><p><strong><em>特点</em></strong></p>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新日记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/09/10/js数据结构笔记7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">《学习JavaScript数据结构与算法》笔记---哈希表
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-10 21:20:45" itemprop="dateCreated datePublished" datetime="2019-09-10T21:20:45+08:00">2019-09-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-11 07:33:16" itemprop="dateModified" datetime="2019-09-11T07:33:16+08:00">2019-09-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%A1%88%E4%BE%8B.html" target="_blank" rel="noopener">这里</a></h1><h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h1><p><strong><em>特点</em></strong></p>
 <blockquote>
 <p>1.基于数组创建的一种数据结构<br>2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储<br>3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)</p>
 </blockquote>
@@ -202,94 +356,195 @@
 </blockquote>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">HashTable</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//  存储元素的数组</span></span><br><span class="line">            <span class="keyword">this</span>.items = [];</span><br><span class="line">            <span class="comment">// 哈希函数</span></span><br><span class="line">            HashTable.prototype.hash = <span class="function"><span class="keyword">function</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">let</span> hashCode = <span class="number">5381</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; key.length; i++) &#123;</span><br><span class="line">                    hashCode = <span class="number">33</span> * hashCode + key.charCodeAt();</span><br><span class="line">                &#125;;</span><br><span class="line">                <span class="keyword">return</span> hashCode % <span class="number">1013</span>;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="comment">// 存和改</span></span><br><span class="line">            HashTable.prototype.put = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">let</span> index = <span class="keyword">this</span>.hash(obj.name);</span><br><span class="line">                <span class="comment">// 初始化该位置</span></span><br><span class="line">                <span class="keyword">let</span> current = <span class="keyword">this</span>.items[index];</span><br><span class="line">                <span class="comment">// 判断要存储位置是否为空</span></span><br><span class="line">                <span class="keyword">if</span> (current == <span class="literal">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.items[index] = [];</span><br><span class="line">                    current = <span class="keyword">this</span>.items[index];</span><br><span class="line">                    <span class="comment">// 为空 直接插入到第一个位置</span></span><br><span class="line">                    current.push(obj);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 不为空 判断和里面的元素是否相同</span></span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; current.length; i++) &#123;</span><br><span class="line">                        <span class="comment">// 相同修改</span></span><br><span class="line">                        <span class="keyword">if</span> (current[i].name == obj.name) &#123;</span><br><span class="line">                            current[i] = obj;</span><br><span class="line">                            <span class="keyword">return</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;;</span><br><span class="line">                    <span class="comment">// 不同 插入到最后</span></span><br><span class="line">                    current.push(obj);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="comment">// 取</span></span><br><span class="line">            HashTable.prototype.get = <span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">let</span> index = <span class="keyword">this</span>.hash(str);</span><br><span class="line">                <span class="keyword">let</span> current = <span class="keyword">this</span>.items[index];</span><br><span class="line">                <span class="keyword">if</span> (current != <span class="literal">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; current.length; i++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (current[i].name == str) &#123;</span><br><span class="line">                            <span class="keyword">return</span> current[i];</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 测试代码  </span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> hs = <span class="keyword">new</span> HashTable();</span><br><span class="line">        <span class="comment">// 创建一个对象并存如</span></span><br><span class="line">        <span class="keyword">let</span> shuaxin = &#123;</span><br><span class="line">            name: <span class="string">"shuaxin"</span>,</span><br><span class="line">            phone: <span class="string">'158****26**'</span></span><br><span class="line">        &#125;;</span><br><span class="line">        hs.put(shuaxin);</span><br><span class="line"><span class="comment">// 测试哈希表和数组查找效率对比</span></span><br><span class="line"><span class="comment">// 先给数组空的位置插入模拟数据 100w</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">insert</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (hs.items[i] == <span class="literal">null</span>) &#123;</span><br><span class="line">                    hs.items[i] = [&#123;</span><br><span class="line">                        name: <span class="string">"demo"</span>,</span><br><span class="line">                        phone: <span class="string">"456"</span></span><br><span class="line">                    &#125;];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line">        insert();</span><br><span class="line">        <span class="comment">// 数组普通的对比查找</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">            <span class="comment">// console.log(str);</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> hs.items) &#123;</span><br><span class="line">                <span class="keyword">if</span> (str == hs.items[i][<span class="number">0</span>].name) &#123;</span><br><span class="line">                    <span class="keyword">return</span> hs.items[i][<span class="number">0</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 上文图片的结果</span></span><br><span class="line">        <span class="built_in">console</span>.warn(<span class="string">'100w数据中效率对比'</span>);</span><br><span class="line">        <span class="comment">// 250+ms</span></span><br><span class="line">        <span class="built_in">console</span>.time(<span class="string">'遍历查找'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(find(<span class="string">'shuaxin'</span>));</span><br><span class="line">        <span class="built_in">console</span>.timeEnd(<span class="string">'遍历查找'</span>);</span><br><span class="line">        <span class="comment">// 1ms左右</span></span><br><span class="line">        <span class="built_in">console</span>.time(<span class="string">'哈希查找'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(hs.get(<span class="string">'shuaxin'</span>));</span><br><span class="line">        <span class="built_in">console</span>.timeEnd(<span class="string">'哈希查找'</span>);</span><br></pre></td></tr></table></figure>
-  </div>
-</article>
-
-
-
     </div>
+
     
-      <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Archives</a></li>
+    
+    
         
-      </ul>
-    </div>
+      
 
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#本文源码-这里"><span class="toc-number">1.</span> <span class="toc-text">本文源码 这里</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#理论"><span class="toc-number">2.</span> <span class="toc-text">理论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码实现"><span class="toc-number">3.</span> <span class="toc-text">代码实现</span></a></li></ol>
-    </div>
+      <footer class="post-footer">
 
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shuaxindiary/2019/09/10/js数据结构笔记7/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&text=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&title=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&is_video=false&description=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=《学习JavaScript数据结构与算法》笔记---哈希表&body=Check out this article: http://shuaxindiary/2019/09/10/js数据结构笔记7/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&title=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&title=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&title=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&title=《学习JavaScript数据结构与算法》笔记---哈希表"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shuaxindiary/2019/09/10/js数据结构笔记7/&name=《学习JavaScript数据结构与算法》笔记---哈希表&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
+        
 
-    </div>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/04/js数据结构笔记6/" rel="next" title="《学习JavaScript数据结构与算法》笔记---集合">
+                  <i class="fa fa-chevron-left"></i> 《学习JavaScript数据结构与算法》笔记---集合
+                </a>
+              
+            </div>
 
-    <div id="actions-footer">
-      <ul>
-        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
-        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
-      </ul>
-    </div>
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/16/js数据结构笔记8/" rel="prev" title="《学习JavaScript数据结构与算法》笔记---树">
+                  《学习JavaScript数据结构与算法》笔记---树 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
 
   </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本文源码-这里"><span class="nav-number">1.</span> <span class="nav-text">本文源码 这里</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理论"><span class="nav-number">2.</span> <span class="nav-text">理论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
 </div>
 
-    
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2019 刷新
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Archives</a></li>
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.1</div>
+
         
-      </ul>
-    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
   </div>
-</footer>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
 
 </body>
 </html>
-<!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
-<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
-
-
-<!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- Google Analytics -->
-
-<!-- Disqus Comments -->
-
-
