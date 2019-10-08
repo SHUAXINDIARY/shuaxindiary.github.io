@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  
-  <title>《学习JavaScript数据结构与算法》笔记---红黑树 | 刷新日记</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是红黑树 1.为了解决二叉搜索树出现非平衡树的情况而出现的优化方案；2.当插入一个节点使树不平衡时，通过一些规则和一些处理方式来让树保持平衡；这个平衡后的树叫做红黑树  为什么需要红黑树？1.假如现在要向一颗BST插入10 9 8 7 6 5 4 3 2 1这样一组数，最后的结果就是每个数依次出现在上一个节点的左子树的情况，这样就相当于一个链表，体现不出我们使用树结构的优势，所以需要一些措施让">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="什么是红黑树 1.为了解决二叉搜索树出现非平衡树的情况而出现的优化方案；2.当插入一个节点使树不平衡时，通过一些规则和一些处理方式来让树保持平衡；这个平衡后的树叫做红黑树  为什么需要红黑树？1.假如现在要向一颗BST插入10 9 8 7 6 5 4 3 2 1这样一组数，最后的结果就是每个数依次出现在上一个节点的左子树的情况，这样就相当于一个链表，体现不出我们使用树结构的优势，所以需要一些措施让">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《学习JavaScript数据结构与算法》笔记---红黑树">
 <meta property="og:url" content="http://shuaxindiary/2019/09/22/js数据结构笔记9/index.html">
@@ -22,60 +23,119 @@
 <meta name="twitter:title" content="《学习JavaScript数据结构与算法》笔记---红黑树">
 <meta name="twitter:description" content="什么是红黑树 1.为了解决二叉搜索树出现非平衡树的情况而出现的优化方案；2.当插入一个节点使树不平衡时，通过一些规则和一些处理方式来让树保持平衡；这个平衡后的树叫做红黑树  为什么需要红黑树？1.假如现在要向一颗BST插入10 9 8 7 6 5 4 3 2 1这样一组数，最后的结果就是每个数依次出现在上一个节点的左子树的情况，这样就相当于一个链表，体现不出我们使用树结构的优势，所以需要一些措施让">
 <meta name="twitter:image" content="http://shuaxindiary/img/rbt.jpg">
-  
-    <link rel="icon" href="/img/bitbug_favicon.ico">
-  
-  <link rel="stylesheet" href="/css/index.css">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>《学习JavaScript数据结构与算法》笔记---红黑树</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
 </head>
-</html>
-<body style="
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/09/23/js数据结构笔记10/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/09/16/js数据结构笔记8/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shuaxindiary/2019/09/22/js数据结构笔记9/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&text=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&title=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&is_video=false&description=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=《学习JavaScript数据结构与算法》笔记---红黑树&body=Check out this article: http://shuaxindiary/2019/09/22/js数据结构笔记9/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&title=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&title=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&title=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&title=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&name=《学习JavaScript数据结构与算法》笔记---红黑树&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是红黑树"><span class="toc-number">1.</span> <span class="toc-text">什么是红黑树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么需要红黑树？"><span class="toc-number">2.</span> <span class="toc-text">为什么需要红黑树？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#红黑树的特点"><span class="toc-number">3.</span> <span class="toc-text">红黑树的特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#红黑树的相对平衡"><span class="toc-number">4.</span> <span class="toc-text">红黑树的相对平衡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入节点时变化规则"><span class="toc-number">5.</span> <span class="toc-text">插入节点时变化规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#节点插入时根据以下几点情况做对应的处理："><span class="toc-number">6.</span> <span class="toc-text">节点插入时根据以下几点情况做对应的处理：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过案例理解红黑树的变化规则和插入操作的情况："><span class="toc-number">7.</span> <span class="toc-text">通过案例理解红黑树的变化规则和插入操作的情况：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#剩下的画了图"><span class="toc-number">8.</span> <span class="toc-text">剩下的画了图</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        《学习JavaScript数据结构与算法》笔记---红黑树
+    </h1>
 
 
-  background-color: #eff0f6
 
-">
-  <div id="container">
-    <nav id="nav">
-  <header class="header">
-    <a href="/" class="title">ShuaXin diary</a>
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">刷新日记</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-09-22T00:51:25.000Z" itemprop="datePublished">2019-09-22</time>
+    </div>
+
+
+      
+
+    </div>
   </header>
-  <div class="ctnWrap">
-    <div class="icons">
-      
-        
-          
-            <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn iconfont icon-github"></a>
-          
-        
-          
-            <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn iconfont icon-douban"></a>
-          
-        
-      
-    </div>
-    <div class="menu">
-      
-        
-            <a href="/" class="nav-menu ">HOME</a>
-          
-        
-            <a href="/archives" class="nav-menu ">ARCHIVE</a>
-          
-        
-            <a href="/about" class="nav-menu ">ABOUT</a>
-          
-        
-            <a href="/categories" class="nav-menu ">CATEGORIES</a>
-          
-        
-      
-    </div>
-  </div>
-</nav>
-    <div id="main"><section class="article">
-  <h2 class="title">《学习JavaScript数据结构与算法》笔记---红黑树</h2>
-  <p class="sub">9月 22, 2019</p>
-  <article class="content">
+  
+
+  <div class="content" itemprop="articleBody">
     <h1 id="什么是红黑树"><a href="#什么是红黑树" class="headerlink" title="什么是红黑树"></a>什么是红黑树</h1><blockquote>
 <p>1.为了解决二叉搜索树出现非平衡树的情况而出现的优化方案；<br>2.当插入一个节点使树不平衡时，通过一些规则和一些处理方式来让树保持平衡；这个平衡后的树叫做红黑树</p>
 </blockquote>
@@ -170,42 +230,94 @@
 <p><img src="/img/anli3.png" alt="案例"></p>
 <p><img src="/img/anli4.png" alt="案例"></p>
 
-  </article>
-  <footer class="f-cf">
-    
-      <a href="/2019/09/23/js数据结构笔记10/" class="link f-fl">⟵《学习JavaScript数据结构与算法》笔记---图论</a>
-    
-    
-      <a href="/2019/09/16/js数据结构笔记8/" class="link f-fr">《学习JavaScript数据结构与算法》笔记---树⟶</a>
-    
-  </footer>
-</section></div>
-    <footer id="footer" class="f-cf">
-  986384495@qq.com
-  
-  
-  
-  · <a href="https://github.com/SHUAXINDIARY" target="_blank" class="nav-icn">GitHub</a>
-  
-  
-  
-  · <a href="https://www.douban.com/people/91950904/" target="_blank" class="nav-icn">Douban</a>
-  
-  
-  
-  <span class="copyright"></span>
-  
-  <!-- 不蒜子统计 -->
-  <span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-  </span>
-  <span class="post-meta-divider">|</span>
-  <span id="busuanzi_container_site_uv" style='display:none'>
-    本站访客数<span id="busuanzi_value_site_uv"></span>人
-  </span>
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-  
-</footer>
   </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是红黑树"><span class="toc-number">1.</span> <span class="toc-text">什么是红黑树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么需要红黑树？"><span class="toc-number">2.</span> <span class="toc-text">为什么需要红黑树？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#红黑树的特点"><span class="toc-number">3.</span> <span class="toc-text">红黑树的特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#红黑树的相对平衡"><span class="toc-number">4.</span> <span class="toc-text">红黑树的相对平衡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入节点时变化规则"><span class="toc-number">5.</span> <span class="toc-text">插入节点时变化规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#节点插入时根据以下几点情况做对应的处理："><span class="toc-number">6.</span> <span class="toc-text">节点插入时根据以下几点情况做对应的处理：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过案例理解红黑树的变化规则和插入操作的情况："><span class="toc-number">7.</span> <span class="toc-text">通过案例理解红黑树的变化规则和插入操作的情况：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#剩下的画了图"><span class="toc-number">8.</span> <span class="toc-text">剩下的画了图</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shuaxindiary/2019/09/22/js数据结构笔记9/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&text=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&title=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&is_video=false&description=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=《学习JavaScript数据结构与算法》笔记---红黑树&body=Check out this article: http://shuaxindiary/2019/09/22/js数据结构笔记9/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&title=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&title=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&title=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&title=《学习JavaScript数据结构与算法》笔记---红黑树"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shuaxindiary/2019/09/22/js数据结构笔记9/&name=《学习JavaScript数据结构与算法》笔记---红黑树&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 刷新
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
 </body>
 </html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
