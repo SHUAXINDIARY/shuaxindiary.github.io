@@ -947,16 +947,13 @@ pre .javascript .function {
   }
 }
 .brand {
-  background: #222;
+  background: #fff;
   border-bottom: none;
-  color: #fff;
+  color: #000;
   display: inline-block;
   line-height: 1.375em;
   padding: 0 40px;
   position: relative;
-}
-.brand:hover {
-  color: #fff;
 }
 .logo {
   display: inline-block;
@@ -1156,7 +1153,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d4b137;
+  background: #ffff1a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
