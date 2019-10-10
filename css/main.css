@@ -934,7 +934,6 @@ pre .javascript .function {
   }
 }
 .headband {
-  background: #222;
   height: 3px;
 }
 .site-meta {
@@ -1153,7 +1152,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffff1a;
+  background: #c79dbb;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
