@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="学习自冴羽的 JavaScript专题之深浅拷贝笔记  本文源码 首先要区分基本数据类型和引用数据类型 基本数据类型:Int,String,Number,Boolean,Undefined,Null 引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp 两者的不同： 基本数据类型存储在 栈 中； 引用数据类型存储在 堆 中；  关于深拷贝">
+<meta name="keywords" content="JavaScript,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js基础之深浅拷贝">
+<meta property="og:url" content="http://shuaxindiary/2019/07/07/JS/js基础之深浅拷贝/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="学习自冴羽的 JavaScript专题之深浅拷贝笔记  本文源码 首先要区分基本数据类型和引用数据类型 基本数据类型:Int,String,Number,Boolean,Undefined,Null 引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp 两者的不同： 基本数据类型存储在 栈 中； 引用数据类型存储在 堆 中；  关于深拷贝">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-12T12:03:29.942Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js基础之深浅拷贝">
+<meta name="twitter:description" content="学习自冴羽的 JavaScript专题之深浅拷贝笔记  本文源码 首先要区分基本数据类型和引用数据类型 基本数据类型:Int,String,Number,Boolean,Undefined,Null 引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp 两者的不同： 基本数据类型存储在 栈 中； 引用数据类型存储在 堆 中；  关于深拷贝">
+  <link rel="canonical" href="http://shuaxindiary/2019/07/07/JS/js基础之深浅拷贝/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>js基础之深浅拷贝 | 刷新</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/07/JS/js基础之深浅拷贝/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">js基础之深浅拷贝
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-07 12:11:14" itemprop="dateCreated datePublished" datetime="2019-07-07T12:11:14+08:00">2019-07-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-12 20:03:29" itemprop="dateModified" datetime="2019-10-12T20:03:29+08:00">2019-10-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>学习自冴羽的 <a href="https://github.com/mqyqingfeng/Blog/issues/32" target="_blank" rel="noopener">JavaScript专题之深浅拷贝笔记</a></p>
+<hr>
+<p><a href="https://gitee.com/shuaxinhome/jsjichu.git" target="_blank" rel="noopener">本文源码</a></p>
+<h3 id="首先要区分基本数据类型和引用数据类型"><a href="#首先要区分基本数据类型和引用数据类型" class="headerlink" title="首先要区分基本数据类型和引用数据类型"></a>首先要区分基本数据类型和引用数据类型</h3><ol>
+<li>基本数据类型:Int,String,Number,Boolean,Undefined,Null</li>
+<li>引用数据类型:Object[function,arrary,object],Date,Arrary,RegExp</li>
+<li>两者的不同：<br> 基本数据类型存储在 <strong><em>栈</em></strong> 中；<br> 引用数据类型存储在 <strong><em>堆</em></strong> 中；</li>
+</ol>
+<h3 id="关于深拷贝"><a href="#关于深拷贝" class="headerlink" title="关于深拷贝"></a>关于深拷贝</h3><p>当初始化一个变量并赋值，将这个变量记作a，然后再定义一个变量，让其等于a；如果改变a的值，b的值不会跟着改变的情况就是深拷贝。</p>
+<a id="more"></a>
+<p><strong><em>基本数据类型都是深拷贝</em></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="number">99</span>;</span><br><span class="line"><span class="keyword">let</span> b=a;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`a=<span class="subst">$&#123;a&#125;</span>`</span>);<span class="comment">//99</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`b=<span class="subst">$&#123;b&#125;</span>`</span>);<span class="comment">//99</span></span><br><span class="line">a=<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`a=<span class="subst">$&#123;a&#125;</span>`</span>);<span class="comment">//100</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`b=<span class="subst">$&#123;b&#125;</span>`</span>);<span class="comment">//99</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="关于浅拷贝"><a href="#关于浅拷贝" class="headerlink" title="关于浅拷贝"></a>关于浅拷贝</h3><p>当初始化一个变量并赋值，将这个变量记作a，然后再定义一个变量，让其等于a；如果改变a的值，b的值也跟着改变的情况就是浅拷贝。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> brr=arr;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line">arr[<span class="number">0</span>]=<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[100,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[100,2,3]</span></span><br></pre></td></tr></table></figure>
+
+<p>对于这种数组内元素都是基本数据类型的情况，可以使用Arrary提供的两个方法实现 <strong><em>伪深拷贝</em></strong> 的情况</p>
+<ol>
+<li><p>contact:连接两个数组，并返回新的结果</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> brr=arr.concat();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line">arr[<span class="number">0</span>]=<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[100,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>slice:截取数组的一部分，返回一个新的结果</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> brr=arr.slice();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br><span class="line">arr[<span class="number">0</span>]=<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`arr=<span class="subst">$&#123;arr&#125;</span>`</span>);<span class="comment">//[100,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`brr=<span class="subst">$&#123;brr&#125;</span>`</span>);<span class="comment">//[1,2,3]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="对数组进行深拷贝"><a href="#对数组进行深拷贝" class="headerlink" title="对数组进行深拷贝"></a>对数组进行深拷贝</h3><p>上面也提到concat和slice只能对元素都是基本数据类型的情况进行伪深拷贝，通过学习冴羽的文章了解到，可以通过json的方法进行深拷贝。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newobjarr = [&#123;</span><br><span class="line">        name: <span class="string">'wade'</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        age: <span class="number">1</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="keyword">let</span> newobjbrr = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(newobjarr));</span><br><span class="line"><span class="built_in">console</span>.warn(<span class="string">'初始化'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`newobjarr=<span class="subst">$&#123;newobjarr[<span class="number">0</span>].name&#125;</span>`</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`newobjbrr=<span class="subst">$&#123;newobjbrr[<span class="number">0</span>].name&#125;</span>`</span>);</span><br><span class="line"><span class="built_in">console</span>.warn(<span class="string">'重新赋值后'</span>);</span><br><span class="line">newobjarr[<span class="number">0</span>].name = <span class="string">'kobe'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`newobjarr=<span class="subst">$&#123;newobjarr[<span class="number">0</span>].name&#125;</span>`</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`newobjbrr=<span class="subst">$&#123;newobjbrr[<span class="number">0</span>].name&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
+
+<p>但这种方法也有局限，如果元素是函数的话，也不行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'a'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> two=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'b'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> sx = [one,two];</span><br><span class="line"><span class="keyword">let</span> gy=<span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(sx));</span><br><span class="line"><span class="built_in">console</span>.log(sx);<span class="comment">//[f,f]</span></span><br><span class="line"><span class="built_in">console</span>.log(gy);<span class="comment">//[null,null]</span></span><br></pre></td></tr></table></figure>
+
+<p>所以动手来实现一个深拷贝函数</p>
+<h3 id="动手写一个深拷贝函数"><a href="#动手写一个深拷贝函数" class="headerlink" title="动手写一个深拷贝函数"></a>动手写一个深拷贝函数</h3><p>思路：<br>    1.需要对传递进来的对象判断，是数组还是对象<br>    2.然后把要被复制的对象的每一个键值对进行复制即可<br>    3.当元素是一个对象的时候，通过递归再一次调用本函数<br>    - <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" target="_blank" rel="noopener">hasOwnProperty()</a> 方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性（也就是是否有指定的键）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepCopy = <span class="function"><span class="keyword">function</span> (<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> arg != <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'只能传入对象'</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 通过instanceof判断传递进来的是数组还是对象</span></span><br><span class="line">    <span class="keyword">let</span> newarg = arg <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arg) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arg.hasOwnProperty(i)) &#123;</span><br><span class="line">            newarg[i] = <span class="keyword">typeof</span> arg[i] === <span class="string">'object'</span> ? deepCopy(arg[i]) : arg[i];</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> newarg;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/前端/" rel="tag"># 前端</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/07/02/计算机基础/js数据结构笔记2/" rel="next" title="《学习JavaScript数据结构与算法》笔记---队列">
+                  <i class="fa fa-chevron-left"></i> 《学习JavaScript数据结构与算法》笔记---队列
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/07/19/其他/熟悉小程序开发目录/" rel="prev" title="熟悉小程序开发目录">
+                  熟悉小程序开发目录 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先要区分基本数据类型和引用数据类型"><span class="nav-number">1.</span> <span class="nav-text">首先要区分基本数据类型和引用数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于深拷贝"><span class="nav-number">2.</span> <span class="nav-text">关于深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于浅拷贝"><span class="nav-number">3.</span> <span class="nav-text">关于浅拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对数组进行深拷贝"><span class="nav-number">4.</span> <span class="nav-text">对数组进行深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动手写一个深拷贝函数"><span class="nav-number">5.</span> <span class="nav-text">动手写一个深拷贝函数</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      大佬们的博客
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

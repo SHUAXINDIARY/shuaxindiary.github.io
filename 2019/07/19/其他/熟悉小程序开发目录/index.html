@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="&amp;gt;   新项目默认目录/pages--------存放小程序所有界面     -/index---首页         /*             每一个界面都是由以下四个文件组成             1.index.js-----页面交互(web的js文件)             2.index.json---页面配置文件             3.index.wxml---页面结构(">
+<meta name="keywords" content="工具,小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="熟悉小程序开发目录">
+<meta property="og:url" content="http://shuaxindiary/2019/07/19/其他/熟悉小程序开发目录/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="&amp;gt;   新项目默认目录/pages--------存放小程序所有界面     -/index---首页         /*             每一个界面都是由以下四个文件组成             1.index.js-----页面交互(web的js文件)             2.index.json---页面配置文件             3.index.wxml---页面结构(">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-12T12:04:45.817Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="熟悉小程序开发目录">
+<meta name="twitter:description" content="&amp;gt;   新项目默认目录/pages--------存放小程序所有界面     -/index---首页         /*             每一个界面都是由以下四个文件组成             1.index.js-----页面交互(web的js文件)             2.index.json---页面配置文件             3.index.wxml---页面结构(">
+  <link rel="canonical" href="http://shuaxindiary/2019/07/19/其他/熟悉小程序开发目录/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>熟悉小程序开发目录 | 刷新</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/19/其他/熟悉小程序开发目录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">熟悉小程序开发目录
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-19 22:25:10" itemprop="dateCreated datePublished" datetime="2019-07-19T22:25:10+08:00">2019-07-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-12 20:04:45" itemprop="dateModified" datetime="2019-10-12T20:04:45+08:00">2019-10-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" href="/css/prism.css">>
+<script src="../source/js/prism.js"></script>
+
+<h1 id="新项目默认目录"><a href="#新项目默认目录" class="headerlink" title="新项目默认目录"></a>新项目默认目录</h1><pre><code>/pages--------存放小程序所有界面
+    -/index---首页
+        /*
+            每一个界面都是由以下四个文件组成
+            1.index.js-----页面交互(web的js文件)
+            2.index.json---页面配置文件
+            3.index.wxml---页面结构(web的html文件)
+            4.index.wxss---页面样式(web的css文件)
+        */*
+    -/logs----log信息页
+/untils
+    -/until.js---官方默认有格式化时间的代码
+    /*全局就是对整个程序所有页面作用*/
+app.js-----------小程序全局js文件
+app.json---------小程序全局配置文件
+app.wxss---------小程序全局css文件
+project.config.json--项目相关信息文件
+sitemap.json-----小程序内搜索配置相关文件</code></pre><a id="more"></a>
+
+<h1 id="和传统web开发的区别"><a href="#和传统web开发的区别" class="headerlink" title="和传统web开发的区别"></a>和传统web开发的区别</h1><p>1.json文件不再是模拟数据时使用,而是作为配置小程序使用</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &lt;!-- 配置该程序有几个页面 --&gt;</span><br><span class="line">    <span class="string">"pages"</span>: [</span><br><span class="line">        <span class="string">"pages/index/index"</span>,</span><br><span class="line">        <span class="string">"pages/logs/logs"</span></span><br><span class="line">    ],</span><br><span class="line">    &lt;!-- 配置程序页面样式等 --&gt;</span><br><span class="line">    <span class="string">"window"</span>: &#123;</span><br><span class="line">        <span class="string">"backgroundTextStyle"</span>: <span class="string">"light"</span>,</span><br><span class="line">        <span class="string">"navigationBarBackgroundColor"</span>: <span class="string">"#fff"</span>,</span><br><span class="line">        <span class="string">"navigationBarTitleText"</span>: <span class="string">"WeChat"</span>,</span><br><span class="line">        <span class="string">"navigationBarTextStyle"</span>: <span class="string">"black"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"sitemapLocation"</span>: <span class="string">"sitemap.json"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h1 id="语法上和vue的一些使用区别"><a href="#语法上和vue的一些使用区别" class="headerlink" title="语法上和vue的一些使用区别"></a>语法上和vue的一些使用区别</h1><p>1.更改data属性时</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//vue里更改data属性</span></span><br><span class="line"> data:&#123;</span><br><span class="line">     name:<span class="string">'test'</span></span><br><span class="line"> &#125;,</span><br><span class="line"> methods:&#123;</span><br><span class="line">     update()&#123;</span><br><span class="line">         <span class="keyword">this</span>.data=<span class="string">'tes2'</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//微信里更改data属性</span></span><br><span class="line">data:&#123;</span><br><span class="line">     name:<span class="string">'test'</span></span><br><span class="line"> &#125;,</span><br><span class="line"> <span class="comment">// 微信里方法和data并列，不用像vue那样全写在methods对象里</span></span><br><span class="line"> update()&#123;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        name:<span class="string">'test3'</span></span><br><span class="line">    &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></code></pre><p>2.点击事件传值</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vue 绑定一个事件是 v-on:(js原生事件名)click='方法名'</span></span><br><span class="line"><span class="comment">// 传递参数向普通js一样传递即可</span></span><br><span class="line">&lt;div @click=<span class="string">'hint("hi")'</span>&gt; &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">methods:&#123;</span><br><span class="line">    hint(str)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(str);<span class="comment">//hi</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 微信通过bindTap绑定点击事件 其他事件查看文档 </span></span><br><span class="line">&lt;view data-hintstr=<span class="string">'hi'</span> bindTap=<span class="string">'hint'</span>&gt;&lt;/view&gt;</span><br><span class="line">hint(e)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.currentTarget.dataset.hintstr);<span class="comment">//hi</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>3.微信里的页面标签<br>    view==div<br>    text==p<br>    block用wx:for时使用<br>    wxss和js都是和传统web一致</p>
+<p>4.小程序官方封装好了ajax的请求，类似axios那样的</p>
+<p>5。。。继续摸索中。。。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/工具/" rel="tag"># 工具</a>
+            
+              <a href="/tags/小程序/" rel="tag"># 小程序</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/07/07/JS/js基础之深浅拷贝/" rel="next" title="js基础之深浅拷贝">
+                  <i class="fa fa-chevron-left"></i> js基础之深浅拷贝
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/07/21/JS/js模块化/" rel="prev" title="js模块化">
+                  js模块化 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#新项目默认目录"><span class="nav-number">1.</span> <span class="nav-text">新项目默认目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和传统web开发的区别"><span class="nav-number">2.</span> <span class="nav-text">和传统web开发的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法上和vue的一些使用区别"><span class="nav-number">3.</span> <span class="nav-text">语法上和vue的一些使用区别</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      大佬们的博客
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
