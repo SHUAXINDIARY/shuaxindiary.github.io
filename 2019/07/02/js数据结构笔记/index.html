@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="本文源码 这里概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在 js中基本数据类就是存储在栈中。 数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。     创建一个栈1234function Stack()&amp;#123;    /*通过数组来保存栈的元素*/    let item=[];">
+  <meta name="description" content="本文源码 这里概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在 js中基本数据类就是存储在栈中。 数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。">
 <meta name="keywords" content="JavaScript,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《学习JavaScript数据结构与算法》笔记---栈">
 <meta property="og:url" content="http://shuaxindiary/2019/07/02/js数据结构笔记/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="本文源码 这里概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在 js中基本数据类就是存储在栈中。 数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。     创建一个栈1234function Stack()&amp;#123;    /*通过数组来保存栈的元素*/    let item=[];">
+<meta property="og:description" content="本文源码 这里概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在 js中基本数据类就是存储在栈中。 数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://shuaxindiary/img/stack.png">
-<meta property="og:updated_time" content="2019-10-10T01:10:29.817Z">
+<meta property="og:updated_time" content="2019-10-12T06:49:08.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《学习JavaScript数据结构与算法》笔记---栈">
-<meta name="twitter:description" content="本文源码 这里概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在 js中基本数据类就是存储在栈中。 数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。     创建一个栈1234function Stack()&amp;#123;    /*通过数组来保存栈的元素*/    let item=[];">
+<meta name="twitter:description" content="本文源码 这里概念  栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在 js中基本数据类就是存储在栈中。 数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。">
 <meta name="twitter:image" content="http://shuaxindiary/img/stack.png">
   <link rel="canonical" href="http://shuaxindiary/2019/07/02/js数据结构笔记/">
 
@@ -269,7 +269,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-10 09:10:29" itemprop="dateModified" datetime="2019-10-10T09:10:29+08:00">2019-10-10</time>
+                <time title="修改时间：2019-10-12 14:49:08" itemprop="dateModified" datetime="2019-10-12T14:49:08+08:00">2019-10-12</time>
               </span>
             
           
@@ -314,6 +314,7 @@ js中基本数据类就是存储在栈中。
 </font>
 
 <p><img src="/img/stack.png" alt="示例图"></p>
+<a id="more"></a>
 <h5 id="创建一个栈"><a href="#创建一个栈" class="headerlink" title="创建一个栈"></a>创建一个栈</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">/*通过数组来保存栈的元素*/</span></span><br><span class="line">    <span class="keyword">let</span> item=[];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h5 id="给栈添加一些方法"><a href="#给栈添加一些方法" class="headerlink" title="给栈添加一些方法"></a>给栈添加一些方法</h5><ol>
@@ -507,6 +508,10 @@ js中基本数据类就是存储在栈中。
       
         <li class="links-of-blogroll-item">
           <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
         </li>
       
     </ul>

@@ -55,21 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="本文源码 这里概念1.类似于数组一样存储多个数据的数据结构2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针 和数组对比 链表的优点1.内存空间不是必须连续的。可以实现灵活的内存管理2.链表不必再创建时就确定大小，并且大小可以无限延伸下去3.链表再插入和删除数据时，时间复杂度低，效率高   链表的缺点1.访问任何一个位置的元素时，都需要从头开始访问(无法跳过第一或任何一个元素)">
+  <meta name="description" content="本文源码 这里概念1.类似于数组一样存储多个数据的数据结构2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针">
 <meta name="keywords" content="JavaScript,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《学习JavaScript数据结构与算法》笔记---(单向)链表">
 <meta property="og:url" content="http://shuaxindiary/2019/09/03/js数据结构笔记4/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="本文源码 这里概念1.类似于数组一样存储多个数据的数据结构2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针 和数组对比 链表的优点1.内存空间不是必须连续的。可以实现灵活的内存管理2.链表不必再创建时就确定大小，并且大小可以无限延伸下去3.链表再插入和删除数据时，时间复杂度低，效率高   链表的缺点1.访问任何一个位置的元素时，都需要从头开始访问(无法跳过第一或任何一个元素)">
+<meta property="og:description" content="本文源码 这里概念1.类似于数组一样存储多个数据的数据结构2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://shuaxindiary/img/linked.jpg">
 <meta property="og:image" content="http://shuaxindiary/img/insert0.png">
 <meta property="og:image" content="http://shuaxindiary/img/insert1.png">
-<meta property="og:updated_time" content="2019-10-10T01:10:44.506Z">
+<meta property="og:updated_time" content="2019-10-12T06:49:31.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《学习JavaScript数据结构与算法》笔记---(单向)链表">
-<meta name="twitter:description" content="本文源码 这里概念1.类似于数组一样存储多个数据的数据结构2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针 和数组对比 链表的优点1.内存空间不是必须连续的。可以实现灵活的内存管理2.链表不必再创建时就确定大小，并且大小可以无限延伸下去3.链表再插入和删除数据时，时间复杂度低，效率高   链表的缺点1.访问任何一个位置的元素时，都需要从头开始访问(无法跳过第一或任何一个元素)">
+<meta name="twitter:description" content="本文源码 这里概念1.类似于数组一样存储多个数据的数据结构2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针">
 <meta name="twitter:image" content="http://shuaxindiary/img/linked.jpg">
   <link rel="canonical" href="http://shuaxindiary/2019/09/03/js数据结构笔记4/">
 
@@ -271,7 +271,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-10 09:10:44" itemprop="dateModified" datetime="2019-10-10T09:10:44+08:00">2019-10-10</time>
+                <time title="修改时间：2019-10-12 14:49:31" itemprop="dateModified" datetime="2019-10-12T14:49:31+08:00">2019-10-12</time>
               </span>
             
           
@@ -309,6 +309,7 @@
 
       
         <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%93%BE%E8%A1%A8.html" target="_blank" rel="noopener">这里</a></h1><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>1.类似于数组一样存储多个数据的数据结构<br>2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针<br><img src="/img/linked.jpg" alt="示例图"></p>
+<a id="more"></a>
 <h1 id="和数组对比"><a href="#和数组对比" class="headerlink" title="和数组对比"></a>和数组对比</h1><blockquote>
 <p><strong><em>链表的优点</em></strong><br>1.内存空间不是必须连续的。可以实现灵活的内存管理<br>2.链表不必再创建时就确定大小，并且大小可以无限延伸下去<br>3.链表再插入和删除数据时，时间复杂度低，效率高</p>
 </blockquote>
@@ -510,6 +511,10 @@
       
         <li class="links-of-blogroll-item">
           <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
         </li>
       
     </ul>

@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="本文源码 这里概念 集合是由一组无序且唯一的项组成的。 可以理解成一种特殊的数组 1.特殊在里面的元素没有顺序，不能重复 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份 和数学中的集合一样，也有并集、交集、差集、子集的概念。  ES6的set结构就是一个集合集合常见的实现方式是哈希表封装一个集合类12345function SetCustomer()&amp;#123;">
+  <meta name="description" content="本文源码 这里概念 集合是由一组无序且唯一的项组成的。 可以理解成一种特殊的数组 1.特殊在里面的元素没有顺序，不能重复 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份 和数学中的集合一样，也有并集、交集、差集、子集的概念。">
 <meta name="keywords" content="JavaScript,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《学习JavaScript数据结构与算法》笔记---集合">
 <meta property="og:url" content="http://shuaxindiary/2019/09/04/js数据结构笔记6/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="本文源码 这里概念 集合是由一组无序且唯一的项组成的。 可以理解成一种特殊的数组 1.特殊在里面的元素没有顺序，不能重复 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份 和数学中的集合一样，也有并集、交集、差集、子集的概念。  ES6的set结构就是一个集合集合常见的实现方式是哈希表封装一个集合类12345function SetCustomer()&amp;#123;">
+<meta property="og:description" content="本文源码 这里概念 集合是由一组无序且唯一的项组成的。 可以理解成一种特殊的数组 1.特殊在里面的元素没有顺序，不能重复 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份 和数学中的集合一样，也有并集、交集、差集、子集的概念。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-10T01:10:53.429Z">
+<meta property="og:updated_time" content="2019-10-12T06:49:46.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《学习JavaScript数据结构与算法》笔记---集合">
-<meta name="twitter:description" content="本文源码 这里概念 集合是由一组无序且唯一的项组成的。 可以理解成一种特殊的数组 1.特殊在里面的元素没有顺序，不能重复 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份 和数学中的集合一样，也有并集、交集、差集、子集的概念。  ES6的set结构就是一个集合集合常见的实现方式是哈希表封装一个集合类12345function SetCustomer()&amp;#123;">
+<meta name="twitter:description" content="本文源码 这里概念 集合是由一组无序且唯一的项组成的。 可以理解成一种特殊的数组 1.特殊在里面的元素没有顺序，不能重复 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份 和数学中的集合一样，也有并集、交集、差集、子集的概念。">
   <link rel="canonical" href="http://shuaxindiary/2019/09/04/js数据结构笔记6/">
 
 
@@ -267,7 +267,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-10 09:10:53" itemprop="dateModified" datetime="2019-10-10T09:10:53+08:00">2019-10-10</time>
+                <time title="修改时间：2019-10-12 14:49:46" itemprop="dateModified" datetime="2019-10-12T14:49:46+08:00">2019-10-12</time>
               </span>
             
           
@@ -309,6 +309,7 @@
 <li>可以理解成一种特殊的数组<br> 1.特殊在里面的元素没有顺序，不能重复<br> 2.没有顺序意味着不能通过下标访问，不能重复意味着相同对象在集合中只存一份</li>
 <li>和数学中的集合一样，也有并集、交集、差集、子集的概念。</li>
 </ol>
+<a id="more"></a>
 <h1 id="ES6的set结构就是一个集合"><a href="#ES6的set结构就是一个集合" class="headerlink" title="ES6的set结构就是一个集合"></a>ES6的set结构就是一个集合</h1><h1 id="集合常见的实现方式是哈希表"><a href="#集合常见的实现方式是哈希表" class="headerlink" title="集合常见的实现方式是哈希表"></a>集合常见的实现方式是哈希表</h1><h1 id="封装一个集合类"><a href="#封装一个集合类" class="headerlink" title="封装一个集合类"></a>封装一个集合类</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SetCustomer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 通过对象来存储我们的元素 也可以用数组 对象方便操作</span></span><br><span class="line">    <span class="comment">// 属性</span></span><br><span class="line">    <span class="keyword">this</span>.items = &#123;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h1 id="动手封装集合的常见操作"><a href="#动手封装集合的常见操作" class="headerlink" title="动手封装集合的常见操作"></a>动手封装集合的常见操作</h1><blockquote>
@@ -535,6 +536,10 @@
       
         <li class="links-of-blogroll-item">
           <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
         </li>
       
     </ul>
