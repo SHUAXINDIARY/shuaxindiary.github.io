@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="关于AJAX推动前后端分离的重要功臣之一，全名Asynchronous JavaScript and XML(异步的JavaScript 和 XML)。可以在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容">
+<meta name="keywords" content="JavaScript,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于AJAX">
+<meta property="og:url" content="http://shuaxindiary/2019/10/30/JS/关于ajax/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="关于AJAX推动前后端分离的重要功臣之一，全名Asynchronous JavaScript and XML(异步的JavaScript 和 XML)。可以在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-30T13:35:41.901Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于AJAX">
+<meta name="twitter:description" content="关于AJAX推动前后端分离的重要功臣之一，全名Asynchronous JavaScript and XML(异步的JavaScript 和 XML)。可以在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容">
+  <link rel="canonical" href="http://shuaxindiary/2019/10/30/JS/关于ajax/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>关于AJAX | 刷新</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/10/30/JS/关于ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">关于AJAX
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-30 20:49:45 / 修改时间：21:35:41" itemprop="dateCreated datePublished" datetime="2019-10-30T20:49:45+08:00">2019-10-30</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="关于AJAX"><a href="#关于AJAX" class="headerlink" title="关于AJAX"></a>关于AJAX</h1><p>推动前后端分离的重要功臣之一，全名Asynchronous JavaScript and XML(异步的JavaScript 和 XML)。可以在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容</p>
+<a id="more"></a>
+
+<h1 id="开发中的角色"><a href="#开发中的角色" class="headerlink" title="开发中的角色"></a>开发中的角色</h1><blockquote>
+<p>在ajax之前</p>
+<ul>
+<li>web开发都是页面设计师写好HTML+CSS和简单js然后交给后端工程师，再由他们通过模板技术(比如java的JSP)来使用java的代码动态生成HTML，这样前后端耦合度过高，而且对服务器压力过大</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>在ajax之后</p>
+<ul>
+<li>前后端可以分开开发，前端同学负责写HTML+CSS+JS，后端同学只负责提供数据接口即可(URL链接),前端同学通过ajax请求该链接，得到数据在装进页面即可。</li>
+</ul>
+</blockquote>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h2><blockquote>
+<p>作用</p>
+<ul>
+<li>XMLHttpRequest 用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新，通过它来书写我们的ajax代码</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>兼容性</p>
+<ul>
+<li>所有现代浏览器均支持 XMLHttpRequest 对象（IE5 和 IE6 使用 ActiveXObject）。</li>
+</ul>
+</blockquote>
+<h2 id="代码演示-发送一个GET请求"><a href="#代码演示-发送一个GET请求" class="headerlink" title="代码演示(发送一个GET请求)"></a>代码演示(发送一个GET请求)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建XMLHttpRequest对象</span></span><br><span class="line"><span class="keyword">let</span> xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">// 1.设置请求方法2.请求接口3.设置同步(true)还是异步(false)</span></span><br><span class="line">xmlhttp.open(<span class="string">'GET'</span>, <span class="string">'https://api.github.com/users/octocat/gists'</span>, <span class="string">'true'</span>);</span><br><span class="line"><span class="comment">// 设置请求头</span></span><br><span class="line">xmlhttp.setRequestHeader(<span class="string">"Content-type"</span>,<span class="string">"application/json"</span>);</span><br><span class="line"><span class="comment">// 发送请求</span></span><br><span class="line">xmlhttp.send();</span><br><span class="line"><span class="comment">// onreadystatechange监听readyState 属性的函数 </span></span><br><span class="line"><span class="comment">// 每当readyState 发生改变就会调用该函数</span></span><br><span class="line">xmlhttp.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// xmlhttp.readyState获取状态值/xmlhttp.status获取状态码</span></span><br><span class="line">    <span class="keyword">if</span> (xmlhttp.readyState == <span class="number">4</span> &amp;&amp; xmlhttp.status == <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="comment">// xmlhttp.responseText 请求成功后收到服务器返回的结果</span></span><br><span class="line">        <span class="built_in">console</span>.log(xmlhttp.responseText);<span class="comment">// &#123;...获取到的数据&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="状态值"><a href="#状态值" class="headerlink" title="状态值"></a>状态值</h2><blockquote>
+<p>运行Ajax所经历过的几种状态，无论访问是否成功都将响应的步骤，可以理解成为AJAX运行步骤。<br>有以下几种状态：</p>
+<ul>
+<li>0: 请求未初始化</li>
+<li>1: 服务器连接已建立</li>
+<li>2: 请求已接收</li>
+<li>3: 请求处理中</li>
+<li>4: 请求已完成，且响应已就绪</li>
+</ul>
+</blockquote>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><blockquote>
+<p>无论AJAX访问是否成功，由HTTP协议根据所提交的信息，服务器所返回的HTTP头信息代码，该信息使用“ajax.status”所获得<br>常见状态码</p>
+<ul>
+<li>1**    请求收到，继续处理</li>
+<li>2**    操作成功收到，分析、接受</li>
+<li>3**    完成此请求必须进一步处理</li>
+<li>4**    请求包含一个错误语法或不能完成</li>
+<li>5**    服务器执行一个完全有效请求失败</li>
+<li>100    客户必须继续发出请求</li>
+<li>101    客户要求服务器根据请求转换HTTP协议版本</li>
+<li>200    交易成功</li>
+<li>201    提示知道新文件的URL</li>
+<li>202    接受和处理、但处理未完成</li>
+<li>203    返回信息不确定或不完整</li>
+<li>204    请求收到，但返回信息为空</li>
+<li>205    服务器完成了请求，用户代理必须复位当前已经浏览过的文件</li>
+<li>206    服务器已经完成了部分用户的GET请求</li>
+<li>300    请求的资源可在多处得到</li>
+<li>301    删除请求数据</li>
+<li>302    在其他地址发现了请求数据</li>
+<li>303    建议客户访问其他URL或访问方式</li>
+<li>304    客户端已经执行了GET，但文件未变化</li>
+<li>305    请求的资源必须从服务器指定的地址得到</li>
+<li>306    前一版本HTTP中使用的代码，现行版本中不再使用</li>
+<li>307    申明请求的资源临时性删除</li>
+<li>400    错误请求，如语法错误</li>
+<li>401    请求授权失败</li>
+<li>402    保留有效ChargeTo头响应</li>
+<li>403    请求不允许</li>
+<li>404    没有发现文件、查询或URl</li>
+<li>405    用户在Request-Line字段定义的方法不允许</li>
+<li>406    根据用户发送的Accept拖，请求资源不可访问</li>
+<li>407    类似401，用户必须首先在代理服务器上得到授权</li>
+<li>408    客户端没有在用户指定的饿时间内完成请求</li>
+<li>409    对当前资源状态，请求不能完成</li>
+<li>410    服务器上不再有此资源且无进一步的参考地址</li>
+<li>411    服务器拒绝用户定义的Content-Length属性请求</li>
+<li>412    一个或多个请求头字段在当前请求中错误</li>
+<li>413    请求的资源大于服务器允许的大小</li>
+<li>414    请求的资源URL长于服务器允许的长度</li>
+<li>415    请求资源不支持请求项目格式</li>
+<li>416    请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段</li>
+<li>417    服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求</li>
+<li>500    服务器产生内部错误</li>
+<li>501    服务器不支持请求的函数</li>
+<li>502    服务器暂时不可用，有时是为了防止发生系统过载</li>
+<li>503    服务器过载或暂停维修，宕机</li>
+<li>504    关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长</li>
+<li>505    服务器不支持或拒绝支请求头中指定的HTTP版本</li>
+</ul>
+</blockquote>
+<h1 id="使用fetch"><a href="#使用fetch" class="headerlink" title="使用fetch"></a>使用fetch</h1><p>官方提供的简洁版，底层是封装promise实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提供接口</span></span><br><span class="line">fetch(<span class="string">'https://api.github.com/users/octocat/gists'</span>, &#123;</span><br><span class="line">    <span class="comment">// 设置请求方法</span></span><br><span class="line">    method: <span class="string">'GET'</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 解析请求的到内容成json</span></span><br><span class="line">    <span class="keyword">return</span> response.json();</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">myJson</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(myJson);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(</span><br><span class="line">    (err) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err); <span class="comment">//打印异常</span></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/前端/" rel="tag"># 前端</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/27/JS/js实现计算器/" rel="next" title="js实现计算器">
+                  <i class="fa fa-chevron-left"></i> js实现计算器
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于AJAX"><span class="nav-number">1.</span> <span class="nav-text">关于AJAX</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发中的角色"><span class="nav-number">2.</span> <span class="nav-text">开发中的角色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">3.1.</span> <span class="nav-text">XMLHttpRequest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码演示-发送一个GET请求"><span class="nav-number">3.2.</span> <span class="nav-text">代码演示(发送一个GET请求)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态值"><span class="nav-number">3.3.</span> <span class="nav-text">状态值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态码"><span class="nav-number">3.4.</span> <span class="nav-text">状态码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用fetch"><span class="nav-number">4.</span> <span class="nav-text">使用fetch</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      大佬们的博客
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
