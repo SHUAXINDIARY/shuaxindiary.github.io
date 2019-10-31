@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="生命周期函数vue框架内部提供的一系列函数，主要用于vue创建的实例在挂载到页面以及从页面销毁这一过程中，我们要进行一些操作时所使用的函数。">
+<meta name="keywords" content="前端,VUE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vuejs基础复习4---生命周期函数">
+<meta property="og:url" content="http://shuaxindiary/2019/10/31/vue/vuejs基础复习-4/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="生命周期函数vue框架内部提供的一系列函数，主要用于vue创建的实例在挂载到页面以及从页面销毁这一过程中，我们要进行一些操作时所使用的函数。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-31T11:50:44.129Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vuejs基础复习4---生命周期函数">
+<meta name="twitter:description" content="生命周期函数vue框架内部提供的一系列函数，主要用于vue创建的实例在挂载到页面以及从页面销毁这一过程中，我们要进行一些操作时所使用的函数。">
+  <link rel="canonical" href="http://shuaxindiary/2019/10/31/vue/vuejs基础复习-4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>vuejs基础复习4---生命周期函数 | 刷新</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/10/31/vue/vuejs基础复习-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">vuejs基础复习4---生命周期函数
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-31 18:35:16 / 修改时间：19:50:44" itemprop="dateCreated datePublished" datetime="2019-10-31T18:35:16+08:00">2019-10-31</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h1><p>vue框架内部提供的一系列函数，主要用于vue创建的实例在挂载到页面以及从页面销毁这一过程中，我们要进行一些操作时所使用的函数。</p>
+<a id="more"></a>
+
+<h1 id="所有生命周期函数"><a href="#所有生命周期函数" class="headerlink" title="所有生命周期函数"></a>所有生命周期函数</h1><p>beforeCreate</p>
+<blockquote>
+<p>在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        &#123;&#123;name&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        let app = new Vue(&#123;</span><br><span class="line">            el: '#app',</span><br><span class="line">            data: &#123;</span><br><span class="line">                name: '生命周期函数'</span><br><span class="line">            &#125;,</span><br><span class="line">            mthods:&#123;</span><br><span class="line">                sayHi()&#123;</span><br><span class="line">                    console.log('hi');</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            beforeCreate() &#123;</span><br><span class="line">                console.log(this.sayHi);// undefined</span><br><span class="line">                console.log(this.name);// undefined</span><br><span class="line">                console.log('beforeCreate');</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>created</p>
+<blockquote>
+<p>在实例创建完成后被立即调用。已经可以获取实例的data、methods、watch。但是不能获取实例根节点</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        &#123;&#123;name&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        let app = new Vue(&#123;</span><br><span class="line">            el: '#app',</span><br><span class="line">            data: &#123;</span><br><span class="line">                name: '生命周期函数'</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                sayHi() &#123;</span><br><span class="line">                    return 'hi'</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            created() &#123;</span><br><span class="line">                console.log(this.name); // 生命周期函数</span><br><span class="line">                console.log(this.$el);// undefind</span><br><span class="line">                console.log(this.sayHi());// hi</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>beforeMount</p>
+<blockquote>
+<p>这一步生成虚拟dom，准备将其渲染到页面,但还未渲染</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        &#123;&#123;name&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        let app = new Vue(&#123;</span><br><span class="line">            el: '#app',</span><br><span class="line">            data: &#123;</span><br><span class="line">                name: '生命周期函数'</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                sayHi() &#123;</span><br><span class="line">                    return 'hi'</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            beforeMount() &#123;</span><br><span class="line">                console.log(this.name); // 生命周期函数</span><br><span class="line">                console.log(this.$el);</span><br><span class="line">                /*  </span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line">                        &#123;&#123;name&#125;&#125;</span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">                */</span><br><span class="line">                console.log(this.sayHi()); // hi</span><br><span class="line">                console.log(this.$refs.demo);// undefind</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>mounted</p>
+<blockquote>
+<p>将虚拟DOM根据el挂载到对应HTML中，将虚拟dom渲染到页面，已经完成</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        &#123;&#123;name&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>dmeo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        let app = new Vue(&#123;</span><br><span class="line">            el: '#app',</span><br><span class="line">            data: &#123;</span><br><span class="line">                name: '生命周期函数'</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                sayHi() &#123;</span><br><span class="line">                    return 'hi'</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            mounted() &#123;</span><br><span class="line">                console.log(this.name); // 生命周期函数</span><br><span class="line">                console.log(this.$el);</span><br><span class="line">                /*  </span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line">                        &#123;&#123;name&#125;&#125;</span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">                */</span><br><span class="line">                console.log(this.sayHi()); // hi</span><br><span class="line"><span class="xml">                console.log(this.$refs.demo);// <span class="tag">&lt;<span class="name">p</span>&gt;</span>dmeo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>beforeUpdate</p>
+<blockquote>
+<p>当data中的数据更新后，虚拟DOM更新前</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p"</span>&gt;</span></span><br><span class="line">            &#123;&#123;name&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">'update'</span>&gt;</span>更新<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        let app = new Vue(&#123;</span><br><span class="line">            el: '#app',</span><br><span class="line">            data: &#123;</span><br><span class="line">                name: '生命周期函数'</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                update() &#123;</span><br><span class="line">                    this.name = 'update';</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            beforeUpdate() &#123;</span><br><span class="line">                console.log(document.getElementById('p').innerText); //生命周期函数</span><br><span class="line">                console.log(1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>updated</p>
+<blockquote>
+<p>数据更新完毕，且虚拟dom完成在页面的渲染之后执行</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p"</span>&gt;</span></span><br><span class="line">            &#123;&#123;name&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">'update'</span>&gt;</span>更新<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        let app = new Vue(&#123;</span><br><span class="line">            el: '#app',</span><br><span class="line">            data: &#123;</span><br><span class="line">                name: '生命周期函数'</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                update() &#123;</span><br><span class="line">                    this.name = 'update';</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            updated() &#123;</span><br><span class="line">                console.log(document.getElementById('p').innerText); //update</span><br><span class="line">                console.log(1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>bdeforeDestroy</p>
+<blockquote>
+<p>当调用vm.$destroy()销毁组件时,销毁前使用,这时data、methods、虚拟dom都可以使用</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p"</span>&gt;</span></span><br><span class="line">            &#123;&#123;name&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">'update'</span>&gt;</span>卸载<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        let app = new Vue(&#123;</span><br><span class="line">            el: '#app',</span><br><span class="line">            data: &#123;</span><br><span class="line">                name: '生命周期函数'</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                update() &#123;</span><br><span class="line">                    this.$destroy();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            beforeDestroy() &#123;</span><br><span class="line">                console.log(this.name);//生命周期函数</span><br><span class="line"><span class="xml">                console.log(this.$el);//<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">​</span>"<span class="attr">app</span>"&gt;</span>​…​<span class="tag">&lt;/<span class="name">div</span>&gt;</span>​</span></span><br><span class="line">                console.log(this.update);</span><br><span class="line">               /* ƒ update() &#123;</span><br><span class="line">                    this.$destroy();</span><br><span class="line">                &#125;*/</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>destroyed</p>
+<blockquote>
+<p>彻底销毁完毕时使用</p>
+</blockquote>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>上述就是官方规定的生命周期函数，但大体来看生命周期函数的特点就是会在实例的某个阶段自动调用，这样看watch，computed也应该算。</p>
+<h1 id="常见使用场景"><a href="#常见使用场景" class="headerlink" title="常见使用场景"></a>常见使用场景</h1><p>个人使用过的</p>
+<blockquote>
+<p>created</p>
+<ul>
+<li>ajax请求</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>mounted</p>
+<ul>
+<li>挂载元素内dom节点的获取</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>updated</p>
+<ul>
+<li>任何数据的更新，如果要做统一的业务逻辑处理</li>
+</ul>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/前端/" rel="tag"># 前端</a>
+            
+              <a href="/tags/VUE/" rel="tag"># VUE</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/27/JS/js实现计算器/" rel="next" title="js实现计算器">
+                  <i class="fa fa-chevron-left"></i> js实现计算器
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#生命周期函数"><span class="nav-number">1.</span> <span class="nav-text">生命周期函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#所有生命周期函数"><span class="nav-number">2.</span> <span class="nav-text">所有生命周期函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见使用场景"><span class="nav-number">4.</span> <span class="nav-text">常见使用场景</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      大佬们的博客
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
