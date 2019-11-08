@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="惯例BB最近在做一个卡片弹窗的动画，怎么做都达不到想要的效果，查了查资料，发现通过一种叫FLIP的技术(也不算新技术，一种思路？)，可以比较好的实现这个效果，而且这个过程中，也了解到了一些关于动画性能相关的知识，所以记录一下。">
+<meta name="keywords" content="CSS,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FLIP做卡片弹窗动画">
+<meta property="og:url" content="http://shuaxindiary/2019/11/08/JS/FLIP做卡片弹窗动画/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="惯例BB最近在做一个卡片弹窗的动画，怎么做都达不到想要的效果，查了查资料，发现通过一种叫FLIP的技术(也不算新技术，一种思路？)，可以比较好的实现这个效果，而且这个过程中，也了解到了一些关于动画性能相关的知识，所以记录一下。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://shuaxindiary/img/flip.png">
+<meta property="og:updated_time" content="2019-11-08T11:54:51.173Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FLIP做卡片弹窗动画">
+<meta name="twitter:description" content="惯例BB最近在做一个卡片弹窗的动画，怎么做都达不到想要的效果，查了查资料，发现通过一种叫FLIP的技术(也不算新技术，一种思路？)，可以比较好的实现这个效果，而且这个过程中，也了解到了一些关于动画性能相关的知识，所以记录一下。">
+<meta name="twitter:image" content="http://shuaxindiary/img/flip.png">
+  <link rel="canonical" href="http://shuaxindiary/2019/11/08/JS/FLIP做卡片弹窗动画/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>FLIP做卡片弹窗动画 | 刷新</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/11/08/JS/FLIP做卡片弹窗动画/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">FLIP做卡片弹窗动画
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-08 18:29:49 / 修改时间：19:54:51" itemprop="dateCreated datePublished" datetime="2019-11-08T18:29:49+08:00">2019-11-08</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="惯例BB"><a href="#惯例BB" class="headerlink" title="惯例BB"></a>惯例BB</h1><p>最近在做一个卡片弹窗的动画，怎么做都达不到想要的效果，查了查资料，发现通过一种叫FLIP的技术(也不算新技术，一种思路？)，可以比较好的实现这个效果，而且这个过程中，也了解到了一些关于动画性能相关的知识，所以记录一下。</p>
+<a id="more"></a>
+
+<p><a href="https://user-gold-cdn.xitu.io/2019/4/27/16a5dfd7c4d0f639?imageslim" target="_blank" rel="noopener">类似效果</a></p>
+<h1 id="关于FLIP"><a href="#关于FLIP" class="headerlink" title="关于FLIP"></a>关于FLIP</h1><p>FLIP是First、Last、Invert和Play四个单词首字母的缩写。</p>
+<blockquote>
+<p>简单解释下这四个单词在实现思路中对应的意思</p>
+<ul>
+<li>first：指在过度效果发生前，目标对象的位置、大小</li>
+<li>last：指过度效果发生后，目标对象的位置、大小</li>
+<li>invert：目标对象过度前后的位置、大小差</li>
+<li>play：通过invert得到的差值，来作为transform的参数进行动画</li>
+</ul>
+</blockquote>
+<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><p>1.动画前后的效果，用两个div写好</p>
+<p>2.获取这两个div的大小比例和位置差</p>
+<p>3.通过translate将动画后的div变成动画前的大小和移动到对应的位置</p>
+<p>4.通过取消3中的translate和重新设置，加上过度就可以实现动画效果啦</p>
+<h1 id="手撕代码前"><a href="#手撕代码前" class="headerlink" title="手撕代码前"></a>手撕代码前</h1><p>代码使用到的API</p>
+<blockquote>
+<p>transform:translate/scale</p>
+<ul>
+<li>偏移/缩放</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>getBoundingClientRect</p>
+<ul>
+<li>获取dom元素的位置和大小</li>
+</ul>
+</blockquote>
+<h1 id="关于性能"><a href="#关于性能" class="headerlink" title="关于性能"></a>关于性能</h1><p><img src="/img/flip.png" alt="浏览器渲染过程"><br>上图中的layout和paint是非常影响性能的，比如position和display控制显示隐藏，都会触发这两步，所以在动画过程实现中，位置用transform的translate、显示隐藏用visibility/opacity 来做。因为他们只会触发最后一步。</p>
+<h1 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">body &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">    background-color: rgb(139, 206, 248);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.before &#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    line-height: 300px;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">    transition: all 1s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.after &#123;</span><br><span class="line">    width: 100vw;</span><br><span class="line">    height: 100vh;</span><br><span class="line">    line-height: 100vh;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"before"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"after"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">let before = document.querySelector('#before');</span><br><span class="line">let after = document.querySelector('#after');</span><br><span class="line">// 获取过度前 位置大小</span><br><span class="line">let first = before.getBoundingClientRect();</span><br><span class="line">// 获取过度后 位置大小</span><br><span class="line">let last = after.getBoundingClientRect();</span><br><span class="line">console.log(first);</span><br><span class="line">console.log(last);</span><br><span class="line"></span><br><span class="line">// 记录前后大小位置差</span><br><span class="line">let invert = &#123;</span><br><span class="line">    left: first.left - last.left,</span><br><span class="line">    top: first.top - last.top,</span><br><span class="line">    width: first.width / last.width,</span><br><span class="line">    height: first.height / last.height,</span><br><span class="line">&#125;;</span><br><span class="line">// 让after通过transform变成before的大小，以及移动到before的位置</span><br><span class="line">after.style.visibility='hidden';</span><br><span class="line">after.style.transformOrigin = 'top left';</span><br><span class="line">after.style.transform = `translate($&#123;invert.left&#125;px,$&#123;invert.top&#125;px) scale($&#123;invert.width&#125;,$&#123;invert.height&#125;)`;</span><br><span class="line">// 放大</span><br><span class="line">before.addEventListener('click', function () &#123;</span><br><span class="line">    after.style.transform = '';</span><br><span class="line">    after.style.transition = ' all 1s';</span><br><span class="line">    after.style.visibility='visible';</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line">// 缩小</span><br><span class="line">after.addEventListener('click', function () &#123;</span><br><span class="line">    after.style.visibility='hidden';</span><br><span class="line">    after.style.transition = ' all 1s';</span><br><span class="line">    after.style.transform =</span><br><span class="line">        `translate($&#123;invert.left&#125;px,$&#123;invert.top&#125;px) scale($&#123;invert.width&#125;,$&#123;invert.height&#125;)`;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://segmentfault.com/a/1190000019713766#articleHeader5" target="_blank" rel="noopener">浏览器渲染原理</a><br><a href="https://juejin.im/post/5da689b76fb9a04e143dbebc" target="_blank" rel="noopener">前端动画之FLIP技术</a></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+            
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/08/计算机基础/关于meta/" rel="next" title="关于meta">
+                  <i class="fa fa-chevron-left"></i> 关于meta
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#惯例BB"><span class="nav-number">1.</span> <span class="nav-text">惯例BB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于FLIP"><span class="nav-number">2.</span> <span class="nav-text">关于FLIP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现思路"><span class="nav-number">3.</span> <span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#手撕代码前"><span class="nav-number">4.</span> <span class="nav-text">手撕代码前</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于性能"><span class="nav-number">5.</span> <span class="nav-text">关于性能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码演示"><span class="nav-number">6.</span> <span class="nav-text">代码演示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      学习
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮老师</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
