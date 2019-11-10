@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="常用命令内容转载自(https://chars.tech/blog/build-blog-by-hexo/)">
-<meta name="keywords" content="工具,hexo">
+  <meta name="description" content="基本术语集合:类似MySQL的表 文档:类似MySQL的元祖">
+<meta name="keywords" content="NodeJS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo常用配置和命令">
-<meta property="og:url" content="http://shuaxindiary/2019/07/01/其他/hexo常用配置和命令/index.html">
+<meta property="og:title" content="MongoDB入门学习笔记">
+<meta property="og:url" content="http://shuaxindiary/2019/11/10/其他/MongoDB入门学习笔记/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="常用命令内容转载自(https://chars.tech/blog/build-blog-by-hexo/)">
+<meta property="og:description" content="基本术语集合:类似MySQL的表 文档:类似MySQL的元祖">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-12T12:04:45.845Z">
+<meta property="og:updated_time" content="2019-11-10T12:36:56.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo常用配置和命令">
-<meta name="twitter:description" content="常用命令内容转载自(https://chars.tech/blog/build-blog-by-hexo/)">
-  <link rel="canonical" href="http://shuaxindiary/2019/07/01/其他/hexo常用配置和命令/">
+<meta name="twitter:title" content="MongoDB入门学习笔记">
+<meta name="twitter:description" content="基本术语集合:类似MySQL的表 文档:类似MySQL的元祖">
+  <link rel="canonical" href="http://shuaxindiary/2019/11/10/其他/MongoDB入门学习笔记/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>hexo常用配置和命令 | 刷新</title>
+  <title>MongoDB入门学习笔记 | 刷新</title>
   
 
 
@@ -228,7 +228,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/01/其他/hexo常用配置和命令/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/11/10/其他/MongoDB入门学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -240,7 +240,7 @@
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">hexo常用配置和命令
+        <h1 class="post-title" itemprop="name headline">MongoDB入门学习笔记
 
           
         </h1>
@@ -256,19 +256,11 @@
                 
               
 
-              <time title="创建时间：2019-07-01 12:21:54" itemprop="dateCreated datePublished" datetime="2019-07-01T12:21:54+08:00">2019-07-01</time>
+              <time title="创建时间：2019-11-10 19:48:21 / 修改时间：20:36:56" itemprop="dateCreated datePublished" datetime="2019-11-10T19:48:21+08:00">2019-11-10</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-12 20:04:45" itemprop="dateModified" datetime="2019-10-12T20:04:45+08:00">2019-10-12</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -304,11 +296,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>内容转载自(<a href="https://chars.tech/blog/build-blog-by-hexo/" target="_blank" rel="noopener">https://chars.tech/blog/build-blog-by-hexo/</a>)</p>
+        <h1 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h1><p>集合:类似MySQL的表</p>
+<p>文档:类似MySQL的元祖</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">常用命令：</span><br><span class="line">hexo help #查看帮助</span><br><span class="line">hexo init #初始化一个目录</span><br><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成网页，可以在 public 目录查看整个网站的文件</span><br><span class="line">hexo server #本地预览，&apos;Ctrl+C&apos;关闭</span><br><span class="line">hexo deploy #部署.deploy目录</span><br><span class="line">hexo clean #清除缓存，强烈建议每次执行命令前先清理缓存，每次部署前先删除 .deploy 文件夹</span><br><span class="line"></span><br><span class="line">简写：</span><br><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
 
-<h1 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Hexo Configuration</span><br><span class="line">## Docs: http://hexo.io/docs/configuration.html</span><br><span class="line">## Source: https://github.com/hexojs/hexo/</span><br><span class="line"># Site #站点信息</span><br><span class="line">title:  #标题</span><br><span class="line">subtitle:  #副标题</span><br><span class="line">description:  #站点描述，给搜索引擎看的</span><br><span class="line">author:  #作者</span><br><span class="line">email:  #电子邮箱</span><br><span class="line">language: zh-CN #语言</span><br><span class="line"># URL #链接格式</span><br><span class="line">url:  #网址</span><br><span class="line">root: / #根目录</span><br><span class="line">permalink: :year/:month/:day/:title/ #文章的链接格式</span><br><span class="line">tag_dir: tags #标签目录</span><br><span class="line">archive_dir: archives #存档目录</span><br><span class="line">category_dir: categories #分类目录</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">permalink_defaults:</span><br><span class="line"># Directory #目录</span><br><span class="line">source_dir: source #源文件目录</span><br><span class="line">public_dir: public #生成的网页文件目录</span><br><span class="line"># Writing #写作</span><br><span class="line">new_post_name: :title.md #新文章标题</span><br><span class="line">default_layout: post #默认的模板，包括 post、page、photo、draft（文章、页面、照片、草稿）</span><br><span class="line">titlecase: false #标题转换成大写</span><br><span class="line">external_link: true #在新选项卡中打开连接</span><br><span class="line">filename_case: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">highlight: #语法高亮</span><br><span class="line">  enable: true #是否启用</span><br><span class="line">  line_number: true #显示行号</span><br><span class="line">  tab_replace:</span><br><span class="line"># Category &amp; Tag #分类和标签</span><br><span class="line">default_category: uncategorized #默认分类</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"># Archives</span><br><span class="line">2: 开启分页</span><br><span class="line">1: 禁用分页</span><br><span class="line">0: 全部禁用</span><br><span class="line">archive: 2</span><br><span class="line">category: 2</span><br><span class="line">tag: 2</span><br><span class="line"># Server #本地服务器</span><br><span class="line">port: 4000 #端口号</span><br><span class="line">server_ip: localhost #IP 地址</span><br><span class="line">logger: false</span><br><span class="line">logger_format: dev</span><br><span class="line"># Date / Time format #日期时间格式</span><br><span class="line">date_format: YYYY-MM-DD #参考http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">time_format: H:mm:ss</span><br><span class="line"># Pagination #分页</span><br><span class="line">per_page: 10 #每页文章数，设置成 0 禁用分页</span><br><span class="line">pagination_dir: page</span><br><span class="line"># Disqus #Disqus评论，替换为多说</span><br><span class="line">disqus_shortname:</span><br><span class="line"># Extensions #拓展插件</span><br><span class="line">theme: landscape-plus #主题</span><br><span class="line">exclude_generator:</span><br><span class="line">plugins: #插件，例如生成 RSS 和站点地图的</span><br><span class="line">- hexo-generator-feed</span><br><span class="line">- hexo-generator-sitemap</span><br><span class="line"># Deployment #部署，将 lmintlcx 改成用户名</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: github创库地址.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>mongo中的数据类型:</p>
+<blockquote>
+<p>Object ID： ⽂档ID</p>
+<ul>
+<li>可以手动设置，未设置系统默认分配一个objectID(是⼀个12字节的⼗六进制数)<br>String： 字符串， 最常⽤， 必须是有效的UTF-8<br>Boolean： 存储⼀个布尔值， true或false<br>Integer： 整数可以是32位或64位， 这取决于服务器<br>Double： 存储浮点值<br>Arrays： 数组或列表， 多个值存储到⼀个键<br>Object： ⽤于嵌⼊式的⽂档， 即⼀个值为⼀个⽂档<br>Null： 存储Null值<br>Timestamp： 时间戳， 表示从1970-1-1到现在的总秒数<br>Date： 存储当前⽇期或时间的UNIX时间格式</li>
+</ul>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 创建日期</span><br><span class="line">new Date('2017-12-20')</span><br></pre></td></tr></table></figure>
+
+<h1 id="MongoDB基本命令"><a href="#MongoDB基本命令" class="headerlink" title="MongoDB基本命令"></a>MongoDB基本命令</h1><blockquote>
+<p>关于数据库</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动MongoDB</span><br><span class="line">net stop mongodb</span><br><span class="line"><span class="meta">#</span> 进入安装目录的bin目录</span><br><span class="line"><span class="meta">#</span> 终端启动(客户端)</span><br><span class="line">mongo</span><br><span class="line"><span class="meta">#</span> 服务端启动</span><br><span class="line">mongod</span><br><span class="line"><span class="meta">#</span> 查看当前数据</span><br><span class="line">db</span><br><span class="line"><span class="meta">#</span> 查看所有数据库</span><br><span class="line">show dbs</span><br><span class="line"><span class="meta">#</span> 切换数据库---不存在时会自动创建---如果创建了没操作，在切换时，该数据库不保存</span><br><span class="line">use &lt;dbname&gt;</span><br><span class="line"><span class="meta">#</span> 删除数据库</span><br><span class="line">db.dropDatabase()</span><br><span class="line"><span class="meta">#</span> 显示当前数据库状态信息</span><br><span class="line">db.stats()</span><br><span class="line"><span class="meta">#</span> 查看当前数据库版本</span><br><span class="line">db.version()</span><br><span class="line"><span class="meta">#</span> 查看当前连接数据库地址</span><br><span class="line">db.getMongo()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关于集合</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看所有集合</span><br><span class="line">show collections</span><br><span class="line"><span class="meta">#</span> 删除集合</span><br><span class="line">db.&lt;集合名&gt;.drop()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关于文档</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 插入文档  数据为对象格式  当集合不存在时直接插入会自动创建集合</span><br><span class="line">db.&lt;集合名&gt;.insertOne(&#123;name:'shauxin',age:21&#125;);</span><br><span class="line"><span class="meta">#</span> insertOne插入一个  insertMany插入多个</span><br><span class="line">db.&lt;集合名&gt;.insertOne([&#123;name:'one'&#125;,&#123;name:'two'&#125;]);</span><br><span class="line"><span class="meta">#</span> 查询所有文档</span><br><span class="line">db.&lt;集合名&gt;.find()</span><br><span class="line"><span class="meta">#</span> 更新文档</span><br><span class="line"><span class="meta">#</span>更新一条update或者updateOne,没有更新的字段会丢弃. </span><br><span class="line">db.&lt;集合名&gt;.update(&#123;name:'hr'&#125;,&#123;name:'mnc'&#125;)</span><br><span class="line"><span class="meta">#</span>更新一条</span><br><span class="line">db.&lt;集合名&gt;.update(&#123;name:'hr'&#125;,&#123;$set:&#123;name:'hys'&#125;&#125;)</span><br><span class="line"><span class="meta">#</span>更新全部</span><br><span class="line">db.&lt;集合名&gt;.update(&#123;&#125;,&#123;$set:&#123;gender:0&#125;&#125;,&#123;multi:true&#125;) </span><br><span class="line"><span class="meta">#</span> 更新多个 updateMany</span><br><span class="line">db.&lt;集合名&gt;.updateOne(&#123;name:'wade'&#125;,&#123;$set:&#123;age:21&#125;&#125;)   </span><br><span class="line"><span class="meta">#</span> 删除</span><br><span class="line"><span class="meta">#</span> 删除第一个符合条件的</span><br><span class="line">db.&lt;集合名&gt;.deleteOne(&#123;age:21&#125;)</span><br><span class="line"><span class="meta">#</span> 删除所有符合条件的</span><br><span class="line">db.&lt;集合名&gt;.deleteMany(&#123;age:21&#125;)</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -323,9 +339,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/工具/" rel="tag"># 工具</a>
-            
-              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/NodeJS/" rel="tag"># NodeJS</a>
             
           </div>
         
@@ -335,8 +349,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/07/01/其他/demo/" rel="next" title="markdown笔记">
-                  <i class="fa fa-chevron-left"></i> markdown笔记
+                <a href="/2019/11/08/JS/FLIP做卡片弹窗动画/" rel="next" title="FLIP做卡片弹窗动画">
+                  <i class="fa fa-chevron-left"></i> FLIP做卡片弹窗动画
                 </a>
               
             </div>
@@ -344,10 +358,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/07/02/计算机基础/js数据结构笔记/" rel="prev" title="《学习JavaScript数据结构与算法》笔记---栈">
-                  《学习JavaScript数据结构与算法》笔记---栈 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -393,7 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用配置"><span class="nav-number">2.</span> <span class="nav-text">常用配置</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本术语"><span class="nav-number">1.</span> <span class="nav-text">基本术语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MongoDB基本命令"><span class="nav-number">2.</span> <span class="nav-text">MongoDB基本命令</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
