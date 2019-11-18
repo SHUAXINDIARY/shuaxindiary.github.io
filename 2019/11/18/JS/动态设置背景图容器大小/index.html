@@ -55,18 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://shuaxindiary/tags/index.html">
+  <meta name="description" content="起因最近在做一个官网的效果的时候，出现了背景图过大，导致不同显示器显示的图片大小不一样，和影响下面内容的布局问题。所以记录一下这个坑。">
+<meta name="keywords" content="JavaScript,CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态设置背景图容器大小">
+<meta property="og:url" content="http://shuaxindiary/2019/11/18/JS/动态设置背景图容器大小/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="学习笔记&amp;&amp;踩坑记录">
+<meta property="og:description" content="起因最近在做一个官网的效果的时候，出现了背景图过大，导致不同显示器显示的图片大小不一样，和影响下面内容的布局问题。所以记录一下这个坑。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-10T01:25:40.089Z">
+<meta property="og:updated_time" content="2019-11-18T13:31:36.540Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
-<meta name="twitter:description" content="学习笔记&amp;&amp;踩坑记录">
-  <link rel="canonical" href="http://shuaxindiary/tags/">
+<meta name="twitter:title" content="动态设置背景图容器大小">
+<meta name="twitter:description" content="起因最近在做一个官网的效果的时候，出现了背景图过大，导致不同显示器显示的图片大小不一样，和影响下面内容的布局问题。所以记录一下这个坑。">
+  <link rel="canonical" href="http://shuaxindiary/2019/11/18/JS/动态设置背景图容器大小/">
 
 
 <script id="page-configurations">
@@ -74,13 +75,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签 | 刷新</title>
+  <title>动态设置背景图容器大小 | 刷新</title>
   
 
 
@@ -205,24 +206,6 @@
 
     
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
 </nav>
 </div>
     </header>
@@ -241,46 +224,136 @@
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">标签
-
-</h1>
-
-<div class="post-meta">
+      
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/11/18/JS/动态设置背景图容器大小/">
 
-</div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
 
-</header>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">动态设置背景图容器大小
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-18 21:11:49 / 修改时间：21:31:36" itemprop="dateCreated datePublished" datetime="2019-11-18T21:11:49+08:00">2019-11-18</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>最近在做一个官网的效果的时候，出现了背景图过大，导致不同显示器显示的图片大小不一样，和影响下面内容的布局问题。所以记录一下这个坑。</p>
+<a id="more"></a>
+<h2 id="用到的知识"><a href="#用到的知识" class="headerlink" title="用到的知识"></a>用到的知识</h2><p>css3</p>
+<blockquote>
+<p><a href="https://www.runoob.com/cssref/pr-background-position.html" target="_blank" rel="noopener">background-position</a>:指定背景图像位置<br><a href="https://www.runoob.com/cssref/css3-pr-background-size.html" target="_blank" rel="noopener">background-size</a>:指定背景图像的大小</p>
+</blockquote>
+<p>js</p>
+<blockquote>
+<p><a href="https://www.runoob.com/jsref/event-onresize.html" target="_blank" rel="noopener">onresize</a>:当窗口大小发生变化时触发某一段代码</p>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><blockquote>
+<p><strong><em>问题</em></strong></p>
+<ul>
+<li>遇到的问题是，1.图片不能根据不同的显示器(不同的窗口大小)，调整最佳的大小而显示。2.背景图的容器不能根据不同的显示器(不同的窗口大小)，调整自身大小，导致影响下面内容的布局。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong><em>解决</em></strong></p>
+<ul>
+<li>第一个问题可以通过上述提到的两个css的属性来做，第二个问题通过获取背景容器的宽度，再根据图片的比例，来计算适合的高度即可。</li>
+</ul>
+</blockquote>
+<h2 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">/* 设置背景容器样式 */</span><br><span class="line">.banner &#123;</span><br><span class="line">    width: 100vw;</span><br><span class="line">    /* 最大宽度为图片本身宽度 */</span><br><span class="line">    max-height: 520px;</span><br><span class="line">    /* 最大高度为图片最大高度 */</span><br><span class="line">    max-width: 1920px;</span><br><span class="line">    background: url('./banner1.png') no-repeat;</span><br><span class="line">    /* 设置图片位置 为容器 居中 顶部 */</span><br><span class="line">    background-position: center top;</span><br><span class="line">    /* 设置图片一直以合适的比例在容器中显示 */</span><br><span class="line">    background-size: contain;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"banner"</span> <span class="attr">id</span>=<span class="string">"banner"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    let changeH = function () &#123;</span><br><span class="line">        let banner = document.querySelector('#banner');</span><br><span class="line">        // 获取banner的宽度</span><br><span class="line">        let width = banner.clientWidth;</span><br><span class="line">        // 计算图片宽高比例</span><br><span class="line">        let prop = parseInt(1920 / 520);</span><br><span class="line">        // 获取当前宽度下合适的高度</span><br><span class="line">        let height = parseInt(width / prop);</span><br><span class="line">        // 设置容器高度</span><br><span class="line">        banner.style.height = height + 'px';</span><br><span class="line">    &#125;;</span><br><span class="line">    // 初始化容器高度</span><br><span class="line">    let init = function () &#123;</span><br><span class="line">        changeH();</span><br><span class="line">    &#125;;</span><br><span class="line">    init();</span><br><span class="line">    // 监听窗口大小变化 一旦变化就触发内部的函数</span><br><span class="line">    window.onresize = function () &#123;</span><br><span class="line">        changeH();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
       
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 11 个标签
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/15/其他/高效利用GITHUB/" rel="next" title="高效利用GITHUB">
+                  <i class="fa fa-chevron-left"></i> 高效利用GITHUB
+                </a>
+              
             </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/CSS/" style="font-size: 15px; color: #adadad">CSS</a> <a href="/tags/JavaScript/" style="font-size: 30px; color: #111">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 15px; color: #adadad">NodeJS</a> <a href="/tags/VUE/" style="font-size: 18px; color: #8e8e8e">VUE</a> <a href="/tags/hexo/" style="font-size: 15px; color: #adadad">hexo</a> <a href="/tags/前端/" style="font-size: 24px; color: #4f4f4f">前端</a> <a href="/tags/小程序/" style="font-size: 12px; color: #ccc">小程序</a> <a href="/tags/工具/" style="font-size: 21px; color: #6f6f6f">工具</a> <a href="/tags/数据结构/" style="font-size: 27px; color: #303030">数据结构</a> <a href="/tags/网络/" style="font-size: 12px; color: #ccc">网络</a> <a href="/tags/随笔/" style="font-size: 15px; color: #adadad">随笔</a>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
             </div>
           </div>
         
-      </div>
-      
-      
-      
-    </div>
+      </footer>
     
+  </article>
+  
+  
+  
 
-    
-    
-    
   </div>
 
 
@@ -315,6 +388,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#起因"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用到的知识"><span class="nav-number">1.1.</span> <span class="nav-text">用到的知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">1.2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码演示"><span class="nav-number">1.3.</span> <span class="nav-text">代码演示</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
