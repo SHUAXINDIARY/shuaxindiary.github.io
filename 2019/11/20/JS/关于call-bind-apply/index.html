@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="关于call,bind,apply的作用这三个方法都是只有函数才可以调用，作用就是改变函数执行时this的指向。">
+<meta name="keywords" content="JavaScript,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于call,bind,apply">
+<meta property="og:url" content="http://shuaxindiary/2019/11/20/JS/关于call-bind-apply/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="关于call,bind,apply的作用这三个方法都是只有函数才可以调用，作用就是改变函数执行时this的指向。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-20T12:43:54.747Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于call,bind,apply">
+<meta name="twitter:description" content="关于call,bind,apply的作用这三个方法都是只有函数才可以调用，作用就是改变函数执行时this的指向。">
+  <link rel="canonical" href="http://shuaxindiary/2019/11/20/JS/关于call-bind-apply/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>关于call,bind,apply | 刷新</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/11/20/JS/关于call-bind-apply/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">关于call,bind,apply
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-20 19:23:11 / 修改时间：20:43:54" itemprop="dateCreated datePublished" datetime="2019-11-20T19:23:11+08:00">2019-11-20</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="关于call-bind-apply的作用"><a href="#关于call-bind-apply的作用" class="headerlink" title="关于call,bind,apply的作用"></a>关于call,bind,apply的作用</h1><p>这三个方法都是只有函数才可以调用，作用就是改变函数执行时this的指向。</p>
+<a id="more"></a>
+<h1 id="代码中用到的一些知识的说明"><a href="#代码中用到的一些知识的说明" class="headerlink" title="代码中用到的一些知识的说明"></a>代码中用到的一些知识的说明</h1><blockquote>
+<p><strong><em>rest</em></strong></p>
+<ul>
+<li>rest是es6的一个新语法，参数接受函数的多余参数，组成一个数组，放在形参的最后</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one=<span class="function"><span class="keyword">function</span>(<span class="params">...rest</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(rest <span class="keyword">instanceof</span> Arrary); <span class="comment">// true</span></span><br><span class="line">    <span class="built_in">console</span>.log(rest);<span class="comment">// [1,2,3]</span></span><br><span class="line">&#125;;</span><br><span class="line">one(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><em>…&lt;一个数组&gt;</em></strong> </p>
+<ul>
+<li>解构赋值,他是一种针对数组或者对象进行模式匹配，然后对其中的变量进行赋值</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">// [1, 2, 3]</span></span><br><span class="line"><span class="built_in">console</span>.log(...arr);<span class="comment">// 1 2 3</span></span><br><span class="line"><span class="keyword">let</span> brr=[...arr];</span><br><span class="line"><span class="comment">// 很方便的复制arr的值到brr</span></span><br><span class="line"><span class="built_in">console</span>.log(brr);<span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用?"></a>如何使用?</h1><p>call</p>
+<blockquote>
+<p><strong><em>参数(obj,arg1,arg2,…)</em></strong></p>
+<ul>
+<li>第一个参数是要绑定的目标对象，后面的参数就是要传入函数内的参数，可以是任何类型</li>
+<li>代码示例</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one = &#123;</span><br><span class="line">    name: <span class="string">'one'</span>,</span><br><span class="line">    sayhi(...rest) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`这是<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>的函数,这是传递进来的参数：<span class="subst">$&#123;rest[<span class="number">0</span>]&#125;</span>,<span class="subst">$&#123;rest[<span class="number">1</span>]&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 这是one的函数,这是传递进来的参数：参数一,参数二</span></span><br><span class="line">one.sayhi(<span class="string">'参数一'</span>, <span class="string">'参数二'</span>);</span><br><span class="line"><span class="keyword">let</span> two = &#123;</span><br><span class="line">    name: <span class="string">'two'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 这是two的函数,这是传递进来的参数：参数1,参数2</span></span><br><span class="line">one.sayhi.call(two, <span class="string">'参数a'</span>, <span class="string">'参数b'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>bind</p>
+<blockquote>
+<p><strong><em>参数(obj,arg1,arg2,…)()</em></strong></p>
+<ul>
+<li>第一个参数是要绑定的目标对象，后面的参数就是要传入函数内的参数，可以是任何类型</li>
+<li>使用时，需要在调用一次，因为bind返回的是一个函数</li>
+<li>代码示例</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one = &#123;</span><br><span class="line">    name: <span class="string">'one'</span>,</span><br><span class="line">    sayhi(...rest) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`这是<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>的函数,这是传递进来的参数：<span class="subst">$&#123;rest[<span class="number">0</span>]&#125;</span>,<span class="subst">$&#123;rest[<span class="number">1</span>]&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 这是one的函数,这是传递进来的参数：参数一,参数二</span></span><br><span class="line">one.sayhi(<span class="string">'参数一'</span>, <span class="string">'参数二'</span>);</span><br><span class="line"><span class="keyword">let</span> two = &#123;</span><br><span class="line">    name: <span class="string">'two'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 这是two的函数,这是传递进来的参数：参数1,参数2</span></span><br><span class="line">one.sayhi.bind(two, <span class="string">'参数a'</span>, <span class="string">'参数b'</span>)();</span><br></pre></td></tr></table></figure>
+
+<p>apply</p>
+<blockquote>
+<p><strong><em>参数(obj,[arg1,arg2,…])</em></strong></p>
+<ul>
+<li>第一个参数时要绑定的目标对象,后面的参数，都以数组形式传入</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one = &#123;</span><br><span class="line">    name: <span class="string">'one'</span>,</span><br><span class="line">    sayhi(...rest) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`这是<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>的函数,这是传递进来的参数：<span class="subst">$&#123;rest[<span class="number">0</span>]&#125;</span>,<span class="subst">$&#123;rest[<span class="number">1</span>]&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 这是one的函数,这是传递进来的参数：参数一,参数二</span></span><br><span class="line">one.sayhi(<span class="string">'参数一'</span>, <span class="string">'参数二'</span>);</span><br><span class="line"><span class="keyword">let</span> two = &#123;</span><br><span class="line">    name: <span class="string">'two'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 这是two的函数,这是传递进来的参数：参数1,参数2</span></span><br><span class="line">one.sayhi.apply(two, [<span class="string">'参数a'</span>, <span class="string">'参数b'</span>]);</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结三者不同"><a href="#总结三者不同" class="headerlink" title="总结三者不同"></a>总结三者不同</h1><blockquote>
+<p>传参数不同</p>
+<ul>
+<li>call和bind在参数传递时，都是以多参数传递，只是bind使用是需要再调用一次返回的函数；</li>
+<li>apply在传递参数时，都是以数组形式传递；</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>使用不同</p>
+<ul>
+<li>call和apply改变了函数的this上下文后便执行该函数</li>
+<li>bind则是返回改变了上下文后的一个函数。</li>
+</ul>
+</blockquote>
+<h1 id="三者的应用"><a href="#三者的应用" class="headerlink" title="三者的应用"></a>三者的应用</h1><blockquote>
+<p><strong><em>将伪数组转换成数组</em></strong></p>
+<ul>
+<li>啥是伪数组?就是长得像数组，但是不是数组，是一个对象；以及含有length的对象</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数内部的 arguments 就是一个伪数组</span></span><br><span class="line"><span class="keyword">let</span> one = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">//Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">arguments</span>); <span class="comment">//object</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// false</span></span><br><span class="line">    <span class="keyword">let</span> arr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(arr); <span class="comment">//  [1, 2, 3]</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr); <span class="comment">// object</span></span><br><span class="line">    <span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">//true</span></span><br><span class="line">&#125;;</span><br><span class="line">one(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><em>利用call和apply实现继承</em></strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.sayhi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>向您问好`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Man</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    Person.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> shuaxin = <span class="keyword">new</span> Man(<span class="string">'刷新'</span>);</span><br><span class="line">shuaxin.sayhi();</span><br></pre></td></tr></table></figure>
+
+<h1 id="来动手实现一下call、bind、apply"><a href="#来动手实现一下call、bind、apply" class="headerlink" title="来动手实现一下call、bind、apply"></a>来动手实现一下call、bind、apply</h1><p>call</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过rest来接受参数</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.mycall = <span class="function"><span class="keyword">function</span> (<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 判断调用该函数的是不是函数</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> === <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="comment">// 获取要绑定的对象</span></span><br><span class="line">        <span class="keyword">var</span> obj = rest.splice(<span class="number">0</span>, <span class="number">1</span>)[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">// 给目标对象添加当前调用的函数</span></span><br><span class="line">        obj[<span class="keyword">this</span>.name] = <span class="keyword">this</span>;</span><br><span class="line">        <span class="comment">// 并将要传递参数再一次传入进去</span></span><br><span class="line">        obj[<span class="keyword">this</span>.name](...rest);</span><br><span class="line">        <span class="comment">// 删除目标对象的该方法</span></span><br><span class="line">        <span class="keyword">delete</span> obj.sayhi;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'该函数只可以被函数调用'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj[<span class="keyword">this</span>.name];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>bind</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.mybind = <span class="function"><span class="keyword">function</span> (<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> === <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="comment">// 获取要绑定的对象</span></span><br><span class="line">        <span class="keyword">var</span> obj = rest.splice(<span class="number">0</span>, <span class="number">1</span>)[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">var</span> fname = <span class="keyword">this</span>.name;</span><br><span class="line">        <span class="comment">// 给该函数绑定当前调用的函数</span></span><br><span class="line">        obj[fname] = <span class="keyword">this</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'该函数只可以被函数调用'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 将要传递参数再一次传入进去</span></span><br><span class="line">        obj[fname](...rest);</span><br><span class="line">        <span class="comment">// 删除该方法</span></span><br><span class="line">        <span class="keyword">delete</span> obj[fname];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>apply</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">Function</span>.prototype.myapply = <span class="function"><span class="keyword">function</span> (<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> === <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="comment">// 获取要绑定的对象</span></span><br><span class="line">        <span class="keyword">var</span> obj = rest.splice(<span class="number">0</span>, <span class="number">1</span>)[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">// 给该函数绑定当前调用的函数</span></span><br><span class="line">        obj[<span class="keyword">this</span>.name] = <span class="keyword">this</span>;</span><br><span class="line">        <span class="comment">// 将要传递参数再一次传入进去</span></span><br><span class="line">        <span class="keyword">if</span> (rest[<span class="number">0</span>] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">            obj[<span class="keyword">this</span>.name](...rest[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            obj[<span class="keyword">this</span>.name](rest[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 删除该方法</span></span><br><span class="line">        <span class="keyword">delete</span> obj.sayhi;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'该函数只可以被函数调用'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj[<span class="keyword">this</span>.name];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://www.runoob.com/w3cnote/js-call-apply-bind.html" target="_blank" rel="noopener">JavaScript 中 call()、apply()、bind() 的用法</a></p>
+<p><a href="https://github.com/mqyqingfeng/Blog/issues/11" target="_blank" rel="noopener">JavaScript深入之call和apply的模拟实现</a></p>
+<p><a href="https://juejin.im/post/5a9640335188257a7924d5ef" target="_blank" rel="noopener">让你弄懂 call、apply、bind的应用和区别</a></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/前端/" rel="tag"># 前端</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/19/css/网页浏览进度/" rel="next" title="网页浏览进度条">
+                  <i class="fa fa-chevron-left"></i> 网页浏览进度条
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于call-bind-apply的作用"><span class="nav-number">1.</span> <span class="nav-text">关于call,bind,apply的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码中用到的一些知识的说明"><span class="nav-number">2.</span> <span class="nav-text">代码中用到的一些知识的说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何使用"><span class="nav-number">3.</span> <span class="nav-text">如何使用?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结三者不同"><span class="nav-number">4.</span> <span class="nav-text">总结三者不同</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三者的应用"><span class="nav-number">5.</span> <span class="nav-text">三者的应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#来动手实现一下call、bind、apply"><span class="nav-number">6.</span> <span class="nav-text">来动手实现一下call、bind、apply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      学习
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮老师</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
