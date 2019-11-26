@@ -55,21 +55,24 @@
   };
 </script>
 
-  <meta name="description" content="关于同源策略 概念  1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。 2.同源指，发请求和接受请求的两端处在：同一协议，同一域名，同一端口下。">
+  <meta name="description" content="跨域跨域是浏览器为了保证服务数据的安全性，而存在的一种限制请求的一种机制，只存在于浏览器。 主要工作原理就是根据有没有遵循同源策略(当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域)，来判断一个请求是否跨域，然后决定是否允许这个请求。 同源策略 概念  1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正">
 <meta name="keywords" content="网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于跨域">
 <meta property="og:url" content="http://shuaxindiary/2019/11/01/计算机基础/关于跨域/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="关于同源策略 概念  1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。 2.同源指，发请求和接受请求的两端处在：同一协议，同一域名，同一端口下。">
+<meta property="og:description" content="跨域跨域是浏览器为了保证服务数据的安全性，而存在的一种限制请求的一种机制，只存在于浏览器。 主要工作原理就是根据有没有遵循同源策略(当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域)，来判断一个请求是否跨域，然后决定是否允许这个请求。 同源策略 概念  1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://shuaxindiary/img/tongyuan.png">
+<meta property="og:image" content="http://shuaxindiary/img/cros2.png">
+<meta property="og:image" content="http://shuaxindiary/img/cros3.png">
+<meta property="og:image" content="http://shuaxindiary/img/cros4.png">
 <meta property="og:image" content="http://shuaxindiary/img/kuayu.png">
 <meta property="og:image" content="http://shuaxindiary/img/daili.png">
-<meta property="og:updated_time" content="2019-11-01T08:35:42.926Z">
+<meta property="og:updated_time" content="2019-11-26T03:10:14.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于跨域">
-<meta name="twitter:description" content="关于同源策略 概念  1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。 2.同源指，发请求和接受请求的两端处在：同一协议，同一域名，同一端口下。">
+<meta name="twitter:description" content="跨域跨域是浏览器为了保证服务数据的安全性，而存在的一种限制请求的一种机制，只存在于浏览器。 主要工作原理就是根据有没有遵循同源策略(当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域)，来判断一个请求是否跨域，然后决定是否允许这个请求。 同源策略 概念  1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正">
 <meta name="twitter:image" content="http://shuaxindiary/img/tongyuan.png">
   <link rel="canonical" href="http://shuaxindiary/2019/11/01/计算机基础/关于跨域/">
 
@@ -260,11 +263,19 @@
                 
               
 
-              <time title="创建时间：2019-11-01 16:33:27 / 修改时间：16:35:42" itemprop="dateCreated datePublished" datetime="2019-11-01T16:33:27+08:00">2019-11-01</time>
+              <time title="创建时间：2019-11-01 16:33:27" itemprop="dateCreated datePublished" datetime="2019-11-01T16:33:27+08:00">2019-11-01</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-26 11:10:14" itemprop="dateModified" datetime="2019-11-26T11:10:14+08:00">2019-11-26</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -300,7 +311,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="关于同源策略"><a href="#关于同源策略" class="headerlink" title="关于同源策略"></a>关于同源策略</h1><blockquote>
+        <h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>跨域是浏览器为了保证服务数据的安全性，而存在的一种限制请求的一种机制，只存在于浏览器。</p>
+<p>主要工作原理就是根据有没有遵循同源策略(当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域)，来判断一个请求是否跨域，然后决定是否允许这个请求。</p>
+<h1 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h1><blockquote>
 <p>概念</p>
 <ul>
 <li>1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。</li>
@@ -331,7 +344,41 @@
 <li>&lt;script src=’***’&gt;</li>
 </ul>
 </blockquote>
-<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>当没有遵循同源策略时(当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域)，这时就会产生跨域的问题。</p>
+<h1 id="跨域限制"><a href="#跨域限制" class="headerlink" title="跨域限制"></a>跨域限制</h1><p>跨域不仅对请求有限制，对请求的方法和发送的内容格式，也会有限制；除过默认允许的一些外，其他的非默认请求方法和内容格式都需要在服务端进行设置允许这些对应的可以访问。</p>
+<p>因为非默认的请求方法和内容类型会在正式发送该请求前，发送一个预请求，来判断服务端是否允许该请求的访问，之后再发送该请求，如果服务端允许就正常获取响应内容，不允许就会报错，如下图。<br><img src="/img/cros2.png" alt="不允许put访问"></p>
+<p>服务端允许后允许访问，可以看到会有2个请求，第一就是预请求，第二个是正式发送的请求，预请求的方法是会显示OPTIONS。<br><img src="/img/cros3.png" alt="允许访问"><br><img src="/img/cros4.png" alt="允许访问"></p>
+<p>设置代码(以node为例)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ctx.request.url);</span><br><span class="line">    ctx.response.status=<span class="number">200</span>;</span><br><span class="line">    <span class="comment">// 设置允许跨域</span></span><br><span class="line">    ctx.response.set(&#123;</span><br><span class="line">        <span class="comment">// 允许跨域访问的域名</span></span><br><span class="line">        <span class="string">"Access-Control-Allow-Origin"</span>: <span class="string">'*'</span>,</span><br><span class="line">        <span class="comment">// 当请求方法是跨域默认请求之外的请求时，服务器需要设置对应的允许的请求方法</span></span><br><span class="line">        <span class="string">"Access-Control-Allow-Methods"</span>:<span class="string">"PUT"</span>,</span><br><span class="line">        <span class="comment">// 允许该请求在第一次请求成功后的1000秒内，不需要再发送预请求</span></span><br><span class="line">        <span class="string">"Access-Control-Max-Age"</span>:<span class="string">"1000"</span></span><br><span class="line">    &#125;)</span><br><span class="line">    ctx.response.body = <span class="string">'hi'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'ok'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>列举一下跨域默认不需要预请求就可以发送的方法(Mthods)和内容类型(Content-Type)</p>
+<blockquote>
+<p>跨域默认允许的请求方法(Method)</p>
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>HEAD</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>默认允许的发送请求内容类型(Content-Type)</p>
+<ul>
+<li>text/plain</li>
+<li>multipart/form-data</li>
+<li>application/x-www-form-urlencoded</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>默认允许的请求头</p>
+<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Content-Type</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><a href="https://fetch.spec.whatwg.org/#http-extensions" target="_blank" rel="noopener">更多</a></p>
+</blockquote>
 <h2 id="常见跨域场景"><a href="#常见跨域场景" class="headerlink" title="常见跨域场景"></a>常见跨域场景</h2><p><img src="/img/kuayu.png" alt="跨域"></p>
 <h3 id="浪里行舟大佬的一些说明"><a href="#浪里行舟大佬的一些说明" class="headerlink" title="浪里行舟大佬的一些说明"></a><a href="https://github.com/ljianshu/Blog" target="_blank" rel="noopener">浪里行舟</a>大佬的一些说明</h3><p>第一：如果是协议和端口造成的跨域问题“前台”是无能为力的。</p>
 <p>第二：在跨域问题上，仅仅是通过“URL的首部”来识别而不会根据域名对应的IP地址是否相同来判断。“URL的首部”可以理解为“协议, 域名和端口必须匹配”。</p>
@@ -465,7 +512,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于同源策略"><span class="nav-number">1.</span> <span class="nav-text">关于同源策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域"><span class="nav-number">2.</span> <span class="nav-text">跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见跨域场景"><span class="nav-number">2.1.</span> <span class="nav-text">常见跨域场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浪里行舟大佬的一些说明"><span class="nav-number">2.1.1.</span> <span class="nav-text">浪里行舟大佬的一些说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">3.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP"><span class="nav-number">3.1.</span> <span class="nav-text">JSONP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CROS"><span class="nav-number">3.2.</span> <span class="nav-text">CROS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-nginx做代理"><span class="nav-number">3.3.</span> <span class="nav-text">Node/nginx做代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他方式尝试后更新"><span class="nav-number">3.4.</span> <span class="nav-text">其他方式尝试后更新</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域"><span class="nav-number">1.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同源策略"><span class="nav-number">2.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域限制"><span class="nav-number">3.</span> <span class="nav-text">跨域限制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见跨域场景"><span class="nav-number">3.1.</span> <span class="nav-text">常见跨域场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浪里行舟大佬的一些说明"><span class="nav-number">3.1.1.</span> <span class="nav-text">浪里行舟大佬的一些说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP"><span class="nav-number">4.1.</span> <span class="nav-text">JSONP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CROS"><span class="nav-number">4.2.</span> <span class="nav-text">CROS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-nginx做代理"><span class="nav-number">4.3.</span> <span class="nav-text">Node/nginx做代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他方式尝试后更新"><span class="nav-number">4.4.</span> <span class="nav-text">其他方式尝试后更新</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
