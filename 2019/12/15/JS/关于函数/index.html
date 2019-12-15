@@ -55,22 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="新期望19年尾巴写一篇自己的总结，希望自己能继续保持对技术的热情，和学习的热情，然后持续更新自己在这个过程中的一些学习笔记,单纯的记录自己成长的过程。 对于技术学习计划:  开始好好学习一下TS 学习一下electron,前段时间没得事搞，简单玩了一下，觉得还挺有趣! 深入nodejs的学习，这个月写了一个月的koa，一开始呢奔着了解web开发前后端衔接流程什么去的，给自己的项目写后台；后来觉得，">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="前言记录一下js各种创建函数的方式，和区别，以及坑！">
+<meta name="keywords" content="JavaScript,前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新一年">
-<meta property="og:url" content="http://shuaxindiary/2019/12/06/新一年/index.html">
+<meta property="og:title" content="关于函数">
+<meta property="og:url" content="http://shuaxindiary/2019/12/15/JS/关于函数/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="新期望19年尾巴写一篇自己的总结，希望自己能继续保持对技术的热情，和学习的热情，然后持续更新自己在这个过程中的一些学习笔记,单纯的记录自己成长的过程。 对于技术学习计划:  开始好好学习一下TS 学习一下electron,前段时间没得事搞，简单玩了一下，觉得还挺有趣! 深入nodejs的学习，这个月写了一个月的koa，一开始呢奔着了解web开发前后端衔接流程什么去的，给自己的项目写后台；后来觉得，">
+<meta property="og:description" content="前言记录一下js各种创建函数的方式，和区别，以及坑！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://shuaxindiary/img/vue.jfif">
-<meta property="og:image" content="http://shuaxindiary/img/react.jfif">
-<meta property="og:updated_time" content="2019-12-06T13:05:41.505Z">
+<meta property="og:updated_time" content="2019-12-15T15:05:15.371Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新一年">
-<meta name="twitter:description" content="新期望19年尾巴写一篇自己的总结，希望自己能继续保持对技术的热情，和学习的热情，然后持续更新自己在这个过程中的一些学习笔记,单纯的记录自己成长的过程。 对于技术学习计划:  开始好好学习一下TS 学习一下electron,前段时间没得事搞，简单玩了一下，觉得还挺有趣! 深入nodejs的学习，这个月写了一个月的koa，一开始呢奔着了解web开发前后端衔接流程什么去的，给自己的项目写后台；后来觉得，">
-<meta name="twitter:image" content="http://shuaxindiary/img/vue.jfif">
-  <link rel="canonical" href="http://shuaxindiary/2019/12/06/新一年/">
+<meta name="twitter:title" content="关于函数">
+<meta name="twitter:description" content="前言记录一下js各种创建函数的方式，和区别，以及坑！">
+  <link rel="canonical" href="http://shuaxindiary/2019/12/15/JS/关于函数/">
 
 
 <script id="page-configurations">
@@ -84,7 +81,7 @@
   };
 </script>
 
-  <title>新一年 | 刷新</title>
+  <title>关于函数 | 刷新</title>
   
 
 
@@ -231,7 +228,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/12/06/新一年/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/12/15/JS/关于函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -243,7 +240,7 @@
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">新一年
+        <h1 class="post-title" itemprop="name headline">关于函数
 
           
         </h1>
@@ -259,7 +256,7 @@
                 
               
 
-              <time title="创建时间：2019-12-06 20:09:42 / 修改时间：21:05:41" itemprop="dateCreated datePublished" datetime="2019-12-06T20:09:42+08:00">2019-12-06</time>
+              <time title="创建时间：2019-12-15 22:13:47 / 修改时间：23:05:15" itemprop="dateCreated datePublished" datetime="2019-12-15T22:13:47+08:00">2019-12-15</time>
             </span>
           
             
@@ -272,7 +269,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
 
                 
                 
@@ -299,30 +296,74 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="新期望"><a href="#新期望" class="headerlink" title="新期望"></a>新期望</h1><p>19年尾巴写一篇自己的总结，希望自己能继续保持对技术的热情，和学习的热情，然后持续更新自己在这个过程中的一些学习笔记,单纯的记录自己成长的过程。</p><blockquote>
-<p><strong><em>对于技术学习计划:</em></strong></p>
-<ul>
-<li>开始好好学习一下TS</li>
-<li>学习一下electron,前段时间没得事搞，简单玩了一下，觉得还挺有趣!</li>
-<li>深入nodejs的学习，这个月写了一个月的koa，一开始呢奔着了解web开发前后端衔接流程什么去的，给自己的项目写后台；后来觉得，node真强！！！要好好学习一下，当然现在还是爱前端！</li>
-<li>试着学习一下vue的底层实现</li>
-<li>试着造轮子把,hhh~觉得写轮子真的很能提高水平</li>
-<li>。。。。还有很多到时需要学在学的东西吧！</li>
-</ul>
-</blockquote><a id="more"></a>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录一下js各种创建函数的方式，和区别，以及坑！</p>
+<a id="more"></a>
 
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>建站到现在半年多，接触前端学习一年多,但是建站这半年来的收货反而觉得更多。这半年来，开始学会去比较系统的学习想要掌握的东西，而不像之前想到什么搞什么，然后都三分钟热度，浅尝辄止；对于写代码，也逐渐开始去深入一些背后的原理，思考一些技术细节，不仅仅满足于眼前某一个需求的实现。</p>
-<p>技术栈上，虽然现在各种库和框架盛行，但是还是一直没有停止在js上的学习，有事没事就翻翻红皮书，知道了很多以前不懂和压根不知道的细节的东西，收货不小。同样前端开发也是程序开发，对于计算机基础知识的掌握也是很有必要。所以补了补http协议和数据结构的方面的知识，但是东西过多，新一年还要继续学习。在库和框架的掌握，这半年大大小小也使用vue做了几个不大不小的项目，对于vue的使用，也更加的熟练；闲暇时间好奇，vue和react不同，去简单了解并学习了一点react，并重做了之前自己的一个vue做的小demo。</p>
-<blockquote>
-<p>最后的感觉就是，对个人开发者来说这2者在性能上不存在什么大的区别，主要的不同还是其语言风格不同，也正是这个风格，导致了其他细节上的区别。</p>
+<h1 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h1><h2 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h2><blockquote>
+<p><strong>声明式创建函数</strong></p>
 <ul>
-<li>react更偏向原生js的写法，所以就具备了js所具备的一切特点；它更灵活、更底层；外加上react出来的过早，所以生态繁荣，各种解决方案层出不穷;以上2点算是优点也算是缺点。更灵活会导致每个人代码风格迥异，需要指定一定的规范：比如统一用什么方式创建组件等等。至于方案多这一点，觉得就是对学习者来说学习有成本这一个缺点把，hhhh~</li>
-<li>vue这边，有了一定的自己语法的风格，所以每个项目出来的代码风格其实都大同小异，只是组件/逻辑代码的拆分可能不太相同；就有点类似vue已经帮你制定了一套开发的规范的感觉。至于这个特点和react那种纯js的特点就是萝卜青菜各有所爱了。关于生态，vue也是全家桶一次性提供齐全，这样的好处就是官方自己的解决方案，用起来肯定不用担心用一段时间不维护了就gg了的情况。要说和react最大比起来的劣势可能就是对ts的支持吧(当然我对TS了解也不深，不好多BB).</li>
+<li>不同于一下的形式，该形式具有函数提升，可以先使用后创建</li>
+<li>关于函数提升(还有变量提升)：js的执行机制，在执行js代码前会把所有全局作用域下的var变量和function函数提到代码最前面，然后开始一行行执行代码。</li>
+<li>js为什么有这个机制，查了半天也没个明确说法，个人感觉是为了容错率和性能。因为js是解释性语言，一行一行边解释边执行的，为了防止运行一大半了出现错误，所以在执行前先把声明类代码提前，然后在执行。</li>
 </ul>
 </blockquote>
-<p>最后小结就是，出去TS方面，其实2者现在生态都很完善，使用哪一个都很棒。至于TS，尤大说了3.0会有很大的改观。最后附上一张之前看到的图，觉得很到位。</p>
-<p><img src="/img/vue.jfif" alt="vue"> <img src="/img/react.jfif" alt="react"></p>
-<h1 id="打鸡血"><a href="#打鸡血" class="headerlink" title="打鸡血"></a>打鸡血</h1><p>因为很菜，所以进步空间很大；想想还有进步空间，就很开心。fighting！！！</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'demo'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>创建匿名函数表达式</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'demo'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>创建具名函数表达式</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> demo=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'demo'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>使用Function构造函数创建</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> demo4 = <span class="keyword">new</span> <span class="built_in">Function</span>(</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'demo4'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>该形式函数是ES6标准下的语法，和普通函数区别在于函数内部this的指向不同。举例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;</span><br><span class="line">    one:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">// this为调用该函数的对象</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">// obj</span></span><br><span class="line">    &#125;,</span><br><span class="line">    two:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">// this一直指向window</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">// window</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除此之外，箭头函数不能被当做构造函数使用，而且函数内部不再有arguments对象，但是可以使用ES6的rest。</p>
+<blockquote>
+<p><strong>创建无参数、无返回值的箭头函数</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> demo=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'demo'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>创建有参数无返回值的箭头函数</strong></p>
+<ul>
+<li>一个参数时，可以省略参数列表的括号</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> demo=<span class="function"><span class="params">str</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(str);<span class="comment">//demo</span></span><br><span class="line">&#125;</span><br><span class="line">demo(<span class="string">'demo'</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多个参数，不可省略括号<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> demo=<span class="function">(<span class="params">str,str2</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(str+str2);<span class="comment">//demo2</span></span><br><span class="line">&#125;</span><br><span class="line">demo(<span class="string">'demo'</span>,<span class="string">'2'</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p><strong>创建有返回值的箭头函数</strong></p>
+<ul>
+<li>正常写法</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> demo=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'demo'</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> str=demo();</span><br><span class="line"><span class="built_in">console</span>.log(str);<span class="comment">//demo</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>简写形式<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> demo=<span class="function"><span class="params">()</span>=&gt;</span><span class="number">123</span>;</span><br><span class="line"><span class="keyword">let</span> num=demo();</span><br><span class="line"><span class="built_in">console</span>.log(num);<span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p><strong>内部返回一个函数的简写</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> demo8 = <span class="function"><span class="params">()</span> =&gt;</span> <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'内部'</span>);</span><br><span class="line">demo8()();<span class="comment">//内部</span></span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -338,7 +379,9 @@
           
           <div class="post-tags">
             
-              <a href="/tags/随笔/" rel="tag"># 随笔</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/前端/" rel="tag"># 前端</a>
             
           </div>
         
@@ -348,8 +391,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/12/05/随笔/demo/" rel="next" title="个人介绍">
-                  <i class="fa fa-chevron-left"></i> 个人介绍
+                <a href="/2019/12/08/其他/关于浏览器存储/" rel="next" title="关于浏览器存储">
+                  <i class="fa fa-chevron-left"></i> 关于浏览器存储
                 </a>
               
             </div>
@@ -357,10 +400,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/12/08/其他/关于浏览器存储/" rel="prev" title="关于浏览器存储">
-                  关于浏览器存储 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -406,7 +445,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#新期望"><span class="nav-number">1.</span> <span class="nav-text">新期望</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">2.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打鸡血"><span class="nav-number">3.</span> <span class="nav-text">打鸡血</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码演示"><span class="nav-number">2.</span> <span class="nav-text">代码演示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#普通函数"><span class="nav-number">2.1.</span> <span class="nav-text">普通函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数"><span class="nav-number">2.2.</span> <span class="nav-text">箭头函数</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -422,7 +461,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
