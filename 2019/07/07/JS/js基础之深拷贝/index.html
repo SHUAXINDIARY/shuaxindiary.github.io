@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="常用文本语法使用====标记一级标题使用—-标记二级标题使用#标记一级标题#~###### 一共可以设置六种级别标题通过空行来换行或者末尾加两个空格换行字体设置通过**包裹文本设置斜体字体通过__ __包裹文本设置斜体字体通过 ** ** 包裹文本设置粗体字体通过 3个*号或者 3个_ 包裹文本设置粗斜体文本">
-<meta name="keywords" content="工具">
+  <meta name="description" content="开头面试复习，复习到了深拷贝，记录一下正文基本数据类型&amp;amp;复杂数据类型(引用数据类型) 概念  在js种，有2中数据类型：一类是基本数据类型，一类是复杂数据类型； 基本数据类型有:null,undefined,number,string,boolean,symbol(ES6) 复杂数据类型:Object/arrary等区别 两者的区别就是在内存中的存储位置不同 前者在栈中存储数据 后者在堆中">
+<meta name="keywords" content="JavaScript,前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="markdown笔记">
-<meta property="og:url" content="http://shuaxindiary/2019/07/01/其他/demo/index.html">
+<meta property="og:title" content="关于js深拷贝">
+<meta property="og:url" content="http://shuaxindiary/2019/07/07/JS/js基础之深拷贝/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="常用文本语法使用====标记一级标题使用—-标记二级标题使用#标记一级标题#~###### 一共可以设置六种级别标题通过空行来换行或者末尾加两个空格换行字体设置通过**包裹文本设置斜体字体通过__ __包裹文本设置斜体字体通过 ** ** 包裹文本设置粗体字体通过 3个*号或者 3个_ 包裹文本设置粗斜体文本">
+<meta property="og:description" content="开头面试复习，复习到了深拷贝，记录一下正文基本数据类型&amp;amp;复杂数据类型(引用数据类型) 概念  在js种，有2中数据类型：一类是基本数据类型，一类是复杂数据类型； 基本数据类型有:null,undefined,number,string,boolean,symbol(ES6) 复杂数据类型:Object/arrary等区别 两者的区别就是在内存中的存储位置不同 前者在栈中存储数据 后者在堆中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-12T12:04:45.700Z">
+<meta property="og:updated_time" content="2020-04-01T11:30:55.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="markdown笔记">
-<meta name="twitter:description" content="常用文本语法使用====标记一级标题使用—-标记二级标题使用#标记一级标题#~###### 一共可以设置六种级别标题通过空行来换行或者末尾加两个空格换行字体设置通过**包裹文本设置斜体字体通过__ __包裹文本设置斜体字体通过 ** ** 包裹文本设置粗体字体通过 3个*号或者 3个_ 包裹文本设置粗斜体文本">
-  <link rel="canonical" href="http://shuaxindiary/2019/07/01/其他/demo/">
+<meta name="twitter:title" content="关于js深拷贝">
+<meta name="twitter:description" content="开头面试复习，复习到了深拷贝，记录一下正文基本数据类型&amp;amp;复杂数据类型(引用数据类型) 概念  在js种，有2中数据类型：一类是基本数据类型，一类是复杂数据类型； 基本数据类型有:null,undefined,number,string,boolean,symbol(ES6) 复杂数据类型:Object/arrary等区别 两者的区别就是在内存中的存储位置不同 前者在栈中存储数据 后者在堆中">
+  <link rel="canonical" href="http://shuaxindiary/2019/07/07/JS/js基础之深拷贝/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>markdown笔记 | 刷新</title>
+  <title>关于js深拷贝 | 刷新</title>
   
 
 
@@ -228,7 +228,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/01/其他/demo/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/07/07/JS/js基础之深拷贝/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -240,7 +240,7 @@
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">markdown笔记
+        <h1 class="post-title" itemprop="name headline">关于js深拷贝
 
           
         </h1>
@@ -256,7 +256,7 @@
                 
               
 
-              <time title="创建时间：2019-07-01 11:25:55" itemprop="dateCreated datePublished" datetime="2019-07-01T11:25:55+08:00">2019-07-01</time>
+              <time title="创建时间：2019-07-07 12:11:14" itemprop="dateCreated datePublished" datetime="2019-07-07T12:11:14+08:00">2019-07-07</time>
             </span>
           
             
@@ -267,7 +267,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-12 20:04:45" itemprop="dateModified" datetime="2019-10-12T20:04:45+08:00">2019-10-12</time>
+                <time title="修改时间：2020-04-01 19:30:55" itemprop="dateModified" datetime="2020-04-01T19:30:55+08:00">2020-04-01</time>
               </span>
             
           
@@ -277,7 +277,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
 
                 
                 
@@ -304,45 +304,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="常用文本语法"><a href="#常用文本语法" class="headerlink" title="常用文本语法"></a>常用文本语法</h1><h1 id="使用-标记一级标题"><a href="#使用-标记一级标题" class="headerlink" title="使用====标记一级标题"></a>使用====标记一级标题</h1><h2 id="使用—-标记二级标题"><a href="#使用—-标记二级标题" class="headerlink" title="使用—-标记二级标题"></a>使用—-标记二级标题</h2><h1 id="使用-标记一级标题-1"><a href="#使用-标记一级标题-1" class="headerlink" title="使用#标记一级标题"></a>使用#标记一级标题</h1><h6 id="一共可以设置六种级别标题"><a href="#一共可以设置六种级别标题" class="headerlink" title="#~###### 一共可以设置六种级别标题"></a>#~###### 一共可以设置六种级别标题</h6><p>通过空行来换行或者<br>末尾加两个空格换行</p><h3 id="字体设置"><a href="#字体设置" class="headerlink" title="字体设置"></a>字体设置</h3><p><em>通过**包裹文本设置斜体字体</em><br><em>通过__ __包裹文本设置斜体字体</em><br><strong>通过 ** ** 包裹文本设置粗体字体</strong><br><strong><em>通过 3个*号或者 3个_ 包裹文本设置粗斜体文本</em></strong></p><a id="more"></a>
+        <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>面试复习，复习到了深拷贝，记录一下</p><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="基本数据类型-amp-复杂数据类型-引用数据类型"><a href="#基本数据类型-amp-复杂数据类型-引用数据类型" class="headerlink" title="基本数据类型&amp;复杂数据类型(引用数据类型)"></a>基本数据类型&amp;复杂数据类型(引用数据类型)</h2><blockquote>
+<p>概念</p>
+<ul>
+<li>在js种，有2中数据类型：一类是基本数据类型，一类是复杂数据类型；</li>
+<li>基本数据类型有:null,undefined,number,string,boolean,symbol(ES6)</li>
+<li>复杂数据类型:Object/arrary等<br>区别</li>
+<li>两者的区别就是在内存中的存储位置不同</li>
+<li>前者在栈中存储数据</li>
+<li>后者在堆中存储数据，而栈中存储的是数据在堆中存储的位置(引用)</li>
+</ul>
+</blockquote><a id="more"></a>
 
-<p>通过 *** _ _ _ — 添加分割线</p>
-<hr>
-<hr>
-<hr>
-<p><del>通过2个波浪线包裹文本添加删除线</del><br><u>通过html的u标签添加下划线</u></p>
-<p>[^添加脚注]</p>
-<h1 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h1><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
-<li>通过+号设置</li>
-</ul>
+<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>作用与复制复杂数据类型时，因为栈中只保存了数据的地址，所以如果只是简单赋值一样的复制，就会出现如下情况(浅拷贝)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one=&#123;</span><br><span class="line">    one:<span class="string">"this is one"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> two=one</span><br><span class="line"><span class="built_in">console</span>.log(two)  <span class="comment">// &#123;one:"this is one"&#125;</span></span><br><span class="line">one.one=<span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(two)  <span class="comment">// &#123;one:1&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="深拷贝实现"><a href="#深拷贝实现" class="headerlink" title="深拷贝实现"></a>深拷贝实现</h2><blockquote>
+<p>思路</p>
 <ul>
-<li>通过*号设置</li>
+<li>判断要复制的目标的数据类型</li>
+<li>1.简单数据类型，直接复制</li>
+<li>2.复杂数据类型(对象/数组)，遍历内部每一项</li>
+<li>3.在遍历复杂数据类型内部属性时，会出现情况上面2中情况，再次调用该函数就好(递归)</li>
 </ul>
-<ul>
-<li>通过减号设置</li>
-</ul>
-<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><ol>
-<li>通过数字设置</li>
-</ol>
-<h2 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h2><ol>
-<li>在列表项前面添加4个空格即可<ul>
-<li>这是列表项1</li>
-</ul>
-</li>
-</ol>
-<h1 id="区块语法"><a href="#区块语法" class="headerlink" title="区块语法"></a>区块语法</h1><blockquote>
-<p>第一块</p>
-<ol>
-<li>第一项</li>
-</ol>
 </blockquote>
-<blockquote>
-<p>第二块</p>
-<blockquote>
-<p>嵌套</p>
-</blockquote>
-</blockquote>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'代码测试'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepCopy = <span class="function">(<span class="params">copyTarget</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="literal">null</span></span><br><span class="line">    <span class="comment">// 返回和复制对象一致的类型</span></span><br><span class="line">    <span class="keyword">if</span> (copyTarget <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">        res = []</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> copyTarget) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> copyTarget[key] === <span class="string">'object'</span> &amp;&amp; copyTarget[key] !== <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 1.复杂数据类型</span></span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">'复杂数据类型'</span>)</span><br><span class="line">            res[key] = deepCopy(copyTarget[key])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">'基本数据类型'</span>);</span><br><span class="line">            <span class="comment">// 2.基本数据类型/和函数</span></span><br><span class="line">            res[key] = copyTarget[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -357,7 +343,9 @@
           
           <div class="post-tags">
             
-              <a href="/tags/工具/" rel="tag"># 工具</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/前端/" rel="tag"># 前端</a>
             
           </div>
         
@@ -367,8 +355,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/07/01/其他/hello-world/" rel="next" title="Hello World">
-                  <i class="fa fa-chevron-left"></i> Hello World
+                <a href="/2019/07/02/计算机基础/js数据结构笔记2/" rel="next" title="《学习JavaScript数据结构与算法》笔记---队列">
+                  <i class="fa fa-chevron-left"></i> 《学习JavaScript数据结构与算法》笔记---队列
                 </a>
               
             </div>
@@ -377,8 +365,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/07/01/其他/hexo常用配置和命令/" rel="prev" title="hexo常用配置和命令">
-                  hexo常用配置和命令 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/07/19/其他/熟悉小程序开发目录/" rel="prev" title="熟悉小程序开发目录">
+                  熟悉小程序开发目录 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -425,7 +413,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用文本语法"><span class="nav-number">1.</span> <span class="nav-text">常用文本语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-标记一级标题"><span class="nav-number">2.</span> <span class="nav-text">使用====标记一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用—-标记二级标题"><span class="nav-number">2.1.</span> <span class="nav-text">使用—-标记二级标题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-标记一级标题-1"><span class="nav-number">3.</span> <span class="nav-text">使用#标记一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一共可以设置六种级别标题"><span class="nav-number">3.0.0.0.0.1.</span> <span class="nav-text">#~###### 一共可以设置六种级别标题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体设置"><span class="nav-number">3.0.1.</span> <span class="nav-text">字体设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表语法"><span class="nav-number">4.</span> <span class="nav-text">列表语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无序列表"><span class="nav-number">4.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序列表"><span class="nav-number">4.2.</span> <span class="nav-text">有序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表嵌套"><span class="nav-number">4.3.</span> <span class="nav-text">列表嵌套</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#区块语法"><span class="nav-number">5.</span> <span class="nav-text">区块语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">6.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开头"><span class="nav-number">1.</span> <span class="nav-text">开头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型-amp-复杂数据类型-引用数据类型"><span class="nav-number">2.1.</span> <span class="nav-text">基本数据类型&amp;复杂数据类型(引用数据类型)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝"><span class="nav-number">2.2.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝实现"><span class="nav-number">2.3.</span> <span class="nav-text">深拷贝实现</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -441,7 +429,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
