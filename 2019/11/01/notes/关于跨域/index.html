@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="跨域跨域是浏览器为了保证服务数据的安全性，而存在的一种限制请求的一种机制，只存在于浏览器。 主要工作原理就是根据有没有遵循同源策略(当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域)，来判断一个请求是否跨域，然后决定是否允许这个请求。 同源策略 概念  1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正">
+<meta name="keywords" content="网络,踩坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于跨域">
+<meta property="og:url" content="http://shuaxindiary/2019/11/01/notes/关于跨域/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="跨域跨域是浏览器为了保证服务数据的安全性，而存在的一种限制请求的一种机制，只存在于浏览器。 主要工作原理就是根据有没有遵循同源策略(当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域)，来判断一个请求是否跨域，然后决定是否允许这个请求。 同源策略 概念  1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://shuaxindiary/img/tongyuan.png">
+<meta property="og:image" content="http://shuaxindiary/img/cros2.png">
+<meta property="og:image" content="http://shuaxindiary/img/cros3.png">
+<meta property="og:image" content="http://shuaxindiary/img/cros4.png">
+<meta property="og:image" content="http://shuaxindiary/img/kuayu.png">
+<meta property="og:image" content="http://shuaxindiary/img/daili.png">
+<meta property="og:updated_time" content="2020-03-15T02:52:34.338Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于跨域">
+<meta name="twitter:description" content="跨域跨域是浏览器为了保证服务数据的安全性，而存在的一种限制请求的一种机制，只存在于浏览器。 主要工作原理就是根据有没有遵循同源策略(当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域)，来判断一个请求是否跨域，然后决定是否允许这个请求。 同源策略 概念  1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正">
+<meta name="twitter:image" content="http://shuaxindiary/img/tongyuan.png">
+  <link rel="canonical" href="http://shuaxindiary/2019/11/01/notes/关于跨域/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>关于跨域 | 刷新</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/11/01/notes/关于跨域/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">关于跨域
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-01 16:33:27" itemprop="dateCreated datePublished" datetime="2019-11-01T16:33:27+08:00">2019-11-01</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-15 10:52:34" itemprop="dateModified" datetime="2020-03-15T10:52:34+08:00">2020-03-15</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>跨域是浏览器为了保证服务数据的安全性，而存在的一种限制请求的一种机制，只存在于浏览器。</p>
+<p>主要工作原理就是根据有没有遵循同源策略(当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域)，来判断一个请求是否跨域，然后决定是否允许这个请求。</p>
+<h1 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h1><blockquote>
+<p>概念</p>
+<ul>
+<li>1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。</li>
+<li>2.同源指，发请求和接受请求的两端处在：同一协议，同一域名，同一端口下。</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<p><img src="/img/tongyuan.png" alt="一个域名的组成"></p>
+<blockquote>
+<p>作用</p>
+<ul>
+<li>同源策略是浏览器的行为，是为了保护本地数据不被JavaScript代码获取回来的数据污染，因此拦截的是客户端发出的请求回来的数据接收，即请求发送了，服务器响应了，但是无法被浏览器接收。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>同源策略会限制的内容</p>
+<ul>
+<li>Cookie、LocalStorage、IndexedDB 等存储性内容</li>
+<li>DOM 节点</li>
+<li>AJAX 请求发送后，结果被浏览器拦截了</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>同源策略下有几个允许跨域加载资源的方式:</p>
+<ul>
+<li>&lt;img src=’***’&gt;</li>
+<li>&lt;link href=’***’&gt;</li>
+<li>&lt;script src=’***’&gt;</li>
+</ul>
+</blockquote>
+<h1 id="跨域限制"><a href="#跨域限制" class="headerlink" title="跨域限制"></a>跨域限制</h1><p>跨域不仅对请求有限制，对请求的方法和发送的内容格式，也会有限制；除过默认允许的一些外，其他的非默认请求方法和内容格式都需要在服务端进行设置允许这些对应的可以访问。</p>
+<p>因为非默认的请求方法和内容类型会在正式发送该请求前，发送一个预请求，来判断服务端是否允许该请求的访问，之后再发送该请求，如果服务端允许就正常获取响应内容，不允许就会报错，如下图。<br><img src="/img/cros2.png" alt="不允许put访问"></p>
+<p>服务端允许后允许访问，可以看到会有2个请求，第一就是预请求，第二个是正式发送的请求，预请求的方法是会显示OPTIONS。<br><img src="/img/cros3.png" alt="允许访问"><br><img src="/img/cros4.png" alt="允许访问"></p>
+<p>设置代码(以node为例)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ctx.request.url);</span><br><span class="line">    ctx.response.status=<span class="number">200</span>;</span><br><span class="line">    <span class="comment">// 设置允许跨域</span></span><br><span class="line">    ctx.response.set(&#123;</span><br><span class="line">        <span class="comment">// 允许跨域访问的域名</span></span><br><span class="line">        <span class="string">"Access-Control-Allow-Origin"</span>: <span class="string">'*'</span>,</span><br><span class="line">        <span class="comment">// 当请求方法是跨域默认请求之外的请求时，服务器需要设置对应的允许的请求方法</span></span><br><span class="line">        <span class="string">"Access-Control-Allow-Methods"</span>:<span class="string">"PUT"</span>,</span><br><span class="line">        <span class="comment">// 允许该请求在第一次请求成功后的1000秒内，不需要再发送预请求</span></span><br><span class="line">        <span class="string">"Access-Control-Max-Age"</span>:<span class="string">"1000"</span></span><br><span class="line">    &#125;)</span><br><span class="line">    ctx.response.body = <span class="string">'hi'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'ok'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>列举一下跨域默认不需要预请求就可以发送的方法(Mthods)和内容类型(Content-Type)</p>
+<blockquote>
+<p>跨域默认允许的请求方法(Method)</p>
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>HEAD</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>默认允许的发送请求内容类型(Content-Type)</p>
+<ul>
+<li>text/plain</li>
+<li>multipart/form-data</li>
+<li>application/x-www-form-urlencoded</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>默认允许的请求头</p>
+<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Content-Type</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><a href="https://fetch.spec.whatwg.org/#http-extensions" target="_blank" rel="noopener">更多</a></p>
+</blockquote>
+<h2 id="常见跨域场景"><a href="#常见跨域场景" class="headerlink" title="常见跨域场景"></a>常见跨域场景</h2><p><img src="/img/kuayu.png" alt="跨域"></p>
+<h3 id="浪里行舟大佬的一些说明"><a href="#浪里行舟大佬的一些说明" class="headerlink" title="浪里行舟大佬的一些说明"></a><a href="https://github.com/ljianshu/Blog" target="_blank" rel="noopener">浪里行舟</a>大佬的一些说明</h3><p>第一：如果是协议和端口造成的跨域问题“前台”是无能为力的。</p>
+<p>第二：在跨域问题上，仅仅是通过“URL的首部”来识别而不会根据域名对应的IP地址是否相同来判断。“URL的首部”可以理解为“协议, 域名和端口必须匹配”。</p>
+<p>这里你或许有个疑问：请求跨域了，那么请求到底发出去没有？</p>
+<p>跨域并不是请求发不出去，请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了。你可能会疑问明明通过表单的方式可以发起跨域请求，为什么 Ajax 就不会?因为归根结底，跨域是为了阻止用户读取到另一个域名下的内容，Ajax 可以获取响应，浏览器认为这不安全，所以拦截了响应。但是表单并不会获取新的内容，所以可以发起跨域请求。同时也说明了跨域并不能完全阻止 CSRF，因为请求毕竟是发出去了。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>1.利用&lt;script src=’***’&gt;可以跨域请求资源的原理<br>2.这种方式只能通过GET请求。<br>3.但是适配较广</p>
+<blockquote>
+<p>代码</p>
+<ul>
+<li>前端</li>
+</ul>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">'btn'</span>&gt;</span>请求<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> btn=<span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>);</span></span><br><span class="line"><span class="javascript">        btn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="comment">// 创建一个script标签块</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">let</span> frame = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span></span><br><span class="line"><span class="javascript">                <span class="comment">// 设置src链接</span></span></span><br><span class="line"><span class="javascript">                <span class="comment">// http://localhost:3000/person为请求借口</span></span></span><br><span class="line"><span class="javascript">                <span class="comment">// ? 分隔符</span></span></span><br><span class="line"><span class="javascript">                <span class="comment">// callback=func传给后端的一个回调函数</span></span></span><br><span class="line"><span class="javascript">                frame.src=<span class="string">'http://localhost:3000/person?callback=func'</span>;</span></span><br><span class="line"><span class="javascript">                <span class="comment">// 添加到body内</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">document</span>.querySelector(<span class="string">'body'</span>).append(frame);</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">res</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">// 后端成功收到请求后 会返回并执行 该函数 </span></span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(res);<span class="comment">// 打印收到的数据</span></span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>后端(koa)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">let</span> data=<span class="built_in">require</span>(<span class="string">'data.json'</span>);</span><br><span class="line">route.get(<span class="string">'/person'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    newData = <span class="built_in">JSON</span>.stringify(data);</span><br><span class="line">    <span class="comment">// 执行前端传递来的函数 并把数据作为参数传递</span></span><br><span class="line">    ctx.body = <span class="string">`func(<span class="subst">$&#123;newData&#125;</span>)`</span>;</span><br><span class="line">&#125;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以上前端代码可以通过jQuery来写,jQuery有封装好的方法直接使用</p>
+<h2 id="CROS"><a href="#CROS" class="headerlink" title="CROS"></a>CROS</h2><blockquote>
+<p>什么是CROS</p>
+</blockquote>
+</li>
+<li><p>跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。—来自<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">MDN</a>。</p>
+</li>
+</ul>
+<blockquote>
+<p>使用：</p>
+<ul>
+<li>通过在后端设置相应头信息来允许一些指定的域名可以访问。<br>代码</li>
+<li>前端</li>
+</ul>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span>send<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>);</span></span><br><span class="line"><span class="javascript">    btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line">        getData();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> getData = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">        fetch(<span class="string">'http://localhost:3000/person'</span>, &#123;</span></span><br><span class="line"><span class="javascript">            method: <span class="string">'GET'</span></span></span><br><span class="line">        &#125;)</span><br><span class="line">            .then(</span><br><span class="line">                (res) =&gt; res.json()</span><br><span class="line">            )</span><br><span class="line">            .then(</span><br><span class="line">                (data) =&gt; &#123;</span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(data);</span></span><br><span class="line">                &#125;</span><br><span class="line">            )</span><br><span class="line">            .catch(</span><br><span class="line">                (err) =&gt; &#123;</span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(err);</span></span><br><span class="line">                &#125;</span><br><span class="line">            )</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>后端(koa)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cors = <span class="built_in">require</span>(<span class="string">'koa2-cors'</span>);</span><br><span class="line"><span class="comment">// 使用cors中间件</span></span><br><span class="line">app.use(cors(&#123;</span><br><span class="line">    <span class="comment">// 允许get方法跨域请求</span></span><br><span class="line">    allowMethods: [<span class="string">'GET'</span>],</span><br><span class="line">    <span class="comment">// 在koa中不适用中间件 可以使用上下文对象来自己设置</span></span><br><span class="line">    <span class="comment">// ctx.set(...);</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="Node-nginx做代理"><a href="#Node-nginx做代理" class="headerlink" title="Node/nginx做代理"></a>Node/nginx做代理</h2><p>因为服务器之间不用遵守同源策略,所以可以通过node或者nginx来转发请求，实现跨域</p>
+<blockquote>
+<p>步骤</p>
+<ul>
+<li>接受客户端请求 。</li>
+<li>将请求 转发给服务器。</li>
+<li>拿到服务器 响应 数据。</li>
+<li>将 响应 转发给客户端。<br><img src="/img/daili.png" alt="流程"></li>
+</ul>
+</blockquote>
+<h2 id="其他方式尝试后更新"><a href="#其他方式尝试后更新" class="headerlink" title="其他方式尝试后更新"></a>其他方式尝试后更新</h2>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/网络/" rel="tag"># 网络</a>
+            
+              <a href="/tags/踩坑/" rel="tag"># 踩坑</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/31/vue/vuejs基础复习-4/" rel="next" title="vuejs基础复习4---生命周期函数">
+                  <i class="fa fa-chevron-left"></i> vuejs基础复习4---生命周期函数
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/08/notes/关于meta/" rel="prev" title="关于meta">
+                  关于meta <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域"><span class="nav-number">1.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同源策略"><span class="nav-number">2.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域限制"><span class="nav-number">3.</span> <span class="nav-text">跨域限制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见跨域场景"><span class="nav-number">3.1.</span> <span class="nav-text">常见跨域场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浪里行舟大佬的一些说明"><span class="nav-number">3.1.1.</span> <span class="nav-text">浪里行舟大佬的一些说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP"><span class="nav-number">4.1.</span> <span class="nav-text">JSONP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CROS"><span class="nav-number">4.2.</span> <span class="nav-text">CROS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-nginx做代理"><span class="nav-number">4.3.</span> <span class="nav-text">Node/nginx做代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他方式尝试后更新"><span class="nav-number">4.4.</span> <span class="nav-text">其他方式尝试后更新</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      学习
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮老师</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.lxchuan12.cn/" title="https://www.lxchuan12.cn/" rel="noopener" target="_blank">若川</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
