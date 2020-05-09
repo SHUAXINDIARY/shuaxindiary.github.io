@@ -55,23 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="前言最近在学习HTTP协议相关的知识，对这道曾经一度让我懵逼的面试题，有了一点自己的答案，所以按自己的理解简单总结一下笔记 流程概述 解析输入的url中的域名通过TCP三次握手建立TCP通道客户端—服务端通过http协议进行数据交互客户端(浏览器)接收到服务端发来的HTML然后开始进行页面渲染请求结束，通过TCP四次挥手关闭TCP通道">
-<meta name="keywords" content="网络,踩坑">
+  <meta name="description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
+<meta name="keywords" content="工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从输入url到页面展示发生了什么">
-<meta property="og:url" content="http://shuaxindiary/2019/11/28/notes/从输入url到页面展示发生了什么/index.html">
+<meta property="og:title" content="初探nginx">
+<meta property="og:url" content="http://shuaxindiary/2020/05/09/other/初探nginx/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="前言最近在学习HTTP协议相关的知识，对这道曾经一度让我懵逼的面试题，有了一点自己的答案，所以按自己的理解简单总结一下笔记 流程概述 解析输入的url中的域名通过TCP三次握手建立TCP通道客户端—服务端通过http协议进行数据交互客户端(浏览器)接收到服务端发来的HTML然后开始进行页面渲染请求结束，通过TCP四次挥手关闭TCP通道">
+<meta property="og:description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://shuaxindiary/img/url.png">
-<meta property="og:image" content="http://shuaxindiary/img/url2.png">
-<meta property="og:image" content="http://shuaxindiary/img/url3">
-<meta property="og:updated_time" content="2020-03-15T02:52:27.104Z">
+<meta property="og:updated_time" content="2020-05-09T12:46:48.714Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从输入url到页面展示发生了什么">
-<meta name="twitter:description" content="前言最近在学习HTTP协议相关的知识，对这道曾经一度让我懵逼的面试题，有了一点自己的答案，所以按自己的理解简单总结一下笔记 流程概述 解析输入的url中的域名通过TCP三次握手建立TCP通道客户端—服务端通过http协议进行数据交互客户端(浏览器)接收到服务端发来的HTML然后开始进行页面渲染请求结束，通过TCP四次挥手关闭TCP通道">
-<meta name="twitter:image" content="http://shuaxindiary/img/url.png">
-  <link rel="canonical" href="http://shuaxindiary/2019/11/28/notes/从输入url到页面展示发生了什么/">
+<meta name="twitter:title" content="初探nginx">
+<meta name="twitter:description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
+  <link rel="canonical" href="http://shuaxindiary/2020/05/09/other/初探nginx/">
 
 
 <script id="page-configurations">
@@ -85,7 +81,7 @@
   };
 </script>
 
-  <title>从输入url到页面展示发生了什么 | 刷新</title>
+  <title>初探nginx | 刷新</title>
   
 
 
@@ -232,7 +228,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/11/28/notes/从输入url到页面展示发生了什么/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/05/09/other/初探nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -244,7 +240,7 @@
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">从输入url到页面展示发生了什么
+        <h1 class="post-title" itemprop="name headline">初探nginx
 
           
         </h1>
@@ -260,19 +256,11 @@
                 
               
 
-              <time title="创建时间：2019-11-28 10:53:53" itemprop="dateCreated datePublished" datetime="2019-11-28T10:53:53+08:00">2019-11-28</time>
+              <time title="创建时间：2020-05-09 19:24:33 / 修改时间：20:46:48" itemprop="dateCreated datePublished" datetime="2020-05-09T19:24:33+08:00">2020-05-09</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-15 10:52:27" itemprop="dateModified" datetime="2020-03-15T10:52:27+08:00">2020-03-15</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -281,7 +269,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
 
                 
                 
@@ -308,79 +296,116 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在学习HTTP协议相关的知识，对这道曾经一度让我懵逼的面试题，有了一点自己的答案，所以按自己的理解简单总结一下笔记</p>
-<h1 id="流程概述"><a href="#流程概述" class="headerlink" title="流程概述"></a>流程概述</h1><blockquote>
-<p>解析输入的url中的域名<br>通过TCP三次握手建立TCP通道<br>客户端—服务端通过http协议进行数据交互<br>客户端(浏览器)接收到服务端发来的HTML然后开始进行页面渲染<br>请求结束，通过TCP四次挥手关闭TCP通道</p>
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客</p><a id="more"></a>
+<h1 id="相关知识笔记"><a href="#相关知识笔记" class="headerlink" title="相关知识笔记"></a>相关知识笔记</h1><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><blockquote>
+<p>什么是nginx</p>
+<ul>
+<li>一个支持HTTP和反向代理的开源的web服务器</li>
+</ul>
 </blockquote>
-<a id="more"></a>
+<blockquote>
+<p>web服务器</p>
+<ul>
+<li>基于HTTP协议，处理客户端请求，为客户端提供可供浏览内容的服务器</li>
+<li>举例：Nginx</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>应用服务器</p>
+<ul>
+<li>用来运行那些可以访问、操作本机资源的应用程序的服务器</li>
+<li>举例：Tomact</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>两者区别</p>
+<ul>
+<li>不同点：Web服务器只能处理静态资源，接受请求响应资源，结束；应用服务器也可以做请求处理，响应静态资源，但同时还可以处理动态内容，比如根据模板引擎生成页面等</li>
+<li>相同点：2者都可以处理请求</li>
+<li>以前开发中，会直接使用应用服务器处理用户请求，然后使用模板引擎动态生成页面给客户端；现在因为前后端分离的原因，以及为了减轻应用服务器压力的前提下；静态资源交给nginx这类web服务器来做，应用服务器只负责处理逻辑，提供数据</li>
+</ul>
+</blockquote>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
+<p>概念</p>
+<ul>
+<li>macOS和Windows之外的第三大操作系统，主要用于服务器等，而且开源</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>版本</p>
+<ul>
+<li>Ubuntu、centos、debian等</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>包安装工具</p>
+<ul>
+<li>因为使用的Linux不同，所使用的的包管理工具也不同</li>
+<li>Debian/Ubuntu：apt、apt-cache、apt-get、dpkg</li>
+<li>centos：yum</li>
+<li>备注1：apt是包管理平台，get负责包的安装更新删除管理；cache用于搜索</li>
+<li>备注2：dpkg是Debian的包管理工具，Ubuntu基于Debian，所以也可以使用；但是两个的区别是dpkg安装会绕过并覆盖apt安装的包，切不关心模块依赖问题；不关心Ubuntu软件库软件；简单理解Ubuntu专用apt，Debian专用dpkg</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>apt常用命令</p>
+<ul>
+<li>安装包：apt-get install &lt;包名&gt;</li>
+<li>移除包：apt-get remove &lt;包名&gt;</li>
+<li>更新包列表：apt-get update </li>
+<li>更新系统、已安装包：apt-get upgrade</li>
+<li>列出已安装包：dpkg -l</li>
+<li>搜索某包：apt-cache search &lt;包名&gt;</li>
+<li>查看包信息：apt-cache show &lt;包名&gt;</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>其他命令</p>
+<ul>
+<li>wget：用来从指定的URL下载文件；类似迅雷</li>
+<li></li>
+</ul>
+</blockquote>
+<h1 id="正文实践"><a href="#正文实践" class="headerlink" title="正文实践"></a>正文实践</h1><h3 id="本地代码-gt-服务器"><a href="#本地代码-gt-服务器" class="headerlink" title="本地代码-&gt;服务器"></a>本地代码-&gt;服务器</h3><p>使用Git将要部署的代码push到github/码云，然后在服务器安装git，通过Git拉去代码到本地；安装nginx，写好配置文件，部署完成</p>
+<blockquote>
+<p>安装git</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 更新软件库 -y是全部yes</span></span><br><span class="line">apt-get update -y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新包</span></span><br><span class="line">apt-get upgrade</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装git</span></span><br><span class="line">apt-get install git</span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置git信息</span></span><br><span class="line">git config --global user.name "username"</span><br><span class="line">git config --global user.email "email"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 拉取代码</span></span><br><span class="line">git clone xxxx</span><br></pre></td></tr></table></figure>
 
-<h2 id="解析输入的url的域名"><a href="#解析输入的url的域名" class="headerlink" title="解析输入的url的域名"></a>解析输入的url的域名</h2><blockquote>
-<p>首先是URL是什么？</p>
+<blockquote>
+<p>安装nginx</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装</span></span><br><span class="line">apt-get install nginx</span><br><span class="line"><span class="meta">#</span><span class="bash"> 访问本地ip，显示welcome nginx，即安装成功</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看版本号 出现版本号，成功</span></span><br><span class="line">nginx --version</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>常用命令</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 重载配置文件  -s参数包含四个命令分别是 stop/quit/reopen/reload</span></span><br><span class="line">nginx -s reload</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启Nginx</span></span><br><span class="line">nginx -s reopen</span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止Nginx</span></span><br><span class="line">nginx -s stop</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动Nginx</span></span><br><span class="line">nginx -s start</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ngixn的配置目录</p>
 <ul>
-<li>URL:统一资源定位符,如下</li>
-<li><a href="http://www.w3school.com.cn/html/index.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/html/index.asp</a></li>
-<li><strong><em>http://</em></strong>是http协议的版本，<strong><em><a href="http://www.w3school.com.cn" target="_blank" rel="noopener">www.w3school.com.cn</a></em></strong>是域名，域名后的 <strong><em>/</em></strong> 称为路由，用来定位服务器的资源目录，<strong><em>html/index.asp</em></strong>就是具体目录下的具体资源文件</li>
+<li>/etc/nginx/conf.d/—存放自己的配置文件的目录</li>
+<li>/etc/nginx/nginx.conf—住配置文件，里面会加载conf目录的配置文件</li>
+<li><a href="https://www.cnblogs.com/liang-io/p/9340335.html" target="_blank" rel="noopener">详细描述</a></li>
 </ul>
 </blockquote>
 <blockquote>
-<p>为什么要解析域名？</p>
+<p>部署blog</p>
 <ul>
-<li>为什么解析域名?因为每一台主机都有一个属于他自己的ip地址，比如 <strong><em>127.0.0.1</em></strong>，其他互联网的居民也是根据这个ip地址来访问你主机的资源(你对外提供的可访问的资源)，但是这个ip地址非常不好记忆，所以需要一个通俗易懂的名字来代替ip地址,这个就是域名。解析域名就是通过你的域名来找到对应你这个域名的主机。</li>
+<li>项目放在data目录下，不然会没有权限，403</li>
+<li>配置文件，以*.conf结尾</li>
 </ul>
 </blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    server_name 域名/ip；</span><br><span class="line"></span><br><span class="line">    root  项目目录;</span><br><span class="line"></span><br><span class="line">    location ~*^.+\.(jpg|jepg|png|gif|png|icon)&#123;</span><br><span class="line">        root 资源目录</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>和怎么解析的呢？</p>
+<p>文档参考</p>
 <ul>
-<li>怎么解析呢?通过采用DNS协议的DNS网络服务器来根据你提供的域名，自动去寻找对应该域名的ip地址，这个过程是浏览器自动完成，不需要手动参与。</li>
-<li>解析的过程一般发生在通过URL请求之前，浏览器会先把域名发送给DNS服务器，DNS服务器根据域名找到对应的IP地址后，返回给浏览器后，浏览器将URL中的域名替换成对应的IP地址，然后继续接下来的步骤。</li>
+<li><a href="https://www.nginx.cn/doc/" target="_blank" rel="noopener">文档</a></li>
+<li><a href="https://github.com/jaywcjlove/nginx-tutorial" target="_blank" rel="noopener">笔记</a></li>
 </ul>
 </blockquote>
-<h2 id="通过TCP三次握手建立TCP通道"><a href="#通过TCP三次握手建立TCP通道" class="headerlink" title="通过TCP三次握手建立TCP通道"></a>通过TCP三次握手建立TCP通道</h2><blockquote>
-<p>为什么建立TCP通道？</p>
-<ul>
-<li>因为http属于网络模型七层协议中的应用层，只负责两端数据包的发送和接受，这个过程需要一个通道来传送，这就是TCP协议，它属于网络模型七层协议中的传输层。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>TCP三次握手的目的?</p>
-<ul>
-<li>为了在要进行数据交互的两端，建立一个有效的数据传输通道；这个有效可以理解成，防止服务端接收到之前连接过已经断开的客户端突然传递过来的数据，导致出现一些错误。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>TCP三次握手是怎么进行的？</p>
-<ul>
-<li>简单概述:1.客户端先发送一个信息告诉服务端，它要进行连接;2.服务端收到信息后，会在发送一个信息告诉客户端，我知道了，你可以连接了；3.这时客户端收到服务端发来的信息后，会在传回一个信息给服务端，服务端收到后，通道搭建完成，可以开始http请求的发送了。</li>
-<li>大体过程如下图<br><img src="/img/url.png" alt="TCP三次握手"></li>
-<li>图中的字母和数字就是三次握手中，用来确认是具体是哪一台客户端和服务端进行的链接的数据包。</li>
-<li>SYN：同步序列编号；seq：序列号；ACK：确认字符</li>
-</ul>
-</blockquote>
-<h2 id="客户端—服务端通过http协议进行数据交互"><a href="#客户端—服务端通过http协议进行数据交互" class="headerlink" title="客户端—服务端通过http协议进行数据交互"></a>客户端—服务端通过http协议进行数据交互</h2><p>客户端通过HTTP的请求方法，发送请求到服务端提供的请求地址，然后服务端收到请求后，提供客户端希望获取到的数据，在返回给客户端。</p>
-<p><a href="http://localhost:4000/2019/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/http%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">http协议学习</a></p>
-<h2 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h2><p>浏览器一般都有两个引擎，一个渲染引擎，用来解析HTML+CSS并绘制显示出来；另一个是js引擎用来专门执行js代码。</p>
-<blockquote>
-<p>解析过程</p>
-<ul>
-<li>浏览器收到HTML后，会先解析HTML文件的DOM树，由上至下(先解析一个节点的所有子节点，再继续该节点的兄弟节点，依次解析)；</li>
-<li>解析完毕所有的HTML后，才会在解析对应的CSS树，并根据CSS的规则计算出布局、对应dom的样式、尺寸，完毕后在进行渲染。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>注意点：</p>
-<ul>
-<li>在解析HTML时，如果遇到script脚本，会停止解析，开始执行脚本，脚本执行完毕后，继续解析；这也是为什么我们写内置的script的时候，如果把代码防止在body之前，获取不到dom的原因。</li>
-<li>在准备好DOM树和CSS树后，渲染时有两个概念，<strong><em>回流</em></strong>、<strong><em>重绘</em></strong>。</li>
-<li>回流：当DOM的尺寸大小，以及影响布局的变化称为回流，这个操作会触发DOM的重新计算和渲染。</li>
-<li>重绘：当DOM的颜色，和不影响布局的样式发生的改变称为重绘。<br><img src="/img/url2.png" alt="渲染HTML过程"></li>
-</ul>
-</blockquote>
-<h2 id="请求结束，通过TCP四次挥手关闭TCP通道"><a href="#请求结束，通过TCP四次挥手关闭TCP通道" class="headerlink" title="请求结束，通过TCP四次挥手关闭TCP通道"></a>请求结束，通过TCP四次挥手关闭TCP通道</h2><p><img src="/img/url3" alt="四次挥手"><br>和三次握手的前三次流程大致相同，只是多了一次，客户端向服务端发送确认信息的步骤。</p>
-<p>因为服务端，是监听端，当通道搭建完成后，实时接收客户端发送的请求；它可以随时关闭通道，而当挥手的第三步完成后，浏览器需要告诉服务端，是否确认关闭通道。</p>
-<p>图中 的FIN为结束标志，结束序列编号。</p>
-<h1 id="学习参考链接"><a href="#学习参考链接" class="headerlink" title="学习参考链接"></a>学习参考链接</h1><p><a href="https://github.com/ljianshu/Blog/issues/24" target="_blank" rel="noopener">浪里行舟</a></p>
-<p><a href="https://zhidao.baidu.com/question/1964377688066529460.html" target="_blank" rel="noopener">tcp协议中“syn，ack，fin”各有什么作用</a></p>
-<p><a href="https://book.douban.com/subject/25863515/" target="_blank" rel="noopener">图解HTTP</a></p>
 
     </div>
 
@@ -396,9 +421,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/网络/" rel="tag"># 网络</a>
-            
-              <a href="/tags/踩坑/" rel="tag"># 踩坑</a>
+              <a href="/tags/工具/" rel="tag"># 工具</a>
             
           </div>
         
@@ -408,8 +431,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/11/28/computerbasic/http协议学习笔记/" rel="next" title="http协议学习笔记">
-                  <i class="fa fa-chevron-left"></i> http协议学习笔记
+                <a href="/2020/05/02/vue/vue原理学习1/" rel="next" title="vue原理学习1-响应式">
+                  <i class="fa fa-chevron-left"></i> vue原理学习1-响应式
                 </a>
               
             </div>
@@ -417,10 +440,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/11/28/notes/关于浏览器缓存/" rel="prev" title="关于浏览器缓存">
-                  关于浏览器缓存 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -466,7 +485,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程概述"><span class="nav-number">2.</span> <span class="nav-text">流程概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解析输入的url的域名"><span class="nav-number">2.1.</span> <span class="nav-text">解析输入的url的域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过TCP三次握手建立TCP通道"><span class="nav-number">2.2.</span> <span class="nav-text">通过TCP三次握手建立TCP通道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端—服务端通过http协议进行数据交互"><span class="nav-number">2.3.</span> <span class="nav-text">客户端—服务端通过http协议进行数据交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器解析渲染页面"><span class="nav-number">2.4.</span> <span class="nav-text">浏览器解析渲染页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求结束，通过TCP四次挥手关闭TCP通道"><span class="nav-number">2.5.</span> <span class="nav-text">请求结束，通过TCP四次挥手关闭TCP通道</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习参考链接"><span class="nav-number">3.</span> <span class="nav-text">学习参考链接</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#起因"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关知识笔记"><span class="nav-number">2.</span> <span class="nav-text">相关知识笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx"><span class="nav-number">2.0.1.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-number">2.0.2.</span> <span class="nav-text">Linux</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文实践"><span class="nav-number">3.</span> <span class="nav-text">正文实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地代码-gt-服务器"><span class="nav-number">3.0.1.</span> <span class="nav-text">本地代码-&gt;服务器</span></a></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
