@@ -56,7 +56,7 @@
 </script>
 
   <meta name="description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
-<meta name="keywords" content="工具,Nginx,Linux">
+<meta name="keywords" content="工具,Linux,Nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初探nginx">
 <meta property="og:url" content="http://shuaxindiary/2020/05/09/other/初探nginx/index.html">
@@ -378,17 +378,17 @@
 <blockquote>
 <p>安装git</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 更新软件库 -y是全部yes</span></span><br><span class="line">apt-get update -y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新包</span></span><br><span class="line">apt-get upgrade</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装git</span></span><br><span class="line">apt-get install git</span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置git信息</span></span><br><span class="line">git config --global user.name "username"</span><br><span class="line">git config --global user.email "email"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 拉取代码</span></span><br><span class="line">git clone xxxx</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 更新软件库 -y是全部yes</span><br><span class="line">apt-get update -y</span><br><span class="line"><span class="meta">#</span> 更新包</span><br><span class="line">apt-get upgrade</span><br><span class="line"><span class="meta">#</span> 安装git</span><br><span class="line">apt-get install git</span><br><span class="line"><span class="meta">#</span> 配置git信息</span><br><span class="line">git config --global user.name "username"</span><br><span class="line">git config --global user.email "email"</span><br><span class="line"><span class="meta">#</span> 拉取代码</span><br><span class="line">git clone xxxx</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>安装nginx</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装</span></span><br><span class="line">apt-get install nginx</span><br><span class="line"><span class="meta">#</span><span class="bash"> 访问本地ip，显示welcome nginx，即安装成功</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看版本号 出现版本号，成功</span></span><br><span class="line">nginx --version</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装</span><br><span class="line">apt-get install nginx</span><br><span class="line"><span class="meta">#</span> 访问本地ip，显示welcome nginx，即安装成功</span><br><span class="line"><span class="meta">#</span> 查看版本号 出现版本号，成功</span><br><span class="line">nginx --version</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>常用命令</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 重载配置文件  -s参数包含四个命令分别是 stop/quit/reopen/reload</span></span><br><span class="line">nginx -s reload</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启Nginx</span></span><br><span class="line">nginx -s reopen</span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止Nginx</span></span><br><span class="line">nginx -s stop</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动Nginx</span></span><br><span class="line">nginx -s start</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 重载配置文件  -s参数包含四个命令分别是 stop/quit/reopen/reload</span><br><span class="line">nginx -s reload</span><br><span class="line"><span class="meta">#</span> 重启Nginx</span><br><span class="line">nginx -s reopen</span><br><span class="line"><span class="meta">#</span> 停止Nginx</span><br><span class="line">nginx -s stop</span><br><span class="line"><span class="meta">#</span> 启动Nginx</span><br><span class="line">nginx -s start</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>ngixn的配置目录</p>
@@ -431,9 +431,9 @@
             
               <a href="/tags/工具/" rel="tag"># 工具</a>
             
-              <a href="/tags/Nginx/" rel="tag"># Nginx</a>
-            
               <a href="/tags/Linux/" rel="tag"># Linux</a>
+            
+              <a href="/tags/Nginx/" rel="tag"># Nginx</a>
             
           </div>
         
@@ -453,8 +453,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2020/05/11/other/hello-world/" rel="prev" title="Hello World">
-                  Hello World <i class="fa fa-chevron-right"></i>
+                <a href="/2020/05/12/other/初探Travis/" rel="prev" title="初探Travis">
+                  初探Travis <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -543,7 +543,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
