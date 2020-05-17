@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="使用前准备1.安装mongodb 下载2.选择服务端然后对应系统版本，推荐下载msi格式(这个可以一步一步安装，比较方便)3.下载后在安装目录里(与bing目录同级下)创建 data文件夹(存放数据库集合的)4.通过cmd启动mongdb&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.进入bin目录">
+<meta name="keywords" content="NodeJS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB入门学习笔记">
+<meta property="og:url" content="http://shuaxindiary/2019/11/10/踩坑/MongoDB入门学习笔记/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="使用前准备1.安装mongodb 下载2.选择服务端然后对应系统版本，推荐下载msi格式(这个可以一步一步安装，比较方便)3.下载后在安装目录里(与bing目录同级下)创建 data文件夹(存放数据库集合的)4.通过cmd启动mongdb&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.进入bin目录">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-12T10:49:10.717Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MongoDB入门学习笔记">
+<meta name="twitter:description" content="使用前准备1.安装mongodb 下载2.选择服务端然后对应系统版本，推荐下载msi格式(这个可以一步一步安装，比较方便)3.下载后在安装目录里(与bing目录同级下)创建 data文件夹(存放数据库集合的)4.通过cmd启动mongdb&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.进入bin目录">
+  <link rel="canonical" href="http://shuaxindiary/2019/11/10/踩坑/MongoDB入门学习笔记/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>MongoDB入门学习笔记 | 刷新</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/11/10/踩坑/MongoDB入门学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">MongoDB入门学习笔记
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-10 19:48:21" itemprop="dateCreated datePublished" datetime="2019-11-10T19:48:21+08:00">2019-11-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-12 18:49:10" itemprop="dateModified" datetime="2019-11-12T18:49:10+08:00">2019-11-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="使用前准备"><a href="#使用前准备" class="headerlink" title="使用前准备"></a>使用前准备</h1><p>1.安装mongodb <a href="http://downloads.mongodb.com/" target="_blank" rel="noopener">下载</a><br>2.选择服务端然后对应系统版本，推荐下载msi格式(这个可以一步一步安装，比较方便)<br>3.下载后在安装目录里(与bing目录同级下)创建 data文件夹(存放数据库集合的)<br>4.通过cmd启动mongdb<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.进入bin目录</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. mongod --dbpath (这里的路径是第三部创建的data文件夹的而路径)</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.看到控制台打印出 waiting forconnections on port 27017(默认端口) 即启动成功</p>
+<p>5.将mongodb添加到本地服务中<br>&nbsp;&nbsp;&nbsp;1.在第三部的data文件中创建log文件夹<br>&nbsp;&nbsp;&nbsp;2.在log文件夹中创建mongodb.log文件<br>&nbsp;&nbsp;&nbsp;3.输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod.exe --logpath (这里写你log文件的路径) --logappend --dbpath (这里写你data文件夹的路径) --directoryperdb --serviceName MongoDB --install</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;4.通过管理员启动cmd，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 启动mongodb服务 --&gt;</span><br><span class="line">net start MongoDB</span><br><span class="line">&lt;!-- 关闭mngodb服务 --&gt;</span><br><span class="line">net stop MongoDB</span><br><span class="line">&lt;!-- 卸载mongodb服务 --&gt;</span><br><span class="line">mongod.exe --remove --serviceName &quot;MongoDB&quot;</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;5.遇到无法启动的问题 删除data目录下的 mongod.lock和storage.bson文件重新启动即可</p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>集合:类似MySQL的表</p>
+<p>文档:类似MySQL的元祖</p>
+<!-- more -->
+
+<p>mongo中的数据类型:</p>
+<blockquote>
+<p>Object ID： ⽂档ID</p>
+<ul>
+<li>可以手动设置，未设置系统默认分配一个objectID(是⼀个12字节的⼗六进制数)<br>String： 字符串， 最常⽤， 必须是有效的UTF-8<br>Boolean： 存储⼀个布尔值， true或false<br>Integer： 整数可以是32位或64位， 这取决于服务器<br>Double： 存储浮点值<br>Arrays： 数组或列表， 多个值存储到⼀个键<br>Object： ⽤于嵌⼊式的⽂档， 即⼀个值为⼀个⽂档<br>Null： 存储Null值<br>Timestamp： 时间戳， 表示从1970-1-1到现在的总秒数<br>Date： 存储当前⽇期或时间的UNIX时间格式</li>
+</ul>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 创建日期</span><br><span class="line">new Date('2017-12-20')</span><br></pre></td></tr></table></figure>
+
+<h1 id="MongoDB基本命令"><a href="#MongoDB基本命令" class="headerlink" title="MongoDB基本命令"></a>MongoDB基本命令</h1><blockquote>
+<p>关于数据库</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动MongoDB</span><br><span class="line">net stop mongodb</span><br><span class="line"><span class="meta">#</span> 进入安装目录的bin目录</span><br><span class="line"><span class="meta">#</span> 终端启动(客户端)</span><br><span class="line">mongo</span><br><span class="line"><span class="meta">#</span> 服务端启动</span><br><span class="line">mongod</span><br><span class="line"><span class="meta">#</span> 查看当前数据</span><br><span class="line">db</span><br><span class="line"><span class="meta">#</span> 查看所有数据库</span><br><span class="line">show dbs</span><br><span class="line"><span class="meta">#</span> 切换数据库---不存在时会自动创建---如果创建了没操作，在切换时，该数据库不保存</span><br><span class="line">use &lt;dbname&gt;</span><br><span class="line"><span class="meta">#</span> 删除数据库</span><br><span class="line">db.dropDatabase()</span><br><span class="line"><span class="meta">#</span> 显示当前数据库状态信息</span><br><span class="line">db.stats()</span><br><span class="line"><span class="meta">#</span> 查看当前数据库版本</span><br><span class="line">db.version()</span><br><span class="line"><span class="meta">#</span> 查看当前连接数据库地址</span><br><span class="line">db.getMongo()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关于集合</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看所有集合</span><br><span class="line">show collections</span><br><span class="line"><span class="meta">#</span> 删除集合</span><br><span class="line">db.&lt;集合名&gt;.drop()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关于文档</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 插入文档  数据为对象格式  当集合不存在时直接插入会自动创建集合</span><br><span class="line">db.&lt;集合名&gt;.insertOne(&#123;name:'shauxin',age:21&#125;);</span><br><span class="line"><span class="meta">#</span> insertOne插入一个  insertMany插入多个</span><br><span class="line">db.&lt;集合名&gt;.insertOne([&#123;name:'one'&#125;,&#123;name:'two'&#125;]);</span><br><span class="line"><span class="meta">#</span> 查询所有文档</span><br><span class="line">db.&lt;集合名&gt;.find()</span><br><span class="line"><span class="meta">#</span> 更新文档</span><br><span class="line"><span class="meta">#</span>更新一条update或者updateOne,没有更新的字段会丢弃. </span><br><span class="line">db.&lt;集合名&gt;.update(&#123;name:'hr'&#125;,&#123;name:'mnc'&#125;)</span><br><span class="line"><span class="meta">#</span>更新一条</span><br><span class="line">db.&lt;集合名&gt;.update(&#123;name:'hr'&#125;,&#123;$set:&#123;name:'hys'&#125;&#125;)</span><br><span class="line"><span class="meta">#</span>更新全部</span><br><span class="line">db.&lt;集合名&gt;.update(&#123;&#125;,&#123;$set:&#123;gender:0&#125;&#125;,&#123;multi:true&#125;) </span><br><span class="line"><span class="meta">#</span> 更新多个 updateMany</span><br><span class="line">db.&lt;集合名&gt;.updateOne(&#123;name:'wade'&#125;,&#123;$set:&#123;age:21&#125;&#125;)   </span><br><span class="line"><span class="meta">#</span> 删除</span><br><span class="line"><span class="meta">#</span> 删除第一个符合条件的</span><br><span class="line">db.&lt;集合名&gt;.deleteOne(&#123;age:21&#125;)</span><br><span class="line"><span class="meta">#</span> 删除所有符合条件的</span><br><span class="line">db.&lt;集合名&gt;.deleteMany(&#123;age:21&#125;)</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/NodeJS/" rel="tag"># NodeJS</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/08/css/FLIP做卡片弹窗动画/" rel="next" title="FLIP做卡片弹窗动画">
+                  <i class="fa fa-chevron-left"></i> FLIP做卡片弹窗动画
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/15/踩坑/高效利用GITHUB/" rel="prev" title="高效利用GITHUB">
+                  高效利用GITHUB <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用前准备"><span class="nav-number">1.</span> <span class="nav-text">使用前准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MongoDB基本命令"><span class="nav-number">3.</span> <span class="nav-text">MongoDB基本命令</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      学习
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮老师</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.lxchuan12.cn/" title="https://www.lxchuan12.cn/" rel="noopener" target="_blank">若川</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

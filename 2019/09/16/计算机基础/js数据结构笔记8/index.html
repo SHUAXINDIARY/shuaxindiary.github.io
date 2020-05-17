@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="本文源码 这里什么是树 1.一种非线性结构,由n(n&amp;gt;=1)个有限节点组成的有层次关系的集合2.如下图：3.HTML的所有dom节点其实就是一棵dom树，如图">
+<meta name="keywords" content="JavaScript,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《学习JavaScript数据结构与算法》笔记---树">
+<meta property="og:url" content="http://shuaxindiary/2019/09/16/计算机基础/js数据结构笔记8/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="本文源码 这里什么是树 1.一种非线性结构,由n(n&amp;gt;=1)个有限节点组成的有层次关系的集合2.如下图：3.HTML的所有dom节点其实就是一棵dom树，如图">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://shuaxindiary/img/tree.jpg">
+<meta property="og:image" content="http://shuaxindiary/img/domtree.gif">
+<meta property="og:image" content="http://shuaxindiary/img/tree.jpg">
+<meta property="og:image" content="http://shuaxindiary/img/treedemo.jpg">
+<meta property="og:image" content="http://shuaxindiary/img/bst.jpg">
+<meta property="og:image" content="http://shuaxindiary/img/notbts.jpg">
+<meta property="og:updated_time" content="2019-10-12T12:03:46.336Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《学习JavaScript数据结构与算法》笔记---树">
+<meta name="twitter:description" content="本文源码 这里什么是树 1.一种非线性结构,由n(n&amp;gt;=1)个有限节点组成的有层次关系的集合2.如下图：3.HTML的所有dom节点其实就是一棵dom树，如图">
+<meta name="twitter:image" content="http://shuaxindiary/img/tree.jpg">
+  <link rel="canonical" href="http://shuaxindiary/2019/09/16/计算机基础/js数据结构笔记8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>《学习JavaScript数据结构与算法》笔记---树 | 刷新</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刷新</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2019/09/16/计算机基础/js数据结构笔记8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">《学习JavaScript数据结构与算法》笔记---树
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-16 14:39:15" itemprop="dateCreated datePublished" datetime="2019-09-16T14:39:15+08:00">2019-09-16</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-12 20:03:46" itemprop="dateModified" datetime="2019-10-12T20:03:46+08:00">2019-10-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E6%A0%91.html" target="_blank" rel="noopener">这里</a></h1><h1 id="什么是树"><a href="#什么是树" class="headerlink" title="什么是树"></a>什么是树</h1><blockquote>
+<p>1.一种非线性结构,由n(n&gt;=1)个有限节点组成的有层次关系的集合<br>2.如下图：<br><img src="/img/tree.jpg" alt="树"><br>3.HTML的所有dom节点其实就是一棵dom树，如图<br><img src="/img/domtree.gif" alt="dom树"></p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="树的特点"><a href="#树的特点" class="headerlink" title="树的特点"></a>树的特点</h1><blockquote>
+<p><strong><em>优点</em></strong></p>
+<ul>
+<li>1.因为基于链表实现，所以集成了链表的优点；但又因为非线性结构的原因查询比链表有效率；</li>
+<li>2.虽然查询效率不集哈希表，但比哈希表节省空间；</li>
+<li>3.也改善了数组插入和删除时，效率低下的原因；</li>
+<li>4.可以表示一对多的关系；</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong><em>缺点</em></strong></p>
+<ul>
+<li>1.查找删除效率取决该树的深度，深度越大效率越低</li>
+<li>2.查找效率没有哈希表更有效率</li>
+</ul>
+</blockquote>
+<hr>
+<p><strong><strong>存在即合理，根据自己会继续要选择合适的结构</strong></strong></p>
+<hr>
+<h1 id="关于树的一些术语"><a href="#关于树的一些术语" class="headerlink" title="关于树的一些术语"></a>关于树的一些术语</h1><p><img src="/img/tree.jpg" alt="树"></p>
+<blockquote>
+<p>1.位于顶部的节点叫做根节点；图中的A<br>2.树中的每个元素叫做节点；图中的所有圆点<br>3.内部节点：有子节点的节点；图中的abcde<br>4.外部节点也叫叶节点：没有子节点的节点；图中的#<br>5.父节点：a时bc的父节点；是其他节点的祖先节点；<br>6.子节点：bc是a的子节点；<br>7.子树：由某个子节点和他的子节点组成的树；<br>8.节点的度:节点的子节点个数<br>9.节点的层：根节点是1层(或0层),子节点层数依次加一；<br>10.树的深度：层数最大的节点；是树的深度</p>
+</blockquote>
+<h1 id="一些常见树"><a href="#一些常见树" class="headerlink" title="一些常见树"></a>一些常见树</h1><blockquote>
+<p><strong><em>二叉树(Binary Tree)</em></strong></p>
+<ul>
+<li>1.每个节点的子节点个数最多只有2个；一个左节点，一个右节点</li>
+<li>2.二叉树i层的最大节点树为 2的i-1次方,i&gt;=1;</li>
+<li>3.深度为k的二叉树的最大节点总数为 2的k次方后再-1；k&gt;=1</li>
+<li>4.非空二叉树的叶结点个数n0=n2+1； n2为叶节点个数</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong><em>完美二叉树</em></strong></p>
+<ul>
+<li>除过根节点其他所有子节点都有2个子节点的二叉树</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong><em>完全二叉树(Complete Binary Tree)</em></strong></p>
+<ul>
+<li>1.除过根节点其他所有子节点都有2个子节点；</li>
+<li>2.且最后一层从左到右叶节点连续存在，只缺右边若干接点的二叉树</li>
+<li>3.完美二叉树时特殊的完全二叉树</li>
+<li>4.举例子<br><img src="/img/treedemo.jpg" alt="完全二叉树"></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong><font color="red">二叉搜索树(Binary Search Tree)</font></strong>   <strong><strong>重点</strong></strong></p>
+<ul>
+<li>非空<strong><em>左</em></strong>子树的所有值<strong><em>小于</em></strong>其根节点；</li>
+<li>非空<strong><em>右</em></strong>子树的所有值<strong><em>大于</em></strong>其根节点；</li>
+<li>每一个子树也都满足二叉搜索树规则；<br><img src="/img/bst.jpg" alt="二叉搜索树">;</li>
+</ul>
+</blockquote>
+<h1 id="非平衡树"><a href="#非平衡树" class="headerlink" title="非平衡树"></a>非平衡树</h1><blockquote>
+<p>1.一颗左右子树节点分布不平衡的树，叫做非平衡树<br>2.一颗非平衡树相当于写了一个链表，体现不出树的优势；<br><img src="/img/notbts.jpg" alt="非平衡二叉树">;</p>
+</blockquote>
+<h1 id="平衡树"><a href="#平衡树" class="headerlink" title="平衡树"></a>平衡树</h1><blockquote>
+<p>1.也是二叉搜索树<br>2.每个节点的左子树节点个数和右子树节点个数相近<br>3.在二叉搜索树的实现上多封装了一些条件来保证不会出现非平衡树那样的情况的树<br>常见平衡树:</p>
+<ul>
+<li>AVL树:不常用</li>
+<li><strong><em>红黑树</em></strong></li>
+</ul>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/10/计算机基础/js数据结构笔记7/" rel="next" title="《学习JavaScript数据结构与算法》笔记---哈希表">
+                  <i class="fa fa-chevron-left"></i> 《学习JavaScript数据结构与算法》笔记---哈希表
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/22/计算机基础/js数据结构笔记9/" rel="prev" title="《学习JavaScript数据结构与算法》笔记---红黑树">
+                  《学习JavaScript数据结构与算法》笔记---红黑树 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本文源码-这里"><span class="nav-number">1.</span> <span class="nav-text">本文源码 这里</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是树"><span class="nav-number">2.</span> <span class="nav-text">什么是树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树的特点"><span class="nav-number">3.</span> <span class="nav-text">树的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于树的一些术语"><span class="nav-number">4.</span> <span class="nav-text">关于树的一些术语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些常见树"><span class="nav-number">5.</span> <span class="nav-text">一些常见树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#非平衡树"><span class="nav-number">6.</span> <span class="nav-text">非平衡树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#平衡树"><span class="nav-number">7.</span> <span class="nav-text">平衡树</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      学习
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://lizhiyao.github.io/" title="https://lizhiyao.github.io/" rel="noopener" target="_blank">志遥</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮老师</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.lxchuan12.cn/" title="https://www.lxchuan12.cn/" rel="noopener" target="_blank">若川</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

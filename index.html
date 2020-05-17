@@ -226,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/05/14/other/nginx代理/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/05/14/踩坑/nginx代理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -240,7 +240,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2020/05/14/other/nginx代理/" class="post-title-link" itemprop="url">nginx代理</a>
+            <a href="/2020/05/14/踩坑/nginx代理/" class="post-title-link" itemprop="url">nginx代理</a>
           
         </h1>
 
@@ -278,7 +278,7 @@
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2020/05/14/other/nginx代理/#more" rel="contents">
+              <a class="btn" href="/2020/05/14/踩坑/nginx代理/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -305,7 +305,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/05/13/jottings/塞尔达通关/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/05/13/杂文/塞尔达通关/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -319,7 +319,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2020/05/13/jottings/塞尔达通关/" class="post-title-link" itemprop="url">塞尔达通关</a>
+            <a href="/2020/05/13/杂文/塞尔达通关/" class="post-title-link" itemprop="url">塞尔达通关</a>
           
         </h1>
 
@@ -370,7 +370,7 @@
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2020/05/13/jottings/塞尔达通关/#more" rel="contents">
+              <a class="btn" href="/2020/05/13/杂文/塞尔达通关/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -397,7 +397,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/05/12/other/初探Travis/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/05/12/踩坑/初探Travis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -411,7 +411,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2020/05/12/other/初探Travis/" class="post-title-link" itemprop="url">初探Travis</a>
+            <a href="/2020/05/12/踩坑/初探Travis/" class="post-title-link" itemprop="url">初探Travis</a>
           
         </h1>
 
@@ -437,7 +437,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-13 12:34:04" itemprop="dateModified" datetime="2020-05-13T12:34:04+08:00">2020-05-13</time>
+                <time title="修改时间：2020-05-18 00:55:40" itemprop="dateModified" datetime="2020-05-18T00:55:40+08:00">2020-05-18</time>
               </span>
             
           
@@ -466,11 +466,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="服务端操作"><a href="#服务端操作" class="headerlink" title="服务端操作"></a>服务端操作</h1><h3 id="Linux添加新用户-赋予root权限"><a href="#Linux添加新用户-赋予root权限" class="headerlink" title="Linux添加新用户/赋予root权限"></a>Linux添加新用户/赋予root权限</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 进入root</span><br><span class="line">su root</span><br><span class="line"><span class="meta">#</span> 添加用户</span><br><span class="line">adduser 用户名</span><br><span class="line"><span class="meta">#</span> 按提示操作</span><br><span class="line"><span class="meta">#</span> 给该用户赋予root权限</span><br><span class="line"><span class="meta">#</span> 编辑该文件</span><br><span class="line">vim /etc/sudoers</span><br><span class="line"><span class="meta">#</span> 在改行注释下添加</span><br><span class="line"><span class="meta">#</span> User privilege specification</span><br><span class="line">用户名 ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+          <h1 id="初探cicd"><a href="#初探cicd" class="headerlink" title="初探cicd"></a>初探cicd</h1><blockquote>
+<p>什么是cicd？</p>
+<ul>
+<li>cicd是持续集成和持续交付的缩写，全称为continuous integration &amp; continuous delivery</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>cicd怎么做</p>
+<ul>
+<li>通过一些工具，来进行</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>这些工具做了哪些事</p>
+<ul>
+<li>将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手</li>
+<li>举个vue项目的例子：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 本地：对项目打包，（正规点还要跑一边测试）这些都没问题后，然后推送到远程仓库</span><br><span class="line">npm run build -&gt; git push </span><br><span class="line"><span class="meta">#</span> 服务器：进入对应的目录，然后拉去仓库的代码</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>如果做好cicd的流程后，只需要git push代码就好，剩下的都会在集成工具里去根据配置文件，去自动执行，这个过程哪一步出现问题都会有对应的log文件
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2020/05/12/other/初探Travis/#more" rel="contents">
+              <a class="btn" href="/2020/05/12/踩坑/初探Travis/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -497,7 +518,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/05/09/other/初探nginx/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/05/09/踩坑/初探nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -511,7 +532,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2020/05/09/other/初探nginx/" class="post-title-link" itemprop="url">初探nginx</a>
+            <a href="/2020/05/09/踩坑/初探nginx/" class="post-title-link" itemprop="url">初探nginx</a>
           
         </h1>
 
@@ -570,7 +591,7 @@
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2020/05/09/other/初探nginx/#more" rel="contents">
+              <a class="btn" href="/2020/05/09/踩坑/初探nginx/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -700,7 +721,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/04/29/jottings/资源推荐/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/04/29/杂文/资源推荐/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -714,7 +735,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2020/04/29/jottings/资源推荐/" class="post-title-link" itemprop="url">资源推荐</a>
+            <a href="/2020/04/29/杂文/资源推荐/" class="post-title-link" itemprop="url">资源推荐</a>
           
         </h1>
 
@@ -768,7 +789,7 @@
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2020/04/29/jottings/资源推荐/#more" rel="contents">
+              <a class="btn" href="/2020/04/29/杂文/资源推荐/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -890,7 +911,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/04/11/other/demo-cli/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/04/11/踩坑/demo-cli/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -904,7 +925,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2020/04/11/other/demo-cli/" class="post-title-link" itemprop="url">demo-cli</a>
+            <a href="/2020/04/11/踩坑/demo-cli/" class="post-title-link" itemprop="url">demo-cli</a>
           
         </h1>
 
@@ -967,7 +988,7 @@
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2020/04/11/other/demo-cli/#more" rel="contents">
+              <a class="btn" href="/2020/04/11/踩坑/demo-cli/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1100,7 +1121,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/03/15/notes/关于JWT认证/">
+    <link itemprop="mainEntityOfPage" href="http://shuaxindiary/2020/03/15/笔记/关于JWT认证/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -1114,7 +1135,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2020/03/15/notes/关于JWT认证/" class="post-title-link" itemprop="url">关于JWT认证</a>
+            <a href="/2020/03/15/笔记/关于JWT认证/" class="post-title-link" itemprop="url">关于JWT认证</a>
           
         </h1>
 
@@ -1182,7 +1203,7 @@
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2020/03/15/notes/关于JWT认证/#more" rel="contents">
+              <a class="btn" href="/2020/03/15/笔记/关于JWT认证/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
