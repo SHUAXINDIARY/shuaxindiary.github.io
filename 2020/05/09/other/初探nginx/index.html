@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="刷新">
 <meta property="og:description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-14T05:36:36.241Z">
+<meta property="og:updated_time" content="2020-05-17T10:12:34.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初探nginx">
 <meta name="twitter:description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
@@ -267,7 +267,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-14 13:36:36" itemprop="dateModified" datetime="2020-05-14T13:36:36+08:00">2020-05-14</time>
+                <time title="修改时间：2020-05-17 18:12:34" itemprop="dateModified" datetime="2020-05-17T18:12:34+08:00">2020-05-17</time>
               </span>
             
           
@@ -374,68 +374,105 @@
 <li></li>
 </ul>
 </blockquote>
-<h1 id="正文实践"><a href="#正文实践" class="headerlink" title="正文实践"></a>正文实践</h1><h3 id="本地代码-gt-服务器"><a href="#本地代码-gt-服务器" class="headerlink" title="本地代码-&gt;服务器"></a>本地代码-&gt;服务器</h3><p>使用Git将要部署的代码push到github/码云，然后在服务器安装git，通过Git拉去代码到本地；安装nginx，写好配置文件，部署完成</p>
-<blockquote>
-<p>安装git</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 更新软件库 -y是全部yes</span><br><span class="line">apt-get update -y</span><br><span class="line"><span class="meta">#</span> 更新包</span><br><span class="line">apt-get upgrade</span><br><span class="line"><span class="meta">#</span> 安装git</span><br><span class="line">apt-get install git</span><br><span class="line"><span class="meta">#</span> 配置git信息</span><br><span class="line">git config --global user.name "username"</span><br><span class="line">git config --global user.email "email"</span><br><span class="line"><span class="meta">#</span> 拉取代码</span><br><span class="line">git clone xxxx</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>安装nginx</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装</span><br><span class="line">apt-get install nginx</span><br><span class="line"><span class="meta">#</span> 访问本地ip，显示welcome nginx，即安装成功</span><br><span class="line"><span class="meta">#</span> 查看版本号 出现版本号，成功</span><br><span class="line">nginx --version</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>常用命令</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 重载配置文件  -s参数包含四个命令分别是 stop/quit/reopen/reload</span><br><span class="line">nginx -s reload</span><br><span class="line"><span class="meta">#</span> 重启Nginx</span><br><span class="line">nginx -s reopen</span><br><span class="line"><span class="meta">#</span> 停止Nginx</span><br><span class="line">nginx -s stop</span><br><span class="line"><span class="meta">#</span> 启动Nginx</span><br><span class="line">nginx -s start</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>ngixn的配置目录</p>
-<ul>
-<li>/etc/nginx/conf.d/—存放自己的配置文件的目录</li>
-<li>/etc/nginx/nginx.conf—住配置文件，里面会加载conf目录的配置文件</li>
-<li><a href="https://www.cnblogs.com/liang-io/p/9340335.html" target="_blank" rel="noopener">详细描述</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>部署blog</p>
-<ul>
-<li>项目放在data目录下，不然会没有权限，403</li>
-<li>配置文件，以*.conf结尾</li>
-</ul>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    server_name 域名/ip；</span><br><span class="line"></span><br><span class="line">    root  项目目录;</span><br><span class="line"></span><br><span class="line">    location ~*^.+\.(jpg|jepg|png|gif|png|icon)&#123;</span><br><span class="line">        root 资源目录</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>location匹配命令</p>
-<ul>
-<li>~ 表示执行一个 <strong>区分大小的</strong> 正则匹配</li>
-<li>~* 表示执行一个 <strong>不区分大小写</strong> 的正则匹配</li>
-<li>^~ 表示普通字符匹配，该项匹配后，只匹配该项，用来匹配目录</li>
-<li>= 进行普通字符精确匹配</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>匹配规则举例</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 举例</span><br><span class="line"><span class="meta">#</span> =精确匹配</span><br><span class="line">location = /login &#123;</span><br><span class="line">    # url输入 /login后匹配，然后立即结束</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span> ~区分大小写正则匹配</span><br><span class="line">location ~/imgses/&#123;</span><br><span class="line">    # 只匹配 /imgage</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span> 不区分大小写正则匹配</span><br><span class="line">location ~*/images/&#123;</span><br><span class="line">    # /images或 /IMAGES都可 匹配完毕立即结束</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span> ^~不进行正则匹配的标准匹配</span><br><span class="line">location ^~/images/&#123;</span><br><span class="line">    # 匹配忍者以/imgages/开头的地址，匹配结束立即停止</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span> 普通匹配</span><br><span class="line">location /todo/ &#123;</span><br><span class="line">    # 匹配/todo/ 和顺序无关，匹配成功后结束</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>匹配顺序举例</p>
-</blockquote>
-<ul>
-<li>(location=)&gt;(location 完整路径)&gt;(location ^~ 路径)&gt;(location <del>,</del>正则顺序)&gt;(location 部分起始路径)&gt;(location /)<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">location = / &#123;  </span><br><span class="line">   //精确匹配/ ，主机名后面不能带任何字符串</span><br><span class="line">    echo "规则A";</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location = /login &#123;</span><br><span class="line"></span><br><span class="line">  //精确匹配 /login 开头的地址，匹配符合以后，不在继续往下搜索 </span><br><span class="line">    echo "规则B";</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ^~ /blog/ &#123; </span><br><span class="line">  //非正则匹配，匹配/blog/后，停止往下搜索正则，采用这一条</span><br><span class="line">  echo "规则C";</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~  \.(gif|jpg|png|js|css)$ &#123;</span><br><span class="line">    //区分大小写的正则匹配  若匹配成功，停止往下搜索正则，采用这一条</span><br><span class="line">    echo "规则D";</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* \.png$ &#123;  </span><br><span class="line">   //区分大小写的正则匹配 ，停止往下搜索正则，采用这一条</span><br><span class="line">    echo "规则E";</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">  //因为所有的地址都以 / 开头，所以这条规则将匹配到所有请求</span><br><span class="line">  //如果没任何规则匹配上，就采用这条规则</span><br><span class="line">    echo "规则F";</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /blog/detail &#123; </span><br><span class="line">  //最长字符串匹配，若完全匹配成功，就不在继续匹配，否则还会进行正则匹配</span><br><span class="line">  echo "规则G";</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /images &#123;  </span><br><span class="line">    //最长字符串匹配，同上 </span><br><span class="line">    echo "规则Y";</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ^~ /static/files &#123;  </span><br><span class="line">    //非正则匹配，若匹配成功，就不在继续匹配</span><br><span class="line">    echo "规则X";</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span> 1、当访问根路径/的时候，比如http://www.findme.wang/ ，会匹配规则A。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 2、当访如http://www.findme.wang/login ，会匹配规则B。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 3、当访如http://www.findme.wang/login.html ，会匹配规则F。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 4、当访如http://www.findme.wang/blog/detail/3.html ，会匹配规则C。分析思路，首先看看，“精确匹配”是否可以匹配成功，显示不可以；然后，看看是否可以“普通匹配”是否可以完全匹配，显示也没有；接着在看看非正则匹配，是否可以匹配成功，发现同规则C匹配上了，所以采用了规则C。</span><br></pre></td></tr></table></figure>
+<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><ul>
+<li>进入/etc/nginx/conf.d/目录，该目录存放自己的配置文件，nginx的主配置文件(/etc/nginx/nginx.conf)会自动加载该目录的配置文件</li>
+<li>通过以下配置文件，就可以部署一个简单的静态项目<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    # 监听端口号，主配置文件默认监听了80</span><br><span class="line">    listen 2333;</span><br><span class="line">    # 制定ip地址或者域名</span><br><span class="line">    server_name shuaxinjs.cn;</span><br><span class="line">    # 配置对哪些url做出相应</span><br><span class="line">    location / &#123;</span><br><span class="line">        # 配置响应文件的目录</span><br><span class="line">        root /data;</span><br><span class="line">        # 配置目录下的响应文件</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <blockquote>
-<p>文档参考</p>
+<p>说明</p>
 <ul>
-<li><a href="https://www.nginx.cn/doc/" target="_blank" rel="noopener">文档</a></li>
-<li><a href="https://github.com/jaywcjlove/nginx-tutorial" target="_blank" rel="noopener">笔记</a></li>
+<li>当在浏览器输入的url匹配到location的url后，就会去内部定义的root或alias目录找要返回的文件</li>
+<li>如果没有匹配到对应的规则，就会去默认的目录找404.html并响应；这是nginx自带的，一般在/usr/share/nginx/html</li>
+<li>可以在/var/log/nginx下查看access和error日志文件，来查看访问状态</li>
+<li>root可以写在location也可以写在server中，如果内部有定义root，优先使用root的路径（精确匹配例外）</li>
 </ul>
 </blockquote>
+<blockquote>
+<p>alias和root的区别</p>
+<ul>
+<li>假设此时域名为 <a href="shuaxinjs.cn">shuaxinjs.cn</a></li>
+</ul>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> root</span><br><span class="line"><span class="meta">#</span> 这时浏览器输入www.shuxinjs.cn/dist后，nginx会去/data/dist/目录寻找文件</span><br><span class="line"></span><br><span class="line">location /dist&#123;</span><br><span class="line">    root /data/;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span> alias</span><br><span class="line"><span class="meta">#</span> 这时浏览器输入www.shuxinjs.cn/dist2后，nginx会去/home/目录寻找文件</span><br><span class="line"><span class="meta">#</span> alias指定目录时，结尾一定要加 /;root可有可无</span><br><span class="line">location /dist2&#123;</span><br><span class="line">    alias /home/;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
+<li><p>使用nginx命令管理</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload  # 向主进程发送信号，重新加载配置文件，热重启</span><br><span class="line">nginx -s reopen	 # 重启 Nginx</span><br><span class="line">nginx -s stop    # 快速关闭</span><br><span class="line">nginx -s quit    # 等待工作进程处理完成后关闭</span><br><span class="line">nginx -T         # 查看当前 Nginx 最终的配置</span><br><span class="line">nginx -t -c &lt;配置路径&gt;    # 检查配置是否有问题，如果已经在配置目录，则不需要-c</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用systemctl管理，这是Linux的系统应用管理工具</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx    # 启动 Nginx</span><br><span class="line">systemctl stop nginx     # 停止 Nginx</span><br><span class="line">systemctl restart nginx  # 重启 Nginx</span><br><span class="line">systemctl reload nginx   # 重新加载 Nginx，用于修改配置后</span><br><span class="line">systemctl enable nginx   # 设置开机启动 Nginx</span><br><span class="line">systemctl disable nginx  # 关闭开机启动 Nginx</span><br><span class="line">systemctl status nginx   # 查看 Nginx 运行状态</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h3 id="location配置规则"><a href="#location配置规则" class="headerlink" title="location配置规则"></a>location配置规则</h3><blockquote>
+<p>基本语法</p>
+<ul>
+<li>这里不需要像js一样需要用//把规则包裹起来，直接写在启用正则的符号后即可  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location [=|~|~*|^~]/uri/&#123;...&#125;&#123;</span><br><span class="line">    # 具体配置</span><br><span class="line">    # root/alias dist #响应文件目录</span><br><span class="line">    # index file  #响应文件</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="单独说明"><a href="#单独说明" class="headerlink" title="单独说明"></a>单独说明</h3><blockquote>
+<p>=</p>
+<ul>
+<li>精确匹配</li>
+<li>使用=的时候一定要在server中指定root，会无视location内部的路径</li>
+<li>下例：当访问shuaxinjs.cn/的时候，nginx就会去/home目录寻找index.html；但是当仅在location指定的时候就会去/usr/nginx/share/html寻找，当然那个目录不存在我们的文件，就会返回404  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">root /home;</span><br><span class="line">location = /login/ &#123;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>^~</p>
+<ul>
+<li>表示url以某个常规字符串开始的url，不区分大小写</li>
+<li>下例：代理后端请求，凡是携带/apis/的url，都会进行去请求转发；即：shuaxinjs.cn/apis/getData会变成localhost:3000/getData</li>
+<li>这里需要注意apis后面一定要跟/，不然apis会添加到url中  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ^~ /apis/ &#123;</span><br><span class="line">    proxy_pass http://localhost:3000/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>~</p>
+<ul>
+<li><strong><em>区分大小写</em></strong> 的正则匹配</li>
+<li>下例：匹配所有的.(css|js|png|jpg|jepg)的资源文件;</li>
+<li>正则说明：.为默认匹配除换行符以外的所有字符，*：默认对前一个规则执行0-n次；\对.号做转意；（css|js|png|jpg|jepg）意思是.后的字符必须是这几种任意一种  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    root /home/static/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>~*</p>
+<ul>
+<li><strong><em>不区分大小写</em></strong> 的正则匹配</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>!~ , !~*</p>
+<ul>
+<li>区分大小写不匹配；不区分大小写不匹配</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>/</p>
+<ul>
+<li>通用匹配，任何请求都会匹配</li>
+</ul>
+</blockquote>
+<h3 id="匹配顺序"><a href="#匹配顺序" class="headerlink" title="匹配顺序"></a>匹配顺序</h3><p>多个location配置的情况下匹配顺序为：<br>首先匹配= ；<br>其次是完整路径；<br>然后匹配^~；<br>再其次是按文件中顺序的正则匹配；<br>最后是交给 / 通用匹配；<br>当有匹配成功时候，停止匹配，按当前匹配规则处理请求。</p>
+<h1 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h1><ul>
+<li><p>匹配静态资源</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    root /home/static/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代理后端请求，解决跨域</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    proxy_pass 后端地址;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断请求客户端为移动端还是pc，返回不同的页面</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">root  /usr/share/nginx/html/pc;</span><br><span class="line">if ($http_user_agent ~* '(Android|webOS|iPhone|iPod|BlackBerry)') &#123;</span><br><span class="line">    root /usr/share/nginx/html/mobile;</span><br><span class="line">&#125;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="可用全局变量"><a href="#可用全局变量" class="headerlink" title="可用全局变量"></a>可用全局变量</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line"><span class="meta">$</span>http_user_agent ： 客户端agent信息</span><br><span class="line"><span class="meta">$</span>http_cookie ： 客户端cookie信息</span><br><span class="line"><span class="meta">$</span>request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line"><span class="meta">$</span>content_length ： 请求头中的Content-length字段。</span><br><span class="line"><span class="meta">$</span>content_type ： 请求头中的Content-Type字段。</span><br><span class="line"><span class="meta">$</span>request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line"><span class="meta">$</span>uri ： 不包含请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line"><span class="meta">$</span>document_uri ： 与$uri相同。</span><br><span class="line"><span class="meta">$</span>query_string </span><br><span class="line"><span class="meta">$</span>args ： 这个变量等于请求行中的参数，同$query_string</span><br><span class="line"><span class="meta">$</span>document_root ： 当前请求在root指令中指定的值。</span><br><span class="line"><span class="meta">$</span>limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line"><span class="meta">$</span>request_body_file </span><br><span class="line"><span class="meta">$</span>request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line"><span class="meta">$</span>remote_addr ： 客户端的IP地址。</span><br><span class="line"><span class="meta">$</span>remote_port ： 客户端的端口。</span><br><span class="line"><span class="meta">$</span>remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line"><span class="meta">$</span>scheme ： HTTP方法（如http，https）。</span><br><span class="line"><span class="meta">$</span>server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line"><span class="meta">$</span>server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line"><span class="meta">$</span>server_name ： 服务器名称。</span><br><span class="line"><span class="meta">$</span>server_port ： 请求到达服务器的端口号。</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -523,7 +560,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#起因"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关知识笔记"><span class="nav-number">2.</span> <span class="nav-text">相关知识笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx"><span class="nav-number">2.0.1.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-number">2.0.2.</span> <span class="nav-text">Linux</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文实践"><span class="nav-number">3.</span> <span class="nav-text">正文实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地代码-gt-服务器"><span class="nav-number">3.0.1.</span> <span class="nav-text">本地代码-&gt;服务器</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#起因"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关知识笔记"><span class="nav-number">2.</span> <span class="nav-text">相关知识笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx"><span class="nav-number">2.0.1.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-number">2.0.2.</span> <span class="nav-text">Linux</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本使用"><span class="nav-number">3.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">5.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#location配置规则"><span class="nav-number">5.0.1.</span> <span class="nav-text">location配置规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单独说明"><span class="nav-number">5.0.2.</span> <span class="nav-text">单独说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配顺序"><span class="nav-number">5.0.3.</span> <span class="nav-text">匹配顺序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用配置"><span class="nav-number">6.</span> <span class="nav-text">常用配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可用全局变量"><span class="nav-number">7.</span> <span class="nav-text">可用全局变量</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
