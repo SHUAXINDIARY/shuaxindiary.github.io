@@ -77,7 +77,11 @@
 <meta property="og:image" content="http://yoursite.com/img/git/git12.png">
 <meta property="og:image" content="http://yoursite.com/img/git/git13.png">
 <meta property="og:image" content="http://yoursite.com/img/git/git14.png">
-<meta property="og:updated_time" content="2020-05-29T11:26:02.140Z">
+<meta property="og:image" content="http://yoursite.com/img/git/git15.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git16.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git15.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git17.png">
+<meta property="og:updated_time" content="2020-05-29T13:37:12.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git笔记2">
 <meta name="twitter:description" content="问题在之前使用git管理代码的时候，会经常出现commit后，才发现有的地方有注释没加或者注释错别字等等问题，导致需要重新修改在add在commit，然后就会出现log中很多很没意义的commit，记录一下当出现这种情况，怎么消除之前的commit，让log看起来更清晰明了">
@@ -271,7 +275,7 @@
                 
               
 
-              <time title="创建时间：2020-05-29 16:18:17 / 修改时间：19:26:02" itemprop="dateCreated datePublished" datetime="2020-05-29T16:18:17+08:00">2020-05-29</time>
+              <time title="创建时间：2020-05-29 16:18:17 / 修改时间：21:37:12" itemprop="dateCreated datePublished" datetime="2020-05-29T16:18:17+08:00">2020-05-29</time>
             </span>
           
             
@@ -386,7 +390,35 @@
 <li>操作完后，现在分支情况 <img src="/img/git/git14.png" alt="图14"></li>
 </ul>
 </blockquote>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>记录一下这个学习过程中了解到的一些其他的操作</p>
+<h1 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h1><p>之前对于分支合并，一直使用的merge，无意间一次看到rebase也可以用来合并分支，于是试验了一下两者的区别；记录一下</p>
+<blockquote>
+<p>merge</p>
+<ul>
+<li>指定一个分支，合并到当前所在分支；下例合并dev到master</li>
+<li>git merge dev</li>
+<li>现有的分支情况如下：<img src="/img/git/git15.png" alt="图15"></li>
+<li>使用merge后 <img src="/img/git/git16.png" alt="图16"></li>
+<li>对比发现，两者合并后在master分支多了一个commit</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>rebase</p>
+<ul>
+<li>合并当前分支到执行分支；下例rebase 分支dev到master</li>
+<li>git rebase &lt;指定branch&gt;</li>
+<li>现有的分支情况如下：<img src="/img/git/git15.png" alt="图15"></li>
+<li>使用rebase后 <img src="/img/git/git17.png" alt="图17"></li>
+<li>没有新的commit出现，而是把dev最新的commit和master最新的commit进行了合并</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>总结</p>
+<ul>
+<li>对于需要严格保留每次commit记录的时候使用merge</li>
+<li>对于只是在另一个分支进行了一些额外的开发测试，最后确认无误，且该功能本来就是要在某分支进行的，就可以直接使用rebase；比如自己在一个分支开发某一个模块，然后对于其中的一些地方不想影响其他代码，就可以单独开一个新分支进行开发测试，开发完成没问题后，不需要保留记录，直接rebase即可</li>
+</ul>
+</blockquote>
+<h1 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h1><p>记录一下这个学习过程中了解到的一些其他的操作</p>
 <blockquote>
 <p>修改commit注释</p>
 </blockquote>
@@ -406,6 +438,12 @@
 <p>查看缓存区文件</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a href="http://gitbook.liuhui998.com/4_2.html" target="_blank" rel="noopener">gitbook中文</a></li>
+<li>分支可视化使用的vscode的插件—GitGraph</li>
+</ul>
+
     </div>
 
     
@@ -486,7 +524,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关概念"><span class="nav-number">2.0.1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回滚commit"><span class="nav-number">2.0.2.</span> <span class="nav-text">回滚commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并commit"><span class="nav-number">2.0.3.</span> <span class="nav-text">合并commit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关概念"><span class="nav-number">2.0.1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回滚commit"><span class="nav-number">2.0.2.</span> <span class="nav-text">回滚commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并commit"><span class="nav-number">2.0.3.</span> <span class="nav-text">合并commit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并"><span class="nav-number">3.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他操作"><span class="nav-number">4.</span> <span class="nav-text">其他操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
