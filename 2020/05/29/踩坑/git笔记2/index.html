@@ -68,7 +68,16 @@
 <meta property="og:image" content="http://yoursite.com/img/git/git3.png">
 <meta property="og:image" content="http://yoursite.com/img/git/git4.png">
 <meta property="og:image" content="http://yoursite.com/img/git/git5.png">
-<meta property="og:updated_time" content="2020-05-29T11:15:47.623Z">
+<meta property="og:image" content="http://yoursite.com/img/git/git6.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git7.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git8.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git9.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git10.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git11.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git12.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git13.png">
+<meta property="og:image" content="http://yoursite.com/img/git/git14.png">
+<meta property="og:updated_time" content="2020-05-29T11:26:02.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git笔记2">
 <meta name="twitter:description" content="问题在之前使用git管理代码的时候，会经常出现commit后，才发现有的地方有注释没加或者注释错别字等等问题，导致需要重新修改在add在commit，然后就会出现log中很多很没意义的commit，记录一下当出现这种情况，怎么消除之前的commit，让log看起来更清晰明了">
@@ -262,7 +271,7 @@
                 
               
 
-              <time title="创建时间：2020-05-29 16:18:17 / 修改时间：19:15:47" itemprop="dateCreated datePublished" datetime="2020-05-29T16:18:17+08:00">2020-05-29</time>
+              <time title="创建时间：2020-05-29 16:18:17 / 修改时间：19:26:02" itemprop="dateCreated datePublished" datetime="2020-05-29T16:18:17+08:00">2020-05-29</time>
             </span>
           
             
@@ -311,7 +320,7 @@
 <li>缓存区：index—git add到的区域</li>
 <li>本地仓库：local repository—git commit的区域</li>
 <li>远程仓库：remote repository—git push的区域</li>
-<li>HEAD：指针，默认始终指向我们最新的commit后的版本</li>
+<li>HEAD：指针，默认始终指向我们最新的commit</li>
 </ul>
 <h3 id="回滚commit"><a href="#回滚commit" class="headerlink" title="回滚commit"></a>回滚commit</h3><blockquote>
 <p>相关概念</p>
@@ -345,9 +354,44 @@
 <p>mixed</p>
 <ul>
 <li>情况和上述一样,现在分支情况:<img src="/img/git/git5.png" alt="图5"> </li>
-<li>现在回退到完成注释和功能的commit，然后干掉addcon2和添加注释两次commit  <figure class="highlight bash"><figcaption><span>git reset --soft d62192e2  ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">- 查看现在分支状况和缓存区 ![图6](/img/git/git6.png)  ![图7](/img/git/git7.png) </span><br><span class="line">- 和soft的区别仅仅是mixed的时候缓存区中没有内容，需要手动add修改内容后在进行commit，但是相同的是都没有修改工作区的内容</span><br><span class="line">- 总结：回滚版本并需要修改一下代码，重新commit，可以使用mixed</span><br><span class="line"></span><br><span class="line">&gt;hard</span><br><span class="line">- 现在的分支情况： ![图8](/img/git/git8.png) </span><br><span class="line">- 背景：现在init之后的commit的内容都作废，需要重新开始，并且要清楚commit记录，可以使用hard</span><br><span class="line">- ![图9](/img/git/git9.png) ![图10](/img/git/git10.png) </span><br><span class="line">- 总结：hard适用于回滚commit时，且回滚到的指定commit之后的commit都不需要，会清空缓存区和工作区中不需要的commit的内容</span><br><span class="line"></span><br><span class="line"><span class="comment">### 合并commit</span></span><br><span class="line">使用git rebase来合并需要合并的多个commit</span><br><span class="line">&gt;演示</span><br><span class="line">- 现在分支情况 ![图11](/img/git/git11.png) </span><br><span class="line">- 现在要把***完成功能1*** ***完成功能2*** ***完成所有功能***合并成一次commit</span><br><span class="line">- 先把HEAD指向调到需要合并的多个commit的第一个commit:git rebase -i HEAD~3</span><br><span class="line">- 说明：HEAD的数字1为最新的commit</span><br><span class="line">- 这时会出现一个vim编辑器打开的文件 ![图12](/img/git/git12.png) </span><br><span class="line">- 头三行为要合并的分支，以第一行为例：**pick**是一个命令，**1e1f6cb**为该commit的编号，**完成功能1**为该commit的注释</span><br><span class="line">- 合并commit就是通过改变不同的命令来实现，看到下面的注释有提示命令有pick、reword、edit、squash、fixup、<span class="built_in">exec</span>、<span class="built_in">break</span>、drop、label、reset</span><br><span class="line">- 修改第二三行的pick为squash，该命令为使用commit，与之前的commit合并</span><br><span class="line">- 修改保存退出后，会继续显示一个vim编辑器打开的文件，这里可以更改commit的注释 ![图13](/img/git/git13.png)</span><br><span class="line">- 上面的为合并的commit的注释，自行选择是否可以修改；下面为被合并的commit的注释信息 </span><br><span class="line">- 操作完后，现在分支情况 ![图14](/img/git/git14.png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他</span></span><br><span class="line">记录一下这个学习过程中了解到的一些其他的操作</span><br><span class="line">&gt;修改commit注释</span><br><span class="line">```bash</span><br><span class="line">    git commit - -amend</span><br></pre></td></tr></table></figure></li>
+<li>现在回退到完成注释和功能的commit，然后干掉addcon2和添加注释两次commit   git reset –soft d62192e2  </li>
+<li>查看现在分支状况和缓存区 <img src="/img/git/git6.png" alt="图6">  <img src="/img/git/git7.png" alt="图7"> </li>
+<li>和soft的区别仅仅是mixed的时候缓存区中没有内容，需要手动add修改内容后在进行commit，但是相同的是都没有修改工作区的内容</li>
+<li>总结：回滚版本并需要修改一下代码，重新commit，可以使用mixed</li>
 </ul>
 </blockquote>
+<blockquote>
+<p>hard</p>
+<ul>
+<li>现在的分支情况： <img src="/img/git/git8.png" alt="图8"> </li>
+<li>背景：现在init之后的commit的内容都作废，需要重新开始，并且要清楚commit记录，可以使用hard</li>
+<li><img src="/img/git/git9.png" alt="图9"> <img src="/img/git/git10.png" alt="图10"> </li>
+<li>总结：hard适用于回滚commit时，且回滚到的指定commit之后的commit都不需要，会清空缓存区和工作区中不需要的commit的内容</li>
+</ul>
+</blockquote>
+<h3 id="合并commit"><a href="#合并commit" class="headerlink" title="合并commit"></a>合并commit</h3><p>使用git rebase来合并需要合并的多个commit</p>
+<blockquote>
+<p>演示</p>
+<ul>
+<li>现在分支情况 <img src="/img/git/git11.png" alt="图11"> </li>
+<li>现在要把<strong><em>完成功能1</em></strong> <strong><em>完成功能2</em></strong> <strong><em>完成所有功能</em></strong>合并成一次commit</li>
+<li>先把HEAD指向调到需要合并的多个commit的第一个commit:git rebase -i HEAD~3</li>
+<li>说明：HEAD的数字1为最新的commit</li>
+<li>这时会出现一个vim编辑器打开的文件 <img src="/img/git/git12.png" alt="图12"> </li>
+<li>头三行为要合并的分支，以第一行为例：<strong>pick</strong>是一个命令，<strong>1e1f6cb</strong>为该commit的编号，<strong>完成功能1</strong>为该commit的注释</li>
+<li>合并commit就是通过改变不同的命令来实现，看到下面的注释有提示命令有pick、reword、edit、squash、fixup、exec、break、drop、label、reset</li>
+<li>修改第二三行的pick为squash，该命令为使用commit，与之前的commit合并</li>
+<li>修改保存退出后，会继续显示一个vim编辑器打开的文件，这里可以更改commit的注释 <img src="/img/git/git13.png" alt="图13"></li>
+<li>上面的为合并的commit的注释，自行选择是否可以修改；下面为被合并的commit的注释信息 </li>
+<li>操作完后，现在分支情况 <img src="/img/git/git14.png" alt="图14"></li>
+</ul>
+</blockquote>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>记录一下这个学习过程中了解到的一些其他的操作</p>
+<blockquote>
+<p>修改commit注释</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit - -amend</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>撤销缓存区的文件</p>
 </blockquote>
@@ -442,7 +486,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关概念"><span class="nav-number">2.0.1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回滚commit"><span class="nav-number">2.0.2.</span> <span class="nav-text">回滚commit</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关概念"><span class="nav-number">2.0.1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回滚commit"><span class="nav-number">2.0.2.</span> <span class="nav-text">回滚commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并commit"><span class="nav-number">2.0.3.</span> <span class="nav-text">合并commit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
