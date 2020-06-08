@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="刷新">
 <meta property="og:description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-17T10:12:34.255Z">
+<meta property="og:updated_time" content="2020-06-08T02:19:48.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初探nginx">
 <meta name="twitter:description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
@@ -267,7 +267,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-17 18:12:34" itemprop="dateModified" datetime="2020-05-17T18:12:34+08:00">2020-05-17</time>
+                <time title="修改时间：2020-06-08 10:19:48" itemprop="dateModified" datetime="2020-06-08T10:19:48+08:00">2020-06-08</time>
               </span>
             
           
@@ -464,10 +464,10 @@
   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    root /home/static/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>代理后端请求，解决跨域</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    proxy_pass 后端地址;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> location ^~ /api/ &#123;</span><br><span class="line">    proxy_pass 后端地址;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>判断请求客户端为移动端还是pc，返回不同的页面</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">root  /usr/share/nginx/html/pc;</span><br><span class="line">if ($http_user_agent ~* '(Android|webOS|iPhone|iPod|BlackBerry)') &#123;</span><br><span class="line">    root /usr/share/nginx/html/mobile;</span><br><span class="line">&#125;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name 域名/ip;</span><br><span class="line">    location / &#123;</span><br><span class="line">    root pc目录；</span><br><span class="line">    root /data/pc;</span><br><span class="line">    if ( $http_user_agent ~* '(Android|webOS|iPhone|iPod|BlackBerry)' ) &#123;</span><br><span class="line">            root 移动端目录;</span><br><span class="line">    &#125;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
