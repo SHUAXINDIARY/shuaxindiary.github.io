@@ -55,22 +55,23 @@
   };
 </script>
 
-  <meta name="description" content="背景最近频繁折腾服务器，然后习惯了Linux的命令操作，回来windows后，有些命令不一样，为了解决这个痛点，翻遍了第三方客户端，但是体验都不理想，然后回归gitbash 问题gitbash对linux命令支持友好了，但是耐不住丑，所以记录一下调教过程">
-<meta name="keywords" content="Git bash">
+  <meta name="description" content="关于图床 引用百度的介绍，就是专门用来存放图片，同时允许你把图片对外连接的网上空间。 搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。 特此记录一下，顺便测试一下搭建后的效果。">
+<meta name="keywords" content="工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git bash美化">
-<meta property="og:url" content="http://yoursite.com/2020/05/18/踩坑/git-bash美化/index.html">
+<meta property="og:title" content="搭建图床服务器">
+<meta property="og:url" content="http://yoursite.com/2020/06/14/搭建图床服务器/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="背景最近频繁折腾服务器，然后习惯了Linux的命令操作，回来windows后，有些命令不一样，为了解决这个痛点，翻遍了第三方客户端，但是体验都不理想，然后回归gitbash 问题gitbash对linux命令支持友好了，但是耐不住丑，所以记录一下调教过程">
+<meta property="og:description" content="关于图床 引用百度的介绍，就是专门用来存放图片，同时允许你把图片对外连接的网上空间。 搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。 特此记录一下，顺便测试一下搭建后的效果。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/img/jottings/gitbash.png">
-<meta property="og:image" content="http://yoursite.com/img/jottings/theme.png">
-<meta property="og:updated_time" content="2020-05-18T11:15:02.550Z">
+<meta property="og:image" content="http://img.shuaxinjs.cn//imgserver.png">
+<meta property="og:image" content="http://img.shuaxinjs.cn//imgserver2.png">
+<meta property="og:image" content="http://img.shuaxinjs.cn//imgserver3.png">
+<meta property="og:updated_time" content="2020-06-14T14:25:55.838Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git bash美化">
-<meta name="twitter:description" content="背景最近频繁折腾服务器，然后习惯了Linux的命令操作，回来windows后，有些命令不一样，为了解决这个痛点，翻遍了第三方客户端，但是体验都不理想，然后回归gitbash 问题gitbash对linux命令支持友好了，但是耐不住丑，所以记录一下调教过程">
-<meta name="twitter:image" content="http://yoursite.com/img/jottings/gitbash.png">
-  <link rel="canonical" href="http://yoursite.com/2020/05/18/踩坑/git-bash美化/">
+<meta name="twitter:title" content="搭建图床服务器">
+<meta name="twitter:description" content="关于图床 引用百度的介绍，就是专门用来存放图片，同时允许你把图片对外连接的网上空间。 搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。 特此记录一下，顺便测试一下搭建后的效果。">
+<meta name="twitter:image" content="http://img.shuaxinjs.cn//imgserver.png">
+  <link rel="canonical" href="http://yoursite.com/2020/06/14/搭建图床服务器/">
 
 
 <script id="page-configurations">
@@ -84,7 +85,7 @@
   };
 </script>
 
-  <title>git bash美化 | 刷新</title>
+  <title>搭建图床服务器 | 刷新</title>
   
 
 
@@ -231,7 +232,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/18/踩坑/git-bash美化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/搭建图床服务器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -243,7 +244,7 @@
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">git bash美化
+        <h1 class="post-title" itemprop="name headline">搭建图床服务器
 
           
         </h1>
@@ -259,7 +260,7 @@
                 
               
 
-              <time title="创建时间：2020-05-18 18:39:49 / 修改时间：19:15:02" itemprop="dateCreated datePublished" datetime="2020-05-18T18:39:49+08:00">2020-05-18</time>
+              <time title="创建时间：2020-06-14 22:06:04 / 修改时间：22:25:55" itemprop="dateCreated datePublished" datetime="2020-06-14T22:06:04+08:00">2020-06-14</time>
             </span>
           
             
@@ -299,34 +300,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近频繁折腾服务器，然后习惯了Linux的命令操作，回来windows后，有些命令不一样，为了解决这个痛点，翻遍了第三方客户端，但是体验都不理想，然后回归gitbash</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>gitbash对linux命令支持友好了，但是耐不住丑，所以记录一下调教过程</p>
-<a id="more"></a>
-<h1 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h1><ul>
-<li>打开gitbash后，右键窗口，点击options自己设置默认自带的主题<br><img src="/img/jottings/gitbash.png" alt="设置"></li>
-<li>也可以自己在配置文件里设置,配置文件是 ~/.minttyrc</li>
-<li>网上找的配置<br><img src="/img/jottings/theme.png" alt="设置"></li>
+        <h1 id="关于图床"><a href="#关于图床" class="headerlink" title="关于图床"></a>关于图床</h1><ul>
+<li>引用百度的介绍，就是专门用来存放图片，同时允许你把图片对外连接的网上空间。</li>
+<li>搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。</li>
+<li>特此记录一下，顺便测试一下搭建后的效果。</li>
+</ul><a id="more"></a>
+<h1 id="关于图床的选择"><a href="#关于图床的选择" class="headerlink" title="关于图床的选择"></a>关于图床的选择</h1><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/35270383" target="_blank" rel="noopener">盘点国内免费好用的图床</a></li>
+<li>选择了七牛</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Font=黑体</span><br><span class="line">FontHeight=14</span><br><span class="line">Transparency=low</span><br><span class="line">FontSmoothing=default</span><br><span class="line">Locale=C</span><br><span class="line">Charset=UTF-8</span><br><span class="line">Columns=88</span><br><span class="line">Rows=26</span><br><span class="line">OpaqueWhenFocused=no</span><br><span class="line">Scrollbar=none</span><br><span class="line">Language=zh_CN</span><br><span class="line"></span><br><span class="line">ForegroundColour=131,148,150</span><br><span class="line">BackgroundColour=0,43,54</span><br><span class="line">CursorColour=220,130,71</span><br><span class="line"></span><br><span class="line">BoldBlack=128,128,128</span><br><span class="line">Red=255,64,40</span><br><span class="line">BoldRed=255,128,64</span><br><span class="line">Green=64,200,64</span><br><span class="line">BoldGreen=64,255,64</span><br><span class="line">Yellow=190,190,0</span><br><span class="line">BoldYellow=255,255,64</span><br><span class="line">Blue=0,128,255</span><br><span class="line">BoldBlue=128,160,255</span><br><span class="line">Magenta=211,54,130</span><br><span class="line">BoldMagenta=255,128,255</span><br><span class="line">Cyan=64,190,190</span><br><span class="line">BoldCyan=128,255,255</span><br><span class="line">White=200,200,200</span><br><span class="line">BoldWhite=255,255,255</span><br><span class="line"></span><br><span class="line">BellTaskbar=no</span><br><span class="line">Term=xterm</span><br><span class="line">FontWeight=400</span><br><span class="line">FontIsBold=no</span><br><span class="line">CursorType=block</span><br></pre></td></tr></table></figure>
+<h1 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h1><ul>
+<li>注册七牛账号，登陆，进入主界面后点击对象存储，创建空间</li>
+<li>点击创建的空间设置，进入域名管理界面，绑定自己的已经备案的域名（这里创建后会给一个测试域名，只能测试用，30天后会自动收回），下图为设置界面，输入自己域名，然后根据需要做对应设置<img src="http://img.shuaxinjs.cn//imgserver.png" alt></li>
+<li>设置完成后，去自己域名的对应注册商，添加CNAME记录 <a href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name" target="_blank" rel="noopener">官方介绍</a>，官方说的很清楚</li>
+<li>至此搭建完成</li>
+</ul>
+<h1 id="本地上传"><a href="#本地上传" class="headerlink" title="本地上传"></a>本地上传</h1><ul>
+<li>使用<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a></li>
+<li>下载完毕后，进入对应的图床服务器设置界面，进行配置，<img src="http://img.shuaxinjs.cn//imgserver2.png" alt></li>
+<li>配置概述：前两个在秘钥管理中查看，存储空间名为对应图床的空间名，访问网址为上文添加的域名，存储区域这里我的不是文字选项，需要自己输入编号，这里七牛对应的几个地区编号为[{z0:华东},{z1:华北},{z2:华南},{z3:北美}]，后面2个可有可无</li>
+<li>至此配置完成，然后就可以在上传去上传测试了，如下图 <img src="http://img.shuaxinjs.cn//imgserver3.png" alt></li>
+<li>上传完成后，会以下面链接格式的选项的格式自动复制链接</li>
+</ul>
 
-<h1 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h1><blockquote>
-<p>快捷键</p>
-<ul>
-<li>快捷键：在Windows菜单搜索gitbash-&gt;打开文件所在位置-&gt;右键gitbash属性-&gt;设置启动快捷键</li>
-<li>常用快捷键</li>
-</ul>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 清屏</span><br><span class="line">ctrl+l</span><br><span class="line">clear</span><br><span class="line"><span class="meta">#</span> 退出</span><br><span class="line">ctrl+d</span><br><span class="line"><span class="meta">#</span> 全屏</span><br><span class="line">alt+enter</span><br><span class="line"><span class="meta">#</span> 光标到行首</span><br><span class="line">ctrl+a</span><br><span class="line">home</span><br><span class="line"><span class="meta">#</span> 行尾</span><br><span class="line">ctrl+e</span><br><span class="line">end</span><br><span class="line"><span class="meta">#</span> 删除光标后一个字母</span><br><span class="line">ctrl+d</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>vue脚手架不能使用光标选择</p>
-<ul>
-<li>使用alias对命令进行重命名</li>
-<li>进入git安装目录找到/etc/bash.bashrc文件，在行尾添加</li>
-<li>原因根据官网的描述是windows的gitbash是基于mintty运行的，所以交互提示符不工作</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias vue=&apos;winpty vue.cmd&apos;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -341,7 +337,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/Git-bash/" rel="tag"># Git bash</a>
+              <a href="/tags/工具/" rel="tag"># 工具</a>
             
           </div>
         
@@ -351,8 +347,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/05/14/踩坑/nginx代理/" rel="next" title="nginx代理">
-                  <i class="fa fa-chevron-left"></i> nginx代理
+                <a href="/2020/05/29/踩坑/git笔记2/" rel="next" title="git笔记2">
+                  <i class="fa fa-chevron-left"></i> git笔记2
                 </a>
               
             </div>
@@ -360,10 +356,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/05/21/杂文/近期总结/" rel="prev" title="近期总结">
-                  近期总结 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -409,7 +401,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置主题"><span class="nav-number">3.</span> <span class="nav-text">设置主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置"><span class="nav-number">4.</span> <span class="nav-text">设置</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于图床"><span class="nav-number">1.</span> <span class="nav-text">关于图床</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于图床的选择"><span class="nav-number">2.</span> <span class="nav-text">关于图床的选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建流程"><span class="nav-number">3.</span> <span class="nav-text">搭建流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本地上传"><span class="nav-number">4.</span> <span class="nav-text">本地上传</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -451,7 +443,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
