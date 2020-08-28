@@ -226,6 +226,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/21/JS/关于防抖和节流/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/21/JS/关于防抖和节流/" class="post-title-link" itemprop="url">关于防抖和节流</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-21 20:16:17 / 修改时间：21:06:05" itemprop="dateCreated datePublished" datetime="2019-11-21T20:16:17+08:00">2019-11-21</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h1><blockquote>
+<p><strong>作用</strong></p>
+<ul>
+<li>这两个名词是两种解决方案的称呼，为了解决频繁触发某一个函数时，限制它的调用次数，让它不要那么频繁的被调用。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>为啥要这么做</strong></p>
+<ul>
+<li>首先呢，在浏览器中，有2个概念，一个叫<strong>重绘</strong>，一个叫<strong><em>回流</em></strong>。这两个现象，是在浏览器渲染页面的时候会发生的，当页面的布局不改变，仅仅是字体大小颜色等改变时就会发生重绘；当页面布局发生改变(比如width、height、margin、padding等)，会发生回流。</li>
+<li>上述的这两个现象挺影响性能的，所以当我们的操作会导致发生这两个现象时，一般就可以使用防抖和节流来，尽可能的减少这样的操作，不至于让我们的程序挂掉。当然不止这样情况下才能用哈，比如触发ajax请求的时候其实也可以用，根据需要来判断。</li>
+</ul>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/11/21/JS/关于防抖和节流/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/JS/关于call-bind-apply/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1062,98 +1166,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/vue/vuejs基础复习-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/31/vue/vuejs基础复习-4/" class="post-title-link" itemprop="url">vuejs基础复习4---生命周期函数</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-31 18:35:16 / 修改时间：19:50:44" itemprop="dateCreated datePublished" datetime="2019-10-31T18:35:16+08:00">2019-10-31</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h1><p>vue框架内部提供的一系列函数，主要用于vue创建的实例在挂载到页面以及从页面销毁这一过程中，我们要进行一些操作时所使用的函数。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/31/vue/vuejs基础复习-4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1203,7 +1215,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1229,7 +1241,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
