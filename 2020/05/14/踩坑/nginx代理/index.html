@@ -321,7 +321,7 @@
 <li>配置文件如下，注：</li>
 </ul>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">	listen 80;</span><br><span class="line">	server_name ip地址或域名;</span><br><span class="line">	root 前端项目路径;</span><br><span class="line">    # 部署页面</span><br><span class="line">	location = /todo &#123;</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 备注：如果外面root配置了目录，这里寻找本机目录时，路径为：前端项目路径+/todo</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> 如果内部使用了root，寻找本机目录时，路径为：root目录+/todo</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> 如果内部使用了<span class="built_in">alias</span>，寻找本机目录时，路径直接为root目录</span></span><br><span class="line">		index index.html;</span><br><span class="line">	&#125;</span><br><span class="line">    # 部署静态资源</span><br><span class="line">    location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">        root 静态资源路径;</span><br><span class="line">    &#125;</span><br><span class="line">    # 转发后端接口 这里一定要在结束添加 /；否则请求后端接口时，会把apis也携带在请求里</span><br><span class="line">	location ^~ /apis/ &#123;</span><br><span class="line">		proxy_pass 后端接口根路径;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">	listen 80;</span><br><span class="line">	server_name ip地址或域名;</span><br><span class="line">	root 前端项目路径;</span><br><span class="line">    # 部署页面</span><br><span class="line">	location = /todo &#123;</span><br><span class="line"><span class="meta">	#</span> 备注：如果外面root配置了目录，这里寻找本机目录时，路径为：前端项目路径+/todo</span><br><span class="line"><span class="meta">	#</span> 如果内部使用了root，寻找本机目录时，路径为：root目录+/todo</span><br><span class="line"><span class="meta">	#</span> 如果内部使用了alias，寻找本机目录时，路径直接为root目录</span><br><span class="line">		index index.html;</span><br><span class="line">	&#125;</span><br><span class="line">    # 部署静态资源</span><br><span class="line">    location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">        root 静态资源路径;</span><br><span class="line">    &#125;</span><br><span class="line">    # 转发后端接口 这里一定要在结束添加 /；否则请求后端接口时，会把apis也携带在请求里</span><br><span class="line">	location ^~ /apis/ &#123;</span><br><span class="line">		proxy_pass 后端接口根路径;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>正向代理的对象是客户端，反向代理的对象是服务端</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
@@ -429,7 +429,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -455,7 +455,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
