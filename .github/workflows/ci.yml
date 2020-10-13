@@ -1,24 +1,48 @@
-name: hexo cicd
+name: Blog CI/CD
+
+# 触发条件：在 push 到 master 分支后触发
 on:
   push:
-    branches:
+    branches: 
       - master
+
+env:
+  TZ: Asia/Beijin
+
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  blog-cicd:
+    name: Hexo blog build & deploy
+    runs-on: ubuntu-latest # 使用最新的 Ubuntu 系统作为编译部署的环境
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+    - name: Checkout codes
+      uses: actions/checkout@v2
+
+    - name: Setup node
+      # 设置 node.js 环境
+      uses: actions/setup-node@v1
       with:
-        persist-credentials: false
-    - name: Install and Build
+        node-version: '12.x'
+
+    - name: Cache node modules
+      # 设置包缓存目录，避免每次下载
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Install hexo dependencies
+      # 下载 hexo-cli 脚手架及相关安装包
       run: |
-        npm i -g hexo-cli
+        npm install hexo-cli gulp -g
         npm install
-        hexo deploy
+
+    - name: Generate files
+      run: hexo clean && hexo generate
+
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+      uses: JamesIves/github-pages-deploy-action@master
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: build
+        FOLDER: ./public
