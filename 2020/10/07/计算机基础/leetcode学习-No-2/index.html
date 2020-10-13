@@ -55,21 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="本文源码 这里概念 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。 用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。">
-<meta name="keywords" content="JavaScript,数据结构">
+  <meta name="description" content="题目 有效的括号 最长公共前缀 最长回文字符串">
+<meta name="keywords" content="算法,javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《学习JavaScript数据结构与算法》笔记---队列">
-<meta property="og:url" content="http://yoursite.com/2019/07/02/计算机基础/js数据结构笔记2/index.html">
+<meta property="og:title" content="leetcode学习-No.2">
+<meta property="og:url" content="http://yoursite.com/2020/10/07/计算机基础/leetcode学习-No-2/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="本文源码 这里概念 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。 用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。">
+<meta property="og:description" content="题目 有效的括号 最长公共前缀 最长回文字符串">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/img/queue.png">
-<meta property="og:updated_time" content="2019-10-12T12:03:46.336Z">
+<meta property="og:updated_time" content="2020-10-13T01:40:24.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《学习JavaScript数据结构与算法》笔记---队列">
-<meta name="twitter:description" content="本文源码 这里概念 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。 用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。">
-<meta name="twitter:image" content="http://yoursite.com/img/queue.png">
-  <link rel="canonical" href="http://yoursite.com/2019/07/02/计算机基础/js数据结构笔记2/">
+<meta name="twitter:title" content="leetcode学习-No.2">
+<meta name="twitter:description" content="题目 有效的括号 最长公共前缀 最长回文字符串">
+  <link rel="canonical" href="http://yoursite.com/2020/10/07/计算机基础/leetcode学习-No-2/">
 
 
 <script id="page-configurations">
@@ -83,7 +81,7 @@
   };
 </script>
 
-  <title>《学习JavaScript数据结构与算法》笔记---队列 | 刷新</title>
+  <title>leetcode学习-No.2 | 刷新</title>
   
 
 
@@ -230,7 +228,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/计算机基础/js数据结构笔记2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/07/计算机基础/leetcode学习-No-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刷新">
@@ -242,7 +240,7 @@
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">《学习JavaScript数据结构与算法》笔记---队列
+        <h1 class="post-title" itemprop="name headline">leetcode学习-No.2
 
           
         </h1>
@@ -258,7 +256,7 @@
                 
               
 
-              <time title="创建时间：2019-07-02 23:04:43" itemprop="dateCreated datePublished" datetime="2019-07-02T23:04:43+08:00">2019-07-02</time>
+              <time title="创建时间：2020-10-07 21:43:15" itemprop="dateCreated datePublished" datetime="2020-10-07T21:43:15+08:00">2020-10-07</time>
             </span>
           
             
@@ -269,7 +267,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-12 20:03:46" itemprop="dateModified" datetime="2019-10-12T20:03:46+08:00">2019-10-12</time>
+                <time title="修改时间：2020-10-13 09:40:24" itemprop="dateModified" datetime="2020-10-13T09:40:24+08:00">2020-10-13</time>
               </span>
             
           
@@ -306,16 +304,79 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%98%9F%E5%88%97.html" target="_blank" rel="noopener">这里</a></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><font size="5">
-队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。
-用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。  
-</font>  
-
-<p><img src="/img/queue.png" alt="示例图"></p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ul>
+<li>有效的括号</li>
+<li>最长公共前缀</li>
+<li>最长回文字符串</li>
+</ul>
 <a id="more"></a>
-<h5 id="创建一个队列"><a href="#创建一个队列" class="headerlink" title="创建一个队列"></a>创建一个队列</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>()</span>&#123;</span><br><span class="line">    <span class="comment">/*通过数组来保存队列的元素*/</span></span><br><span class="line">    item=[];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h5 id="给队列添加一些方法"><a href="#给队列添加一些方法" class="headerlink" title="给队列添加一些方法"></a>给队列添加一些方法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span></span>&#123;</span><br><span class="line">    item=[];</span><br><span class="line">    <span class="comment">// 给队列队尾添加元素</span></span><br><span class="line">    enqueue(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.push(val);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 给队列队头删除元素</span></span><br><span class="line">    dequeue(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.shift(val);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 返回队列第一个元素</span></span><br><span class="line">    front(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item[<span class="number">0</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 判断队列中是否含有元素</span></span><br><span class="line">    isEmpty(val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.length;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 判断队列的元素个数</span></span><br><span class="line">    size()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.item.length;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="有效的括号"><a href="#有效的括号" class="headerlink" title="有效的括号"></a>有效的括号</h2><p><strong>描述</strong></p>
+<ul>
+<li>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;{&#39;</code>，<code>&#39;}&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39;</code> 的字符串，判断字符串是否有效。</li>
+<li>有效字符串需满足：<ol>
+<li>左括号必须用相同类型的右括号闭合。</li>
+<li>左括号必须以正确的顺序闭合。</li>
+</ol>
+</li>
+</ul>
+<p><strong>实例</strong></p>
+<ul>
+<li>（）true</li>
+<li>（）[]{} true</li>
+<li>(] false</li>
+<li>[({})] true</li>
+</ul>
+<p><strong>思路</strong></p>
+<ul>
+<li>使用栈，当遇到左括号入栈</li>
+<li>遇到有括号，判断栈顶元素是不是当前右括号的左括号，是出栈，不是返回false</li>
+<li>最后判断栈是否为空来判断是否匹配完成</li>
+</ul>
+<p><strong>代码</strong></p>
+<ul>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 方便判断是不是匹配的括号</span></span><br><span class="line">    <span class="keyword">const</span> hash = &#123;</span><br><span class="line">        <span class="string">')'</span>: <span class="string">'('</span>,</span><br><span class="line">        <span class="string">']'</span>: <span class="string">'['</span>,</span><br><span class="line">        <span class="string">'&#125;'</span>: <span class="string">'&#123;'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 判断边界</span></span><br><span class="line">    <span class="keyword">if</span> (s.length % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> res = [], arr = s.split(<span class="string">''</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] === <span class="string">')'</span> || arr[i] === <span class="string">'&#125;'</span> || arr[i] === <span class="string">']'</span>) &#123;</span><br><span class="line">                <span class="comment">// 出栈判断是否匹配</span></span><br><span class="line">                <span class="keyword">let</span> current = res.pop()</span><br><span class="line">                <span class="keyword">if</span> (hash[arr[i]] !== current) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 左括号 入栈</span></span><br><span class="line">                res.push(arr[i])</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.length === <span class="number">0</span> ? <span class="literal">true</span> : <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="最长公共前缀"><a href="#最长公共前缀" class="headerlink" title="最长公共前缀"></a>最长公共前缀</h2><p><strong>描述</strong></p>
+<ul>
+<li>查找字符串数组中的最长公共前缀</li>
+</ul>
+<p><strong>示例</strong></p>
+<ul>
+<li>[“flower”,”flow”,”flight”]  “fl”</li>
+<li>[“dog”,”racecar”,”car”] “”</li>
+</ul>
+<p><strong>思路</strong></p>
+<ul>
+<li>遍历第一个元素字符串</li>
+<li>每一个元素和剩下的元素挨个作对比</li>
+</ul>
+<p><strong>代码</strong></p>
+<ul>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string[]&#125; strs</span></span><br><span class="line"><span class="comment"> * @return &#123;string&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span> (<span class="params">strs</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 保存结果</span></span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">''</span>;</span><br><span class="line">    <span class="comment">// 边界</span></span><br><span class="line">    <span class="keyword">if</span> (strs.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (strs.length == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>]</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 正常情况</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; strs[<span class="number">0</span>].length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; strs.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (strs[j][i] != strs[<span class="number">0</span>][i]) &#123;</span><br><span class="line">                    <span class="keyword">return</span> str</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            str += strs[<span class="number">0</span>][i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> str</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h2><p><strong>描述</strong></p>
+<ul>
+<li>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</li>
+</ul>
+<p><strong>示例</strong></p>
+<ul>
+<li>“babad” 输出 “bab” 或者 “aba”</li>
+<li>“cbbd” 输出 “bb”</li>
+</ul>
+<p><strong>思路</strong></p>
+<ul>
+<li>外层正序遍历字符串，内层倒序遍历</li>
+<li>每次对比2个位置之间的字符串是否是回文即可</li>
+</ul>
+<p><strong>代码</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> longestPalindrome = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s.length === <span class="number">0</span> || s.length === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> s</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> res = s[<span class="number">0</span>], arr = s.split(<span class="string">''</span>)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = s.length - <span class="number">1</span>; j &gt; i; j--) &#123;</span><br><span class="line">            <span class="keyword">let</span> cache = arr.slice(i, j + <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">let</span> cacheStr = cache.join(<span class="string">''</span>)</span><br><span class="line">            <span class="keyword">if</span> (cacheStr == cache.reverse().join(<span class="string">''</span>)) &#123;</span><br><span class="line">                res = res.length &lt; cacheStr.length ? cacheStr : res</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -330,9 +391,9 @@
           
           <div class="post-tags">
             
-              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/算法/" rel="tag"># 算法</a>
             
-              <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
             
           </div>
         
@@ -342,8 +403,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/07/02/计算机基础/js数据结构笔记/" rel="next" title="《学习JavaScript数据结构与算法》笔记---栈">
-                  <i class="fa fa-chevron-left"></i> 《学习JavaScript数据结构与算法》笔记---栈
+                <a href="/2020/10/02/计算机基础/leetcode学习-No.1/" rel="next" title="leetcode学习-No.1">
+                  <i class="fa fa-chevron-left"></i> leetcode学习-No.1
                 </a>
               
             </div>
@@ -351,10 +412,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/07/07/JS/js基础之深拷贝/" rel="prev" title="关于js深拷贝">
-                  关于js深拷贝 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -400,7 +457,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本文源码-这里"><span class="nav-number">1.</span> <span class="nav-text">本文源码 这里</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建一个队列"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">创建一个队列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#给队列添加一些方法"><span class="nav-number">1.1.0.0.2.</span> <span class="nav-text">给队列添加一些方法</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#有效的括号"><span class="nav-number">2.1.</span> <span class="nav-text">有效的括号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最长公共前缀"><span class="nav-number">2.2.</span> <span class="nav-text">最长公共前缀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最长回文子串"><span class="nav-number">2.3.</span> <span class="nav-text">最长回文子串</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
