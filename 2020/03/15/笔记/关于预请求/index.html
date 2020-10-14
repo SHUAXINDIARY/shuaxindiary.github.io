@@ -1,94 +1,59 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-CN,en,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-  <meta name="description" content="开头最近学习Node，试着用node来学习一些关于后端的知识，帮助自己更好的理解web开发整个开发体系，这里总结遇到的一些坑正文问题当后端设置了允许跨域的时候,前端发送请求时设置了请求头  ‘Content-Type’: ‘application/json’的时候，请求发送不成功">
-<meta name="keywords" content="网络,踩坑,NodeJS">
+  <meta name="description" content="开头最近学习Node，试着用node来学习一些关于后端的知识，帮助自己更好的理解web开发整个开发体系，这里总结遇到的一些坑 正文问题当后端设置了允许跨域的时候,前端发送请求时设置了请求头  ‘Content-Type’: ‘application&#x2F;json’的时候，请求发送不成功  如图       这时的代码   前端123456789101112131415fetch(&amp;#x27;http:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于预请求">
-<meta property="og:url" content="http://yoursite.com/2020/03/15/笔记/关于预请求/index.html">
+<meta property="og:url" content="http://example.com/2020/03/15/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E9%A2%84%E8%AF%B7%E6%B1%82/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="开头最近学习Node，试着用node来学习一些关于后端的知识，帮助自己更好的理解web开发整个开发体系，这里总结遇到的一些坑正文问题当后端设置了允许跨域的时候,前端发送请求时设置了请求头  ‘Content-Type’: ‘application/json’的时候，请求发送不成功">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/img/caikeng/one.png">
-<meta property="og:image" content="http://yoursite.com/img/caikeng/two.png">
-<meta property="og:image" content="http://yoursite.com/img/caikeng/three.png">
-<meta property="og:updated_time" content="2020-03-17T01:29:24.212Z">
+<meta property="og:description" content="开头最近学习Node，试着用node来学习一些关于后端的知识，帮助自己更好的理解web开发整个开发体系，这里总结遇到的一些坑 正文问题当后端设置了允许跨域的时候,前端发送请求时设置了请求头  ‘Content-Type’: ‘application&#x2F;json’的时候，请求发送不成功  如图       这时的代码   前端123456789101112131415fetch(&amp;#x27;http:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/caikeng/one.png">
+<meta property="og:image" content="http://example.com/img/caikeng/two.png">
+<meta property="og:image" content="http://example.com/img/caikeng/three.png">
+<meta property="article:published_time" content="2020-03-15T02:05:12.000Z">
+<meta property="article:modified_time" content="2020-10-14T02:19:25.737Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="踩坑">
+<meta property="article:tag" content="NodeJS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于预请求">
-<meta name="twitter:description" content="开头最近学习Node，试着用node来学习一些关于后端的知识，帮助自己更好的理解web开发整个开发体系，这里总结遇到的一些坑正文问题当后端设置了允许跨域的时候,前端发送请求时设置了请求头  ‘Content-Type’: ‘application/json’的时候，请求发送不成功">
-<meta name="twitter:image" content="http://yoursite.com/img/caikeng/one.png">
-  <link rel="canonical" href="http://yoursite.com/2020/03/15/笔记/关于预请求/">
+<meta name="twitter:image" content="http://example.com/img/caikeng/one.png">
+
+<link rel="canonical" href="http://example.com/2020/03/15/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E9%A2%84%E8%AF%B7%E6%B1%82/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
   <title>关于预请求 | 刷新</title>
   
-
-
 
 
 
@@ -107,7 +72,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -125,19 +89,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">刷新</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -145,72 +98,63 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">刷新</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
   <ul id="menu" class="menu">
-      
-      
-      
-        
         <li class="menu-item menu-item-home">
-      
-    
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
   </ul>
-
-    
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -221,32 +165,32 @@
   </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/笔记/关于预请求/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/03/15/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E9%A2%84%E8%AF%B7%E6%B1%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">关于预请求
-
-          
+        <h1 class="post-title" itemprop="name headline">
+          关于预请求
         </h1>
 
         <div class="post-meta">
@@ -256,47 +200,25 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2020-03-15 10:05:12" itemprop="dateCreated datePublished" datetime="2020-03-15T10:05:12+08:00">2020-03-15</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-17 09:29:24" itemprop="dateModified" datetime="2020-03-17T09:29:24+08:00">2020-03-17</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
           
 
         </div>
@@ -308,115 +230,93 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>最近学习Node，试着用node来学习一些关于后端的知识，帮助自己更好的理解web开发整个开发体系，这里总结遇到的一些坑</p><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>当后端设置了允许跨域的时候,前端发送请求时设置了请求头  ‘Content-Type’: ‘application/json’的时候，请求发送不成功</p><a id="more"></a>
-
+        <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>最近学习Node，试着用node来学习一些关于后端的知识，帮助自己更好的理解web开发整个开发体系，这里总结遇到的一些坑</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>当后端设置了允许跨域的时候,前端发送请求时设置了请求头  ‘Content-Type’: ‘application/json’的时候，请求发送不成功</p>
 <blockquote>
 <p>如图</p>
+</blockquote>
 <ul>
 <li><img src="/img/caikeng/one.png" alt="问题"></li>
 <li><img src="/img/caikeng/two.png" alt="问题"></li>
 </ul>
-</blockquote>
 <blockquote>
 <p>这时的代码</p>
-<ul>
-<li>前端</li>
-</ul>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'http://localhost:3000/'</span>, &#123;</span><br><span class="line">    method: <span class="string">'PUT'</span>,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    body: &#123;</span><br><span class="line">        name: <span class="string">'shuaxin'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> res.json()</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>后端<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> connect = <span class="built_in">require</span>(<span class="string">'connect'</span>)</span><br><span class="line"><span class="keyword">const</span> app = connect()</span><br><span class="line"></span><br><span class="line">app</span><br><span class="line">    .use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 设置允许的请求的域名</span></span><br><span class="line">        res.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>)</span><br><span class="line">        <span class="comment">// 设置允许跨域请求的方法类型</span></span><br><span class="line">        res.setHeader(<span class="string">"Access-Control-Allow-Methods"</span>, <span class="string">"DELETE,PUT,POST,GET,OPTIONS"</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(req.method);</span><br><span class="line">        next()</span><br><span class="line">    &#125;)</span><br><span class="line">    .use(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        res.end(<span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">            msg: <span class="string">'succ'</span></span><br><span class="line">        &#125;))</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="string">'3000'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'服务启动'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<li>前端<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">&#x27;http://localhost:3000/&#x27;</span>, &#123;</span><br><span class="line">    method: <span class="string">&#x27;PUT&#x27;</span>,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    body: &#123;</span><br><span class="line">        name: <span class="string">&#x27;shuaxin&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> res.json()</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>后端<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> connect = <span class="built_in">require</span>(<span class="string">&#x27;connect&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = connect()</span><br><span class="line"></span><br><span class="line">app</span><br><span class="line">    .use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 设置允许的请求的域名</span></span><br><span class="line">        res.setHeader(<span class="string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="string">&quot;*&quot;</span>)</span><br><span class="line">        <span class="comment">// 设置允许跨域请求的方法类型</span></span><br><span class="line">        res.setHeader(<span class="string">&quot;Access-Control-Allow-Methods&quot;</span>, <span class="string">&quot;DELETE,PUT,POST,GET,OPTIONS&quot;</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(req.method);</span><br><span class="line">        next()</span><br><span class="line">    &#125;)</span><br><span class="line">    .use(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        res.end(<span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">            msg: <span class="string">&#x27;succ&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="string">&#x27;3000&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;服务启动&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <blockquote>
 <p>解决</p>
-<ul>
-<li>只需要在后端在设置一下跨域允许的请求头即可，代码</li>
-</ul>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line">res.setHeader(<span class="string">'Access-Control-Allow-Headers'</span>, <span class="string">"Content-Type"</span>)</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<ul>
+<li>只需要在后端在设置一下跨域允许的请求头即可，代码<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line">res.setHeader(<span class="string">&#x27;Access-Control-Allow-Headers&#x27;</span>, <span class="string">&quot;Content-Type&quot;</span>)</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>在没有添加允许的请求头之前，在后台打印一下请求的method<br><img src="/img/caikeng/three.png" alt="OPTIONS"><br>发现并不是请求中设置的PUT,这就是浏览器的预请求机制</p>
 <h3 id="铺垫"><a href="#铺垫" class="headerlink" title="铺垫"></a>铺垫</h3><p>这里牵扯到一个概念:简单请求和复杂请求，对于2者的区分</p>
 <blockquote>
 <p>简单请求</p>
+</blockquote>
 <ul>
 <li>请求方法只能是GET/POST/HEADE</li>
 <li>请求头只能是:Accept/Accept-Language/Conent-Language/Content-Type 等</li>
 <li>请求头的Content-Type只能是: text/plain、multipart/form-data 或 application/x-www-form-urlencoded</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>复杂请求(即出现预请求的条件)</p>
+</blockquote>
 <ul>
 <li>不满足上述条件后，就成了复杂请求，也就出现了所谓的预请求发送的问题</li>
 <li>分析第一张图发现请求类型的内容是 application/json,所以出现了预请求</li>
 </ul>
-</blockquote>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
 <p>什么是预请求?目的是什么?</p>
+</blockquote>
 <ul>
 <li>即options请求,是浏览器在我们真实的请求之前自动发送的一个请求</li>
 <li>目的是为了判断服务端是否允许我们真实的请求的请求头格式、请求类型等</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>区分简单/复杂请求</p>
+</blockquote>
 <ul>
 <li>就是HTML表单配合enctype可以指定的编码格式发送的请求就是简单请求</li>
 <li>其他像PUT/DELETE，和需要自定义请求头设置编码格式的请求就都是复杂请求</li>
-<li>查这方面知识看到<a href="https://juejin.im/post/5d71d1e7f265da03934c027b" target="_blank" rel="noopener">奇舞周刊</a>的一篇文章中提到的</li>
+<li>查这方面知识看到<a target="_blank" rel="noopener" href="https://juejin.im/post/5d71d1e7f265da03934c027b">奇舞周刊</a>的一篇文章中提到的</li>
 </ul>
-</blockquote>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">跨域资源共享 CORS 详解</a><br><a href="https://juejin.im/post/5d71d1e7f265da03934c027b" target="_blank" rel="noopener">CORS 为什么要区分『简单请求』和『预检请求』？</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2016/04/cors.html">跨域资源共享 CORS 详解</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5d71d1e7f265da03934c027b">CORS 为什么要区分『简单请求』和『预检请求』？</a></p>
 
     </div>
 
     
     
     
-        
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
-              <a href="/tags/网络/" rel="tag"># 网络</a>
-            
-              <a href="/tags/踩坑/" rel="tag"># 踩坑</a>
-            
+              <a href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag"># 网络</a>
+              <a href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag"># 踩坑</a>
               <a href="/tags/NodeJS/" rel="tag"># NodeJS</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2020/02/10/vue/vuejs基础复习-5/" rel="next" title="vuejs基础复习-5">
-                  <i class="fa fa-chevron-left"></i> vuejs基础复习-5
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/03/15/笔记/关于JWT认证/" rel="prev" title="关于JWT认证">
-                  关于JWT认证 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/10/vue/vuejs%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0-5/" rel="prev" title="vuejs基础复习-5">
+      <i class="fa fa-chevron-left"></i> vuejs基础复习-5
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/15/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8EJWT%E8%AE%A4%E8%AF%81/" rel="next" title="关于JWT认证">
+      关于JWT认证 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -424,11 +324,32 @@
   
   
 
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -441,11 +362,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -458,8 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开头"><span class="nav-number">1.</span> <span class="nav-text">开头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">2.0.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">2.0.2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#铺垫"><span class="nav-number">2.0.3.</span> <span class="nav-text">铺垫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.0.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
-        
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%A4%B4"><span class="nav-number">1.</span> <span class="nav-text">开头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.0.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.0.2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BA%E5%9E%AB"><span class="nav-number">2.0.3.</span> <span class="nav-text">铺垫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.0.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -471,122 +386,63 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">23</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
-      </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
     <div class="links-of-blogroll-title">
       <i class="fa fa-fw fa-link"></i>
-      前辈们
+      前辈
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/yyx990803" title="https://github.com/yyx990803" rel="noopener" target="_blank">尤雨溪</a>
+          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://overreacted.io/" title="https://overreacted.io/" rel="noopener" target="_blank">DanAbramov</a>
+          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://ewind.us/" title="https://ewind.us/" rel="noopener" target="_blank">雪碧</a>
+          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://joyeecheung.github.io/blog/" title="https://joyeecheung.github.io/blog/" rel="noopener" target="_blank">张秋怡</a>
+          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/yujiangshui?tab=repositories" title="https://github.com/yujiangshui?tab=repositories" rel="noopener" target="_blank">于江水</a>
+          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
         </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://imnerd.org/" title="https://imnerd.org/" rel="noopener" target="_blank">公子</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -600,51 +456,25 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
         
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-[object Object]"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">刷新</span>
-
-  
 </div>
-
-
-
-
-
-  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" rel="noopener" target="_blank">陇ICP备62102102000142 </a>
-<a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">陇ICP备20001560 </a>
-
-
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
 
 
 
@@ -653,51 +483,43 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-    
-  
-  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
-
-  
-
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 

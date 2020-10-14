@@ -1,109 +1,73 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-CN,en,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="问题在之前使用git管理代码的时候，会经常出现commit后，才发现有的地方有注释没加或者注释错别字等等问题，导致需要重新修改在add在commit，然后就会出现log中很多很没意义的commit，记录一下当出现这种情况，怎么消除之前的commit，让log看起来更清晰明了">
-<meta name="keywords" content="工具,Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git笔记2">
-<meta property="og:url" content="http://yoursite.com/2020/05/29/踩坑/git笔记2/index.html">
+<meta property="og:url" content="http://example.com/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/index.html">
 <meta property="og:site_name" content="刷新">
 <meta property="og:description" content="问题在之前使用git管理代码的时候，会经常出现commit后，才发现有的地方有注释没加或者注释错别字等等问题，导致需要重新修改在add在commit，然后就会出现log中很多很没意义的commit，记录一下当出现这种情况，怎么消除之前的commit，让log看起来更清晰明了">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/img/git/git.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git2.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git3.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git4.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git5.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git6.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git7.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git8.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git9.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git10.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git11.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git12.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git13.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git14.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git15.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git16.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git15.png">
-<meta property="og:image" content="http://yoursite.com/img/git/git17.png">
-<meta property="og:updated_time" content="2020-05-29T13:37:12.181Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/git/git.png">
+<meta property="og:image" content="http://example.com/img/git/git2.png">
+<meta property="og:image" content="http://example.com/img/git/git3.png">
+<meta property="og:image" content="http://example.com/img/git/git4.png">
+<meta property="og:image" content="http://example.com/img/git/git5.png">
+<meta property="og:image" content="http://example.com/img/git/git6.png">
+<meta property="og:image" content="http://example.com/img/git/git7.png">
+<meta property="og:image" content="http://example.com/img/git/git8.png">
+<meta property="og:image" content="http://example.com/img/git/git9.png">
+<meta property="og:image" content="http://example.com/img/git/git10.png">
+<meta property="og:image" content="http://example.com/img/git/git11.png">
+<meta property="og:image" content="http://example.com/img/git/git12.png">
+<meta property="og:image" content="http://example.com/img/git/git13.png">
+<meta property="og:image" content="http://example.com/img/git/git14.png">
+<meta property="og:image" content="http://example.com/img/git/git15.png">
+<meta property="og:image" content="http://example.com/img/git/git16.png">
+<meta property="og:image" content="http://example.com/img/git/git15.png">
+<meta property="og:image" content="http://example.com/img/git/git17.png">
+<meta property="article:published_time" content="2020-05-29T08:18:17.000Z">
+<meta property="article:modified_time" content="2020-10-14T02:19:25.741Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git笔记2">
-<meta name="twitter:description" content="问题在之前使用git管理代码的时候，会经常出现commit后，才发现有的地方有注释没加或者注释错别字等等问题，导致需要重新修改在add在commit，然后就会出现log中很多很没意义的commit，记录一下当出现这种情况，怎么消除之前的commit，让log看起来更清晰明了">
-<meta name="twitter:image" content="http://yoursite.com/img/git/git.png">
-  <link rel="canonical" href="http://yoursite.com/2020/05/29/踩坑/git笔记2/">
+<meta name="twitter:image" content="http://example.com/img/git/git.png">
+
+<link rel="canonical" href="http://example.com/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
   <title>git笔记2 | 刷新</title>
   
-
-
 
 
 
@@ -122,7 +86,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -140,19 +103,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">刷新</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -160,72 +112,63 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">刷新</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
   <ul id="menu" class="menu">
-      
-      
-      
-        
         <li class="menu-item menu-item-home">
-      
-    
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
   </ul>
-
-    
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -236,32 +179,32 @@
   </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/29/踩坑/git笔记2/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">git笔记2
-
-          
+        <h1 class="post-title" itemprop="name headline">
+          git笔记2
         </h1>
 
         <div class="post-meta">
@@ -271,39 +214,25 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2020-05-29 16:18:17 / 修改时间：21:37:12" itemprop="dateCreated datePublished" datetime="2020-05-29T16:18:17+08:00">2020-05-29</time>
+              <time title="创建时间：2020-05-29 16:18:17" itemprop="dateCreated datePublished" datetime="2020-05-29T16:18:17+08:00">2020-05-29</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+                </span>
             </span>
-          
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
           
 
         </div>
@@ -328,22 +257,23 @@
 </ul>
 <h3 id="回滚commit"><a href="#回滚commit" class="headerlink" title="回滚commit"></a>回滚commit</h3><blockquote>
 <p>相关概念</p>
+</blockquote>
 <ul>
 <li>用到git reset命令</li>
 <li>这个命令有三个参数:- - &lt;soft|hard|mixed&gt;</li>
 <li>用法 git reset – &lt;参数&gt; [指定commit编号]</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>参数的含义</p>
+</blockquote>
 <ul>
 <li>soft：不改变工作区的内容，之前commit的内容会回退在缓存区</li>
 <li>mixed：不加参数时的默认为该参数，之前的commit内容不回退到缓存，需要再次add</li>
 <li>hard：会影响工作区，让回退前的commit的代码全部删除</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>soft演示</p>
+</blockquote>
 <ul>
 <li>现在有个目录的分支是这样 <img src="/img/git/git.png" alt="图1"></li>
 <li>情况是这样，在addcon这个commit后，发现没有添加注释，于是添加了注释，再一次进行了commit并注释为add注释；这一次commit就没有什么实质作用，现在干掉这次commit</li>
@@ -353,9 +283,9 @@
 <li>最后在commit一次，在查看分支情况：<img src="/img/git/git4.png" alt="图4"> 这样就将前两次应该一次完成提交的commit改成了一次</li>
 <li>总结：如果仅仅想回滚commit，重新commit，可以使用soft</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>mixed</p>
+</blockquote>
 <ul>
 <li>情况和上述一样,现在分支情况:<img src="/img/git/git5.png" alt="图5"> </li>
 <li>现在回退到完成注释和功能的commit，然后干掉addcon2和添加注释两次commit   git reset –soft d62192e2  </li>
@@ -363,22 +293,22 @@
 <li>和soft的区别仅仅是mixed的时候缓存区中没有内容，需要手动add修改内容后在进行commit，但是相同的是都没有修改工作区的内容</li>
 <li>总结：回滚版本并需要修改一下代码，重新commit，可以使用mixed</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>hard</p>
+</blockquote>
 <ul>
 <li>现在的分支情况： <img src="/img/git/git8.png" alt="图8"> </li>
 <li>背景：现在init之后的commit的内容都作废，需要重新开始，并且要清楚commit记录，可以使用hard</li>
 <li><img src="/img/git/git9.png" alt="图9"> <img src="/img/git/git10.png" alt="图10"> </li>
 <li>总结：hard适用于回滚commit时，且回滚到的指定commit之后的commit都不需要，会清空缓存区和工作区中不需要的commit的内容</li>
 </ul>
-</blockquote>
 <h3 id="合并commit"><a href="#合并commit" class="headerlink" title="合并commit"></a>合并commit</h3><p>使用git rebase来合并需要合并的多个commit</p>
 <blockquote>
 <p>演示</p>
+</blockquote>
 <ul>
 <li>现在分支情况 <img src="/img/git/git11.png" alt="图11"> </li>
-<li>现在要把<strong><em>完成功能1</em></strong> <strong><em>完成功能2</em></strong> <strong><em>完成所有功能</em></strong>合并成一次commit</li>
+<li>现在要把*<strong>完成功能1*** *</strong>完成功能2*** <strong><em>完成所有功能</em></strong>合并成一次commit</li>
 <li>先把HEAD指向调到需要合并的多个commit的第一个commit:git rebase -i HEAD~3</li>
 <li>说明：HEAD的数字1为最新的commit</li>
 <li>这时会出现一个vim编辑器打开的文件 <img src="/img/git/git12.png" alt="图12"> </li>
@@ -389,10 +319,10 @@
 <li>上面的为合并的commit的注释，自行选择是否可以修改；下面为被合并的commit的注释信息 </li>
 <li>操作完后，现在分支情况 <img src="/img/git/git14.png" alt="图14"></li>
 </ul>
-</blockquote>
 <h1 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h1><p>之前对于分支合并，一直使用的merge，无意间一次看到rebase也可以用来合并分支，于是试验了一下两者的区别；记录一下</p>
 <blockquote>
 <p>merge</p>
+</blockquote>
 <ul>
 <li>指定一个分支，合并到当前所在分支；下例合并dev到master</li>
 <li>git merge dev</li>
@@ -400,9 +330,9 @@
 <li>使用merge后 <img src="/img/git/git16.png" alt="图16"></li>
 <li>对比发现，两者合并后在master分支多了一个commit</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>rebase</p>
+</blockquote>
 <ul>
 <li>合并当前分支到执行分支；下例rebase 分支dev到master</li>
 <li>git rebase &lt;指定branch&gt;</li>
@@ -410,14 +340,13 @@
 <li>使用rebase后 <img src="/img/git/git17.png" alt="图17"></li>
 <li>没有新的commit出现，而是把dev最新的commit和master最新的commit进行了合并</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>总结</p>
+</blockquote>
 <ul>
 <li>对于需要严格保留每次commit记录的时候使用merge</li>
 <li>对于只是在另一个分支进行了一些额外的开发测试，最后确认无误，且该功能本来就是要在某分支进行的，就可以直接使用rebase；比如自己在一个分支开发某一个模块，然后对于其中的一些地方不想影响其他代码，就可以单独开一个新分支进行开发测试，开发完成没问题后，不需要保留记录，直接rebase即可</li>
 </ul>
-</blockquote>
 <h1 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h1><p>记录一下这个学习过程中了解到的一些其他的操作</p>
 <blockquote>
 <p>修改commit注释</p>
@@ -438,9 +367,8 @@
 <p>查看缓存区文件</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
-<li><a href="http://gitbook.liuhui998.com/4_2.html" target="_blank" rel="noopener">gitbook中文</a></li>
+<li><a target="_blank" rel="noopener" href="http://gitbook.liuhui998.com/4_2.html">gitbook中文</a></li>
 <li>分支可视化使用的vscode的插件—GitGraph</li>
 </ul>
 
@@ -449,44 +377,27 @@
     
     
     
-        
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
-              <a href="/tags/工具/" rel="tag"># 工具</a>
-            
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
               <a href="/tags/Git/" rel="tag"># Git</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2020/05/21/杂文/近期总结/" rel="next" title="近期总结">
-                  <i class="fa fa-chevron-left"></i> 近期总结
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/06/14/笔记/搭建图床服务器/" rel="prev" title="搭建图床服务器">
-                  搭建图床服务器 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/21/%E6%9D%82%E6%96%87/%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93/" rel="prev" title="近期总结">
+      <i class="fa fa-chevron-left"></i> 近期总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/14/%E7%AC%94%E8%AE%B0/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="next" title="搭建图床服务器">
+      搭建图床服务器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -494,11 +405,32 @@
   
   
 
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -511,11 +443,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -528,8 +455,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关概念"><span class="nav-number">2.0.1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回滚commit"><span class="nav-number">2.0.2.</span> <span class="nav-text">回滚commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并commit"><span class="nav-number">2.0.3.</span> <span class="nav-text">合并commit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并"><span class="nav-number">3.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他操作"><span class="nav-number">4.</span> <span class="nav-text">其他操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
-        
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">2.0.1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E6%BB%9Acommit"><span class="nav-number">2.0.2.</span> <span class="nav-text">回滚commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E5%B9%B6commit"><span class="nav-number">2.0.3.</span> <span class="nav-text">合并commit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%88%E5%B9%B6"><span class="nav-number">3.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">其他操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -541,122 +467,63 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">23</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
-      </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
     <div class="links-of-blogroll-title">
       <i class="fa fa-fw fa-link"></i>
-      前辈们
+      前辈
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/yyx990803" title="https://github.com/yyx990803" rel="noopener" target="_blank">尤雨溪</a>
+          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://overreacted.io/" title="https://overreacted.io/" rel="noopener" target="_blank">DanAbramov</a>
+          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://ewind.us/" title="https://ewind.us/" rel="noopener" target="_blank">雪碧</a>
+          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://joyeecheung.github.io/blog/" title="https://joyeecheung.github.io/blog/" rel="noopener" target="_blank">张秋怡</a>
+          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/yujiangshui?tab=repositories" title="https://github.com/yujiangshui?tab=repositories" rel="noopener" target="_blank">于江水</a>
+          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
         </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://imnerd.org/" title="https://imnerd.org/" rel="noopener" target="_blank">公子</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -670,51 +537,25 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
         
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-[object Object]"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">刷新</span>
-
-  
 </div>
-
-
-
-
-
-  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" rel="noopener" target="_blank">陇ICP备62102102000142 </a>
-<a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">陇ICP备20001560 </a>
-
-
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
 
 
 
@@ -723,51 +564,43 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-    
-  
-  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
-
-  
-
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 

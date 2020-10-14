@@ -1,88 +1,50 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-CN,en,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
 <meta property="og:type" content="website">
 <meta property="og:title" content="刷新">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="刷新">
 <meta property="og:description" content="学习笔记&amp;&amp;踩坑记录">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="刷新">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="刷新">
-<meta name="twitter:description" content="学习笔记&amp;&amp;踩坑记录">
-  <link rel="canonical" href="http://yoursite.com/">
+
+<link rel="canonical" href="http://example.com/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
   <title>刷新</title>
   
-
-
 
 
 
@@ -101,7 +63,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -119,19 +80,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">刷新</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -139,72 +89,63 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">刷新</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
   <ul id="menu" class="menu">
-      
-      
-      
-        
         <li class="menu-item menu-item-home">
-      
-    
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
   </ul>
-
-    
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -215,34 +156,33 @@
   </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
-            
+          
 
-  <div class="posts-expand">
-        
+          <div class="content index posts-expand">
+            
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/13/杂文/关于毕业生图像采集/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/13/%E6%9D%82%E6%96%87/%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E7%94%9F%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/10/13/杂文/关于毕业生图像采集/" class="post-title-link" itemprop="url">关于毕业生图像采集</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/10/13/%E6%9D%82%E6%96%87/%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E7%94%9F%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86/" class="post-title-link" itemprop="url">关于毕业生图像采集</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -251,30 +191,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2020-10-13 18:02:06 / 修改时间：18:38:47" itemprop="dateCreated datePublished" datetime="2020-10-13T18:02:06+08:00">2020-10-13</time>
+              <time title="创建时间：2020-10-13 18:02:06" itemprop="dateCreated datePublished" datetime="2020-10-13T18:02:06+08:00">2020-10-13</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -293,13 +227,11 @@
 <li>重要性：这东西会影响拿证时间，所以请重视</li>
 <li>记录一下没有参加集体拍摄的，个人怎么补拍
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2020/10/13/杂文/关于毕业生图像采集/#more" rel="contents">
+              <a class="btn" href="/2020/10/13/%E6%9D%82%E6%96%87/%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E7%94%9F%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -309,36 +241,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/07/计算机基础/leetcode学习-No-2/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/leetcode%E5%AD%A6%E4%B9%A0-No-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/10/07/计算机基础/leetcode学习-No-2/" class="post-title-link" itemprop="url">leetcode学习-No.2</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/10/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/leetcode%E5%AD%A6%E4%B9%A0-No-2/" class="post-title-link" itemprop="url">leetcode学习-No.2</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -347,38 +276,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2020-10-07 21:43:15" itemprop="dateCreated datePublished" datetime="2020-10-07T21:43:15+08:00">2020-10-07</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-13 09:40:24" itemprop="dateModified" datetime="2020-10-13T09:40:24+08:00">2020-10-13</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -397,13 +312,11 @@
 <li>最长回文字符串</li>
 </ul>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2020/10/07/计算机基础/leetcode学习-No-2/#more" rel="contents">
+              <a class="btn" href="/2020/10/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/leetcode%E5%AD%A6%E4%B9%A0-No-2/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -413,36 +326,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/02/计算机基础/leetcode学习-No.1/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/leetcode%E5%AD%A6%E4%B9%A0-No.1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/10/02/计算机基础/leetcode学习-No.1/" class="post-title-link" itemprop="url">leetcode学习-No.1</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/10/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/leetcode%E5%AD%A6%E4%B9%A0-No.1/" class="post-title-link" itemprop="url">leetcode学习-No.1</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -451,38 +361,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2020-10-02 17:53:11" itemprop="dateCreated datePublished" datetime="2020-10-02T17:53:11+08:00">2020-10-02</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-07 21:45:28" itemprop="dateModified" datetime="2020-10-07T21:45:28+08:00">2020-10-07</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -504,13 +400,11 @@
 <li>笔记均为自己暴力破解的思路和看了看得懂的解题思路后，自己写出来的</li>
 </ul>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2020/10/02/计算机基础/leetcode学习-No.1/#more" rel="contents">
+              <a class="btn" href="/2020/10/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/leetcode%E5%AD%A6%E4%B9%A0-No.1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -520,36 +414,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/19/笔记/时间分片/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/19/%E7%AC%94%E8%AE%B0/%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/09/19/笔记/时间分片/" class="post-title-link" itemprop="url">时间分片</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/09/19/%E7%AC%94%E8%AE%B0/%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87/" class="post-title-link" itemprop="url">时间分片</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -558,30 +449,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2020-09-19 15:15:13 / 修改时间：16:33:40" itemprop="dateCreated datePublished" datetime="2020-09-19T15:15:13+08:00">2020-09-19</time>
+              <time title="创建时间：2020-09-19 15:15:13" itemprop="dateCreated datePublished" datetime="2020-09-19T15:15:13+08:00">2020-09-19</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -595,16 +480,42 @@
 
       
           <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>昨天（2020-9-19）看2019vueconf的时候，尤大在分享vue3的特点的时候，提到了vue和react在底层针对模板编译和jsx优化的一些不同的时候提到了一个词，时间分片；然后就做了一点功课，写个笔记。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/09/19/笔记/时间分片/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><blockquote>
+<p><strong>解决了什么？</strong></p>
+<ul>
+<li>js会阻塞ui的渲染，所以当一个操作耗时非常长时，就会造成页面内容显示滞后，带来很不好的用户体验</li>
+<li>通过将操作划分为一个个小的阶段，来执行</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>怎么做的？</strong></p>
+<ul>
+<li>利用异步的一些api</li>
+<li>settimeout</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback">requestIdleCallback</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame">requestAnimationFrame</a></li>
+</ul>
+</blockquote>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>实例描述：通过js插入10000个li到ul中</p>
+<h3 id="使用最普通的循环插入"><a href="#使用最普通的循环插入" class="headerlink" title="使用最普通的循环插入"></a>使用最普通的循环插入</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="meta">    &#x27;use strict&#x27;</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> list = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> total = <span class="number">100000</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; total; ++i) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> item = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        item.innerText = <span class="string">`我是<span class="subst">$&#123;i&#125;</span>`</span></span></span><br><span class="line">        list.appendChild(item)</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://img.shuaxinjs.cn//shijianfenpian-3.png"></p>
+<h3 id="使用定时器"><a href="#使用定时器" class="headerlink" title="使用定时器"></a>使用定时器</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="meta">    &#x27;use strict&#x27;</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> list = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> total = <span class="number">100000</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> render = <span class="function">(<span class="params">start, end</span>) =&gt;</span> &#123;</span></span><br><span class="line">        if (end &lt; total) &#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">let</span> frag = <span class="built_in">document</span>.createDocumentFragment()</span></span><br><span class="line"><span class="javascript">                <span class="keyword">for</span> (<span class="keyword">let</span> i = start; i &lt; end; ++i) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">let</span> item = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span></span><br><span class="line"><span class="javascript">                    item.innerText = <span class="string">`我是<span class="subst">$&#123;i&#125;</span>`</span></span></span><br><span class="line">                    frag.appendChild(item)</span><br><span class="line">                &#125;</span><br><span class="line">                list.appendChild(frag)</span><br><span class="line">                render(end + 1, end + 20)</span><br><span class="line">            &#125;, 10)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render(0, 20)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://img.shuaxinjs.cn//shijianfenpian-1.png"></p>
+<h2 id="使用requestAnimationFrame"><a href="#使用requestAnimationFrame" class="headerlink" title="使用requestAnimationFrame"></a>使用requestAnimationFrame</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="meta">    &#x27;use strict&#x27;</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> list = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> total = <span class="number">100000</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> size = <span class="number">20</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> index = <span class="number">0</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> render = <span class="function">(<span class="params">total, index</span>) =&gt;</span> &#123;</span></span><br><span class="line">        if (total &lt;= 0) &#123;</span><br><span class="line"><span class="javascript">            <span class="keyword">return</span></span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> curPage = <span class="built_in">Math</span>.min(total, size)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.requestAnimationFrame(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> fragment = <span class="built_in">document</span>.createDocumentFragment()</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; curPage; ++i) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">let</span> item = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span></span><br><span class="line"><span class="javascript">                item.innerText = <span class="string">`我是<span class="subst">$&#123;index + i&#125;</span>`</span></span></span><br><span class="line">                fragment.appendChild(item)</span><br><span class="line">            &#125;</span><br><span class="line">            list.appendChild(fragment)</span><br><span class="line">            render(total - curPage, index + curPage)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    render(total, index)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://img.shuaxinjs.cn//shijianfenpian-2.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>时间分片就是讲耗时的长任务，划分为一个个耗时很短的小任务；将处理结果一点点返回给用户</li>
+<li>主要的手段就是利用js的event loop机制，通过异步的一些操作来处理切分任务</li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><blockquote>
+<p><strong>关于requestAnimationFrame和setInterval处理动画的区别</strong></p>
+<ul>
+<li>帧率和循环的事件交由浏览器控制，可以更好的控制的帧率</li>
+<li>性能流畅度更优秀</li>
+<li>新api，兼容性会有些问题</li>
+</ul>
+</blockquote>
+
       
     </div>
 
@@ -612,36 +523,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/31/杂文/软件著作权申请/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/08/31/%E6%9D%82%E6%96%87/%E8%BD%AF%E4%BB%B6%E8%91%97%E4%BD%9C%E6%9D%83%E7%94%B3%E8%AF%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/08/31/杂文/软件著作权申请/" class="post-title-link" itemprop="url">软件著作权申请</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/08/31/%E6%9D%82%E6%96%87/%E8%BD%AF%E4%BB%B6%E8%91%97%E4%BD%9C%E6%9D%83%E7%94%B3%E8%AF%B7/" class="post-title-link" itemprop="url">软件著作权申请</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -650,30 +558,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2020-08-31 10:52:15 / 修改时间：11:21:32" itemprop="dateCreated datePublished" datetime="2020-08-31T10:52:15+08:00">2020-08-31</time>
+              <time title="创建时间：2020-08-31 10:52:15" itemprop="dateCreated datePublished" datetime="2020-08-31T10:52:15+08:00">2020-08-31</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -687,16 +589,28 @@
 
       
           <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>关于申请这个证书的原因是因为学校说申请后就可以不用写毕业论文和参加毕业答辩，然后恰巧当时答辩写了一套前后端都有的带管理系统的webapp；索性就查了查相关信息，就去申请了，刚才（2020-8-31：10:30）看到已经制证发证完成只需要等待快递送到就行；所以来记录一下相关流程。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/08/31/杂文/软件著作权申请/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h3 id="个人情况概述"><a href="#个人情况概述" class="headerlink" title="个人情况概述"></a>个人情况概述</h3><ul>
+<li><p>首先贴一下我当时申请时候参考的教程链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/72729628">链接</a></p>
+</li>
+<li><p>因为帖子内容很久远了，后来他们对系统进行了升级，所以只记录一些和帖子不一样的地方</p>
+</li>
+<li><p>关于软件著作权，指的是对申请的软件的内容（具体代码等）保护；需要区分和专利的区别，专利是对软件构思（可以理解成功能）的保护</p>
+</li>
+<li><p>申请时间是从7-10申请到8-27状态显示制证发证</p>
+</li>
+<li><p><img src="http://img.shuaxinjs.cn//zhuzuoquan.png"></p>
+</li>
+</ul>
+<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p><strong>改版后选择板块不太一样，其他流程需要的材料都是一致的</strong></p>
+<ul>
+<li>去官网注册账号：<a target="_blank" rel="noopener" href="https://register.ccopyright.com.cn/registration.html#/registerSoft">官网</a></li>
+<li>登陆后，如果没在软件登记页，点击头部的软件登记按钮，如下图（实名认证完成后也是回到该页）</li>
+<li><img src="http://img.shuaxinjs.cn//zhuzuoquan2.png"></li>
+<li>到该页后选择下图选项，第一次登陆，会提示你去实名认证，选择个人就好；审核需要3个工作日。</li>
+<li><img src="http://img.shuaxinjs.cn//zhuzuoquan3.png"></li>
+<li>剩下的就和链接的差不多；按着操作即可</li>
+</ul>
+
       
     </div>
 
@@ -704,36 +618,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/28/踩坑/antd表格组件扩展行/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/08/28/%E8%B8%A9%E5%9D%91/antd%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95%E8%A1%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/08/28/踩坑/antd表格组件扩展行/" class="post-title-link" itemprop="url">antd表格组件扩展行</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/08/28/%E8%B8%A9%E5%9D%91/antd%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95%E8%A1%8C/" class="post-title-link" itemprop="url">antd表格组件扩展行</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -742,38 +653,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2020-08-28 22:26:21" itemprop="dateCreated datePublished" datetime="2020-08-28T22:26:21+08:00">2020-08-28</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-29 00:22:39" itemprop="dateModified" datetime="2020-08-29T00:22:39+08:00">2020-08-29</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -788,20 +685,29 @@
       
           <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><ul>
 <li>最近入职的团队主要技术栈是react，组件库是antd；因为之前写react少，antd也没用过，所以导致上手第一时间还有蛮多不习惯的；然后就有些小坑，记录一下。</li>
-</ul><h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><ul>
+</ul>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><ul>
 <li>需求是表格展示数据需要将一些数据隐藏起来，然后通过点击指定的按钮展开/收起一个面板，来显示这些数据</li>
 <li>官方有提供这个功能，但是没有提供接口让你可以指定需要展开的按钮，然后查了一圈也没查到，就好好看了看文档，研究了下可以通过几个api来实现这个需求</li>
 </ul>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/08/28/踩坑/antd表格组件扩展行/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
+<p>需要的api</p>
+</blockquote>
+<ul>
+<li>expandable：展开功能配置</li>
+<li>expandIcon：定义展开图标</li>
+<li>expandedRowKeys：控制展开的行</li>
+</ul>
+<blockquote>
+<p>思路说明</p>
+</blockquote>
+<ul>
+<li>当table组件配置了expandable后，表格会自动在第一列添加个按钮（是个图标），然后通过这个按钮来控制面板的展开收起</li>
+<li>1.通过定义展开图标来隐藏图标，这样就没有点击的目标了，等于取消了该开关</li>
+<li>2.设置expandedRowKeys，通过表格每一行的key来控制打开或隐藏那一行面板</li>
+<li>3.expandedRowKeys是一个数组，元素为字符串，就是每一行的key，当这个数组有某一行的key，这一行的面板就会被打开，没有反之；利用该特性，在我们需要指定的按钮上绑定一个事件，来动态的添加对应行的key到该数组即可</li>
+</ul>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState &#125; from &#39;react&#39;</span><br><span class="line">import &#123; Table, Button &#125; from &#39;antd&#39;</span><br><span class="line">import &#39;.&#x2F;main.css&#39;</span><br><span class="line"></span><br><span class="line">const Main &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    const [openKeys, setOpenKeys] &#x3D; useState([])</span><br><span class="line">    const handleOpenRow &#x3D; (id) &#x3D;&gt; &#123;</span><br><span class="line">        let index &#x3D; openKeys.indexOf(id)</span><br><span class="line">        if (index &#x3D;&#x3D;&#x3D; -1) &#123;</span><br><span class="line">            setOpenKeys(() &#x3D;&gt; &#123;</span><br><span class="line">                return [...openKeys, id]</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            const arr &#x3D; openKeys</span><br><span class="line">            arr.splice(index, 1)</span><br><span class="line">            setOpenKeys(() &#x3D;&gt; &#123;</span><br><span class="line">                return [...arr]</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    const columns &#x3D; [</span><br><span class="line">        &#123;</span><br><span class="line">            title: &#39;ID&#39;,</span><br><span class="line">            align: &#39;center&#39;,</span><br><span class="line">            dataIndex: &#39;key&#39;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: &#39;姓名&#39;,</span><br><span class="line">            align: &#39;center&#39;,</span><br><span class="line">            dataIndex: &#39;name&#39;,</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            title: &quot;操作&quot;,</span><br><span class="line">            align: &#39;center&#39;,</span><br><span class="line">            render: (row) &#x3D;&gt; &#123;</span><br><span class="line">                return (</span><br><span class="line">                    &lt;Button type&#x3D;&quot;link&quot; onClick&#x3D;&#123;() &#x3D;&gt; handleOpenRow(row.key)&#125;&gt;</span><br><span class="line">                        &#123;</span><br><span class="line">                            openKeys.indexOf(row.key) &#x3D;&#x3D;&#x3D; -1 ? &#39;展开&#39; : &#39;收起&#39;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &lt;&#x2F;Button&gt;</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">    const tableData &#x3D; [&#123;</span><br><span class="line">        key: &#39;1&#39;,</span><br><span class="line">        name: &quot;one&quot;,</span><br><span class="line">        sex: &quot;man&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        key: &#39;2&#39;,</span><br><span class="line">        name: &#39;two&#39;,</span><br><span class="line">        sex: &quot;man&quot;</span><br><span class="line">    &#125;]</span><br><span class="line">    return (</span><br><span class="line">         &lt;div className&#x3D;&quot;container&quot;&gt;</span><br><span class="line">            &lt;Table columns&#x3D;&#123;columns&#125; dataSource&#x3D;&#123;tableData&#125;</span><br><span class="line">                &#x2F;&#x2F; 开启扩展行</span><br><span class="line">                expandable&#x3D;&#123;&#123;</span><br><span class="line">                    &#x2F;&#x2F; 定义扩展行内容</span><br><span class="line">                    expandedRowRender: record &#x3D;&gt; &#123;</span><br><span class="line">                        return &lt;p&gt;sex：&#123;record.sex&#125;&lt;&#x2F;p&gt;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#x2F;&#x2F; 自定义按钮图标</span><br><span class="line">                    expandIcon: _ &#x3D;&gt; &#39;&#39;,</span><br><span class="line">                    &#x2F;&#x2F; 定义哪些行开启</span><br><span class="line">                    expandedRowKeys: openKeys</span><br><span class="line">                &#125;&#125;</span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">export default Main</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -809,36 +715,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/笔记/搭建图床服务器/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/06/14/%E7%AC%94%E8%AE%B0/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/06/14/笔记/搭建图床服务器/" class="post-title-link" itemprop="url">搭建图床服务器</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/06/14/%E7%AC%94%E8%AE%B0/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">搭建图床服务器</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -847,38 +750,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2020-06-14 22:06:04" itemprop="dateCreated datePublished" datetime="2020-06-14T22:06:04+08:00">2020-06-14</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-28 22:26:39" itemprop="dateModified" datetime="2020-08-28T22:26:39+08:00">2020-08-28</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -896,16 +785,24 @@
 <li>搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。</li>
 <li>特此记录一下，顺便测试一下搭建后的效果。</li>
 </ul>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/06/14/笔记/搭建图床服务器/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h1 id="关于图床的选择"><a href="#关于图床的选择" class="headerlink" title="关于图床的选择"></a>关于图床的选择</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35270383">盘点国内免费好用的图床</a></li>
+<li>选择了七牛</li>
+</ul>
+<h1 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h1><ul>
+<li>注册七牛账号，登陆，进入主界面后点击对象存储，创建空间</li>
+<li>点击创建的空间设置，进入域名管理界面，绑定自己的已经备案的域名（这里创建后会给一个测试域名，只能测试用，30天后会自动收回），下图为设置界面，输入自己域名，然后根据需要做对应设置<img src="http://img.shuaxinjs.cn//imgserver.png"></li>
+<li>设置完成后，去自己域名的对应注册商，添加CNAME记录 <a target="_blank" rel="noopener" href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name">官方介绍</a>，官方说的很清楚</li>
+<li>至此搭建完成</li>
+</ul>
+<h1 id="本地上传"><a href="#本地上传" class="headerlink" title="本地上传"></a>本地上传</h1><ul>
+<li>使用<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a></li>
+<li>下载完毕后，进入对应的图床服务器设置界面，进行配置，<img src="http://img.shuaxinjs.cn//imgserver2.png"></li>
+<li>配置概述：前两个在秘钥管理中查看，存储空间名为对应图床的空间名，访问网址为上文添加的域名，存储区域这里我的不是文字选项，需要自己输入编号，这里七牛对应的几个地区编号为[{z0:华东},{z1:华北},{z2:华南},{z3:北美}]，后面2个可有可无</li>
+<li>至此配置完成，然后就可以在上传去上传测试了，如下图 <img src="http://img.shuaxinjs.cn//imgserver3.png"></li>
+<li>上传完成后，会以下面链接格式的选项的格式自动复制链接</li>
+</ul>
+
       
     </div>
 
@@ -913,36 +810,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/29/踩坑/git笔记2/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/05/29/踩坑/git笔记2/" class="post-title-link" itemprop="url">git笔记2</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/" class="post-title-link" itemprop="url">git笔记2</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -951,30 +845,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2020-05-29 16:18:17 / 修改时间：21:37:12" itemprop="dateCreated datePublished" datetime="2020-05-29T16:18:17+08:00">2020-05-29</time>
+              <time title="创建时间：2020-05-29 16:18:17" itemprop="dateCreated datePublished" datetime="2020-05-29T16:18:17+08:00">2020-05-29</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -989,13 +877,11 @@
       
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在之前使用git管理代码的时候，会经常出现commit后，才发现有的地方有注释没加或者注释错别字等等问题，导致需要重新修改在add在commit，然后就会出现log中很多很没意义的commit，记录一下当出现这种情况，怎么消除之前的commit，让log看起来更清晰明了</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2020/05/29/踩坑/git笔记2/#more" rel="contents">
+              <a class="btn" href="/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1005,36 +891,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/杂文/近期总结/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/21/%E6%9D%82%E6%96%87/%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/05/21/杂文/近期总结/" class="post-title-link" itemprop="url">近期总结</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/05/21/%E6%9D%82%E6%96%87/%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">近期总结</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1043,38 +926,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2020-05-21 22:02:07" itemprop="dateCreated datePublished" datetime="2020-05-21T22:02:07+08:00">2020-05-21</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-22 00:02:09" itemprop="dateModified" datetime="2020-05-22T00:02:09+08:00">2020-05-22</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -1089,13 +958,11 @@
       
           <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今年真的很不平凡，因为疫情，开学推迟、假期延长，在家待的时间变的非常长（19-12-26到家，现在2020-5-21），但是虽然这样说，这小半年的在家时间，也还是经历了很多事情，家里的一些事、春招、自己的一些反思等等，所以想着就借这次机会开始慢慢的学习写写阶段性的总结</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2020/05/21/杂文/近期总结/#more" rel="contents">
+              <a class="btn" href="/2020/05/21/%E6%9D%82%E6%96%87/%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1105,36 +972,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/14/踩坑/nginx代理/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/14/%E8%B8%A9%E5%9D%91/nginx%E4%BB%A3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/05/14/踩坑/nginx代理/" class="post-title-link" itemprop="url">nginx代理</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/05/14/%E8%B8%A9%E5%9D%91/nginx%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">nginx代理</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1143,17 +1007,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2020-05-14 23:01:18 / 修改时间：23:18:41" itemprop="dateCreated datePublished" datetime="2020-05-14T23:01:18+08:00">2020-05-14</time>
+              <time title="创建时间：2020-05-14 23:01:18" itemprop="dateCreated datePublished" datetime="2020-05-14T23:01:18+08:00">2020-05-14</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
 
           
 
@@ -1168,13 +1030,11 @@
       
           <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>今天（2020-5-14）试着用nginx做了一下后端接口的代理，然后了解一下正反向代理，记录一下学习笔记</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2020/05/14/踩坑/nginx代理/#more" rel="contents">
+              <a class="btn" href="/2020/05/14/%E8%B8%A9%E5%9D%91/nginx%E4%BB%A3%E7%90%86/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1184,16 +1044,13 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-  </div>
 
   
   <nav class="pagination">
@@ -1204,6 +1061,28 @@
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -1239,122 +1118,63 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">23</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
-      </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
     <div class="links-of-blogroll-title">
       <i class="fa fa-fw fa-link"></i>
-      前辈们
+      前辈
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/yyx990803" title="https://github.com/yyx990803" rel="noopener" target="_blank">尤雨溪</a>
+          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://overreacted.io/" title="https://overreacted.io/" rel="noopener" target="_blank">DanAbramov</a>
+          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://ewind.us/" title="https://ewind.us/" rel="noopener" target="_blank">雪碧</a>
+          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://joyeecheung.github.io/blog/" title="https://joyeecheung.github.io/blog/" rel="noopener" target="_blank">张秋怡</a>
+          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/yujiangshui?tab=repositories" title="https://github.com/yujiangshui?tab=repositories" rel="noopener" target="_blank">于江水</a>
+          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
         </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://imnerd.org/" title="https://imnerd.org/" rel="noopener" target="_blank">公子</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -1368,51 +1188,25 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
         
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-[object Object]"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">刷新</span>
-
-  
 </div>
-
-
-
-
-
-  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" rel="noopener" target="_blank">陇ICP备62102102000142 </a>
-<a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">陇ICP备20001560 </a>
-
-
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
 
 
 
@@ -1421,51 +1215,43 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-    
-  
-  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
-
-  
-
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 

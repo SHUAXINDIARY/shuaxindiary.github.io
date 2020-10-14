@@ -1,88 +1,50 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-CN,en,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
 <meta property="og:type" content="website">
 <meta property="og:title" content="刷新">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:url" content="http://example.com/page/3/index.html">
 <meta property="og:site_name" content="刷新">
 <meta property="og:description" content="学习笔记&amp;&amp;踩坑记录">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="刷新">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="刷新">
-<meta name="twitter:description" content="学习笔记&amp;&amp;踩坑记录">
-  <link rel="canonical" href="http://yoursite.com/page/3/">
+
+<link rel="canonical" href="http://example.com/page/3/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
   <title>刷新</title>
   
-
-
 
 
 
@@ -101,7 +63,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -119,19 +80,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">刷新</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -139,72 +89,63 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">刷新</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
   <ul id="menu" class="menu">
-      
-      
-      
-        
         <li class="menu-item menu-item-home">
-      
-    
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
   </ul>
-
-    
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -215,34 +156,33 @@
   </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
-            
+          
 
-  <div class="posts-expand">
-        
+          <div class="content index posts-expand">
+            
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/10/vue/vuejs基础复习-5/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/10/vue/vuejs%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/02/10/vue/vuejs基础复习-5/" class="post-title-link" itemprop="url">vuejs基础复习-5</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/02/10/vue/vuejs%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0-5/" class="post-title-link" itemprop="url">vuejs基础复习-5</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -251,30 +191,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2020-02-10 14:12:58 / 修改时间：15:54:12" itemprop="dateCreated datePublished" datetime="2020-02-10T14:12:58+08:00">2020-02-10</time>
+              <time title="创建时间：2020-02-10 14:12:58" itemprop="dateCreated datePublished" datetime="2020-02-10T14:12:58+08:00">2020-02-10</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -299,16 +233,58 @@
 </blockquote>
 </li>
 </ul>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/02/10/vue/vuejs基础复习-5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><ul>
+<li>路由配置除外，使用到的只有2个标签<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 用于进行页面的跳转 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 用于显示，根据url决定显示的页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>进行切换页面跳转<blockquote>
+<p>在浏览器输入http:****/home就会显示home ，输入about就会显示about</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Home.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        home</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">&#x27;home&#x27;</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- About.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        about</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">&#x27;about&#x27;</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在router.js中配置需要显示的页面文件</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> routes=[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// url的路径</span></span><br><span class="line">        path:<span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">        <span class="comment">// home.vue文件的name</span></span><br><span class="line">        name:<span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">        <span class="comment">// 引入该文件</span></span><br><span class="line">        component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;Home.vue&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        path:<span class="string">&#x27;/about&#x27;</span>,</span><br><span class="line">        name:<span class="string">&#x27;about&#x27;</span>,</span><br><span class="line">        component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;About.vue&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>动态路由显示<blockquote>
+<p>例如一个有一个todo的列表，其中每一项内都有不同的数据，但是数据显示的样式什么都一样，我们可以用同一个组件来渲染，只需要在跳转时传递一个标识，来告诉组件加载所对应的数据就可以了</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在router.js中配置需要显示的页面文件</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> routes=[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// url的路径</span></span><br><span class="line">        path:<span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">        <span class="comment">// home.vue文件的name</span></span><br><span class="line">        name:<span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">        <span class="comment">// 引入该文件</span></span><br><span class="line">        component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;Home.vue&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        name:<span class="string">&#x27;list/:id,</span></span><br><span class="line"><span class="string">        component:&#x27;</span>list<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">        component:()=&gt;import(&#x27;</span>List.vue<span class="string">&#x27;)</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">]</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- home.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;(item,index) in info&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 切换url来进行页面跳转，类似a标签 --&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 跳转时携带点击项的id --&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 这里也可以使用query替代params --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;&#123;name:&#x27;list&#x27;,params:&#123;id:&#x27;item&#x27;&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">                    &#123;&#123;item.id&#125;&#125;</span><br><span class="line">                <span class="tag">&lt;<span class="name">router-link</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">&#x27;list&#x27;</span>,</span></span><br><span class="line">    data()&#123;</span><br><span class="line"><span class="javascript">        <span class="keyword">return</span>&#123;</span></span><br><span class="line">            info:[</span><br><span class="line">                &#123;</span><br><span class="line"><span class="javascript">                    id:<span class="string">&#x27;1&#x27;</span></span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line"><span class="javascript">                    id:<span class="string">&#x27;2&#x27;</span></span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- list.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> &gt;</span></span><br><span class="line">            &#123;&#123;id&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">&#x27;list&#x27;</span>,</span></span><br><span class="line">    data()&#123;</span><br><span class="line"><span class="javascript">        <span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="javascript">            info:<span class="string">&#x27;&#x27;</span></span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted()&#123;</span><br><span class="line"><span class="javascript">        <span class="comment">// 接受从home组件传递过来的id</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 如果跳转那里使用的query这里的params也需要换成query</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">this</span>.info=<span class="built_in">this</span>.$route.params.info;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>query和的区别：query使传递的值会显示在url中，params不会，所以这也导致了假如我们没有在list后面写id，那list页面刷新后，传递过来的数据就会丢失。<br>总结：使用query可以不在路由进行配置，params时要在路由进行动态参数配置</p>
+</blockquote>
+<h1 id="其他使用"><a href="#其他使用" class="headerlink" title="其他使用"></a>其他使用</h1><p>总结除过页面跳转意外，使用过的路由系统的功能。</p>
+<ul>
+<li><p>路由嵌套</p>
+<blockquote>
+<p>使用场景：当一个页面下的其他页面都有相同的部分，只有小部分需要根据不同的地址来显示不同的内容时，就可以使用，比如后台管理系统，所有页面左边都有整体的菜单</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// router.js配置</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> routes=[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// url的路径</span></span><br><span class="line">        path:<span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">        <span class="comment">// home.vue文件的name</span></span><br><span class="line">        name:<span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">        <span class="comment">// 引入该文件</span></span><br><span class="line">        component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;Home.vue&#x27;</span>),</span><br><span class="line">        <span class="comment">// 配置 子路由</span></span><br><span class="line">        children:[</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;/one&#x27;</span>,</span><br><span class="line">                name:<span class="string">&#x27;one&#x27;</span>,</span><br><span class="line">                component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;One.vue&#x27;</span>),</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;/two&#x27;</span>,</span><br><span class="line">                name:<span class="string">&#x27;two&#x27;</span>,</span><br><span class="line">                component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;Two.vue&#x27;</span>),</span><br><span class="line">            &#125;,</span><br><span class="line">            ...</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- home.vue使用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> &gt;</span></span><br><span class="line">            菜单</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 根据url的不同来显示one，two --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">&#x27;home&#x27;</span>,</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>路由导航守卫</p>
+</li>
+</ul>
+<blockquote>
+<p>作用</p>
+<ul>
+<li>在页面进入前后进行一些操作，比如重定向，数据操作等等</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>使用场景</p>
+<ul>
+<li>在页面进入前验证token是否过期、验证用户是否还有权限访问该页、根据需要不一样，重新导向用户的访问页面</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>分类:</p>
+<blockquote>
+<p>全局：作用在所有路由<br>路由独享：只作用在配置的路由<br>组件内：只作用在配置的组件</p>
+</blockquote>
+</blockquote>
+
       
     </div>
 
@@ -316,36 +292,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/08/踩坑/关于浏览器存储/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/12/08/%E8%B8%A9%E5%9D%91/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/12/08/踩坑/关于浏览器存储/" class="post-title-link" itemprop="url">关于浏览器存储</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/12/08/%E8%B8%A9%E5%9D%91/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/" class="post-title-link" itemprop="url">关于浏览器存储</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -354,30 +327,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2019-12-08 14:26:10 / 修改时间：18:25:08" itemprop="dateCreated datePublished" datetime="2019-12-08T14:26:10+08:00">2019-12-08</time>
+              <time title="创建时间：2019-12-08 14:26:10" itemprop="dateCreated datePublished" datetime="2019-12-08T14:26:10+08:00">2019-12-08</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -392,13 +359,11 @@
       
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前为了应付上课的作业，要做一个包含有留言板功能的官网。其实仅仅就HTML+CSS+JS做类似功能倒也不是很复杂，但是自己想着怎么可以做出线上那样，如果数据库存储留言的表有数据，当加载留言板页面时就会显示这些数据这样的效果。于是就想到了浏览器缓存，来模拟这个效果，所以顺带的去补了补浏览器存储相关的知识。来记录一下。</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/12/08/踩坑/关于浏览器存储/#more" rel="contents">
+              <a class="btn" href="/2019/12/08/%E8%B8%A9%E5%9D%91/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -408,36 +373,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/28/笔记/关于浏览器缓存/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/28/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/28/笔记/关于浏览器缓存/" class="post-title-link" itemprop="url">关于浏览器缓存</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/11/28/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">关于浏览器缓存</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -446,38 +408,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-11-28 13:15:54" itemprop="dateCreated datePublished" datetime="2019-11-28T13:15:54+08:00">2019-11-28</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-15 10:52:37" itemprop="dateModified" datetime="2020-03-15T10:52:37+08:00">2020-03-15</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -501,13 +449,11 @@
 </ul>
 <p>通过上面两张图可以明显看到，使用缓存后，加载时间从8ms变成了0，效果肉眼可见！</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/11/28/笔记/关于浏览器缓存/#more" rel="contents">
+              <a class="btn" href="/2019/11/28/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -517,36 +463,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/28/笔记/从输入url到页面展示发生了什么/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/28/%E7%AC%94%E8%AE%B0/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/28/笔记/从输入url到页面展示发生了什么/" class="post-title-link" itemprop="url">从输入url到页面展示发生了什么</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/11/28/%E7%AC%94%E8%AE%B0/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" class="post-title-link" itemprop="url">从输入url到页面展示发生了什么</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -555,38 +498,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-11-28 10:53:53" itemprop="dateCreated datePublished" datetime="2019-11-28T10:53:53+08:00">2019-11-28</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-15 10:52:27" itemprop="dateModified" datetime="2020-03-15T10:52:27+08:00">2020-03-15</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -604,13 +533,11 @@
 <p>解析输入的url中的域名<br>通过TCP三次握手建立TCP通道<br>客户端—服务端通过http协议进行数据交互<br>客户端(浏览器)接收到服务端发来的HTML然后开始进行页面渲染<br>请求结束，通过TCP四次挥手关闭TCP通道</p>
 </blockquote>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/11/28/笔记/从输入url到页面展示发生了什么/#more" rel="contents">
+              <a class="btn" href="/2019/11/28/%E7%AC%94%E8%AE%B0/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -620,36 +547,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/28/计算机基础/http协议学习笔记/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/http%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/28/计算机基础/http协议学习笔记/" class="post-title-link" itemprop="url">http协议学习笔记</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/http%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">http协议学习笔记</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -658,30 +582,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2019-11-28 10:53:09 / 修改时间：13:18:37" itemprop="dateCreated datePublished" datetime="2019-11-28T10:53:09+08:00">2019-11-28</time>
+              <time title="创建时间：2019-11-28 10:53:09" itemprop="dateCreated datePublished" datetime="2019-11-28T10:53:09+08:00">2019-11-28</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -694,21 +612,54 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="关于HTTP协议"><a href="#关于HTTP协议" class="headerlink" title="关于HTTP协议"></a>关于HTTP协议</h1><p>位于网络协议7层(如下图)中的应用层，主要用来进行客户端和服务按数据交互。<br><img src="/img/url4.jfif" alt="OSI七层模型"></p><h1 id="为什么用它呢"><a href="#为什么用它呢" class="headerlink" title="为什么用它呢"></a>为什么用它呢</h1><p>因为简单、灵活、无状态。</p><ul>
+          <h1 id="关于HTTP协议"><a href="#关于HTTP协议" class="headerlink" title="关于HTTP协议"></a>关于HTTP协议</h1><p>位于网络协议7层(如下图)中的应用层，主要用来进行客户端和服务按数据交互。<br><img src="/img/url4.jfif" alt="OSI七层模型"></p>
+<h1 id="为什么用它呢"><a href="#为什么用它呢" class="headerlink" title="为什么用它呢"></a>为什么用它呢</h1><p>因为简单、灵活、无状态。</p>
+<ul>
 <li>简单：只需要通过请求方法请求资源路径即可</li>
 <li>灵活：传输数据类型可以是任意类型</li>
 <li>无状态：链接只负责数据交互，不进行保存，所以彼此间不存在依赖，比较简单明了。当然是有好处，但是也导致了需要做一些请求验证时，就需要使用一些其他的手段，比如session、token。</li>
 </ul>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/11/28/计算机基础/http协议学习笔记/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h1 id="关于HTTP协议的版本的内容-就写了自己知道的-，毕竟东西太多了-我太菜了"><a href="#关于HTTP协议的版本的内容-就写了自己知道的-，毕竟东西太多了-我太菜了" class="headerlink" title="关于HTTP协议的版本的内容(就写了自己知道的=.=，毕竟东西太多了[我太菜了])"></a>关于HTTP协议的版本的内容(就写了自己知道的=.=，毕竟东西太多了[我太菜了])</h1><h3 id="0-9版本"><a href="#0-9版本" class="headerlink" title="0.9版本"></a>0.9版本</h3><ul>
+<li>只有GET一个请求方法</li>
+<li>没有header等描述数据的信息</li>
+<li>为短连接，当服务器发送完毕数据后，就关闭TCP通道。</li>
+</ul>
+<h3 id="1-0版本"><a href="#1-0版本" class="headerlink" title="1.0版本"></a>1.0版本</h3><ul>
+<li>增加了很多请求方法(POST等)</li>
+<li>怎么加了状态码和header等描述数据的信息</li>
+<li>有了If-Modified-Since,Expires处理缓存</li>
+</ul>
+<h3 id="1-1版本-现在使用"><a href="#1-1版本-现在使用" class="headerlink" title="1.1版本(现在使用)"></a>1.1版本(现在使用)</h3><ul>
+<li>增加了持续链接！重点！</li>
+<li>增加host域，可以在同一台服务器，跑多个web服务</li>
+<li>增加了更多的缓存处理策略，如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等</li>
+</ul>
+<h3 id="未来—2-0版本"><a href="#未来—2-0版本" class="headerlink" title="未来—2.0版本"></a>未来—2.0版本</h3><ul>
+<li>所有数据都以2进制传递</li>
+<li>支持同一通道的多有请求，同时发送，1.1中。可以开多个TCP通道，但每个通道上的请求，一次一个，需要按照顺序进行发送</li>
+<li>支持服务端向客户端推送消息等</li>
+</ul>
+<h1 id="HTTP协议的组成"><a href="#HTTP协议的组成" class="headerlink" title="HTTP协议的组成"></a>HTTP协议的组成</h1><p><img src="/img/url5.png" alt="OSI七层模型"><br>HTTP有请求和响应报文两种类型，但是组成部分如图所示，都是有三部分组成</p>
+<blockquote>
+<p>1.起始行，一般由一下三部分构成,空格隔开每一部分；通过换行和首部隔开。</p>
+</blockquote>
+<ul>
+<li>请求地址</li>
+<li>请求的方法(methods)，有GET/POST/DELETE/PUT/HEAD</li>
+<li>http协议版本号</li>
+<li>状态码<br><img src="/img/url6.png" alt="请求头"></li>
+</ul>
+<blockquote>
+<p>2.首部(Headers)</p>
+</blockquote>
+<ul>
+<li>由 <strong><em>关键字/值</em></strong> 组成，不同的关键字和值，有不同的作用；每一行一对；最后一个请求头后是一个空行来和主体隔开</li>
+<li>比较重要的 <strong><em><a target="_blank" rel="noopener" href="http://localhost:4000/2019/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E5%85%B3%E4%BA%8E%E8%B7%A8%E5%9F%9F/">跨域</a></em></strong>、*<strong><a target="_blank" rel="noopener" href="http://localhost:4000/2019/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">缓存</a>**<em>、</em></strong>CSP*** 都是在这里进行设置<br><img src="/img/header.png" alt="首部"></li>
+</ul>
+<blockquote>
+<p>3.主体(要发送的内容、接受到的内容)</p>
+</blockquote>
+
       
     </div>
 
@@ -716,36 +667,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/21/JS/关于防抖和节流/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/21/JS/关于防抖和节流/" class="post-title-link" itemprop="url">关于防抖和节流</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="post-title-link" itemprop="url">关于防抖和节流</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -754,30 +702,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2019-11-21 20:16:17 / 修改时间：21:06:05" itemprop="dateCreated datePublished" datetime="2019-11-21T20:16:17+08:00">2019-11-21</time>
+              <time title="创建时间：2019-11-21 20:16:17" itemprop="dateCreated datePublished" datetime="2019-11-21T20:16:17+08:00">2019-11-21</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -792,25 +734,22 @@
       
           <h1 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h1><blockquote>
 <p><strong>作用</strong></p>
+</blockquote>
 <ul>
 <li>这两个名词是两种解决方案的称呼，为了解决频繁触发某一个函数时，限制它的调用次数，让它不要那么频繁的被调用。</li>
 </ul>
-</blockquote>
 <blockquote>
 <p><strong>为啥要这么做</strong></p>
-<ul>
-<li>首先呢，在浏览器中，有2个概念，一个叫<strong>重绘</strong>，一个叫<strong><em>回流</em></strong>。这两个现象，是在浏览器渲染页面的时候会发生的，当页面的布局不改变，仅仅是字体大小颜色等改变时就会发生重绘；当页面布局发生改变(比如width、height、margin、padding等)，会发生回流。</li>
-<li>上述的这两个现象挺影响性能的，所以当我们的操作会导致发生这两个现象时，一般就可以使用防抖和节流来，尽可能的减少这样的操作，不至于让我们的程序挂掉。当然不止这样情况下才能用哈，比如触发ajax请求的时候其实也可以用，根据需要来判断。</li>
-</ul>
 </blockquote>
+<ul>
+<li>首先呢，在浏览器中，有2个概念，一个叫<strong>重绘</strong>，一个叫**<em>回流**</em>。这两个现象，是在浏览器渲染页面的时候会发生的，当页面的布局不改变，仅仅是字体大小颜色等改变时就会发生重绘；当页面布局发生改变(比如width、height、margin、padding等)，会发生回流。</li>
+<li>上述的这两个现象挺影响性能的，所以当我们的操作会导致发生这两个现象时，一般就可以使用防抖和节流来，尽可能的减少这样的操作，不至于让我们的程序挂掉。当然不止这样情况下才能用哈，比如触发ajax请求的时候其实也可以用，根据需要来判断。
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/11/21/JS/关于防抖和节流/#more" rel="contents">
+              <a class="btn" href="/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -820,36 +759,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/JS/关于call-bind-apply/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/20/JS/关于call-bind-apply/" class="post-title-link" itemprop="url">关于call,bind,apply</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/" class="post-title-link" itemprop="url">关于call,bind,apply</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -858,30 +794,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2019-11-20 19:23:11 / 修改时间：20:43:54" itemprop="dateCreated datePublished" datetime="2019-11-20T19:23:11+08:00">2019-11-20</time>
+              <time title="创建时间：2019-11-20 19:23:11" itemprop="dateCreated datePublished" datetime="2019-11-20T19:23:11+08:00">2019-11-20</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -896,13 +826,11 @@
       
           <h1 id="关于call-bind-apply的作用"><a href="#关于call-bind-apply的作用" class="headerlink" title="关于call,bind,apply的作用"></a>关于call,bind,apply的作用</h1><p>这三个方法都是只有函数才可以调用，作用就是改变函数执行时this的指向。</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/11/20/JS/关于call-bind-apply/#more" rel="contents">
+              <a class="btn" href="/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -912,36 +840,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/css/网页浏览进度/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/19/css/网页浏览进度/" class="post-title-link" itemprop="url">网页浏览进度条</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/" class="post-title-link" itemprop="url">网页浏览进度条</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -950,25 +875,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-11-19 20:48:17" itemprop="dateCreated datePublished" datetime="2019-11-19T20:48:17+08:00">2019-11-19</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-20 16:28:57" itemprop="dateModified" datetime="2019-11-20T16:28:57+08:00">2019-11-20</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
 
           
 
@@ -983,13 +898,11 @@
       
           <h1 id="网页浏览进度条"><a href="#网页浏览进度条" class="headerlink" title="网页浏览进度条"></a>网页浏览进度条</h1><p>在很多网站都能看到网站的顶部，有一条会随着页面滚动条的滑动，边长变短的一栏区域，这个可以有效的让用户看到，自己已经浏览了这个文章内容的多少。虽然网站右边都有一个滚动条了，干嘛还要这个东西呢，大概就是为了好看吧！今天来实现这个小demo！</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/11/19/css/网页浏览进度/#more" rel="contents">
+              <a class="btn" href="/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -999,36 +912,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/css/浮动功能栏/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/18/css/%E6%B5%AE%E5%8A%A8%E5%8A%9F%E8%83%BD%E6%A0%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/18/css/浮动功能栏/" class="post-title-link" itemprop="url">浮动功能栏</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/11/18/css/%E6%B5%AE%E5%8A%A8%E5%8A%9F%E8%83%BD%E6%A0%8F/" class="post-title-link" itemprop="url">浮动功能栏</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1037,25 +947,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-11-18 22:05:33" itemprop="dateCreated datePublished" datetime="2019-11-18T22:05:33+08:00">2019-11-18</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-20 16:28:57" itemprop="dateModified" datetime="2019-11-20T16:28:57+08:00">2019-11-20</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
 
           
 
@@ -1069,16 +969,54 @@
 
       
           <h1 id="关于命名"><a href="#关于命名" class="headerlink" title="关于命名"></a>关于命名</h1><p>我也不知道这个具体的名字叫什么，就按照它的功能起了这么个简单的名字，防止说不清楚，大概解释一下是什么东西。就是在很多网页，我们往下滑时，会在页面的固定位置出现一个(一栏、一片等！)按钮，里面有帮助回到网页顶部的，还有联系网站客服等等的操作。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/11/18/css/浮动功能栏/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>像这样<br><img src="/img/juejin.png" alt="掘金"></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><blockquote>
+<p><strong>问题</strong></p>
+</blockquote>
+<ul>
+<li>首先就是根据喜好做一排这样的区域(自行发挥)</li>
+<li>其次就是确定它要出现的位置(<font color='red'> <em>重点</em></font> )即可。</li>
+<li>还有几个小细节，就是当回到页面顶部时，这一部分区域会隐藏，当再次滑动到页面非顶部的位置是，又会再一次出现。</li>
+</ul>
+<blockquote>
+<p><strong>解决</strong></p>
+</blockquote>
+<ul>
+<li>固定位置：通过position的fixed固定</li>
+<li>通过opacity控制显示显示/隐藏</li>
+<li>判断何时显示/隐藏:通过获取滚动条滚动的height判断</li>
+</ul>
+<h2 id="用到的知识"><a href="#用到的知识" class="headerlink" title="用到的知识"></a>用到的知识</h2><p>css</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/pr-class-position.html">position</a></p>
+</blockquote>
+<p>js</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop">scrollTop</a></p>
+</blockquote>
+<ul>
+<li>获取滚动条滚动过的height</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/met-win-scrollto.html">scrollTo</a></p>
+</blockquote>
+<ul>
+<li>scrollTo() 方法可把内容滚动到指定的坐标。</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/event-onwheel.html">onwheel</a></p>
+</blockquote>
+<ul>
+<li>鼠标滑轮滚动事件</li>
+<li>onmousewheel注意，有些文章是写的这个事件，该事件已经废弃(但是有的环境还是可以用)，换成了onwheel</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>CSS</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">/* 页面主要内容 */</span></span><br><span class="line"><span class="selector-class">.con</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">    <span class="comment">/* 让页面出现滚动条 */</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1100vh</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: lightcoral;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 浮动功能栏样式  */</span></span><br><span class="line"><span class="selector-class">.float</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">70vh</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">5vw</span>;</span><br><span class="line">    <span class="comment">/* 默认不显示 */</span></span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.5s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 其他样式 */</span></span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>HTML</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;con&quot;</span> <span class="attr">id</span>=<span class="string">&quot;con&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;float&quot;</span> <span class="attr">id</span>=<span class="string">&quot;float&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;backtop&quot;</span>&gt;</span>BACK<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>JS</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> con = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#con&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> float = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#float&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> backtop = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#backtop&#x27;</span>);</span><br><span class="line"><span class="comment">// des:设置浮动功能栏的显示/隐藏</span></span><br><span class="line"><span class="keyword">let</span> set = <span class="function"><span class="keyword">function</span> (<span class="params">op, zi</span>) </span>&#123;</span><br><span class="line">    float.style.opacity = op;</span><br><span class="line">    float.style.zIndex = zi;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 点击back返回顶部</span></span><br><span class="line">backtop.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.document.documentElement.scrollTop = 0;</span></span><br><span class="line">    <span class="comment">// 2.scrollTo返回</span></span><br><span class="line">    scrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 返回后隐藏</span></span><br><span class="line">    set(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 这里更好的效果是换成window的滚动条事件,这样无论是鼠标滑轮还是，键盘翻页键，还是点击滚动条都可以触发</span></span><br><span class="line"><span class="comment">// window.addEventListener(&quot;scroll&quot;,***)</span></span><br><span class="line">con.addEventListener(<span class="string">&#x27;wheel&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 获取可视区域宽高</span></span><br><span class="line">    <span class="keyword">let</span> viewHeight = <span class="built_in">document</span>.documentElement.clientHeight;</span><br><span class="line">    <span class="comment">// 获取已经滚动条滚动了的高度</span></span><br><span class="line">    <span class="keyword">let</span> scrowHeight = <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">    <span class="comment">// 获取文档高</span></span><br><span class="line">    <span class="keyword">let</span> documentHeight = <span class="built_in">document</span>.body.clientHeight;</span><br><span class="line">    <span class="keyword">if</span> (scrowHeight === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 隐藏按钮</span></span><br><span class="line">        set(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 显示按钮</span></span><br><span class="line">        set(<span class="number">10</span>, <span class="number">99</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -1086,36 +1024,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/css/动态设置背景图容器大小/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/18/css/%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/18/css/动态设置背景图容器大小/" class="post-title-link" itemprop="url">动态设置背景图容器大小</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/11/18/css/%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F/" class="post-title-link" itemprop="url">动态设置背景图容器大小</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1124,25 +1059,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-11-18 21:11:49" itemprop="dateCreated datePublished" datetime="2019-11-18T21:11:49+08:00">2019-11-18</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-20 16:28:57" itemprop="dateModified" datetime="2019-11-20T16:28:57+08:00">2019-11-20</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
 
           
 
@@ -1157,13 +1082,11 @@
       
           <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>最近在做一个官网的效果的时候，出现了背景图过大，导致不同显示器显示的图片大小不一样，和影响下面内容的布局问题。所以记录一下这个坑。</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/11/18/css/动态设置背景图容器大小/#more" rel="contents">
+              <a class="btn" href="/2019/11/18/css/%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1173,16 +1096,13 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-  </div>
 
   
   <nav class="pagination">
@@ -1193,6 +1113,28 @@
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -1228,122 +1170,63 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">23</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
-      </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
     <div class="links-of-blogroll-title">
       <i class="fa fa-fw fa-link"></i>
-      前辈们
+      前辈
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/yyx990803" title="https://github.com/yyx990803" rel="noopener" target="_blank">尤雨溪</a>
+          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://overreacted.io/" title="https://overreacted.io/" rel="noopener" target="_blank">DanAbramov</a>
+          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://ewind.us/" title="https://ewind.us/" rel="noopener" target="_blank">雪碧</a>
+          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://joyeecheung.github.io/blog/" title="https://joyeecheung.github.io/blog/" rel="noopener" target="_blank">张秋怡</a>
+          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/yujiangshui?tab=repositories" title="https://github.com/yujiangshui?tab=repositories" rel="noopener" target="_blank">于江水</a>
+          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
         </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://imnerd.org/" title="https://imnerd.org/" rel="noopener" target="_blank">公子</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -1357,51 +1240,25 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
         
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-[object Object]"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">刷新</span>
-
-  
 </div>
-
-
-
-
-
-  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" rel="noopener" target="_blank">陇ICP备62102102000142 </a>
-<a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">陇ICP备20001560 </a>
-
-
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
 
 
 
@@ -1410,51 +1267,43 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-    
-  
-  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
-
-  
-
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 

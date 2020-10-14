@@ -1,88 +1,50 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-CN,en,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/eclipse.ico?v=7.4.1">
-  <link rel="mask-icon" href="/images/eclipse.ico?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
 <meta property="og:type" content="website">
 <meta property="og:title" content="刷新">
-<meta property="og:url" content="http://yoursite.com/page/6/index.html">
+<meta property="og:url" content="http://example.com/page/6/index.html">
 <meta property="og:site_name" content="刷新">
 <meta property="og:description" content="学习笔记&amp;&amp;踩坑记录">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="刷新">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="刷新">
-<meta name="twitter:description" content="学习笔记&amp;&amp;踩坑记录">
-  <link rel="canonical" href="http://yoursite.com/page/6/">
+
+<link rel="canonical" href="http://example.com/page/6/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
   <title>刷新</title>
   
-
-
 
 
 
@@ -101,7 +63,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -119,19 +80,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">刷新</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -139,72 +89,63 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">刷新</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
   <ul id="menu" class="menu">
-      
-      
-      
-        
         <li class="menu-item menu-item-home">
-      
-    
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
   </ul>
-
-    
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -215,34 +156,33 @@
   </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
-            
+          
 
-  <div class="posts-expand">
-        
+          <div class="content index posts-expand">
+            
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/计算机基础/js数据结构笔记4/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/03/计算机基础/js数据结构笔记4/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---(单向)链表</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B04/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---(单向)链表</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -250,39 +190,25 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
 
               <time title="创建时间：2019-09-03 19:04:43" itemprop="dateCreated datePublished" datetime="2019-09-03T19:04:43+08:00">2019-09-03</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-12 20:03:46" itemprop="dateModified" datetime="2019-10-12T20:03:46+08:00">2019-10-12</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -295,15 +221,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%93%BE%E8%A1%A8.html" target="_blank" rel="noopener">这里</a></h1><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>1.类似于数组一样存储多个数据的数据结构<br>2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针<br><img src="/img/linked.jpg" alt="示例图"></p>
+          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%93%BE%E8%A1%A8.html">这里</a></h1><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>1.类似于数组一样存储多个数据的数据结构<br>2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针<br><img src="/img/linked.jpg" alt="示例图"></p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/09/03/计算机基础/js数据结构笔记4/#more" rel="contents">
+              <a class="btn" href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B04/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -313,36 +237,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/02/计算机基础/js数据结构笔记3/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/09/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/02/计算机基础/js数据结构笔记3/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---队列之优先队列</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/09/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B03/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---队列之优先队列</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -350,39 +271,25 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
 
               <time title="创建时间：2019-09-02 14:51:44" itemprop="dateCreated datePublished" datetime="2019-09-02T14:51:44+08:00">2019-09-02</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-12 20:03:46" itemprop="dateModified" datetime="2019-10-12T20:03:46+08:00">2019-10-12</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -395,17 +302,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97.html" target="_blank" rel="noopener">这里</a></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97.html">这里</a></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
 <p>1.优先队列和队列的主要区别就是，队列中每个元素不仅含有自身的元素，还有一个代表该元素优先级的标识。<br>2.在插入新的元素到队列时，根据该元素的优先级来决定它插入的正确位置。<br>3.优先队列具有最高级先出队列的行为特征</p>
 </blockquote>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/09/02/计算机基础/js数据结构笔记3/#more" rel="contents">
+              <a class="btn" href="/2019/09/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B03/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -415,36 +320,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/踩坑/mongoose使用/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/08/14/%E8%B8%A9%E5%9D%91/mongoose%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/14/踩坑/mongoose使用/" class="post-title-link" itemprop="url">mongoose简单入门</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/08/14/%E8%B8%A9%E5%9D%91/mongoose%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">mongoose简单入门</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -453,38 +355,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-08-14 09:51:57" itemprop="dateCreated datePublished" datetime="2019-08-14T09:51:57+08:00">2019-08-14</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-12 18:51:46" itemprop="dateModified" datetime="2019-11-12T18:51:46+08:00">2019-11-12</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -499,13 +387,11 @@
       
           <h1 id="mongoose是什么？"><a href="#mongoose是什么？" class="headerlink" title="mongoose是什么？"></a>mongoose是什么？</h1><p>Mongoose是MongoDB的一个对象模型工具，是基于node-mongodb-native开发的MongoDB nodejs驱动，可以在异步的环境下执行。同时它也是针对MongoDB操作的一个对象模型库，封装了MongoDB对文档的的一些增删改查等常用方法，让NodeJS操作Mongodb数据库变得更加灵活简单。</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/08/14/踩坑/mongoose使用/#more" rel="contents">
+              <a class="btn" href="/2019/08/14/%E8%B8%A9%E5%9D%91/mongoose%E4%BD%BF%E7%94%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -515,36 +401,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/JS/js模拟重载/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/23/JS/js%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/07/23/JS/js模拟重载/" class="post-title-link" itemprop="url">关于js实现重载</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/07/23/JS/js%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD/" class="post-title-link" itemprop="url">关于js实现重载</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -553,38 +436,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-07-23 10:05:48" itemprop="dateCreated datePublished" datetime="2019-07-23T10:05:48+08:00">2019-07-23</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-20 19:27:18" itemprop="dateModified" datetime="2019-11-20T19:27:18+08:00">2019-11-20</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -597,15 +466,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD.html" target="_blank" rel="noopener">这里</a></h1><h1 id="重载是什么"><a href="#重载是什么" class="headerlink" title="重载是什么"></a>重载是什么</h1><pre><code>定义：函数名相同,函数的参数列表不同(包括参数个数和参数类型)，至于返回类型可同可不同</code></pre>
+          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD.html">这里</a></h1><h1 id="重载是什么"><a href="#重载是什么" class="headerlink" title="重载是什么"></a>重载是什么</h1><pre><code>定义：函数名相同,函数的参数列表不同(包括参数个数和参数类型)，至于返回类型可同可不同</code></pre>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/07/23/JS/js模拟重载/#more" rel="contents">
+              <a class="btn" href="/2019/07/23/JS/js%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -615,36 +482,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/21/JS/js模块化/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/21/JS/js%E6%A8%A1%E5%9D%97%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/07/21/JS/js模块化/" class="post-title-link" itemprop="url">关于js模块化</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/07/21/JS/js%E6%A8%A1%E5%9D%97%E5%8C%96/" class="post-title-link" itemprop="url">关于js模块化</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -653,38 +517,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-07-21 10:43:20" itemprop="dateCreated datePublished" datetime="2019-07-21T10:43:20+08:00">2019-07-21</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-20 19:27:08" itemprop="dateModified" datetime="2019-11-20T19:27:08+08:00">2019-11-20</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -699,13 +549,11 @@
       
           <h1 id="前端js模块化规范"><a href="#前端js模块化规范" class="headerlink" title="前端js模块化规范"></a>前端js模块化规范</h1><p>1.CommonJS<br>2.ES6<br>3.AMD的RequireJS<br>4.还有其他的，比如CMD的seajs等</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/07/21/JS/js模块化/#more" rel="contents">
+              <a class="btn" href="/2019/07/21/JS/js%E6%A8%A1%E5%9D%97%E5%8C%96/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -715,36 +563,33 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/19/踩坑/熟悉小程序开发目录/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/19/%E8%B8%A9%E5%9D%91/%E7%86%9F%E6%82%89%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%AE%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/07/19/踩坑/熟悉小程序开发目录/" class="post-title-link" itemprop="url">熟悉小程序开发目录</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/07/19/%E8%B8%A9%E5%9D%91/%E7%86%9F%E6%82%89%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">熟悉小程序开发目录</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -753,38 +598,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-07-19 22:25:10" itemprop="dateCreated datePublished" datetime="2019-07-19T22:25:10+08:00">2019-07-19</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-12 20:04:45" itemprop="dateModified" datetime="2019-10-12T20:04:45+08:00">2019-10-12</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -797,7 +628,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" href="/css/prism.css">>
+          <link rel="stylesheet" href="/css/prism.css"/>>
 <script src="../source/js/prism.js"></script>
 
 <h1 id="新项目默认目录"><a href="#新项目默认目录" class="headerlink" title="新项目默认目录"></a>新项目默认目录</h1><pre><code>/pages--------存放小程序所有界面
@@ -819,13 +650,11 @@ app.wxss---------小程序全局css文件
 project.config.json--项目相关信息文件
 sitemap.json-----小程序内搜索配置相关文件</code></pre>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/07/19/踩坑/熟悉小程序开发目录/#more" rel="contents">
+              <a class="btn" href="/2019/07/19/%E8%B8%A9%E5%9D%91/%E7%86%9F%E6%82%89%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%AE%E5%BD%95/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -835,36 +664,33 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/JS/js基础之深拷贝/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/07/JS/js%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/07/07/JS/js基础之深拷贝/" class="post-title-link" itemprop="url">关于js深拷贝</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/07/07/JS/js%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">关于js深拷贝</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -872,39 +698,25 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
 
               <time title="创建时间：2019-07-07 12:11:14" itemprop="dateCreated datePublished" datetime="2019-07-07T12:11:14+08:00">2019-07-07</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-01 19:30:55" itemprop="dateModified" datetime="2020-04-01T19:30:55+08:00">2020-04-01</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -917,27 +729,30 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>面试复习，复习到了深拷贝，记录一下</p><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="基本数据类型-amp-复杂数据类型-引用数据类型"><a href="#基本数据类型-amp-复杂数据类型-引用数据类型" class="headerlink" title="基本数据类型&amp;复杂数据类型(引用数据类型)"></a>基本数据类型&amp;复杂数据类型(引用数据类型)</h2><blockquote>
+          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>面试复习，复习到了深拷贝，记录一下</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="基本数据类型-amp-复杂数据类型-引用数据类型"><a href="#基本数据类型-amp-复杂数据类型-引用数据类型" class="headerlink" title="基本数据类型&amp;复杂数据类型(引用数据类型)"></a>基本数据类型&amp;复杂数据类型(引用数据类型)</h2><blockquote>
 <p>概念</p>
+</blockquote>
 <ul>
 <li>在js种，有2中数据类型：一类是基本数据类型，一类是复杂数据类型；</li>
 <li>基本数据类型有:null,undefined,number,string,boolean,symbol(ES6)</li>
-<li>复杂数据类型:Object/arrary等<br>区别</li>
+<li>复杂数据类型:Object/arrary等<blockquote>
+<p>区别</p>
+</blockquote>
+</li>
 <li>两者的区别就是在内存中的存储位置不同</li>
 <li>前者在栈中存储数据</li>
-<li>后者在堆中存储数据，而栈中存储的是数据在堆中存储的位置(引用)</li>
-</ul>
+<li>后者在堆中存储数据，而栈中存储的是数据在堆中存储的位置(引用)<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2>作用与复制复杂数据类型时，因为栈中只保存了数据的地址，所以如果只是简单赋值一样的复制，就会出现如下情况(浅拷贝)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one=&#123;</span><br><span class="line">    one:<span class="string">&quot;this is one&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> two=one</span><br><span class="line"><span class="built_in">console</span>.log(two)  <span class="comment">// &#123;one:&quot;this is one&quot;&#125;</span></span><br><span class="line">one.one=<span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(two)  <span class="comment">// &#123;one:1&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="深拷贝实现"><a href="#深拷贝实现" class="headerlink" title="深拷贝实现"></a>深拷贝实现</h2><blockquote>
+<p>思路</p>
 </blockquote>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/07/07/JS/js基础之深拷贝/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+</li>
+<li>判断要复制的目标的数据类型</li>
+<li>1.简单数据类型，直接复制</li>
+<li>2.复杂数据类型(对象/数组)，遍历内部每一项</li>
+<li>3.在遍历复杂数据类型内部属性时，会出现情况上面2中情况，再次调用该函数就好(递归)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepCopy = <span class="function">(<span class="params">copyTarget</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="literal">null</span></span><br><span class="line">    <span class="comment">// 返回和复制对象一致的类型</span></span><br><span class="line">    <span class="keyword">if</span> (copyTarget <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">        res = []</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> copyTarget) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> copyTarget[key] === <span class="string">&#x27;object&#x27;</span> &amp;&amp; copyTarget[key] !== <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 1.复杂数据类型</span></span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&#x27;复杂数据类型&#x27;</span>)</span><br><span class="line">            res[key] = deepCopy(copyTarget[key])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&#x27;基本数据类型&#x27;</span>);</span><br><span class="line">            <span class="comment">// 2.基本数据类型/和函数</span></span><br><span class="line">            res[key] = copyTarget[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
     </div>
 
@@ -945,36 +760,33 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/计算机基础/js数据结构笔记2/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/07/02/计算机基础/js数据结构笔记2/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---队列</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B02/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---队列</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -983,38 +795,24 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-07-02 23:04:43" itemprop="dateCreated datePublished" datetime="2019-07-02T23:04:43+08:00">2019-07-02</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-12 20:03:46" itemprop="dateModified" datetime="2019-10-12T20:03:46+08:00">2019-10-12</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -1027,20 +825,18 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%98%9F%E5%88%97.html" target="_blank" rel="noopener">这里</a></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><font size="5">
+          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%98%9F%E5%88%97.html">这里</a></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><font size=5>
 队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。
 用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。  
 </font>  
 
 <p><img src="/img/queue.png" alt="示例图"></p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/07/02/计算机基础/js数据结构笔记2/#more" rel="contents">
+              <a class="btn" href="/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B02/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1050,36 +846,33 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/计算机基础/js数据结构笔记/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/07/02/计算机基础/js数据结构笔记/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---栈</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---栈</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1088,38 +881,24 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-07-02 11:38:10" itemprop="dateCreated datePublished" datetime="2019-07-02T11:38:10+08:00">2019-07-02</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-12 20:03:46" itemprop="dateModified" datetime="2019-10-12T20:03:46+08:00">2019-10-12</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -1132,7 +911,7 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E6%A0%88.html" target="_blank" rel="noopener">这里</a></h1><h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><font size="5"> 
+          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E6%A0%88.html">这里</a></h1><h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><font size=5> 
 栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在
 js中基本数据类就是存储在栈中。
 数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。
@@ -1141,13 +920,11 @@ js中基本数据类就是存储在栈中。
 
 <p><img src="/img/stack.png" alt="示例图"></p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/07/02/计算机基础/js数据结构笔记/#more" rel="contents">
+              <a class="btn" href="/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1157,36 +934,33 @@ js中基本数据类就是存储在栈中。
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/踩坑/hexo常用配置和命令/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/01/%E8%B8%A9%E5%9D%91/hexo%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%92%8C%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="刷新">
       <meta itemprop="description" content="学习笔记&&踩坑记录">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="刷新">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/07/01/踩坑/hexo常用配置和命令/" class="post-title-link" itemprop="url">hexo常用配置和命令</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/07/01/%E8%B8%A9%E5%9D%91/hexo%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%92%8C%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">hexo常用配置和命令</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1195,38 +969,24 @@ js中基本数据类就是存储在栈中。
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-07-01 12:21:54" itemprop="dateCreated datePublished" datetime="2019-07-01T12:21:54+08:00">2019-07-01</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-12 20:04:45" itemprop="dateModified" datetime="2019-10-12T20:04:45+08:00">2019-10-12</time>
+                <time title="修改时间：2020-10-14 10:19:25" itemprop="dateModified" datetime="2020-10-14T10:19:25+08:00">2020-10-14</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/踩坑/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+                </span>
             </span>
-          
 
           
 
@@ -1239,15 +999,13 @@ js中基本数据类就是存储在栈中。
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>内容转载自(<a href="https://chars.tech/blog/build-blog-by-hexo/" target="_blank" rel="noopener">https://chars.tech/blog/build-blog-by-hexo/</a>)</p>
+          <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>内容转载自(<a target="_blank" rel="noopener" href="https://chars.tech/blog/build-blog-by-hexo/">https://chars.tech/blog/build-blog-by-hexo/</a>)</p>
           <!--noindex-->
-          
             <div class="post-button">
-              <a class="btn" href="/2019/07/01/踩坑/hexo常用配置和命令/#more" rel="contents">
+              <a class="btn" href="/2019/07/01/%E8%B8%A9%E5%9D%91/hexo%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%92%8C%E5%91%BD%E4%BB%A4/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1257,16 +1015,13 @@ js中基本数据类就是存储在栈中。
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-  </div>
 
   
   <nav class="pagination">
@@ -1277,6 +1032,28 @@ js中基本数据类就是存储在栈中。
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -1312,122 +1089,63 @@ js中基本数据类就是存储在栈中。
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">23</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/SHUAXINDIARY" title="GitHub &rarr; https://github.com/SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.douban.com/people/91950904/" title="豆瓣 &rarr; https://www.douban.com/people/91950904/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
-      </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
     <div class="links-of-blogroll-title">
       <i class="fa fa-fw fa-link"></i>
-      前辈们
+      前辈
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/yyx990803" title="https://github.com/yyx990803" rel="noopener" target="_blank">尤雨溪</a>
+          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://soulteary.com/" title="https://soulteary.com/" rel="noopener" target="_blank">soulteary</a>
+          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://overreacted.io/" title="https://overreacted.io/" rel="noopener" target="_blank">DanAbramov</a>
+          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://ewind.us/" title="https://ewind.us/" rel="noopener" target="_blank">雪碧</a>
+          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://joyeecheung.github.io/blog/" title="https://joyeecheung.github.io/blog/" rel="noopener" target="_blank">张秋怡</a>
+          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/yujiangshui?tab=repositories" title="https://github.com/yujiangshui?tab=repositories" rel="noopener" target="_blank">于江水</a>
+          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://tonghuashuo.github.io" title="https://tonghuashuo.github.io" rel="noopener" target="_blank">童话</a>
+          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/mqyqingfeng" title="https://github.com/mqyqingfeng" rel="noopener" target="_blank">冴羽</a>
+          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
         </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://imnerd.org/" title="https://imnerd.org/" rel="noopener" target="_blank">公子</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/ljianshu" title="https://github.com/ljianshu" rel="noopener" target="_blank">浪里行舟</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -1441,51 +1159,25 @@ js中基本数据类就是存储在栈中。
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
         
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-[object Object]"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">刷新</span>
-
-  
 </div>
-
-
-
-
-
-  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" rel="noopener" target="_blank">陇ICP备62102102000142 </a>
-<a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">陇ICP备20001560 </a>
-
-
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
 
 
 
@@ -1494,51 +1186,43 @@ js中基本数据类就是存储在栈中。
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-    
-  
-  <script color='158, 155, 155' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
-
-  
-
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
