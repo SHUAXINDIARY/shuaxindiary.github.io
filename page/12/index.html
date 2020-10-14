@@ -198,7 +198,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 22:17:05" itemprop="dateModified" datetime="2020-10-14T22:17:05+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -299,7 +299,7 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 22:17:05" itemprop="dateModified" datetime="2020-10-14T22:17:05+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -323,29 +323,14 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
 
       
           <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>面试复习，复习到了深拷贝，记录一下</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="基本数据类型-amp-复杂数据类型-引用数据类型"><a href="#基本数据类型-amp-复杂数据类型-引用数据类型" class="headerlink" title="基本数据类型&amp;复杂数据类型(引用数据类型)"></a>基本数据类型&amp;复杂数据类型(引用数据类型)</h2><blockquote>
-<p>概念</p>
-</blockquote>
-<ul>
-<li>在js种，有2中数据类型：一类是基本数据类型，一类是复杂数据类型；</li>
-<li>基本数据类型有:null,undefined,number,string,boolean,symbol(ES6)</li>
-<li>复杂数据类型:Object/arrary等<blockquote>
-<p>区别</p>
-</blockquote>
-</li>
-<li>两者的区别就是在内存中的存储位置不同</li>
-<li>前者在栈中存储数据</li>
-<li>后者在堆中存储数据，而栈中存储的是数据在堆中存储的位置(引用)<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2>作用与复制复杂数据类型时，因为栈中只保存了数据的地址，所以如果只是简单赋值一样的复制，就会出现如下情况(浅拷贝)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one=&#123;</span><br><span class="line">    one:<span class="string">&quot;this is one&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> two=one</span><br><span class="line"><span class="built_in">console</span>.log(two)  <span class="comment">// &#123;one:&quot;this is one&quot;&#125;</span></span><br><span class="line">one.one=<span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(two)  <span class="comment">// &#123;one:1&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="深拷贝实现"><a href="#深拷贝实现" class="headerlink" title="深拷贝实现"></a>深拷贝实现</h2><blockquote>
-<p>思路</p>
-</blockquote>
-</li>
-<li>判断要复制的目标的数据类型</li>
-<li>1.简单数据类型，直接复制</li>
-<li>2.复杂数据类型(对象/数组)，遍历内部每一项</li>
-<li>3.在遍历复杂数据类型内部属性时，会出现情况上面2中情况，再次调用该函数就好(递归)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepCopy = <span class="function">(<span class="params">copyTarget</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="literal">null</span></span><br><span class="line">    <span class="comment">// 返回和复制对象一致的类型</span></span><br><span class="line">    <span class="keyword">if</span> (copyTarget <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">        res = []</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> copyTarget) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> copyTarget[key] === <span class="string">&#x27;object&#x27;</span> &amp;&amp; copyTarget[key] !== <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 1.复杂数据类型</span></span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&#x27;复杂数据类型&#x27;</span>)</span><br><span class="line">            res[key] = deepCopy(copyTarget[key])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&#x27;基本数据类型&#x27;</span>);</span><br><span class="line">            <span class="comment">// 2.基本数据类型/和函数</span></span><br><span class="line">            res[key] = copyTarget[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/07/07/JS/js%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B7%B1%E6%8B%B7%E8%B4%9D/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -395,7 +380,7 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 22:17:05" itemprop="dateModified" datetime="2020-10-14T22:17:05+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -481,7 +466,7 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 22:17:05" itemprop="dateModified" datetime="2020-10-14T22:17:05+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -569,7 +554,7 @@ js中基本数据类就是存储在栈中。
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 22:17:05" itemprop="dateModified" datetime="2020-10-14T22:17:05+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
