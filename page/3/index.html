@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/10/vue/vuejs%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0-5/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/13/%E6%9D%82%E6%96%87/%E5%A1%9E%E5%B0%94%E8%BE%BE%E9%80%9A%E5%85%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -181,7 +181,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/10/vue/vuejs%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0-5/" class="post-title-link" itemprop="url">vuejs基础复习-5</a>
+            <a href="/2020/05/13/%E6%9D%82%E6%96%87/%E5%A1%9E%E5%B0%94%E8%BE%BE%E9%80%9A%E5%85%B3/" class="post-title-link" itemprop="url">塞尔达通关</a>
         </h2>
 
         <div class="post-meta">
@@ -191,14 +191,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-10 14:12:58" itemprop="dateCreated datePublished" datetime="2020-02-10T14:12:58+08:00">2020-02-10</time>
+              <time title="创建时间：2020-05-13 17:39:40" itemprop="dateCreated datePublished" datetime="2020-05-13T17:39:40+08:00">2020-05-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -206,7 +206,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
                 </span>
             </span>
 
@@ -221,69 +221,372 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h1><ul>
-<li><p>概念：</p>
-<blockquote>
-<p>根据URL决定显示什么内容，这个系统就是路由系统。</p>
-</blockquote>
+          <p>突如其来的疫情，导致过了一个及其长的寒假，长到现在还在假期（2020-5-13）；在家除了继续自己的充电计划和偶尔上上学校的网课外，谈不上清闲，但也觉得很无聊，所以冲动的跟风了一波，买了今年的第一件理财产品—switch<br><img src="/img/jottings/switch.png" alt="switch"></p>
+<h1 id="关于游戏机和游戏"><a href="#关于游戏机和游戏" class="headerlink" title="关于游戏机和游戏"></a>关于游戏机和游戏</h1><ul>
+<li><p>上一次有游戏机，印象里还是小学五六年级，买的那种国产十来块钱的黑白像素的“掌机”；再往前就是幼儿园到刚升小学那段时间的小霸王</p>
 </li>
-<li><p>为什么需要</p>
-<blockquote>
-<p>因为vue和react这些SPA框架，只有一个html页面，所以需要使用某种手段来决定当前页面显示什么内容，所以才有了前端路由系统。</p>
-</blockquote>
+<li><p>因为家里一直以督促学习为由，在升入初中后，把我的玩具漫画等一切他们觉得会影响我学习的东西都处理掉了，就连电脑也是一会没有鼠标，一会没有键盘的存在；不过现在想想也是很庆幸，最容易沉迷游戏的年龄，因为家里的限制，不仅没有沉迷其中，还为了解决无聊，养成了看书的习惯</p>
 </li>
+</ul>
+<h1 id="关于选择switch"><a href="#关于选择switch" class="headerlink" title="关于选择switch"></a>关于选择switch</h1><ul>
+<li><p>虽然很长时间与游戏没有什么联系，但还是很想在休息的时候多一种休闲的方式；游戏肯定是一个很好的选择，但是对于网游的娱乐模式实在提不起兴趣，社交属性大于娱乐属性，所以一直三分钟热度；pc买游戏呢，因为常年在学校，笔记本性能堪忧，也一直作罢</p>
+</li>
+<li><p>难得这个假期时间过长，所以想着就入手一台游戏主机就好；最开始瞄准了大法的4公主，加上某东的优惠，很良心；就要剁手的时候，动森火了起来，switch再次进入了眼里；对任天堂的好感全部来自小时候在小霸王上玩的马里奥，于是查了一波switch游戏阵容，然后又正好因为动森很火，很喜欢这种养生游戏，于是就有了现在的故事</p>
+</li>
+</ul>
+<h1 id="入手的游戏"><a href="#入手的游戏" class="headerlink" title="入手的游戏"></a>入手的游戏</h1><p>随机器一起买了誉为神作的《塞尔达旷野之息》卡带，和《动物森友会》电子版<br><img src="/img/jottings/games.png" alt="游戏"></p>
+<h1 id="塞尔达"><a href="#塞尔达" class="headerlink" title="塞尔达"></a>塞尔达</h1><p>最开始玩的那几天，因为第一次接触开放世界游戏，会有点蒙逼，get不到玩点；于是跟着攻略玩了一天，大概清楚了游戏基本套路后，于是开始了自己的海拉鲁之旅</p>
+<blockquote>
+<p>优点</p>
+</blockquote>
+<ul>
+<li>足够大的地图和各种丰富的道具，都带来了不一样的体验，四处乱跑解锁新地图，遇到新地方的那种感觉真的很有代入感</li>
+<li>外加相对比较丰富的装备系统，不仅是装备效果不同，还有不同的穿戴效果，还可以玩出奇迹暖暖的感觉？！而且很喜欢的一点，装备没有升级系统，只存在攻击等级和耐久度的限制以及属性装备的属性效果；这样就一部分摆脱了需要去肝装备等级的乏味过程；耐久度的存在，又避免了一把武器走天下的问题，会督促玩家去不停的探索和发现新装备，这个过程就很有乐趣</li>
+<li>有意思的打斗过程，因为装备和技能的随时切换，于是打斗就可以玩出很多sao操作，带了很不一样的体验</li>
+<li>我最喜欢的2套装备<br><img src="/img/jottings/outfit1.JPG" alt="1"><br><img src="/img/jottings/outfit2.JPG" alt="2"></li>
+</ul>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<ul>
+<li>也不能算是缺点，只能说是为了后期DLC和续作让路，所以剧情比较简单；但是也能理解，因为游戏的开放性很大，很多地方都需要一点点的去探索、摸索，所以剧情也不是这个游戏的主要卖点，所以这个因人而异；</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>不愧被称为神作，吹爆</li>
+<li>另外最近找到了小时候的小霸王游戏机，只可惜手柄坏了，卡带，主机还是好的，上一张对比图</li>
+<li>两个时代<br><img src="/img/jottings/two.JPG" alt="2个时代"><br><img src="/img/jottings/cards.JPG" alt="氪金条"></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/12/%E8%B8%A9%E5%9D%91/%E5%88%9D%E6%8E%A2Travis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/12/%E8%B8%A9%E5%9D%91/%E5%88%9D%E6%8E%A2Travis/" class="post-title-link" itemprop="url">初探Travis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-12 16:41:41" itemprop="dateCreated datePublished" datetime="2020-05-12T16:41:41+08:00">2020-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="初探cicd"><a href="#初探cicd" class="headerlink" title="初探cicd"></a>初探cicd</h1><blockquote>
+<p>什么是cicd？</p>
+</blockquote>
+<ul>
+<li>cicd是持续集成和持续交付的缩写，全称为continuous integration &amp; continuous delivery</li>
+</ul>
+<blockquote>
+<p>cicd怎么做</p>
+</blockquote>
+<ul>
+<li>通过一些工具，来进行</li>
+</ul>
+<blockquote>
+<p>这些工具做了哪些事</p>
+</blockquote>
+<ul>
+<li>将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手</li>
+<li>举个vue项目的例子：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 本地：对项目打包，（正规点还要跑一边测试）这些都没问题后，然后推送到远程仓库</span></span><br><span class="line">npm run build -&gt; git push </span><br><span class="line"><span class="meta">#</span><span class="bash"> 服务器：进入对应的目录，然后拉去仓库的代码</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></li>
+<li>如果做好cicd的流程后，只需要git push代码就好，剩下的都会在集成工具里去根据配置文件，去自动执行，这个过程哪一步出现问题都会有对应的log文件
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/12/%E8%B8%A9%E5%9D%91/%E5%88%9D%E6%8E%A2Travis/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/09/%E8%B8%A9%E5%9D%91/%E5%88%9D%E6%8E%A2nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/09/%E8%B8%A9%E5%9D%91/%E5%88%9D%E6%8E%A2nginx/" class="post-title-link" itemprop="url">初探nginx</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-09 19:24:33" itemprop="dateCreated datePublished" datetime="2020-05-09T19:24:33+08:00">2020-05-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客</p>
+<h1 id="相关知识笔记"><a href="#相关知识笔记" class="headerlink" title="相关知识笔记"></a>相关知识笔记</h1><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><blockquote>
+<p>什么是nginx</p>
+</blockquote>
+<ul>
+<li>一个支持HTTP和反向代理的开源的web服务器</li>
+</ul>
+<blockquote>
+<p>web服务器</p>
+</blockquote>
+<ul>
+<li>基于HTTP协议，处理客户端请求，为客户端提供可供浏览内容的服务器</li>
+<li>举例：Nginx</li>
+</ul>
+<blockquote>
+<p>应用服务器</p>
+</blockquote>
+<ul>
+<li>用来运行那些可以访问、操作本机资源的应用程序的服务器</li>
+<li>举例：Tomact</li>
+</ul>
+<blockquote>
+<p>两者区别</p>
+</blockquote>
+<ul>
+<li>不同点：Web服务器只能处理静态资源，接受请求响应资源，结束；应用服务器也可以做请求处理，响应静态资源，但同时还可以处理动态内容，比如根据模板引擎生成页面等</li>
+<li>相同点：2者都可以处理请求</li>
+<li>以前开发中，会直接使用应用服务器处理用户请求，然后使用模板引擎动态生成页面给客户端；现在因为前后端分离的原因，以及为了减轻应用服务器压力的前提下；静态资源交给nginx这类web服务器来做，应用服务器只负责处理逻辑，提供数据</li>
+</ul>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
+<p>概念</p>
+</blockquote>
+<ul>
+<li>macOS和Windows之外的第三大操作系统，主要用于服务器等，而且开源</li>
+</ul>
+<blockquote>
+<p>版本</p>
+</blockquote>
+<ul>
+<li>Ubuntu、centos、debian等</li>
+</ul>
+<blockquote>
+<p>包安装工具</p>
+</blockquote>
+<ul>
+<li>因为使用的Linux不同，所使用的的包管理工具也不同</li>
+<li>Debian/Ubuntu：apt、apt-cache、apt-get、dpkg</li>
+<li>centos：yum</li>
+<li>备注1：apt是包管理平台，get负责包的安装更新删除管理；cache用于搜索</li>
+<li>备注2：dpkg是Debian的包管理工具，Ubuntu基于Debian，所以也可以使用；但是两个的区别是dpkg安装会绕过并覆盖apt安装的包，切不关心模块依赖问题；不关心Ubuntu软件库软件；简单理解Ubuntu专用apt，Debian专用dpkg</li>
+</ul>
+<blockquote>
+<p>apt常用命令</p>
+</blockquote>
+<ul>
+<li>安装包：apt-get install &lt;包名&gt;</li>
+<li>移除包：apt-get remove &lt;包名&gt;</li>
+<li>更新包列表：apt-get update </li>
+<li>更新系统、已安装包：apt-get upgrade</li>
+<li>列出已安装包：dpkg -l</li>
+<li>搜索某包：apt-cache search &lt;包名&gt;</li>
+<li>查看包信息：apt-cache show &lt;包名&gt;</li>
+</ul>
+<blockquote>
+<p>其他命令</p>
+</blockquote>
+<ul>
+<li>wget：用来从指定的URL下载文件；类似迅雷</li>
+<li></li>
 </ul>
 <h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><ul>
-<li>路由配置除外，使用到的只有2个标签<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 用于进行页面的跳转 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 用于显示，根据url决定显示的页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>进行切换页面跳转<blockquote>
-<p>在浏览器输入http:****/home就会显示home ，输入about就会显示about</p>
+<li>进入/etc/nginx/conf.d/目录，该目录存放自己的配置文件，nginx的主配置文件(/etc/nginx/nginx.conf)会自动加载该目录的配置文件</li>
+<li>通过以下配置文件，就可以部署一个简单的静态项目<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    # 监听端口号，主配置文件默认监听了80</span><br><span class="line">    listen 2333;</span><br><span class="line">    # 制定ip地址或者域名</span><br><span class="line">    server_name shuaxinjs.cn;</span><br><span class="line">    # 配置对哪些url做出相应</span><br><span class="line">    location / &#123;</span><br><span class="line">        # 配置响应文件的目录</span><br><span class="line">        root /data;</span><br><span class="line">        # 配置目录下的响应文件</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明</p>
 </blockquote>
 </li>
+<li>当在浏览器输入的url匹配到location的url后，就会去内部定义的root或alias目录找要返回的文件</li>
+<li>如果没有匹配到对应的规则，就会去默认的目录找404.html并响应；这是nginx自带的，一般在/usr/share/nginx/html</li>
+<li>可以在/var/log/nginx下查看access和error日志文件，来查看访问状态</li>
+<li>root可以写在location也可以写在server中，如果内部有定义root，优先使用root的路径（精确匹配例外）</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Home.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        home</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">&#x27;home&#x27;</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- About.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        about</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">&#x27;about&#x27;</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在router.js中配置需要显示的页面文件</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> routes=[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// url的路径</span></span><br><span class="line">        path:<span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">        <span class="comment">// home.vue文件的name</span></span><br><span class="line">        name:<span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">        <span class="comment">// 引入该文件</span></span><br><span class="line">        component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;Home.vue&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        path:<span class="string">&#x27;/about&#x27;</span>,</span><br><span class="line">        name:<span class="string">&#x27;about&#x27;</span>,</span><br><span class="line">        component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;About.vue&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>alias和root的区别</p>
+</blockquote>
+<ul>
+<li>假设此时域名为 <a href="shuaxinjs.cn">shuaxinjs.cn</a><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> root</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这时浏览器输入www.shuxinjs.cn/dist后，nginx会去/data/dist/目录寻找文件</span></span><br><span class="line"></span><br><span class="line">location /dist&#123;</span><br><span class="line">    root /data/;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">alias</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这时浏览器输入www.shuxinjs.cn/dist2后，nginx会去/home/目录寻找文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">alias</span>指定目录时，结尾一定要加 /;root可有可无</span></span><br><span class="line">location /dist2&#123;</span><br><span class="line">    alias /home/;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1></li>
+<li>使用nginx命令管理  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload  # 向主进程发送信号，重新加载配置文件，热重启</span><br><span class="line">nginx -s reopen	 # 重启 Nginx</span><br><span class="line">nginx -s stop    # 快速关闭</span><br><span class="line">nginx -s quit    # 等待工作进程处理完成后关闭</span><br><span class="line">nginx -T         # 查看当前 Nginx 最终的配置</span><br><span class="line">nginx -t -c &lt;配置路径&gt;    # 检查配置是否有问题，如果已经在配置目录，则不需要-c</span><br></pre></td></tr></table></figure></li>
+<li>使用systemctl管理，这是Linux的系统应用管理工具  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx    # 启动 Nginx</span><br><span class="line">systemctl stop nginx     # 停止 Nginx</span><br><span class="line">systemctl restart nginx  # 重启 Nginx</span><br><span class="line">systemctl reload nginx   # 重新加载 Nginx，用于修改配置后</span><br><span class="line">systemctl enable nginx   # 设置开机启动 Nginx</span><br><span class="line">systemctl disable nginx  # 关闭开机启动 Nginx</span><br><span class="line">systemctl status nginx   # 查看 Nginx 运行状态</span><br></pre></td></tr></table></figure>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1></li>
+</ul>
+<h3 id="location配置规则"><a href="#location配置规则" class="headerlink" title="location配置规则"></a>location配置规则</h3><blockquote>
+<p>基本语法</p>
+</blockquote>
+<ul>
+<li>这里不需要像js一样需要用//把规则包裹起来，直接写在启用正则的符号后即可  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location [=|~|~*|^~]/uri/&#123;...&#125;&#123;</span><br><span class="line">    # 具体配置</span><br><span class="line">    # root/alias dist #响应文件目录</span><br><span class="line">    # index file  #响应文件</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>动态路由显示<blockquote>
-<p>例如一个有一个todo的列表，其中每一项内都有不同的数据，但是数据显示的样式什么都一样，我们可以用同一个组件来渲染，只需要在跳转时传递一个标识，来告诉组件加载所对应的数据就可以了</p>
-</blockquote>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在router.js中配置需要显示的页面文件</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> routes=[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// url的路径</span></span><br><span class="line">        path:<span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">        <span class="comment">// home.vue文件的name</span></span><br><span class="line">        name:<span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">        <span class="comment">// 引入该文件</span></span><br><span class="line">        component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;Home.vue&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        name:<span class="string">&#x27;list/:id,</span></span><br><span class="line"><span class="string">        component:&#x27;</span>list<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">        component:()=&gt;import(&#x27;</span>List.vue<span class="string">&#x27;)</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">]</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- home.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;(item,index) in info&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 切换url来进行页面跳转，类似a标签 --&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 跳转时携带点击项的id --&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 这里也可以使用query替代params --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;&#123;name:&#x27;list&#x27;,params:&#123;id:&#x27;item&#x27;&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">                    &#123;&#123;item.id&#125;&#125;</span><br><span class="line">                <span class="tag">&lt;<span class="name">router-link</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">&#x27;list&#x27;</span>,</span></span><br><span class="line">    data()&#123;</span><br><span class="line"><span class="javascript">        <span class="keyword">return</span>&#123;</span></span><br><span class="line">            info:[</span><br><span class="line">                &#123;</span><br><span class="line"><span class="javascript">                    id:<span class="string">&#x27;1&#x27;</span></span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line"><span class="javascript">                    id:<span class="string">&#x27;2&#x27;</span></span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- list.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> &gt;</span></span><br><span class="line">            &#123;&#123;id&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">&#x27;list&#x27;</span>,</span></span><br><span class="line">    data()&#123;</span><br><span class="line"><span class="javascript">        <span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="javascript">            info:<span class="string">&#x27;&#x27;</span></span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted()&#123;</span><br><span class="line"><span class="javascript">        <span class="comment">// 接受从home组件传递过来的id</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 如果跳转那里使用的query这里的params也需要换成query</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">this</span>.info=<span class="built_in">this</span>.$route.params.info;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>query和的区别：query使传递的值会显示在url中，params不会，所以这也导致了假如我们没有在list后面写id，那list页面刷新后，传递过来的数据就会丢失。<br>总结：使用query可以不在路由进行配置，params时要在路由进行动态参数配置</p>
+<h3 id="单独说明"><a href="#单独说明" class="headerlink" title="单独说明"></a>单独说明</h3><blockquote>
+<p>=</p>
 </blockquote>
-<h1 id="其他使用"><a href="#其他使用" class="headerlink" title="其他使用"></a>其他使用</h1><p>总结除过页面跳转意外，使用过的路由系统的功能。</p>
 <ul>
-<li><p>路由嵌套</p>
-<blockquote>
-<p>使用场景：当一个页面下的其他页面都有相同的部分，只有小部分需要根据不同的地址来显示不同的内容时，就可以使用，比如后台管理系统，所有页面左边都有整体的菜单</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// router.js配置</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> routes=[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// url的路径</span></span><br><span class="line">        path:<span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">        <span class="comment">// home.vue文件的name</span></span><br><span class="line">        name:<span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">        <span class="comment">// 引入该文件</span></span><br><span class="line">        component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;Home.vue&#x27;</span>),</span><br><span class="line">        <span class="comment">// 配置 子路由</span></span><br><span class="line">        children:[</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;/one&#x27;</span>,</span><br><span class="line">                name:<span class="string">&#x27;one&#x27;</span>,</span><br><span class="line">                component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;One.vue&#x27;</span>),</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;/two&#x27;</span>,</span><br><span class="line">                name:<span class="string">&#x27;two&#x27;</span>,</span><br><span class="line">                component:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;Two.vue&#x27;</span>),</span><br><span class="line">            &#125;,</span><br><span class="line">            ...</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- home.vue使用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> &gt;</span></span><br><span class="line">            菜单</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 根据url的不同来显示one，two --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">&#x27;home&#x27;</span>,</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>路由导航守卫</p>
+<li>精确匹配</li>
+<li>使用=的时候一定要在server中指定root，会无视location内部的路径</li>
+<li>下例：当访问shuaxinjs.cn/的时候，nginx就会去/home目录寻找index.html；但是当仅在location指定的时候就会去/usr/nginx/share/html寻找，当然那个目录不存在我们的文件，就会返回404  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">root /home;</span><br><span class="line">location = /login/ &#123;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <blockquote>
-<p>作用</p>
+<p>^~</p>
+</blockquote>
 <ul>
-<li>在页面进入前后进行一些操作，比如重定向，数据操作等等</li>
+<li>表示url以某个常规字符串开始的url，不区分大小写</li>
+<li>下例：代理后端请求，凡是携带/apis/的url，都会进行去请求转发；即：shuaxinjs.cn/apis/getData会变成localhost:3000/getData</li>
+<li>这里需要注意apis后面一定要跟/，不然apis会添加到url中  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ^~ /apis/ &#123;</span><br><span class="line">    proxy_pass http://localhost:3000/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-</blockquote>
 <blockquote>
-<p>使用场景</p>
+<p>~</p>
+</blockquote>
 <ul>
-<li>在页面进入前验证token是否过期、验证用户是否还有权限访问该页、根据需要不一样，重新导向用户的访问页面</li>
+<li><strong><em>区分大小写</em></strong> 的正则匹配</li>
+<li>下例：匹配所有的.(css|js|png|jpg|jepg)的资源文件;</li>
+<li>正则说明：.为默认匹配除换行符以外的所有字符，*：默认对前一个规则执行0-n次；\对.号做转意；（css|js|png|jpg|jepg）意思是.后的字符必须是这几种任意一种  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    root /home/static/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>~*</p>
+</blockquote>
+</li>
+<li><strong><em>不区分大小写</em></strong> 的正则匹配</li>
 </ul>
-</blockquote>
 <blockquote>
-<p>分类:</p>
+<p>!~ , !~*</p>
+</blockquote>
+<ul>
+<li>区分大小写不匹配；不区分大小写不匹配</li>
+</ul>
 <blockquote>
-<p>全局：作用在所有路由<br>路由独享：只作用在配置的路由<br>组件内：只作用在配置的组件</p>
+<p>/</p>
 </blockquote>
-</blockquote>
+<ul>
+<li>通用匹配，任何请求都会匹配</li>
+</ul>
+<h3 id="匹配顺序"><a href="#匹配顺序" class="headerlink" title="匹配顺序"></a>匹配顺序</h3><p>多个location配置的情况下匹配顺序为：<br>首先匹配= ；<br>其次是完整路径；<br>然后匹配^~；<br>再其次是按文件中顺序的正则匹配；<br>最后是交给 / 通用匹配；<br>当有匹配成功时候，停止匹配，按当前匹配规则处理请求。</p>
+<h1 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h1><ul>
+<li><p>匹配静态资源</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    root /home/static/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>代理后端请求，解决跨域</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> location ^~ /api/ &#123;</span><br><span class="line">    proxy_pass 后端地址;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断请求客户端为移动端还是pc，返回不同的页面</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name 域名/ip;</span><br><span class="line">    location / &#123;</span><br><span class="line">    root pc目录；</span><br><span class="line">    root /data/pc;</span><br><span class="line">    if ( $http_user_agent ~* &#x27;(Android|webOS|iPhone|iPod|BlackBerry)&#x27; ) &#123;</span><br><span class="line">            root 移动端目录;</span><br><span class="line">    &#125;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+<h1 id="可用全局变量"><a href="#可用全局变量" class="headerlink" title="可用全局变量"></a>可用全局变量</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">host ： 请求主机头字段，否则为服务器名称。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">http_user_agent ： 客户端agent信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash">http_cookie ： 客户端cookie信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_method ： 客户端请求的动作，通常为GET或POST。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">content_length ： 请求头中的Content-length字段。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">content_type ： 请求头中的Content-Type字段。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">uri ： 不包含请求参数的当前URI，<span class="variable">$uri</span>不包含主机名，如”/foo/bar.html”。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">document_uri ： 与<span class="variable">$uri</span>相同。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">query_string </span></span><br><span class="line"><span class="meta">$</span><span class="bash">args ： 这个变量等于请求行中的参数，同<span class="variable">$query_string</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash">document_root ： 当前请求在root指令中指定的值。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">limit_rate ： 这个变量可以限制连接速率。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_body_file </span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_filename ： 当前请求的文件路径，由root或<span class="built_in">alias</span>指令与URI请求生成。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">remote_addr ： 客户端的IP地址。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">remote_port ： 客户端的端口。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">remote_user ： 已经经过Auth Basic Module验证的用户名。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">scheme ： HTTP方法（如http，https）。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_name ： 服务器名称。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_port ： 请求到达服务器的端口号。</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
 
       
     </div>
@@ -303,7 +606,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/12/08/%E8%B8%A9%E5%9D%91/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -317,7 +620,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/08/%E8%B8%A9%E5%9D%91/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/" class="post-title-link" itemprop="url">关于浏览器存储</a>
+            <a href="/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/" class="post-title-link" itemprop="url">vue原理学习1-响应式</a>
         </h2>
 
         <div class="post-meta">
@@ -327,95 +630,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-08 14:26:10" itemprop="dateCreated datePublished" datetime="2019-12-08T14:26:10+08:00">2019-12-08</time>
+              <time title="创建时间：2020-05-02 11:01:38" itemprop="dateCreated datePublished" datetime="2020-05-02T11:01:38+08:00">2020-05-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前为了应付上课的作业，要做一个包含有留言板功能的官网。其实仅仅就HTML+CSS+JS做类似功能倒也不是很复杂，但是自己想着怎么可以做出线上那样，如果数据库存储留言的表有数据，当加载留言板页面时就会显示这些数据这样的效果。于是就想到了浏览器缓存，来模拟这个效果，所以顺带的去补了补浏览器存储相关的知识。来记录一下。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/08/%E8%B8%A9%E5%9D%91/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/28/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/28/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">关于浏览器缓存</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-28 13:15:54" itemprop="dateCreated datePublished" datetime="2019-11-28T13:15:54+08:00">2019-11-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -438,19 +660,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="为什么要缓存"><a href="#为什么要缓存" class="headerlink" title="为什么要缓存"></a>为什么要缓存</h1><p>因为网站的所有资源都是放在服务器上的，每次访问一个页面的时候，都会通过http请求去请求该页面依赖的静态资源，这个过程会花费很多的时间，造成页面留白等响应过长的问题，导致用户体验不是非常的友好</p>
-<p>所以合理的利用浏览器缓存，将第一次请求后得到的一些静态资源合理的存储在本地，然后当用户下次访问的时候，可以直接从本地读取；加快页面的显示。</p>
-<p>举个例子：现在我们有一个html然后页面加载一个text.js文件；来看看使用和不使用缓存的区别</p>
-<ul>
-<li><p>没有使用缓存<br><img src="/img/cache.png" alt="图1"></p>
-</li>
-<li><p>使用了缓存<br><img src="/img/cache1.png" alt="图2"></p>
-</li>
+          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><ul>
+<li>前几天看到vue3.0的beta版本出来了，觉得在正式版出来之前，还是得把2.x版本的原理过一遍，让脑子有个印象。</li>
+<li>大概了分了这么几个部分：响应式系统、观察者模式、模板编译、virtual dom、路由、vuex、vue插件开发</li>
 </ul>
-<p>通过上面两张图可以明显看到，使用缓存后，加载时间从8ms变成了0，效果肉眼可见！</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/28/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/#more" rel="contents">
+              <a class="btn" href="/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -474,7 +690,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/28/%E7%AC%94%E8%AE%B0/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/29/%E6%9D%82%E6%96%87/%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -488,7 +704,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/28/%E7%AC%94%E8%AE%B0/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" class="post-title-link" itemprop="url">从输入url到页面展示发生了什么</a>
+            <a href="/2020/04/29/%E6%9D%82%E6%96%87/%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90/" class="post-title-link" itemprop="url">资源推荐</a>
         </h2>
 
         <div class="post-meta">
@@ -498,14 +714,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-28 10:53:53" itemprop="dateCreated datePublished" datetime="2019-11-28T10:53:53+08:00">2019-11-28</time>
+              <time title="创建时间：2020-04-29 16:52:09" itemprop="dateCreated datePublished" datetime="2020-04-29T16:52:09+08:00">2020-04-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -513,7 +729,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
                 </span>
             </span>
 
@@ -528,562 +744,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在学习HTTP协议相关的知识，对这道曾经一度让我懵逼的面试题，有了一点自己的答案，所以按自己的理解简单总结一下笔记</p>
-<h1 id="流程概述"><a href="#流程概述" class="headerlink" title="流程概述"></a>流程概述</h1><blockquote>
-<p>解析输入的url中的域名<br>通过TCP三次握手建立TCP通道<br>客户端—服务端通过http协议进行数据交互<br>客户端(浏览器)接收到服务端发来的HTML然后开始进行页面渲染<br>请求结束，通过TCP四次挥手关闭TCP通道</p>
-</blockquote>
+          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li>平时水的社区比较多，总是忘记哪些地方收藏了哪些东西，所以准备不定期的把一些自己觉得很不错的、很有价值的内容收录在这里</li>
+<li>没有标注语言的都是中文或者有中文版本</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/28/%E7%AC%94%E8%AE%B0/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/http%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/http%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">http协议学习笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-28 10:53:09" itemprop="dateCreated datePublished" datetime="2019-11-28T10:53:09+08:00">2019-11-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="关于HTTP协议"><a href="#关于HTTP协议" class="headerlink" title="关于HTTP协议"></a>关于HTTP协议</h1><p>位于网络协议7层(如下图)中的应用层，主要用来进行客户端和服务按数据交互。<br><img src="/img/url4.jfif" alt="OSI七层模型"></p>
-<h1 id="为什么用它呢"><a href="#为什么用它呢" class="headerlink" title="为什么用它呢"></a>为什么用它呢</h1><p>因为简单、灵活、无状态。</p>
-<ul>
-<li>简单：只需要通过请求方法请求资源路径即可</li>
-<li>灵活：传输数据类型可以是任意类型</li>
-<li>无状态：链接只负责数据交互，不进行保存，所以彼此间不存在依赖，比较简单明了。当然是有好处，但是也导致了需要做一些请求验证时，就需要使用一些其他的手段，比如session、token。</li>
-</ul>
-<h1 id="关于HTTP协议的版本的内容-就写了自己知道的-，毕竟东西太多了-我太菜了"><a href="#关于HTTP协议的版本的内容-就写了自己知道的-，毕竟东西太多了-我太菜了" class="headerlink" title="关于HTTP协议的版本的内容(就写了自己知道的=.=，毕竟东西太多了[我太菜了])"></a>关于HTTP协议的版本的内容(就写了自己知道的=.=，毕竟东西太多了[我太菜了])</h1><h3 id="0-9版本"><a href="#0-9版本" class="headerlink" title="0.9版本"></a>0.9版本</h3><ul>
-<li>只有GET一个请求方法</li>
-<li>没有header等描述数据的信息</li>
-<li>为短连接，当服务器发送完毕数据后，就关闭TCP通道。</li>
-</ul>
-<h3 id="1-0版本"><a href="#1-0版本" class="headerlink" title="1.0版本"></a>1.0版本</h3><ul>
-<li>增加了很多请求方法(POST等)</li>
-<li>怎么加了状态码和header等描述数据的信息</li>
-<li>有了If-Modified-Since,Expires处理缓存</li>
-</ul>
-<h3 id="1-1版本-现在使用"><a href="#1-1版本-现在使用" class="headerlink" title="1.1版本(现在使用)"></a>1.1版本(现在使用)</h3><ul>
-<li>增加了持续链接！重点！</li>
-<li>增加host域，可以在同一台服务器，跑多个web服务</li>
-<li>增加了更多的缓存处理策略，如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等</li>
-</ul>
-<h3 id="未来—2-0版本"><a href="#未来—2-0版本" class="headerlink" title="未来—2.0版本"></a>未来—2.0版本</h3><ul>
-<li>所有数据都以2进制传递</li>
-<li>支持同一通道的多有请求，同时发送，1.1中。可以开多个TCP通道，但每个通道上的请求，一次一个，需要按照顺序进行发送</li>
-<li>支持服务端向客户端推送消息等</li>
-</ul>
-<h1 id="HTTP协议的组成"><a href="#HTTP协议的组成" class="headerlink" title="HTTP协议的组成"></a>HTTP协议的组成</h1><p><img src="/img/url5.png" alt="OSI七层模型"><br>HTTP有请求和响应报文两种类型，但是组成部分如图所示，都是有三部分组成</p>
-<blockquote>
-<p>1.起始行，一般由一下三部分构成,空格隔开每一部分；通过换行和首部隔开。</p>
-</blockquote>
-<ul>
-<li>请求地址</li>
-<li>请求的方法(methods)，有GET/POST/DELETE/PUT/HEAD</li>
-<li>http协议版本号</li>
-<li>状态码<br><img src="/img/url6.png" alt="请求头"></li>
-</ul>
-<blockquote>
-<p>2.首部(Headers)</p>
-</blockquote>
-<ul>
-<li>由 <strong><em>关键字/值</em></strong> 组成，不同的关键字和值，有不同的作用；每一行一对；最后一个请求头后是一个空行来和主体隔开</li>
-<li>比较重要的 <strong><em><a target="_blank" rel="noopener" href="http://localhost:4000/2019/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E5%85%B3%E4%BA%8E%E8%B7%A8%E5%9F%9F/">跨域</a></em></strong>、*<strong><a target="_blank" rel="noopener" href="http://localhost:4000/2019/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">缓存</a>**<em>、</em></strong>CSP*** 都是在这里进行设置<br><img src="/img/header.png" alt="首部"></li>
-</ul>
-<blockquote>
-<p>3.主体(要发送的内容、接受到的内容)</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="post-title-link" itemprop="url">关于防抖和节流</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-21 20:16:17" itemprop="dateCreated datePublished" datetime="2019-11-21T20:16:17+08:00">2019-11-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h1><blockquote>
-<p><strong>作用</strong></p>
-</blockquote>
-<ul>
-<li>这两个名词是两种解决方案的称呼，为了解决频繁触发某一个函数时，限制它的调用次数，让它不要那么频繁的被调用。</li>
-</ul>
-<blockquote>
-<p><strong>为啥要这么做</strong></p>
-</blockquote>
-<ul>
-<li>首先呢，在浏览器中，有2个概念，一个叫<strong>重绘</strong>，一个叫**<em>回流**</em>。这两个现象，是在浏览器渲染页面的时候会发生的，当页面的布局不改变，仅仅是字体大小颜色等改变时就会发生重绘；当页面布局发生改变(比如width、height、margin、padding等)，会发生回流。</li>
-<li>上述的这两个现象挺影响性能的，所以当我们的操作会导致发生这两个现象时，一般就可以使用防抖和节流来，尽可能的减少这样的操作，不至于让我们的程序挂掉。当然不止这样情况下才能用哈，比如触发ajax请求的时候其实也可以用，根据需要来判断。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/" class="post-title-link" itemprop="url">关于call,bind,apply</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-20 19:23:11" itemprop="dateCreated datePublished" datetime="2019-11-20T19:23:11+08:00">2019-11-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="关于call-bind-apply的作用"><a href="#关于call-bind-apply的作用" class="headerlink" title="关于call,bind,apply的作用"></a>关于call,bind,apply的作用</h1><p>这三个方法都是只有函数才可以调用，作用就是改变函数执行时this的指向。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/" class="post-title-link" itemprop="url">网页浏览进度条</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-19 20:48:17" itemprop="dateCreated datePublished" datetime="2019-11-19T20:48:17+08:00">2019-11-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="网页浏览进度条"><a href="#网页浏览进度条" class="headerlink" title="网页浏览进度条"></a>网页浏览进度条</h1><p>在很多网站都能看到网站的顶部，有一条会随着页面滚动条的滑动，边长变短的一栏区域，这个可以有效的让用户看到，自己已经浏览了这个文章内容的多少。虽然网站右边都有一个滚动条了，干嘛还要这个东西呢，大概就是为了好看吧！今天来实现这个小demo！</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/18/css/%E6%B5%AE%E5%8A%A8%E5%8A%9F%E8%83%BD%E6%A0%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/18/css/%E6%B5%AE%E5%8A%A8%E5%8A%9F%E8%83%BD%E6%A0%8F/" class="post-title-link" itemprop="url">浮动功能栏</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-18 22:05:33" itemprop="dateCreated datePublished" datetime="2019-11-18T22:05:33+08:00">2019-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="关于命名"><a href="#关于命名" class="headerlink" title="关于命名"></a>关于命名</h1><p>我也不知道这个具体的名字叫什么，就按照它的功能起了这么个简单的名字，防止说不清楚，大概解释一下是什么东西。就是在很多网页，我们往下滑时，会在页面的固定位置出现一个(一栏、一片等！)按钮，里面有帮助回到网页顶部的，还有联系网站客服等等的操作。</p>
-<p>像这样<br><img src="/img/juejin.png" alt="掘金"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><blockquote>
-<p><strong>问题</strong></p>
-</blockquote>
-<ul>
-<li>首先就是根据喜好做一排这样的区域(自行发挥)</li>
-<li>其次就是确定它要出现的位置(<font color='red'> <em>重点</em></font> )即可。</li>
-<li>还有几个小细节，就是当回到页面顶部时，这一部分区域会隐藏，当再次滑动到页面非顶部的位置是，又会再一次出现。</li>
-</ul>
-<blockquote>
-<p><strong>解决</strong></p>
-</blockquote>
-<ul>
-<li>固定位置：通过position的fixed固定</li>
-<li>通过opacity控制显示显示/隐藏</li>
-<li>判断何时显示/隐藏:通过获取滚动条滚动的height判断</li>
-</ul>
-<h2 id="用到的知识"><a href="#用到的知识" class="headerlink" title="用到的知识"></a>用到的知识</h2><p>css</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/pr-class-position.html">position</a></p>
-</blockquote>
-<p>js</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop">scrollTop</a></p>
-</blockquote>
-<ul>
-<li>获取滚动条滚动过的height</li>
-</ul>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/met-win-scrollto.html">scrollTo</a></p>
-</blockquote>
-<ul>
-<li>scrollTo() 方法可把内容滚动到指定的坐标。</li>
-</ul>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/event-onwheel.html">onwheel</a></p>
-</blockquote>
-<ul>
-<li>鼠标滑轮滚动事件</li>
-<li>onmousewheel注意，有些文章是写的这个事件，该事件已经废弃(但是有的环境还是可以用)，换成了onwheel</li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>CSS</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">/* 页面主要内容 */</span></span><br><span class="line"><span class="selector-class">.con</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">    <span class="comment">/* 让页面出现滚动条 */</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1100vh</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: lightcoral;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 浮动功能栏样式  */</span></span><br><span class="line"><span class="selector-class">.float</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">70vh</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">5vw</span>;</span><br><span class="line">    <span class="comment">/* 默认不显示 */</span></span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.5s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 其他样式 */</span></span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>HTML</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;con&quot;</span> <span class="attr">id</span>=<span class="string">&quot;con&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;float&quot;</span> <span class="attr">id</span>=<span class="string">&quot;float&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;backtop&quot;</span>&gt;</span>BACK<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>JS</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> con = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#con&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> float = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#float&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> backtop = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#backtop&#x27;</span>);</span><br><span class="line"><span class="comment">// des:设置浮动功能栏的显示/隐藏</span></span><br><span class="line"><span class="keyword">let</span> set = <span class="function"><span class="keyword">function</span> (<span class="params">op, zi</span>) </span>&#123;</span><br><span class="line">    float.style.opacity = op;</span><br><span class="line">    float.style.zIndex = zi;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 点击back返回顶部</span></span><br><span class="line">backtop.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.document.documentElement.scrollTop = 0;</span></span><br><span class="line">    <span class="comment">// 2.scrollTo返回</span></span><br><span class="line">    scrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 返回后隐藏</span></span><br><span class="line">    set(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 这里更好的效果是换成window的滚动条事件,这样无论是鼠标滑轮还是，键盘翻页键，还是点击滚动条都可以触发</span></span><br><span class="line"><span class="comment">// window.addEventListener(&quot;scroll&quot;,***)</span></span><br><span class="line">con.addEventListener(<span class="string">&#x27;wheel&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 获取可视区域宽高</span></span><br><span class="line">    <span class="keyword">let</span> viewHeight = <span class="built_in">document</span>.documentElement.clientHeight;</span><br><span class="line">    <span class="comment">// 获取已经滚动条滚动了的高度</span></span><br><span class="line">    <span class="keyword">let</span> scrowHeight = <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">    <span class="comment">// 获取文档高</span></span><br><span class="line">    <span class="keyword">let</span> documentHeight = <span class="built_in">document</span>.body.clientHeight;</span><br><span class="line">    <span class="keyword">if</span> (scrowHeight === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 隐藏按钮</span></span><br><span class="line">        set(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 显示按钮</span></span><br><span class="line">        set(<span class="number">10</span>, <span class="number">99</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/18/css/%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/18/css/%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F/" class="post-title-link" itemprop="url">动态设置背景图容器大小</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-18 21:11:49" itemprop="dateCreated datePublished" datetime="2019-11-18T21:11:49+08:00">2019-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>最近在做一个官网的效果的时候，出现了背景图过大，导致不同显示器显示的图片大小不一样，和影响下面内容的布局问题。所以记录一下这个坑。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/18/css/%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F/#more" rel="contents">
+              <a class="btn" href="/2020/04/29/%E6%9D%82%E6%96%87/%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1106,7 +773,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

@@ -17,21 +17,21 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="关于图床 引用百度的介绍，就是专门用来存放图片，同时允许你把图片对外连接的网上空间。 搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。 特此记录一下，顺便测试一下搭建后的效果。  关于图床的选择 盘点国内免费好用的图床 选择了七牛  搭建流程 注册七牛账号，登陆，进入主界面后点击对象存储，创建空间">
+  <meta name="description" content="关于图床 引用百度的介绍，就是专门用来存放图片，同时允许你把图片对外连接的网上空间。 搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。 特此记录一下，顺便测试一下搭建后的效果。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建图床服务器">
 <meta property="og:url" content="http://example.com/2020/06/14/%E7%AC%94%E8%AE%B0/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="刷新">
-<meta property="og:description" content="关于图床 引用百度的介绍，就是专门用来存放图片，同时允许你把图片对外连接的网上空间。 搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。 特此记录一下，顺便测试一下搭建后的效果。  关于图床的选择 盘点国内免费好用的图床 选择了七牛  搭建流程 注册七牛账号，登陆，进入主界面后点击对象存储，创建空间">
+<meta property="og:description" content="关于图床 引用百度的介绍，就是专门用来存放图片，同时允许你把图片对外连接的网上空间。 搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。 特此记录一下，顺便测试一下搭建后的效果。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://img.shuaxinjs.cn//imgserver.png">
 <meta property="og:image" content="http://img.shuaxinjs.cn//imgserver2.png">
 <meta property="og:image" content="http://img.shuaxinjs.cn//imgserver3.png">
 <meta property="article:published_time" content="2020-06-14T14:06:04.000Z">
-<meta property="article:modified_time" content="2020-10-14T02:24:07.267Z">
+<meta property="article:modified_time" content="2020-10-14T06:45:18.390Z">
 <meta property="article:author" content="刷新">
 <meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
@@ -205,7 +205,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,6 +233,8 @@
 <li>搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。</li>
 <li>特此记录一下，顺便测试一下搭建后的效果。</li>
 </ul>
+<a id="more"></a>
+
 <h1 id="关于图床的选择"><a href="#关于图床的选择" class="headerlink" title="关于图床的选择"></a>关于图床的选择</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35270383">盘点国内免费好用的图床</a></li>
 <li>选择了七牛</li>

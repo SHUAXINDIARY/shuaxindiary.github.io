@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
@@ -198,7 +198,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,7 +283,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -368,7 +368,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -456,7 +456,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -480,42 +480,14 @@
 
       
           <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>昨天（2020-9-19）看2019vueconf的时候，尤大在分享vue3的特点的时候，提到了vue和react在底层针对模板编译和jsx优化的一些不同的时候提到了一个词，时间分片；然后就做了一点功课，写个笔记。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><blockquote>
-<p><strong>解决了什么？</strong></p>
-<ul>
-<li>js会阻塞ui的渲染，所以当一个操作耗时非常长时，就会造成页面内容显示滞后，带来很不好的用户体验</li>
-<li>通过将操作划分为一个个小的阶段，来执行</li>
-</ul>
-</blockquote>
-<blockquote>
-<p><strong>怎么做的？</strong></p>
-<ul>
-<li>利用异步的一些api</li>
-<li>settimeout</li>
-<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback">requestIdleCallback</a></li>
-<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame">requestAnimationFrame</a></li>
-</ul>
-</blockquote>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>实例描述：通过js插入10000个li到ul中</p>
-<h3 id="使用最普通的循环插入"><a href="#使用最普通的循环插入" class="headerlink" title="使用最普通的循环插入"></a>使用最普通的循环插入</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="meta">    &#x27;use strict&#x27;</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> list = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> total = <span class="number">100000</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; total; ++i) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> item = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        item.innerText = <span class="string">`我是<span class="subst">$&#123;i&#125;</span>`</span></span></span><br><span class="line">        list.appendChild(item)</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://img.shuaxinjs.cn//shijianfenpian-3.png"></p>
-<h3 id="使用定时器"><a href="#使用定时器" class="headerlink" title="使用定时器"></a>使用定时器</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="meta">    &#x27;use strict&#x27;</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> list = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> total = <span class="number">100000</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> render = <span class="function">(<span class="params">start, end</span>) =&gt;</span> &#123;</span></span><br><span class="line">        if (end &lt; total) &#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">let</span> frag = <span class="built_in">document</span>.createDocumentFragment()</span></span><br><span class="line"><span class="javascript">                <span class="keyword">for</span> (<span class="keyword">let</span> i = start; i &lt; end; ++i) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">let</span> item = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span></span><br><span class="line"><span class="javascript">                    item.innerText = <span class="string">`我是<span class="subst">$&#123;i&#125;</span>`</span></span></span><br><span class="line">                    frag.appendChild(item)</span><br><span class="line">                &#125;</span><br><span class="line">                list.appendChild(frag)</span><br><span class="line">                render(end + 1, end + 20)</span><br><span class="line">            &#125;, 10)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render(0, 20)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://img.shuaxinjs.cn//shijianfenpian-1.png"></p>
-<h2 id="使用requestAnimationFrame"><a href="#使用requestAnimationFrame" class="headerlink" title="使用requestAnimationFrame"></a>使用requestAnimationFrame</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="meta">    &#x27;use strict&#x27;</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> list = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> total = <span class="number">100000</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> size = <span class="number">20</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> index = <span class="number">0</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> render = <span class="function">(<span class="params">total, index</span>) =&gt;</span> &#123;</span></span><br><span class="line">        if (total &lt;= 0) &#123;</span><br><span class="line"><span class="javascript">            <span class="keyword">return</span></span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> curPage = <span class="built_in">Math</span>.min(total, size)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.requestAnimationFrame(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> fragment = <span class="built_in">document</span>.createDocumentFragment()</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; curPage; ++i) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">let</span> item = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span></span><br><span class="line"><span class="javascript">                item.innerText = <span class="string">`我是<span class="subst">$&#123;index + i&#125;</span>`</span></span></span><br><span class="line">                fragment.appendChild(item)</span><br><span class="line">            &#125;</span><br><span class="line">            list.appendChild(fragment)</span><br><span class="line">            render(total - curPage, index + curPage)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    render(total, index)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://img.shuaxinjs.cn//shijianfenpian-2.png"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
-<li>时间分片就是讲耗时的长任务，划分为一个个耗时很短的小任务；将处理结果一点点返回给用户</li>
-<li>主要的手段就是利用js的event loop机制，通过异步的一些操作来处理切分任务</li>
-</ul>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><blockquote>
-<p><strong>关于requestAnimationFrame和setInterval处理动画的区别</strong></p>
-<ul>
-<li>帧率和循环的事件交由浏览器控制，可以更好的控制的帧率</li>
-<li>性能流畅度更优秀</li>
-<li>新api，兼容性会有些问题</li>
-</ul>
-</blockquote>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/19/%E7%AC%94%E8%AE%B0/%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -565,7 +537,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -589,449 +561,9 @@
 
       
           <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>关于申请这个证书的原因是因为学校说申请后就可以不用写毕业论文和参加毕业答辩，然后恰巧当时答辩写了一套前后端都有的带管理系统的webapp；索性就查了查相关信息，就去申请了，刚才（2020-8-31：10:30）看到已经制证发证完成只需要等待快递送到就行；所以来记录一下相关流程。</p>
-<h3 id="个人情况概述"><a href="#个人情况概述" class="headerlink" title="个人情况概述"></a>个人情况概述</h3><ul>
-<li><p>首先贴一下我当时申请时候参考的教程链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/72729628">链接</a></p>
-</li>
-<li><p>因为帖子内容很久远了，后来他们对系统进行了升级，所以只记录一些和帖子不一样的地方</p>
-</li>
-<li><p>关于软件著作权，指的是对申请的软件的内容（具体代码等）保护；需要区分和专利的区别，专利是对软件构思（可以理解成功能）的保护</p>
-</li>
-<li><p>申请时间是从7-10申请到8-27状态显示制证发证</p>
-</li>
-<li><p><img src="http://img.shuaxinjs.cn//zhuzuoquan.png"></p>
-</li>
-</ul>
-<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p><strong>改版后选择板块不太一样，其他流程需要的材料都是一致的</strong></p>
-<ul>
-<li>去官网注册账号：<a target="_blank" rel="noopener" href="https://register.ccopyright.com.cn/registration.html#/registerSoft">官网</a></li>
-<li>登陆后，如果没在软件登记页，点击头部的软件登记按钮，如下图（实名认证完成后也是回到该页）</li>
-<li><img src="http://img.shuaxinjs.cn//zhuzuoquan2.png"></li>
-<li>到该页后选择下图选项，第一次登陆，会提示你去实名认证，选择个人就好；审核需要3个工作日。</li>
-<li><img src="http://img.shuaxinjs.cn//zhuzuoquan3.png"></li>
-<li>剩下的就和链接的差不多；按着操作即可</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/08/28/%E8%B8%A9%E5%9D%91/antd%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95%E8%A1%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/28/%E8%B8%A9%E5%9D%91/antd%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95%E8%A1%8C/" class="post-title-link" itemprop="url">antd表格组件扩展行</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-28 22:26:21" itemprop="dateCreated datePublished" datetime="2020-08-28T22:26:21+08:00">2020-08-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><ul>
-<li>最近入职的团队主要技术栈是react，组件库是antd；因为之前写react少，antd也没用过，所以导致上手第一时间还有蛮多不习惯的；然后就有些小坑，记录一下。</li>
-</ul>
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><ul>
-<li>需求是表格展示数据需要将一些数据隐藏起来，然后通过点击指定的按钮展开/收起一个面板，来显示这些数据</li>
-<li>官方有提供这个功能，但是没有提供接口让你可以指定需要展开的按钮，然后查了一圈也没查到，就好好看了看文档，研究了下可以通过几个api来实现这个需求</li>
-</ul>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
-<p>需要的api</p>
-</blockquote>
-<ul>
-<li>expandable：展开功能配置</li>
-<li>expandIcon：定义展开图标</li>
-<li>expandedRowKeys：控制展开的行</li>
-</ul>
-<blockquote>
-<p>思路说明</p>
-</blockquote>
-<ul>
-<li>当table组件配置了expandable后，表格会自动在第一列添加个按钮（是个图标），然后通过这个按钮来控制面板的展开收起</li>
-<li>1.通过定义展开图标来隐藏图标，这样就没有点击的目标了，等于取消了该开关</li>
-<li>2.设置expandedRowKeys，通过表格每一行的key来控制打开或隐藏那一行面板</li>
-<li>3.expandedRowKeys是一个数组，元素为字符串，就是每一行的key，当这个数组有某一行的key，这一行的面板就会被打开，没有反之；利用该特性，在我们需要指定的按钮上绑定一个事件，来动态的添加对应行的key到该数组即可</li>
-</ul>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState &#125; from &#39;react&#39;</span><br><span class="line">import &#123; Table, Button &#125; from &#39;antd&#39;</span><br><span class="line">import &#39;.&#x2F;main.css&#39;</span><br><span class="line"></span><br><span class="line">const Main &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    const [openKeys, setOpenKeys] &#x3D; useState([])</span><br><span class="line">    const handleOpenRow &#x3D; (id) &#x3D;&gt; &#123;</span><br><span class="line">        let index &#x3D; openKeys.indexOf(id)</span><br><span class="line">        if (index &#x3D;&#x3D;&#x3D; -1) &#123;</span><br><span class="line">            setOpenKeys(() &#x3D;&gt; &#123;</span><br><span class="line">                return [...openKeys, id]</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            const arr &#x3D; openKeys</span><br><span class="line">            arr.splice(index, 1)</span><br><span class="line">            setOpenKeys(() &#x3D;&gt; &#123;</span><br><span class="line">                return [...arr]</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    const columns &#x3D; [</span><br><span class="line">        &#123;</span><br><span class="line">            title: &#39;ID&#39;,</span><br><span class="line">            align: &#39;center&#39;,</span><br><span class="line">            dataIndex: &#39;key&#39;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: &#39;姓名&#39;,</span><br><span class="line">            align: &#39;center&#39;,</span><br><span class="line">            dataIndex: &#39;name&#39;,</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            title: &quot;操作&quot;,</span><br><span class="line">            align: &#39;center&#39;,</span><br><span class="line">            render: (row) &#x3D;&gt; &#123;</span><br><span class="line">                return (</span><br><span class="line">                    &lt;Button type&#x3D;&quot;link&quot; onClick&#x3D;&#123;() &#x3D;&gt; handleOpenRow(row.key)&#125;&gt;</span><br><span class="line">                        &#123;</span><br><span class="line">                            openKeys.indexOf(row.key) &#x3D;&#x3D;&#x3D; -1 ? &#39;展开&#39; : &#39;收起&#39;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &lt;&#x2F;Button&gt;</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">    const tableData &#x3D; [&#123;</span><br><span class="line">        key: &#39;1&#39;,</span><br><span class="line">        name: &quot;one&quot;,</span><br><span class="line">        sex: &quot;man&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        key: &#39;2&#39;,</span><br><span class="line">        name: &#39;two&#39;,</span><br><span class="line">        sex: &quot;man&quot;</span><br><span class="line">    &#125;]</span><br><span class="line">    return (</span><br><span class="line">         &lt;div className&#x3D;&quot;container&quot;&gt;</span><br><span class="line">            &lt;Table columns&#x3D;&#123;columns&#125; dataSource&#x3D;&#123;tableData&#125;</span><br><span class="line">                &#x2F;&#x2F; 开启扩展行</span><br><span class="line">                expandable&#x3D;&#123;&#123;</span><br><span class="line">                    &#x2F;&#x2F; 定义扩展行内容</span><br><span class="line">                    expandedRowRender: record &#x3D;&gt; &#123;</span><br><span class="line">                        return &lt;p&gt;sex：&#123;record.sex&#125;&lt;&#x2F;p&gt;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#x2F;&#x2F; 自定义按钮图标</span><br><span class="line">                    expandIcon: _ &#x3D;&gt; &#39;&#39;,</span><br><span class="line">                    &#x2F;&#x2F; 定义哪些行开启</span><br><span class="line">                    expandedRowKeys: openKeys</span><br><span class="line">                &#125;&#125;</span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">export default Main</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/06/14/%E7%AC%94%E8%AE%B0/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/14/%E7%AC%94%E8%AE%B0/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">搭建图床服务器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-14 22:06:04" itemprop="dateCreated datePublished" datetime="2020-06-14T22:06:04+08:00">2020-06-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="关于图床"><a href="#关于图床" class="headerlink" title="关于图床"></a>关于图床</h1><ul>
-<li>引用百度的介绍，就是专门用来存放图片，同时允许你把图片对外连接的网上空间。</li>
-<li>搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。</li>
-<li>特此记录一下，顺便测试一下搭建后的效果。</li>
-</ul>
-<h1 id="关于图床的选择"><a href="#关于图床的选择" class="headerlink" title="关于图床的选择"></a>关于图床的选择</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35270383">盘点国内免费好用的图床</a></li>
-<li>选择了七牛</li>
-</ul>
-<h1 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h1><ul>
-<li>注册七牛账号，登陆，进入主界面后点击对象存储，创建空间</li>
-<li>点击创建的空间设置，进入域名管理界面，绑定自己的已经备案的域名（这里创建后会给一个测试域名，只能测试用，30天后会自动收回），下图为设置界面，输入自己域名，然后根据需要做对应设置<img src="http://img.shuaxinjs.cn//imgserver.png"></li>
-<li>设置完成后，去自己域名的对应注册商，添加CNAME记录 <a target="_blank" rel="noopener" href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name">官方介绍</a>，官方说的很清楚</li>
-<li>至此搭建完成</li>
-</ul>
-<h1 id="本地上传"><a href="#本地上传" class="headerlink" title="本地上传"></a>本地上传</h1><ul>
-<li>使用<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a></li>
-<li>下载完毕后，进入对应的图床服务器设置界面，进行配置，<img src="http://img.shuaxinjs.cn//imgserver2.png"></li>
-<li>配置概述：前两个在秘钥管理中查看，存储空间名为对应图床的空间名，访问网址为上文添加的域名，存储区域这里我的不是文字选项，需要自己输入编号，这里七牛对应的几个地区编号为[{z0:华东},{z1:华北},{z2:华南},{z3:北美}]，后面2个可有可无</li>
-<li>至此配置完成，然后就可以在上传去上传测试了，如下图 <img src="http://img.shuaxinjs.cn//imgserver3.png"></li>
-<li>上传完成后，会以下面链接格式的选项的格式自动复制链接</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/" class="post-title-link" itemprop="url">git笔记2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-29 16:18:17" itemprop="dateCreated datePublished" datetime="2020-05-29T16:18:17+08:00">2020-05-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在之前使用git管理代码的时候，会经常出现commit后，才发现有的地方有注释没加或者注释错别字等等问题，导致需要重新修改在add在commit，然后就会出现log中很多很没意义的commit，记录一下当出现这种情况，怎么消除之前的commit，让log看起来更清晰明了</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/21/%E6%9D%82%E6%96%87/%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/21/%E6%9D%82%E6%96%87/%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">近期总结</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-21 22:02:07" itemprop="dateCreated datePublished" datetime="2020-05-21T22:02:07+08:00">2020-05-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今年真的很不平凡，因为疫情，开学推迟、假期延长，在家待的时间变的非常长（19-12-26到家，现在2020-5-21），但是虽然这样说，这小半年的在家时间，也还是经历了很多事情，家里的一些事、春招、自己的一些反思等等，所以想着就借这次机会开始慢慢的学习写写阶段性的总结</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/21/%E6%9D%82%E6%96%87/%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/14/%E8%B8%A9%E5%9D%91/nginx%E4%BB%A3%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/%E8%B8%A9%E5%9D%91/nginx%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">nginx代理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-14 23:01:18" itemprop="dateCreated datePublished" datetime="2020-05-14T23:01:18+08:00">2020-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>今天（2020-5-14）试着用nginx做了一下后端接口的代理，然后了解一下正反向代理，记录一下学习笔记</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/14/%E8%B8%A9%E5%9D%91/nginx%E4%BB%A3%E7%90%86/#more" rel="contents">
+              <a class="btn" href="/2020/08/31/%E6%9D%82%E6%96%87/%E8%BD%AF%E4%BB%B6%E8%91%97%E4%BD%9C%E6%9D%83%E7%94%B3%E8%AF%B7/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1054,7 +586,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

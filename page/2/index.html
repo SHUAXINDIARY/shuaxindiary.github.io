@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/13/%E6%9D%82%E6%96%87/%E5%A1%9E%E5%B0%94%E8%BE%BE%E9%80%9A%E5%85%B3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/08/28/%E8%B8%A9%E5%9D%91/antd%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95%E8%A1%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -181,7 +181,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/13/%E6%9D%82%E6%96%87/%E5%A1%9E%E5%B0%94%E8%BE%BE%E9%80%9A%E5%85%B3/" class="post-title-link" itemprop="url">塞尔达通关</a>
+            <a href="/2020/08/28/%E8%B8%A9%E5%9D%91/antd%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95%E8%A1%8C/" class="post-title-link" itemprop="url">antd表格组件扩展行</a>
         </h2>
 
         <div class="post-meta">
@@ -191,122 +191,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-05-13 17:39:40" itemprop="dateCreated datePublished" datetime="2020-05-13T17:39:40+08:00">2020-05-13</time>
+              <time title="创建时间：2020-08-28 22:26:21" itemprop="dateCreated datePublished" datetime="2020-08-28T22:26:21+08:00">2020-08-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>突如其来的疫情，导致过了一个及其长的寒假，长到现在还在假期（2020-5-13）；在家除了继续自己的充电计划和偶尔上上学校的网课外，谈不上清闲，但也觉得很无聊，所以冲动的跟风了一波，买了今年的第一件理财产品—switch<br><img src="/img/jottings/switch.png" alt="switch"></p>
-<h1 id="关于游戏机和游戏"><a href="#关于游戏机和游戏" class="headerlink" title="关于游戏机和游戏"></a>关于游戏机和游戏</h1><ul>
-<li><p>上一次有游戏机，印象里还是小学五六年级，买的那种国产十来块钱的黑白像素的“掌机”；再往前就是幼儿园到刚升小学那段时间的小霸王</p>
-</li>
-<li><p>因为家里一直以督促学习为由，在升入初中后，把我的玩具漫画等一切他们觉得会影响我学习的东西都处理掉了，就连电脑也是一会没有鼠标，一会没有键盘的存在；不过现在想想也是很庆幸，最容易沉迷游戏的年龄，因为家里的限制，不仅没有沉迷其中，还为了解决无聊，养成了看书的习惯</p>
-</li>
-</ul>
-<h1 id="关于选择switch"><a href="#关于选择switch" class="headerlink" title="关于选择switch"></a>关于选择switch</h1><ul>
-<li><p>虽然很长时间与游戏没有什么联系，但还是很想在休息的时候多一种休闲的方式；游戏肯定是一个很好的选择，但是对于网游的娱乐模式实在提不起兴趣，社交属性大于娱乐属性，所以一直三分钟热度；pc买游戏呢，因为常年在学校，笔记本性能堪忧，也一直作罢</p>
-</li>
-<li><p>难得这个假期时间过长，所以想着就入手一台游戏主机就好；最开始瞄准了大法的4公主，加上某东的优惠，很良心；就要剁手的时候，动森火了起来，switch再次进入了眼里；对任天堂的好感全部来自小时候在小霸王上玩的马里奥，于是查了一波switch游戏阵容，然后又正好因为动森很火，很喜欢这种养生游戏，于是就有了现在的故事</p>
-</li>
-</ul>
-<h1 id="入手的游戏"><a href="#入手的游戏" class="headerlink" title="入手的游戏"></a>入手的游戏</h1><p>随机器一起买了誉为神作的《塞尔达旷野之息》卡带，和《动物森友会》电子版<br><img src="/img/jottings/games.png" alt="游戏"></p>
-<h1 id="塞尔达"><a href="#塞尔达" class="headerlink" title="塞尔达"></a>塞尔达</h1><p>最开始玩的那几天，因为第一次接触开放世界游戏，会有点蒙逼，get不到玩点；于是跟着攻略玩了一天，大概清楚了游戏基本套路后，于是开始了自己的海拉鲁之旅</p>
-<blockquote>
-<p>优点</p>
-</blockquote>
-<ul>
-<li>足够大的地图和各种丰富的道具，都带来了不一样的体验，四处乱跑解锁新地图，遇到新地方的那种感觉真的很有代入感</li>
-<li>外加相对比较丰富的装备系统，不仅是装备效果不同，还有不同的穿戴效果，还可以玩出奇迹暖暖的感觉？！而且很喜欢的一点，装备没有升级系统，只存在攻击等级和耐久度的限制以及属性装备的属性效果；这样就一部分摆脱了需要去肝装备等级的乏味过程；耐久度的存在，又避免了一把武器走天下的问题，会督促玩家去不停的探索和发现新装备，这个过程就很有乐趣</li>
-<li>有意思的打斗过程，因为装备和技能的随时切换，于是打斗就可以玩出很多sao操作，带了很不一样的体验</li>
-<li>我最喜欢的2套装备<br><img src="/img/jottings/outfit1.JPG" alt="1"><br><img src="/img/jottings/outfit2.JPG" alt="2"></li>
-</ul>
-<blockquote>
-<p>缺点</p>
-</blockquote>
-<ul>
-<li>也不能算是缺点，只能说是为了后期DLC和续作让路，所以剧情比较简单；但是也能理解，因为游戏的开放性很大，很多地方都需要一点点的去探索、摸索，所以剧情也不是这个游戏的主要卖点，所以这个因人而异；</li>
-</ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
-<li>不愧被称为神作，吹爆</li>
-<li>另外最近找到了小时候的小霸王游戏机，只可惜手柄坏了，卡带，主机还是好的，上一张对比图</li>
-<li>两个时代<br><img src="/img/jottings/two.JPG" alt="2个时代"><br><img src="/img/jottings/cards.JPG" alt="氪金条"></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/12/%E8%B8%A9%E5%9D%91/%E5%88%9D%E6%8E%A2Travis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/12/%E8%B8%A9%E5%9D%91/%E5%88%9D%E6%8E%A2Travis/" class="post-title-link" itemprop="url">初探Travis</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-12 16:41:41" itemprop="dateCreated datePublished" datetime="2020-05-12T16:41:41+08:00">2020-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -329,28 +221,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="初探cicd"><a href="#初探cicd" class="headerlink" title="初探cicd"></a>初探cicd</h1><blockquote>
-<p>什么是cicd？</p>
-</blockquote>
-<ul>
-<li>cicd是持续集成和持续交付的缩写，全称为continuous integration &amp; continuous delivery</li>
+          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><ul>
+<li>最近入职的团队主要技术栈是react，组件库是antd；因为之前写react少，antd也没用过，所以导致上手第一时间还有蛮多不习惯的；然后就有些小坑，记录一下。</li>
 </ul>
-<blockquote>
-<p>cicd怎么做</p>
-</blockquote>
-<ul>
-<li>通过一些工具，来进行</li>
-</ul>
-<blockquote>
-<p>这些工具做了哪些事</p>
-</blockquote>
-<ul>
-<li>将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手</li>
-<li>举个vue项目的例子：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 本地：对项目打包，（正规点还要跑一边测试）这些都没问题后，然后推送到远程仓库</span></span><br><span class="line">npm run build -&gt; git push </span><br><span class="line"><span class="meta">#</span><span class="bash"> 服务器：进入对应的目录，然后拉去仓库的代码</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></li>
-<li>如果做好cicd的流程后，只需要git push代码就好，剩下的都会在集成工具里去根据配置文件，去自动执行，这个过程哪一步出现问题都会有对应的log文件
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/12/%E8%B8%A9%E5%9D%91/%E5%88%9D%E6%8E%A2Travis/#more" rel="contents">
+              <a class="btn" href="/2020/08/28/%E8%B8%A9%E5%9D%91/antd%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95%E8%A1%8C/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -374,7 +250,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/09/%E8%B8%A9%E5%9D%91/%E5%88%9D%E6%8E%A2nginx/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/06/14/%E7%AC%94%E8%AE%B0/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -388,7 +264,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/09/%E8%B8%A9%E5%9D%91/%E5%88%9D%E6%8E%A2nginx/" class="post-title-link" itemprop="url">初探nginx</a>
+            <a href="/2020/06/14/%E7%AC%94%E8%AE%B0/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">搭建图床服务器</a>
         </h2>
 
         <div class="post-meta">
@@ -398,14 +274,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-05-09 19:24:33" itemprop="dateCreated datePublished" datetime="2020-05-09T19:24:33+08:00">2020-05-09</time>
+              <time title="创建时间：2020-06-14 22:06:04" itemprop="dateCreated datePublished" datetime="2020-06-14T22:06:04+08:00">2020-06-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -428,245 +304,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客</p>
-<h1 id="相关知识笔记"><a href="#相关知识笔记" class="headerlink" title="相关知识笔记"></a>相关知识笔记</h1><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><blockquote>
-<p>什么是nginx</p>
-</blockquote>
-<ul>
-<li>一个支持HTTP和反向代理的开源的web服务器</li>
-</ul>
-<blockquote>
-<p>web服务器</p>
-</blockquote>
-<ul>
-<li>基于HTTP协议，处理客户端请求，为客户端提供可供浏览内容的服务器</li>
-<li>举例：Nginx</li>
-</ul>
-<blockquote>
-<p>应用服务器</p>
-</blockquote>
-<ul>
-<li>用来运行那些可以访问、操作本机资源的应用程序的服务器</li>
-<li>举例：Tomact</li>
-</ul>
-<blockquote>
-<p>两者区别</p>
-</blockquote>
-<ul>
-<li>不同点：Web服务器只能处理静态资源，接受请求响应资源，结束；应用服务器也可以做请求处理，响应静态资源，但同时还可以处理动态内容，比如根据模板引擎生成页面等</li>
-<li>相同点：2者都可以处理请求</li>
-<li>以前开发中，会直接使用应用服务器处理用户请求，然后使用模板引擎动态生成页面给客户端；现在因为前后端分离的原因，以及为了减轻应用服务器压力的前提下；静态资源交给nginx这类web服务器来做，应用服务器只负责处理逻辑，提供数据</li>
-</ul>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
-<p>概念</p>
-</blockquote>
-<ul>
-<li>macOS和Windows之外的第三大操作系统，主要用于服务器等，而且开源</li>
-</ul>
-<blockquote>
-<p>版本</p>
-</blockquote>
-<ul>
-<li>Ubuntu、centos、debian等</li>
-</ul>
-<blockquote>
-<p>包安装工具</p>
-</blockquote>
-<ul>
-<li>因为使用的Linux不同，所使用的的包管理工具也不同</li>
-<li>Debian/Ubuntu：apt、apt-cache、apt-get、dpkg</li>
-<li>centos：yum</li>
-<li>备注1：apt是包管理平台，get负责包的安装更新删除管理；cache用于搜索</li>
-<li>备注2：dpkg是Debian的包管理工具，Ubuntu基于Debian，所以也可以使用；但是两个的区别是dpkg安装会绕过并覆盖apt安装的包，切不关心模块依赖问题；不关心Ubuntu软件库软件；简单理解Ubuntu专用apt，Debian专用dpkg</li>
-</ul>
-<blockquote>
-<p>apt常用命令</p>
-</blockquote>
-<ul>
-<li>安装包：apt-get install &lt;包名&gt;</li>
-<li>移除包：apt-get remove &lt;包名&gt;</li>
-<li>更新包列表：apt-get update </li>
-<li>更新系统、已安装包：apt-get upgrade</li>
-<li>列出已安装包：dpkg -l</li>
-<li>搜索某包：apt-cache search &lt;包名&gt;</li>
-<li>查看包信息：apt-cache show &lt;包名&gt;</li>
-</ul>
-<blockquote>
-<p>其他命令</p>
-</blockquote>
-<ul>
-<li>wget：用来从指定的URL下载文件；类似迅雷</li>
-<li></li>
-</ul>
-<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><ul>
-<li>进入/etc/nginx/conf.d/目录，该目录存放自己的配置文件，nginx的主配置文件(/etc/nginx/nginx.conf)会自动加载该目录的配置文件</li>
-<li>通过以下配置文件，就可以部署一个简单的静态项目<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    # 监听端口号，主配置文件默认监听了80</span><br><span class="line">    listen 2333;</span><br><span class="line">    # 制定ip地址或者域名</span><br><span class="line">    server_name shuaxinjs.cn;</span><br><span class="line">    # 配置对哪些url做出相应</span><br><span class="line">    location / &#123;</span><br><span class="line">        # 配置响应文件的目录</span><br><span class="line">        root /data;</span><br><span class="line">        # 配置目录下的响应文件</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>说明</p>
-</blockquote>
-</li>
-<li>当在浏览器输入的url匹配到location的url后，就会去内部定义的root或alias目录找要返回的文件</li>
-<li>如果没有匹配到对应的规则，就会去默认的目录找404.html并响应；这是nginx自带的，一般在/usr/share/nginx/html</li>
-<li>可以在/var/log/nginx下查看access和error日志文件，来查看访问状态</li>
-<li>root可以写在location也可以写在server中，如果内部有定义root，优先使用root的路径（精确匹配例外）</li>
-</ul>
-<blockquote>
-<p>alias和root的区别</p>
-</blockquote>
-<ul>
-<li>假设此时域名为 <a href="shuaxinjs.cn">shuaxinjs.cn</a><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> root</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这时浏览器输入www.shuxinjs.cn/dist后，nginx会去/data/dist/目录寻找文件</span></span><br><span class="line"></span><br><span class="line">location /dist&#123;</span><br><span class="line">    root /data/;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">alias</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这时浏览器输入www.shuxinjs.cn/dist2后，nginx会去/home/目录寻找文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">alias</span>指定目录时，结尾一定要加 /;root可有可无</span></span><br><span class="line">location /dist2&#123;</span><br><span class="line">    alias /home/;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1></li>
-<li>使用nginx命令管理  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload  # 向主进程发送信号，重新加载配置文件，热重启</span><br><span class="line">nginx -s reopen	 # 重启 Nginx</span><br><span class="line">nginx -s stop    # 快速关闭</span><br><span class="line">nginx -s quit    # 等待工作进程处理完成后关闭</span><br><span class="line">nginx -T         # 查看当前 Nginx 最终的配置</span><br><span class="line">nginx -t -c &lt;配置路径&gt;    # 检查配置是否有问题，如果已经在配置目录，则不需要-c</span><br></pre></td></tr></table></figure></li>
-<li>使用systemctl管理，这是Linux的系统应用管理工具  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx    # 启动 Nginx</span><br><span class="line">systemctl stop nginx     # 停止 Nginx</span><br><span class="line">systemctl restart nginx  # 重启 Nginx</span><br><span class="line">systemctl reload nginx   # 重新加载 Nginx，用于修改配置后</span><br><span class="line">systemctl enable nginx   # 设置开机启动 Nginx</span><br><span class="line">systemctl disable nginx  # 关闭开机启动 Nginx</span><br><span class="line">systemctl status nginx   # 查看 Nginx 运行状态</span><br></pre></td></tr></table></figure>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1></li>
-</ul>
-<h3 id="location配置规则"><a href="#location配置规则" class="headerlink" title="location配置规则"></a>location配置规则</h3><blockquote>
-<p>基本语法</p>
-</blockquote>
-<ul>
-<li>这里不需要像js一样需要用//把规则包裹起来，直接写在启用正则的符号后即可  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location [=|~|~*|^~]/uri/&#123;...&#125;&#123;</span><br><span class="line">    # 具体配置</span><br><span class="line">    # root/alias dist #响应文件目录</span><br><span class="line">    # index file  #响应文件</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="单独说明"><a href="#单独说明" class="headerlink" title="单独说明"></a>单独说明</h3><blockquote>
-<p>=</p>
-</blockquote>
-<ul>
-<li>精确匹配</li>
-<li>使用=的时候一定要在server中指定root，会无视location内部的路径</li>
-<li>下例：当访问shuaxinjs.cn/的时候，nginx就会去/home目录寻找index.html；但是当仅在location指定的时候就会去/usr/nginx/share/html寻找，当然那个目录不存在我们的文件，就会返回404  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">root /home;</span><br><span class="line">location = /login/ &#123;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>^~</p>
-</blockquote>
-<ul>
-<li>表示url以某个常规字符串开始的url，不区分大小写</li>
-<li>下例：代理后端请求，凡是携带/apis/的url，都会进行去请求转发；即：shuaxinjs.cn/apis/getData会变成localhost:3000/getData</li>
-<li>这里需要注意apis后面一定要跟/，不然apis会添加到url中  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ^~ /apis/ &#123;</span><br><span class="line">    proxy_pass http://localhost:3000/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>~</p>
-</blockquote>
-<ul>
-<li><strong><em>区分大小写</em></strong> 的正则匹配</li>
-<li>下例：匹配所有的.(css|js|png|jpg|jepg)的资源文件;</li>
-<li>正则说明：.为默认匹配除换行符以外的所有字符，*：默认对前一个规则执行0-n次；\对.号做转意；（css|js|png|jpg|jepg）意思是.后的字符必须是这几种任意一种  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    root /home/static/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>~*</p>
-</blockquote>
-</li>
-<li><strong><em>不区分大小写</em></strong> 的正则匹配</li>
-</ul>
-<blockquote>
-<p>!~ , !~*</p>
-</blockquote>
-<ul>
-<li>区分大小写不匹配；不区分大小写不匹配</li>
-</ul>
-<blockquote>
-<p>/</p>
-</blockquote>
-<ul>
-<li>通用匹配，任何请求都会匹配</li>
-</ul>
-<h3 id="匹配顺序"><a href="#匹配顺序" class="headerlink" title="匹配顺序"></a>匹配顺序</h3><p>多个location配置的情况下匹配顺序为：<br>首先匹配= ；<br>其次是完整路径；<br>然后匹配^~；<br>再其次是按文件中顺序的正则匹配；<br>最后是交给 / 通用匹配；<br>当有匹配成功时候，停止匹配，按当前匹配规则处理请求。</p>
-<h1 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h1><ul>
-<li><p>匹配静态资源</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    root /home/static/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>代理后端请求，解决跨域</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> location ^~ /api/ &#123;</span><br><span class="line">    proxy_pass 后端地址;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断请求客户端为移动端还是pc，返回不同的页面</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name 域名/ip;</span><br><span class="line">    location / &#123;</span><br><span class="line">    root pc目录；</span><br><span class="line">    root /data/pc;</span><br><span class="line">    if ( $http_user_agent ~* &#x27;(Android|webOS|iPhone|iPod|BlackBerry)&#x27; ) &#123;</span><br><span class="line">            root 移动端目录;</span><br><span class="line">    &#125;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
-<h1 id="可用全局变量"><a href="#可用全局变量" class="headerlink" title="可用全局变量"></a>可用全局变量</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">host ： 请求主机头字段，否则为服务器名称。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">http_user_agent ： 客户端agent信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash">http_cookie ： 客户端cookie信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_method ： 客户端请求的动作，通常为GET或POST。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">content_length ： 请求头中的Content-length字段。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">content_type ： 请求头中的Content-Type字段。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">uri ： 不包含请求参数的当前URI，<span class="variable">$uri</span>不包含主机名，如”/foo/bar.html”。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">document_uri ： 与<span class="variable">$uri</span>相同。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">query_string </span></span><br><span class="line"><span class="meta">$</span><span class="bash">args ： 这个变量等于请求行中的参数，同<span class="variable">$query_string</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash">document_root ： 当前请求在root指令中指定的值。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">limit_rate ： 这个变量可以限制连接速率。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_body_file </span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_filename ： 当前请求的文件路径，由root或<span class="built_in">alias</span>指令与URI请求生成。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">remote_addr ： 客户端的IP地址。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">remote_port ： 客户端的端口。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">remote_user ： 已经经过Auth Basic Module验证的用户名。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">scheme ： HTTP方法（如http，https）。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_name ： 服务器名称。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_port ： 请求到达服务器的端口号。</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/" class="post-title-link" itemprop="url">vue原理学习1-响应式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-02 11:01:38" itemprop="dateCreated datePublished" datetime="2020-05-02T11:01:38+08:00">2020-05-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><ul>
-<li>前几天看到vue3.0的beta版本出来了，觉得在正式版出来之前，还是得把2.x版本的原理过一遍，让脑子有个印象。</li>
-<li>大概了分了这么几个部分：响应式系统、观察者模式、模板编译、virtual dom、路由、vuex、vue插件开发</li>
+          <h1 id="关于图床"><a href="#关于图床" class="headerlink" title="关于图床"></a>关于图床</h1><ul>
+<li>引用百度的介绍，就是专门用来存放图片，同时允许你把图片对外连接的网上空间。</li>
+<li>搭建的原因就是这些第三方提供图床服务的厂商，一般都可以做图片加速等，而且还提供一定存储空间，可以减轻自己服务的存储空间等，还有个目的，相当做个备份。</li>
+<li>特此记录一下，顺便测试一下搭建后的效果。</li>
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/#more" rel="contents">
+              <a class="btn" href="/2020/06/14/%E7%AC%94%E8%AE%B0/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -690,7 +335,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/29/%E6%9D%82%E6%96%87/%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -704,7 +349,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/29/%E6%9D%82%E6%96%87/%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90/" class="post-title-link" itemprop="url">资源推荐</a>
+            <a href="/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/" class="post-title-link" itemprop="url">git笔记2</a>
         </h2>
 
         <div class="post-meta">
@@ -714,14 +359,95 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-29 16:52:09" itemprop="dateCreated datePublished" datetime="2020-04-29T16:52:09+08:00">2020-04-29</time>
+              <time title="创建时间：2020-05-29 16:18:17" itemprop="dateCreated datePublished" datetime="2020-05-29T16:18:17+08:00">2020-05-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在之前使用git管理代码的时候，会经常出现commit后，才发现有的地方有注释没加或者注释错别字等等问题，导致需要重新修改在add在commit，然后就会出现log中很多很没意义的commit，记录一下当出现这种情况，怎么消除之前的commit，让log看起来更清晰明了</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/29/%E8%B8%A9%E5%9D%91/git%E7%AC%94%E8%AE%B02/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/21/%E6%9D%82%E6%96%87/%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/21/%E6%9D%82%E6%96%87/%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">近期总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-21 22:02:07" itemprop="dateCreated datePublished" datetime="2020-05-21T22:02:07+08:00">2020-05-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -744,13 +470,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
-<li>平时水的社区比较多，总是忘记哪些地方收藏了哪些东西，所以准备不定期的把一些自己觉得很不错的、很有价值的内容收录在这里</li>
-<li>没有标注语言的都是中文或者有中文版本</li>
-</ul>
+          <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今年真的很不平凡，因为疫情，开学推迟、假期延长，在家待的时间变的非常长（19-12-26到家，现在2020-5-21），但是虽然这样说，这小半年的在家时间，也还是经历了很多事情，家里的一些事、春招、自己的一些反思等等，所以想着就借这次机会开始慢慢的学习写写阶段性的总结</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/04/29/%E6%9D%82%E6%96%87/%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90/#more" rel="contents">
+              <a class="btn" href="/2020/05/21/%E6%9D%82%E6%96%87/%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -774,7 +497,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/19/JS/%E6%87%92%E5%8A%A0%E8%BD%BD/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/14/%E8%B8%A9%E5%9D%91/nginx%E4%BB%A3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -788,7 +511,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/19/JS/%E6%87%92%E5%8A%A0%E8%BD%BD/" class="post-title-link" itemprop="url">懒加载</a>
+            <a href="/2020/05/14/%E8%B8%A9%E5%9D%91/nginx%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">nginx代理</a>
         </h2>
 
         <div class="post-meta">
@@ -798,24 +521,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-19 17:32:26" itemprop="dateCreated datePublished" datetime="2020-04-19T17:32:26+08:00">2020-04-19</time>
+              <time title="创建时间：2020-05-14 23:01:18" itemprop="dateCreated datePublished" datetime="2020-05-14T23:01:18+08:00">2020-05-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
 
           
 
@@ -828,806 +542,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>作为最常见的优化页面的一种手段，记录一下学习笔记</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h3 id="什么是懒加载"><a href="#什么是懒加载" class="headerlink" title="什么是懒加载"></a>什么是懒加载</h3><ul>
-<li>也叫延迟加载，即让页面依赖的一些非关键资源，先不加载，在后期达到某些触发条件时，在加载</li>
-<li>这里的关键资源指决定和影响当前访问页面的一些资源；非关键资源，比如针对页面某一部分的一些脚本、动态切换的样式等</li>
-</ul>
-<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>减少资源加载带来的响应时间过长，造成用户体验不好</p>
-<h3 id="具体表现"><a href="#具体表现" class="headerlink" title="具体表现"></a>具体表现</h3><ul>
-<li>在页面滚动到某一部分，加载当前位置需要显示的图片和相关资源</li>
-<li>面板切换，要切换时，在加载将要显示的资源</li>
-<li>等等</li>
-</ul>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
-<li>对上述第一种情况进行一个简单的效果实现</li>
-<li>页面有3部分，每一部分都占满整个屏幕，显示一张图片</li>
-</ul>
-<blockquote>
-<p>思路</p>
-</blockquote>
-<ul>
-<li>对一部分的图片不作处理</li>
-<li>对剩下的2部分的图片的src不先不设置，把资源路径添加到data-src里</li>
-<li>对整个文档添加一个滚动事件</li>
-<li>每次滚动事件的函数触发时，获取当前文档滚动的height</li>
-<li>当滚动的位置达到我们指定的值后，通过js给图片的src添加资源路径</li>
-</ul>
-<blockquote>
-<p>用到的api</p>
-</blockquote>
-<ul>
-<li>data-***：不具有表现意义的一个属性，用于给dom添加自定的片段数据</li>
-<li>滚动事件：mousewheel</li>
-<li>获取文档滚动的高度：scrollTop</li>
-</ul>
-<blockquote>
-<p>代码</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- CSS --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    body &#123;</span><br><span class="line">        margin: 0;</span><br><span class="line">        overflow-x: hidden;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.box</span>&gt;<span class="selector-tag">div</span> &#123;</span></span><br><span class="line">        width: 100vw;</span><br><span class="line">        height: 100vh;</span><br><span class="line">        margin: 0 auto;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    img &#123;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 100%;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.two</span>,</span></span><br><span class="line"><span class="css">    <span class="selector-class">.three</span> &#123;</span></span><br><span class="line">        visibility: hidden;</span><br><span class="line">        opacity: 0;</span><br><span class="line"><span class="css">        <span class="selector-tag">transition</span>: <span class="selector-tag">all</span> 0<span class="selector-class">.5s</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;one&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./img/a.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">data-src</span>=<span class="string">&quot;./img/b.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;three&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">data-src</span>=<span class="string">&quot;./img/c.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> box = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#box&#x27;</span>)</span></span><br><span class="line"><span class="javascript">box.addEventListener(<span class="string">&#x27;mousewheel&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (<span class="built_in">document</span>.documentElement.scrollTop &gt; <span class="number">10</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.two&#x27;</span>).style.visibility = <span class="string">&#x27;visible&#x27;</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.two&#x27;</span>).style.opacity = <span class="string">&#x27;1&#x27;</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.two img&#x27;</span>).src = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.two img&#x27;</span>).getAttribute(</span></span><br><span class="line"><span class="javascript">            <span class="string">&#x27;data-src&#x27;</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (<span class="built_in">document</span>.documentElement.scrollTop &gt; <span class="number">722</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.three&#x27;</span>).style.visibility = <span class="string">&#x27;visible&#x27;</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.three&#x27;</span>).style.opacity = <span class="string">&#x27;1&#x27;</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.three img&#x27;</span>).src = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.three img&#x27;</span>).getAttribute(</span></span><br><span class="line"><span class="javascript">            <span class="string">&#x27;data-src&#x27;</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>打开chrome调试工具，查看network，发现页面一开始只加载了a图片</li>
-<li>当滚动到指定位置后，才开始加载需要后面的资源</li>
-</ul>
-<h3 id="关于获取dom的大小、位置"><a href="#关于获取dom的大小、位置" class="headerlink" title="关于获取dom的大小、位置"></a>关于获取dom的大小、位置</h3><p>提到了scrollTop，顺带总结一下这几个api的区别</p>
-<blockquote>
-<p>clientHeight、clientWidth</p>
-</blockquote>
-<ul>
-<li>获取dom的height（width）+padding（如果没设置，为0）</li>
-<li>这里还有一个同样功能的api：getClientRects</li>
-<li>两者的区别：前者对小数取整；后者保留</li>
-</ul>
-<blockquote>
-<p>clientTop、clientLeft</p>
-</blockquote>
-<ul>
-<li>获取dom的border-top（left）</li>
-</ul>
-<blockquote>
-<p>scrollHeight、scrollWidth</p>
-</blockquote>
-<ul>
-<li>获取dom的整个内容长度（比如div的height是100px，并设置了overflow-y：scroll后，div内部内容的height长度）</li>
-<li>后者同理</li>
-</ul>
-<blockquote>
-<p>scrollTop、scrollLeft</p>
-</blockquote>
-<ul>
-<li>获取dom滑动出可视区域的部分的height（width）</li>
-</ul>
-<blockquote>
-<p>offsetheight、offsetWidth</p>
-</blockquote>
-<ul>
-<li>获取dom的height（width）+padding+border</li>
-</ul>
-<blockquote>
-<p>offsetTop、offsetLeft</p>
-</blockquote>
-<ul>
-<li>获取目标dom离最近的已定位元素的margintop（left）</li>
-<li>这里还有个api，offsetParent用来获取离目标元素最近的已定位的元素</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/11/%E8%B8%A9%E5%9D%91/demo-cli/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/11/%E8%B8%A9%E5%9D%91/demo-cli/" class="post-title-link" itemprop="url">demo-cli</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-11 20:08:07" itemprop="dateCreated datePublished" datetime="2020-04-11T20:08:07+08:00">2020-04-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><ul>
-<li>习惯了基于集成了各种工具的cli，来进行开发后，有时候回到最最最原始的三剑客(HTML+CSS+JS)，纯手撸的时候觉得效率过于低下。</li>
-<li>尤其是写CSS的时候，为了避免因为标签权重问题导致的样式错乱，而不停的重复写选择器，还有没有全局管理样式的功能，导致不停的去查查改改。。。</li>
-<li>基于上述和还有很多一时没想起的问题，所以有了做一个自己的非SPA应用的脚手架的想法</li>
-</ul>
-<h1 id="关于该脚手架"><a href="#关于该脚手架" class="headerlink" title="关于该脚手架"></a>关于该脚手架</h1><p>使用用gulp搭建的自动化脚手架</p>
-<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><ul>
-<li>写静态官网</li>
-<li>练习TS/ES6</li>
-</ul>
-<h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><ul>
-<li>支持区分生产/开发环境</li>
-<li>支持LESS（可选是否使用）</li>
-<li>支持ES6（模块化不支持）</li>
-<li>支持TS（可选是否使用）</li>
-<li>支持生产环境时HTML+CSS+JS+图片压缩</li>
-</ul>
-<blockquote>
-<p>2020-4-16更新 1.0.0-&gt;1.1.0</p>
-</blockquote>
-<ul>
-<li>添加了自己封装的工具函数模块</li>
-<li>添加对AMD模块化支持 <a target="_blank" rel="noopener" href="https://requirejs.org/">如何使用</a></li>
-</ul>
-<h1 id="食用指南"><a href="#食用指南" class="headerlink" title="食用指南"></a>食用指南</h1><h2 id="下载该脚手架"><a href="#下载该脚手架" class="headerlink" title="下载该脚手架"></a>下载该脚手架</h2><p>测试阶段，暂时只能通过github来下载</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:SHUAXINDIARY/demo-cli.git</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1.先安装node</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2.全局安装gulp</span></span><br><span class="line">npm i gulp -g</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3.安装依赖</span></span><br><span class="line">npm i </span><br></pre></td></tr></table></figure>
-
-<h2 id="目录说明"><a href="#目录说明" class="headerlink" title="目录说明"></a>目录说明</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">+ src---开发目录</span><br><span class="line">   + assets---存放其他资源：resetcss、图标等</span><br><span class="line">   + css---样式文件</span><br><span class="line">   + js----js代码</span><br><span class="line">   + less--less文件(可选：不使用无视即可)</span><br><span class="line">   + ts----ts文件(可选：不使用无视即可)</span><br><span class="line">   - index.html---src根目录存放页面文件</span><br><span class="line">- babelrc---babel配置(可自定义参考官方配置)</span><br><span class="line">+ gulpfile.js---gulp配置目录</span><br><span class="line">   - index.js---入口文件</span><br><span class="line">   - Tasks.js---任务方法文件</span><br><span class="line">   - paths.js---打包入口/出口路径</span><br><span class="line">- tsconfig.json--ts配置文件(可自定义参考)</span><br><span class="line">- config.json----配置项目环境：例如是否使用ts/less、配置本地服务器信息</span><br></pre></td></tr></table></figure>
-<h2 id="开始食用"><a href="#开始食用" class="headerlink" title="开始食用"></a>开始食用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开发环境</span></span><br><span class="line">npm run dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 部署前打包</span></span><br><span class="line">npm run build</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="食用配置"><a href="#食用配置" class="headerlink" title="食用配置"></a>食用配置</h2><p>以下配置根据自行情况选择</p>
-<blockquote>
-<p>是否使用less</p>
-</blockquote>
-<ul>
-<li>进入config.js</li>
-<li>设置less为true</li>
-</ul>
-<blockquote>
-<p>是否使用ts</p>
-</blockquote>
-<ul>
-<li>同上</li>
-<li>ts编译相关配置，参考<a target="_blank" rel="noopener" href="https://typescript.bootcss.com/tsconfig-json.html">官方文档</a></li>
-<li>关于ts编译配置支持情况查看<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/gulp-typescript">gulp-typescript</a></li>
-</ul>
-<blockquote>
-<p>配置本地服务器信息</p>
-</blockquote>
-<ul>
-<li>进入config.js</li>
-<li>可根据<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/gulp-connect">gulp-connect</a>配置</li>
-</ul>
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo-cli">该项目源码</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/04/JS/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/04/JS/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">关于对象</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-04 22:51:30" itemprop="dateCreated datePublished" datetime="2020-04-04T22:51:30+08:00">2020-04-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>因为js特性的原因，所以创建对象有很多中形式，各自有各自的优缺点/对应使用的场景，而且关于对象也会涉及到原型等比较重要的知识，所以总结一下</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="关于js对象"><a href="#关于js对象" class="headerlink" title="关于js对象"></a>关于js对象</h2><blockquote>
-<p>定义</p>
-</blockquote>
-<ul>
-<li>根据红皮书的描述：无序属性的集合，属性可包含基本值、对象、函数。</li>
-<li>总结：包含多个键值对的无序集合。</li>
-</ul>
-<blockquote>
-<p>属性类型</p>
-</blockquote>
-<ul>
-<li>根据红皮书地址，ECMA-262标准定义了一些对象的内部属性</li>
-<li>主要分为*<strong>数据属性*** 和*</strong>访问器属性***</li>
-<li>数据属性就是对象存放数据的属性</li>
-<li>访问器属性不包含数据(一个内部机制)，包含一对getter/setter函数的属性，在读写数据时调用</li>
-</ul>
-<blockquote>
-<p>数据属性的4个描述行为的特性</p>
-</blockquote>
-<ul>
-<li>configurable-表示该属性能否被delete删除</li>
-<li>enumerable-表示该属性能否被for-in循环</li>
-<li>writable-表示该属性的值能否被修改</li>
-<li>value-存储数据的发那个</li>
-<li>代码示范<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> sx = &#123;</span><br><span class="line">    name: <span class="string">&#x27;sx&#x27;</span>,</span><br><span class="line">    age: <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过Object.defineProperty来管理目标对象的属性行为</span></span><br><span class="line"><span class="comment">// 添加对sx对象的name属性的拦截器</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(sx, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">    <span class="comment">// 定义能否delete删除该属性 默认为true</span></span><br><span class="line">    configurable: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// 定义能否通过forin循环到该属性，默认为true</span></span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// 定义能否修改该属性，默认为true</span></span><br><span class="line">    writable: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// 如果这里定义，会覆盖初始化对象时的值</span></span><br><span class="line">    <span class="comment">// value:&quot;wade&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 即使做出了修改/删除的操作，但无效</span></span><br><span class="line">sx.name = <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line"><span class="keyword">delete</span> sx.name</span><br><span class="line"><span class="built_in">console</span>.log(sx)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> sx) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;key&#125;</span>=<span class="subst">$&#123;sx[key]&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>访问器属性(属性的描述符)</p>
-</blockquote>
-</li>
-<li>不包含数据</li>
-<li>包含一对getter、setter函数，不是必须，无需定义，是对象内部的机制</li>
-<li>当读取对象的属性时，默认调用getter函数，返回属性值</li>
-<li>当对属性进行数据写入时，默认调用setter，并传入新值</li>
-<li>代码示范<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sx = &#123;</span><br><span class="line">    name: <span class="string">&quot;shuaxin&quot;</span>,</span><br><span class="line">    age: <span class="number">0</span>,</span><br><span class="line">    <span class="comment">// _的属性表示该属性只能通过对象方法来访问</span></span><br><span class="line">    _sex: <span class="string">&#x27;女&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建属性拦截器</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(sx, <span class="string">&quot;sex&quot;</span>, &#123;</span><br><span class="line">    <span class="comment">// 当读取sex属性的值时，触发，返回_sex的值</span></span><br><span class="line">    get() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>._sex)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>._sex</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 当对sex属性进行写入操作时触发</span></span><br><span class="line">    set(newVal) &#123;</span><br><span class="line">        <span class="comment">// 判断_sex和sex是否一致，否在做修改</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>._sex !== newVal) &#123;</span><br><span class="line">            <span class="built_in">this</span>._sex = newVal</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">sx.sex = <span class="string">&#x27;男&#x27;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>定义多个属性</p>
-</blockquote>
-</li>
-<li>可以同时创建对多个属性的拦截器</li>
-<li>使用defineProperties<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">&quot;shuaxin&quot;</span>,</span><br><span class="line">    age: <span class="number">22</span>,</span><br><span class="line">    _sex: <span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        configurable: <span class="literal">false</span>,</span><br><span class="line">        enumerable: <span class="literal">false</span>,</span><br><span class="line">        writable: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    age: &#123;</span><br><span class="line">        configurable: <span class="literal">false</span>,</span><br><span class="line">        enumerable: <span class="literal">false</span>,</span><br><span class="line">        writable: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    sex: &#123;</span><br><span class="line">        get() &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>._sex)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>._sex</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 当对sex属性进行写入操作时触发</span></span><br><span class="line">        set(newVal) &#123;</span><br><span class="line">            <span class="comment">// 判断_sex和sex是否一致，否在做修改</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">this</span>._sex !== newVal) &#123;</span><br><span class="line">                <span class="built_in">this</span>._sex = newVal</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）"><a href="#关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）" class="headerlink" title="关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）"></a>关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）</h2><h3 id="无法识别对象类型的"><a href="#无法识别对象类型的" class="headerlink" title="无法识别对象类型的"></a>无法识别对象类型的</h3><p>无法识别对象类型的表现为，typeof的结果都是Object</p>
-<blockquote>
-<p>字面量创建</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;</span><br><span class="line">    name:<span class="string">&quot;obj&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>优点：创建简单、直观</li>
-<li>缺点：会产生大量重复的代码，而且无法识别对象类型</li>
-</ul>
-<blockquote>
-<p>使用object构造函数创建</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">obj.name=<span class="string">&quot;obj&quot;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>优缺点和字面量创建一样</li>
-</ul>
-<blockquote>
-<p>工厂模式创建</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createObj</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">    obj.name=name</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj=createObj(<span class="string">&#x27;obj&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>工厂模式是设计模式的一种</li>
-<li>优点：封装了创建对象时的细节，减少了代码的冗余</li>
-<li>缺点：同样这种方式也无法判断对象的类型 </li>
-</ul>
-<blockquote>
-<p>寄生构造函数模式</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">    obj.name=name</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx=<span class="keyword">new</span> Person(<span class="string">&#x27;sx&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>优缺点和工厂模式一致</li>
-</ul>
-<blockquote>
-<p>稳妥构造函数模式</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> name = str</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">    obj.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name</span><br><span class="line">    &#125;</span><br><span class="line">    obj.setName = <span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">        name = str</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = Person(<span class="string">&#x27;sx&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(sx.name) <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.getName()) <span class="comment">//sx</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>优点：保证数据安全性，除非对外提供可操作函数，否则无法访问</li>
-<li>缺点：无法判断实例的对象类型</li>
-</ul>
-<h3 id="可以识别对象类型的"><a href="#可以识别对象类型的" class="headerlink" title="可以识别对象类型的"></a>可以识别对象类型的</h3><p>表现为可以使用instanceof来判断具体的类型，比如</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj)<span class="comment">//object</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name=name</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx=<span class="keyword">new</span> Person(<span class="string">&#x27;sx&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(sx <span class="keyword">instanceof</span> Person) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>自定义构造函数创建</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name=name</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> shuaxin=<span class="keyword">new</span> Person(<span class="string">&#x27;shuaxin&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>优点：可以定义对象的类型</li>
-<li>缺点：因为每次调用一次该构造函数都会创建一片空间来存储一模一样的对象的属性，当创建许多个该类型对象时，会存在内存空间浪费的问题</li>
-</ul>
-<blockquote>
-<p>使用原型创建</p>
-</blockquote>
-<ul>
-<li>关于原型：每一个函数都有一个prototype属性，该属性指向一个对象（原型对象），该对象保存的是该类型对象的所有实例共享的属性/方法</li>
-<li>对象实例可以通过__proto__来访问原型对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125; </span><br><span class="line">Person.prototype.name=<span class="string">&#x27;shuaxin&#x27;</span></span><br></pre></td></tr></table></figure></li>
-<li>优点：可以把属性存到原型对象里</li>
-<li>缺点：因为所有实例共享同样的属性，所以导致数据读写会出现混乱<blockquote>
-<p>组合使用构造函数模式和原型模式</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name=name</span><br><span class="line">&#125; </span><br><span class="line">Person.prototype.sayHi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`你好我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>优点：结合了构造函数和原型模式2者的优点</li>
-<li>缺点：需要合理分配那些存储在函数内部，哪些在原型，否则适得其反；其次就是封装性相对来说不是很好<blockquote>
-<p>动态原型模式</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span>.sayhi !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">        Person.prototype.sayhi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`大家好，我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> shuaxin = <span class="keyword">new</span> Person(<span class="string">&#x27;shuaxin&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
-<li>优点：结局了封装原型、组合模式封装性不好的问题</li>
-</ul>
-<h1 id="关于对象的一些api"><a href="#关于对象的一些api" class="headerlink" title="关于对象的一些api"></a>关于对象的一些api</h1><blockquote>
-<p>Object.assign(target,…source)</p>
-</blockquote>
-<ul>
-<li>给对象复制源对象的可枚举属性,返回操作完成后的目标对象</li>
-<li>参数：目标对象，源对象(可支持多个)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> man=&#123;</span><br><span class="line">    name:<span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> sex=&#123;</span><br><span class="line">    sex:<span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> res=<span class="built_in">Object</span>.assign(man,sex)</span><br><span class="line"><span class="built_in">console</span>.log(man)<span class="comment">// &#123;name:&quot;shuaxin&quot;,sex:&quot;男&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(res)<span class="comment">// &#123;name:&quot;shuaxin&quot;,sex:&quot;男&quot;&#125;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>Object.create(proto,{propertiesObject})</p>
-</blockquote>
-<ul>
-<li>创建一个新对象</li>
-<li>参数：新建对象的原型对象，要添加到自身的属性(以及访问器属性)</li>
-<li>应用：实现继承<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> man=&#123;</span><br><span class="line">    sex:<span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = <span class="built_in">Object</span>.create(man, &#123;</span><br><span class="line">    <span class="comment">// 注：这里如果不设置枚举属性为true，默认为false，即不能被forin遍历到</span></span><br><span class="line">    age: &#123;</span><br><span class="line">        value: <span class="number">22</span></span><br><span class="line">    &#125;,</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(sx)<span class="comment">//&#123;name:&quot;shauxin&quot;,age:22&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.__proto__)<span class="comment">//&#123;sex:&quot;男&quot;&#125;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>Object.entries(target)</p>
-</blockquote>
-<ul>
-<li>返回目标对象的可枚举(enumerable)属性<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sx = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(sx, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;shuaxin&quot;</span>,</span><br><span class="line">        enumerable: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    idCard: &#123;</span><br><span class="line">        value: <span class="string">&#x27;199x-x-x-x&#x27;</span>,</span><br><span class="line">        enumerable: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.entries(sx)) <span class="comment">//[[&quot;name&quot;, &quot;shuaxin&quot;]]</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>Object.freeze(target)/Object.isFrozen(target)/ Object.isExtensible(targst)</p>
-</blockquote>
-<ul>
-<li>freeze：冻结对象，使其属性不能删除、修改，也不能增加属性</li>
-<li>isFrozen：检查对象是否被冻结，返回Boolean </li>
-<li>isExtensible：判断对象是否可扩展（即也可以判断对象是否被冻结）</li>
-<li>注：影响对象是否可扩展的操作有 Object.preventExtensions，Object.seal 或 Object.freeze<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sx = &#123;</span><br><span class="line">    name: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.freeze(sx)</span><br><span class="line">sx.name = <span class="string">&#x27;update&#x27;</span></span><br><span class="line">sx.sex = <span class="string">&#x27;男&#x27;</span></span><br><span class="line"><span class="keyword">delete</span> sx.name</span><br><span class="line"><span class="built_in">console</span>.log(sx) <span class="comment">//&#123;name:&quot;shuaxin&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.isFrozen(sx))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>Object.fromEntries(obj)</p>
-</blockquote>
-<ul>
-<li>把键值对结构(ES6的map)转换成对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [</span><br><span class="line">    [<span class="string">&quot;name&quot;</span>, <span class="string">&quot;shuaxin&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;sex&quot;</span>, <span class="string">&quot;男&quot;</span>]</span><br><span class="line">]</span><br><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="string">&quot;name&quot;</span>, <span class="string">&quot;shuaxin&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;sex&quot;</span>, <span class="string">&quot;男&quot;</span>]</span><br><span class="line">])</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.fromEntries(list)) <span class="comment">//&#123;name: &quot;shuaxin&quot;, sex: &quot;男&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.fromEntries(map)) <span class="comment">//&#123;name: &quot;shuaxin&quot;, sex: &quot;男&quot;&#125;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Object.getOwnPropertyDescriptor(obj)/Object.getOwnPropertyDescriptors(obj)</p>
-</blockquote>
-</li>
-<li>获取目标对象某个属性的访问器属性情况</li>
-<li>需注意：只能指定存储在对象自身的属性，原型的属性无效<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> shuaxin = &#123;</span><br><span class="line">    name: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &#123;value: &quot;shuaxin&quot;, writable: true, enumerable: true, configurable: true&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(shuaxin, <span class="string">&#x27;name&#x27;</span>))</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> sx = &#123;</span><br><span class="line">    name: <span class="string">&quot;shuaxin&quot;</span>,</span><br><span class="line">    sex: <span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &#123; name: &#123;value: &quot;shuaxin&quot;, writable: true, enumerable: true, configurable: true&#125;, sex: &#123;…&#125;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors(sx));</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>Object.values(target)</p>
-</blockquote>
-<ul>
-<li>以数组形式返回对象自身所有属性的值</li>
-<li>symbol作key的无法获取到<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SEX=<span class="built_in">Symbol</span>()</span><br><span class="line"><span class="keyword">let</span> shuaxin=&#123;</span><br><span class="line">    [SEX]:<span class="string">&quot;男&quot;</span>,</span><br><span class="line">    name:<span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(shuaxin))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>Object.getOwnPropertyNames(target)/Object.getOwnPropertySymbols(target)/Object.keys(target)</p>
-</blockquote>
-<ul>
-<li>getOwnPropertyNames:以数组形式返回对象自身的所有属性名,除过以symbol作为key的属性</li>
-<li>getOwnPropertySymbols:以数组形式返回对象自身的所有symbol做key的属性名</li>
-<li>keys:以数组格式返回对象自身可枚举的属性<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sex = <span class="built_in">Symbol</span>(<span class="string">&#x27;sex&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> sx = &#123;</span><br><span class="line">    [sex]: <span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(sx, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;shuaxin&quot;</span>,</span><br><span class="line">        enumerable: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    idCard: &#123;</span><br><span class="line">        value: <span class="string">&#x27;199x-x-x-x&#x27;</span>,</span><br><span class="line">        enumerable: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &#123;name: &quot;shuaxin&quot;, idCard: &quot;199x-x-x-x&quot;, Symbol(sex): &quot;男&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(sx)</span><br><span class="line"><span class="comment">// [&quot;name&quot;, &quot;idCard&quot;]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(sx));</span><br><span class="line"> <span class="comment">// [Symbol(sex)]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertySymbols(sx));</span><br><span class="line"><span class="comment">// [&quot;name&quot;]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(sx))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>Object.getPrototypeOf(target)</p>
-</blockquote>
-<ul>
-<li>获取对象的原型对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> man = &#123;</span><br><span class="line">    sex: <span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = <span class="built_in">Object</span>.create(man, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &#123;sex: &quot;男&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(sx))</span><br><span class="line"><span class="comment">// 同上</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.__proto__)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>Object.is()</p>
-</blockquote>
-<ul>
-<li>判断2个值是不是相同，判断规则如下</li>
-<li>两个值都是 undefined</li>
-<li>两个值都是 null</li>
-<li>两个值都是 true 或者都是 false</li>
-<li>两个值是由相同个数的字符按照相同的顺序组成的字符串</li>
-<li>两个值指向同一个对象</li>
-<li>两个值都是数字并且</li>
-<li><em>都是正零 +0</em></li>
-<li><em>都是负零 -0</em></li>
-<li><em>都是 NaN</em></li>
-<li><em>都是除零和 NaN 外的其它同一个数字</em></li>
-<li>和==还有===的区别：</li>
-<li>这种相等性判断逻辑和传统的 == 运算不同，== 运算符会对它两边的操作数做隐式类型转换（如果它们类型不同），然后才进行相等性比较，（所以才会有类似 “” == false 等于 true 的现象），但 Object.is 不会做这种类型转换。<br>这与 === 运算符的判定方式也不一样。=== 运算符（和== 运算符）将数字值 -0 和 +0 视为相等，并认为 Number.NaN 不等于 NaN</li>
-</ul>
-<blockquote>
-<p>Object.seal(target)/Object.isSealed(target)</p>
-</blockquote>
-<ul>
-<li>判断对象是否密封</li>
-<li>表现为不能对以存在属性进行删除，不能新增属性</li>
-<li>可以修改已存在属性，这也是与freeze的区别</li>
-<li>isSealed用来判断对象是否是密封</li>
-<li>isExtensible也可以判断</li>
-</ul>
-<blockquote>
-<p>Object.preventExtensions(target)/Object.isExtensible(target)</p>
-</blockquote>
-<ul>
-<li>让对象无法扩展</li>
-<li>表现形式为，无法新增属性；但是可以对已存在属性进行修改和删除</li>
-<li>isExtensible判断对象是否可扩展<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sx = &#123;</span><br><span class="line">    name: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(sx)</span><br><span class="line">sx.name = <span class="string">&#x27;update&#x27;</span></span><br><span class="line">sx.sex = <span class="string">&#x27;男&#x27;</span></span><br><span class="line"><span class="comment">// &#123;name: &quot;update&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(sx);</span><br><span class="line"><span class="keyword">delete</span> sx.name</span><br><span class="line"><span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(sx);</span><br></pre></td></tr></table></figure>
-<h2 id="Object原型上的一些api"><a href="#Object原型上的一些api" class="headerlink" title="Object原型上的一些api"></a>Object原型上的一些api</h2></li>
-</ul>
-<blockquote>
-<p>isPrototypeOf</p>
-</blockquote>
-<ul>
-<li>判断一个对象是否存在于另一个对象的原型链上<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> man = &#123;</span><br><span class="line">    sex: <span class="string">&#x27;男&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = <span class="built_in">Object</span>.create(man)</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(man.isPrototypeOf(sx))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>hasOwnProperty</p>
-</blockquote>
-<ul>
-<li>判断对象自身是否含有某个属性<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> man = &#123;</span><br><span class="line">    sex: <span class="string">&#x27;男&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = <span class="built_in">Object</span>.create(man, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&#x27;shuaxin&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.hasOwnProperty(<span class="string">&#x27;sex&#x27;</span>))</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.hasOwnProperty(<span class="string">&#x27;name&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>propertyIsEnumerable</p>
-</blockquote>
-<ul>
-<li>判断该属性属性是否可枚举</li>
-<li>如果没有该属性，返回false</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/03/15/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8EJWT%E8%AE%A4%E8%AF%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8EJWT%E8%AE%A4%E8%AF%81/" class="post-title-link" itemprop="url">关于JWT认证</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-15 22:57:35" itemprop="dateCreated datePublished" datetime="2020-03-15T22:57:35+08:00">2020-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><ul>
-<li>但凡有登陆模块的程序，都会涉及到用户身份认证的问题;目的就是确保来访问是真的用户</li>
-<li>所以记录一下最近这一块学习/实验的笔记</li>
-<li>实现代码均为部分，整体代码<a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/NodeStudyNotes/tree/master/loginByExpress">点这里</a></li>
-</ul>
-<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ul>
-<li>用户登陆，如果登陆信息和服务端保存的信息一致，服务端会通过一些机制生成一串字符串，返回给客户端</li>
-<li>客户端保存该字符串，并在之后的每次请求中携带该字符串</li>
-<li>服务端接收到请求后，会验证该字符串是否有效、是否过期;如果都没有就正常返回数据，如果失效、过期就返回对应的提示信息</li>
-<li>这串字符串就是token令牌</li>
-</ul>
-<h1 id="小插曲"><a href="#小插曲" class="headerlink" title="小插曲"></a>小插曲</h1><ul>
-<li>做登陆等需要处理用户账号密码等私密的操作时，要对这些隐私信息进行加密，在做操作、保存等 </li>
-<li>目的：1.职业操守，开发人员要尊重用户的这些私密信息；2.防止被其他人攻击，拿到密码等私密信息进行一些不好的操作</li>
-</ul>
-<h1 id="加密的代码实现"><a href="#加密的代码实现" class="headerlink" title="加密的代码实现"></a>加密的代码实现</h1><ul>
-<li>需要用到<a target="_blank" rel="noopener" href="https://github.com/kelektiv/node.bcrypt.js">bcrypt</a>模块</li>
-<li>对注册密码进行加密并保存，方便演示，数据直接保存到本地数组<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> router = express.Router()</span><br><span class="line"><span class="keyword">const</span> bcrypt = <span class="built_in">require</span>(<span class="string">&#x27;bcrypt&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存注册信息</span></span><br><span class="line"><span class="keyword">let</span> users=[]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成salt的等级  </span></span><br><span class="line"><span class="keyword">const</span> saltRounds = <span class="number">10</span></span><br><span class="line"><span class="comment">// 注册</span></span><br><span class="line">router.post(<span class="string">&#x27;/register&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        body=&#123;</span></span><br><span class="line"><span class="comment">            name:&#x27;shuaxin&#x27;,</span></span><br><span class="line"><span class="comment">            psw:&#x27;shuaxin&#x27;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="comment">// 接受前端数据</span></span><br><span class="line">    <span class="keyword">let</span> obj = req.body</span><br><span class="line">    <span class="comment">// 生成salt</span></span><br><span class="line">    <span class="keyword">const</span> salt = bcrypt.genSaltSync(saltRounds)</span><br><span class="line">    <span class="comment">// 利用salt对密码进行hash生成加密字符串</span></span><br><span class="line">    <span class="keyword">const</span> hash = bcrypt.hashSync(obj.psw, salt)</span><br><span class="line">    <span class="comment">// 然后保存该条数据等操作</span></span><br><span class="line">    users.push(&#123;</span><br><span class="line">        name:obj.name,</span><br><span class="line">        psw:hash</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 返回提示</span></span><br><span class="line">    res.json(&#123;</span><br><span class="line">        msg: <span class="string">&#x27;register succ&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 登陆</span></span><br><span class="line">router.post(<span class="string">&#x27;/login&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = req.body</span><br><span class="line">    <span class="comment">// 查找对应的账号 然后校对密码是否一致</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index <span class="keyword">in</span> users) &#123;</span><br><span class="line">        <span class="keyword">if</span> (users[index].name === obj.name) &#123;</span><br><span class="line">            <span class="comment">// 校对结果为Boolean</span></span><br><span class="line">            <span class="comment">// 参数列表(用户输入的面，存储的加密后的密码)</span></span><br><span class="line">            <span class="keyword">let</span> result = bcrypt.compareSync(obj.psw, users[index].psw)</span><br><span class="line">            <span class="keyword">if</span> (result) &#123;</span><br><span class="line">                res.json(&#123;</span><br><span class="line">                    code: <span class="number">1</span>,</span><br><span class="line">                    msg: <span class="string">&#x27;登陆成功&#x27;</span>,</span><br><span class="line">                    token</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res.json(&#123;</span><br><span class="line">                    code: <span class="number">-1</span>,</span><br><span class="line">                    msg: <span class="string">&#x27;检查账号密码是否匹配&#x27;</span></span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="生成token代码实现"><a href="#生成token代码实现" class="headerlink" title="生成token代码实现"></a>生成token代码实现</h1><ul>
-<li>用到的模块<a target="_blank" rel="noopener" href="https://github.com/auth0/node-jsonwebtoken">jsonwebtoken</a></li>
-<li>登陆成功返回生成的token</li>
-<li>在上文代码的登陆逻辑区域操作，省略重复代码<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">// 引入模块</span></span><br><span class="line"><span class="keyword">const</span> jwt = <span class="built_in">require</span>(<span class="string">&#x27;jsonwebtoken&#x27;</span>)</span><br><span class="line"><span class="comment">// 设置私钥</span></span><br><span class="line"><span class="keyword">const</span> sk = <span class="string">&#x27;shuaxin&#x27;</span></span><br><span class="line">...</span><br><span class="line"><span class="comment">// 登陆</span></span><br><span class="line">router.post(<span class="string">&#x27;/login&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = req.body</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index <span class="keyword">in</span> users) &#123;</span><br><span class="line">        <span class="keyword">if</span> (users[index].name === obj.name) &#123;</span><br><span class="line">            <span class="keyword">let</span> result = bcrypt.compareSync(obj.psw, users[index].psw)</span><br><span class="line">            <span class="comment">// 生成token  参数:(要加密的内容，秘钥，时间(s为单位))</span></span><br><span class="line">            <span class="keyword">let</span> token = jwt.sign(users[index], sk, &#123; <span class="attr">expiresIn</span>: <span class="number">10</span> &#125;);</span><br><span class="line">            <span class="keyword">if</span> (result) &#123;</span><br><span class="line">                res.json(&#123;</span><br><span class="line">                    code: <span class="number">1</span>,</span><br><span class="line">                    msg: <span class="string">&#x27;登陆成功&#x27;</span>,</span><br><span class="line">                    token</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res.json(&#123;</span><br><span class="line">                    code: <span class="number">-1</span>,</span><br><span class="line">                    msg: <span class="string">&#x27;检查账号密码是否匹配&#x27;</span></span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li>
-<li>验证token是否有效、过期<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">// 引入模块</span></span><br><span class="line"><span class="keyword">const</span> jwt = <span class="built_in">require</span>(<span class="string">&#x27;jsonwebtoken&#x27;</span>)</span><br><span class="line"><span class="comment">// 设置私钥</span></span><br><span class="line"><span class="keyword">const</span> sk = <span class="string">&#x27;shuaxin&#x27;</span></span><br><span class="line">...</span><br><span class="line">router.post(<span class="string">&#x27;/testToken&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = req.body</span><br><span class="line">    <span class="comment">// 过期后会抛异常 </span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 校验token 结果为Boolean</span></span><br><span class="line">        <span class="comment">// 参数列表（token,私钥）</span></span><br><span class="line">        <span class="keyword">var</span> decoded = jwt.verify(obj.token, sk);</span><br><span class="line">        <span class="keyword">if</span> (decoded) &#123;</span><br><span class="line">            res.json(&#123;</span><br><span class="line">                code: <span class="number">1</span>,</span><br><span class="line">                msg: <span class="string">&#x27;有效的token&#x27;</span></span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res.json(&#123;</span><br><span class="line">                code: <span class="number">-1</span>,</span><br><span class="line">                msg: <span class="string">&#x27;token无效&#x27;</span></span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        res.json(&#123;</span><br><span class="line">            code: <span class="number">-1</span>,</span><br><span class="line">            msg: <span class="string">&#x27;token过期&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="其他笔记"><a href="#其他笔记" class="headerlink" title="其他笔记"></a>其他笔记</h1><ul>
-<li>看jwt文档的时候看到了HMAC SHA256、RSA SHA256</li>
-<li>这两个是不同的加密算法模式，前者是默认的，后者可以自己设置</li>
-<li>通过搜索引擎了解到常见加密算法模式有：DES,AES, RSA, MD5, SHA, HMAC, base64，区别有待学习</li>
-<li>SHA256是一种使用了哈希长度为256的算法，太菜了，底层就不懂了</li>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/567071aadc42">DES,AES, RSA, MD5, SHA, HMAC, base64区别</a></li>
-</ul>
-<h1 id="关于JWT的优缺点"><a href="#关于JWT的优缺点" class="headerlink" title="关于JWT的优缺点"></a>关于JWT的优缺点</h1><p>优缺点都是对比出来的，和常用的session进行对比，由于实践有限，session没用过，总结是搜索引擎搜索后，罗列的自己能理解的</p>
-<blockquote>
-<p>JWT优点</p>
-</blockquote>
-<ul>
-<li>减轻服务器压力，因为生成后直接返回给客户端，服务端就无须保存，session需要维持每个用户的状态</li>
-<li>避免跨域攻击，因为服务端会对每个请求进行token校验，不存在或者无效都没法获取数据，而token保存在用户自己的客户端，只要不在这里被窃取，来自网络的伪造请求一般都无法完成</li>
-<li>适合移动端，没做过移动端，查了查资料，因为session会话状态的控制需要依赖cookie，客户端对cookie的支持很有限，所以session不适合移动端</li>
-<li>实现单点登录，因为cookie不能跨域，session依赖cookie，token不存在这个问题</li>
-</ul>
-<blockquote>
-<p>JWT缺点</p>
-</blockquote>
-<ul>
-<li>注销登录、忘记密码等后，token还有效，这样服务端需要加一些额外操作来处理</li>
-<li>token有效期续签问题，续签的目的就是为了防止用户频繁需要登录，token也需要额外的一些解决方案</li>
-</ul>
-<blockquote>
-<p>参考文章<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/85873228">JWT优缺点</a></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/03/15/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E9%A2%84%E8%AF%B7%E6%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E9%A2%84%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">关于预请求</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-15 10:05:12" itemprop="dateCreated datePublished" datetime="2020-03-15T10:05:12+08:00">2020-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>最近学习Node，试着用node来学习一些关于后端的知识，帮助自己更好的理解web开发整个开发体系，这里总结遇到的一些坑</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>当后端设置了允许跨域的时候,前端发送请求时设置了请求头  ‘Content-Type’: ‘application/json’的时候，请求发送不成功</p>
-<blockquote>
-<p>如图</p>
-</blockquote>
-<ul>
-<li><img src="/img/caikeng/one.png" alt="问题"></li>
-<li><img src="/img/caikeng/two.png" alt="问题"></li>
-</ul>
-<blockquote>
-<p>这时的代码</p>
-</blockquote>
-<ul>
-<li>前端<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">&#x27;http://localhost:3000/&#x27;</span>, &#123;</span><br><span class="line">    method: <span class="string">&#x27;PUT&#x27;</span>,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    body: &#123;</span><br><span class="line">        name: <span class="string">&#x27;shuaxin&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> res.json()</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
-<li>后端<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> connect = <span class="built_in">require</span>(<span class="string">&#x27;connect&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = connect()</span><br><span class="line"></span><br><span class="line">app</span><br><span class="line">    .use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 设置允许的请求的域名</span></span><br><span class="line">        res.setHeader(<span class="string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="string">&quot;*&quot;</span>)</span><br><span class="line">        <span class="comment">// 设置允许跨域请求的方法类型</span></span><br><span class="line">        res.setHeader(<span class="string">&quot;Access-Control-Allow-Methods&quot;</span>, <span class="string">&quot;DELETE,PUT,POST,GET,OPTIONS&quot;</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(req.method);</span><br><span class="line">        next()</span><br><span class="line">    &#125;)</span><br><span class="line">    .use(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        res.end(<span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">            msg: <span class="string">&#x27;succ&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="string">&#x27;3000&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;服务启动&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>解决</p>
-</blockquote>
-<ul>
-<li>只需要在后端在设置一下跨域允许的请求头即可，代码<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line">res.setHeader(<span class="string">&#x27;Access-Control-Allow-Headers&#x27;</span>, <span class="string">&quot;Content-Type&quot;</span>)</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>在没有添加允许的请求头之前，在后台打印一下请求的method<br><img src="/img/caikeng/three.png" alt="OPTIONS"><br>发现并不是请求中设置的PUT,这就是浏览器的预请求机制</p>
-<h3 id="铺垫"><a href="#铺垫" class="headerlink" title="铺垫"></a>铺垫</h3><p>这里牵扯到一个概念:简单请求和复杂请求，对于2者的区分</p>
-<blockquote>
-<p>简单请求</p>
-</blockquote>
-<ul>
-<li>请求方法只能是GET/POST/HEADE</li>
-<li>请求头只能是:Accept/Accept-Language/Conent-Language/Content-Type 等</li>
-<li>请求头的Content-Type只能是: text/plain、multipart/form-data 或 application/x-www-form-urlencoded</li>
-</ul>
-<blockquote>
-<p>复杂请求(即出现预请求的条件)</p>
-</blockquote>
-<ul>
-<li>不满足上述条件后，就成了复杂请求，也就出现了所谓的预请求发送的问题</li>
-<li>分析第一张图发现请求类型的内容是 application/json,所以出现了预请求</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
-<p>什么是预请求?目的是什么?</p>
-</blockquote>
-<ul>
-<li>即options请求,是浏览器在我们真实的请求之前自动发送的一个请求</li>
-<li>目的是为了判断服务端是否允许我们真实的请求的请求头格式、请求类型等</li>
-</ul>
-<blockquote>
-<p>区分简单/复杂请求</p>
-</blockquote>
-<ul>
-<li>就是HTML表单配合enctype可以指定的编码格式发送的请求就是简单请求</li>
-<li>其他像PUT/DELETE，和需要自定义请求头设置编码格式的请求就都是复杂请求</li>
-<li>查这方面知识看到<a target="_blank" rel="noopener" href="https://juejin.im/post/5d71d1e7f265da03934c027b">奇舞周刊</a>的一篇文章中提到的</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2016/04/cors.html">跨域资源共享 CORS 详解</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5d71d1e7f265da03934c027b">CORS 为什么要区分『简单请求』和『预检请求』？</a></p>
-
+          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>今天（2020-5-14）试着用nginx做了一下后端接口的代理，然后了解一下正反向代理，记录一下学习笔记</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/14/%E8%B8%A9%E5%9D%91/nginx%E4%BB%A3%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1645,7 +568,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

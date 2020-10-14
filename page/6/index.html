@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B04/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -181,7 +181,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B04/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---(单向)链表</a>
+            <a href="/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="post-title-link" itemprop="url">关于防抖和节流</a>
         </h2>
 
         <div class="post-meta">
@@ -191,14 +191,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-09-03 19:04:43" itemprop="dateCreated datePublished" datetime="2019-09-03T19:04:43+08:00">2019-09-03</time>
+              <time title="创建时间：2019-11-21 20:16:17" itemprop="dateCreated datePublished" datetime="2019-11-21T20:16:17+08:00">2019-11-21</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,619 +221,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%93%BE%E8%A1%A8.html">这里</a></h1><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>1.类似于数组一样存储多个数据的数据结构<br>2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针<br><img src="/img/linked.jpg" alt="示例图"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B04/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/09/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B03/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---队列之优先队列</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-02 14:51:44" itemprop="dateCreated datePublished" datetime="2019-09-02T14:51:44+08:00">2019-09-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97.html">这里</a></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
-<p>1.优先队列和队列的主要区别就是，队列中每个元素不仅含有自身的元素，还有一个代表该元素优先级的标识。<br>2.在插入新的元素到队列时，根据该元素的优先级来决定它插入的正确位置。<br>3.优先队列具有最高级先出队列的行为特征</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/09/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B03/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/08/14/%E8%B8%A9%E5%9D%91/mongoose%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/14/%E8%B8%A9%E5%9D%91/mongoose%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">mongoose简单入门</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-08-14 09:51:57" itemprop="dateCreated datePublished" datetime="2019-08-14T09:51:57+08:00">2019-08-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="mongoose是什么？"><a href="#mongoose是什么？" class="headerlink" title="mongoose是什么？"></a>mongoose是什么？</h1><p>Mongoose是MongoDB的一个对象模型工具，是基于node-mongodb-native开发的MongoDB nodejs驱动，可以在异步的环境下执行。同时它也是针对MongoDB操作的一个对象模型库，封装了MongoDB对文档的的一些增删改查等常用方法，让NodeJS操作Mongodb数据库变得更加灵活简单。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/08/14/%E8%B8%A9%E5%9D%91/mongoose%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/23/JS/js%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/23/JS/js%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD/" class="post-title-link" itemprop="url">关于js实现重载</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-23 10:05:48" itemprop="dateCreated datePublished" datetime="2019-07-23T10:05:48+08:00">2019-07-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD.html">这里</a></h1><h1 id="重载是什么"><a href="#重载是什么" class="headerlink" title="重载是什么"></a>重载是什么</h1><pre><code>定义：函数名相同,函数的参数列表不同(包括参数个数和参数类型)，至于返回类型可同可不同</code></pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/07/23/JS/js%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/21/JS/js%E6%A8%A1%E5%9D%97%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/21/JS/js%E6%A8%A1%E5%9D%97%E5%8C%96/" class="post-title-link" itemprop="url">关于js模块化</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-21 10:43:20" itemprop="dateCreated datePublished" datetime="2019-07-21T10:43:20+08:00">2019-07-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前端js模块化规范"><a href="#前端js模块化规范" class="headerlink" title="前端js模块化规范"></a>前端js模块化规范</h1><p>1.CommonJS<br>2.ES6<br>3.AMD的RequireJS<br>4.还有其他的，比如CMD的seajs等</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/07/21/JS/js%E6%A8%A1%E5%9D%97%E5%8C%96/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/19/%E8%B8%A9%E5%9D%91/%E7%86%9F%E6%82%89%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%AE%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/19/%E8%B8%A9%E5%9D%91/%E7%86%9F%E6%82%89%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">熟悉小程序开发目录</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-19 22:25:10" itemprop="dateCreated datePublished" datetime="2019-07-19T22:25:10+08:00">2019-07-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" href="/css/prism.css"/>>
-<script src="../source/js/prism.js"></script>
-
-<h1 id="新项目默认目录"><a href="#新项目默认目录" class="headerlink" title="新项目默认目录"></a>新项目默认目录</h1><pre><code>/pages--------存放小程序所有界面
-    -/index---首页
-        /*
-            每一个界面都是由以下四个文件组成
-            1.index.js-----页面交互(web的js文件)
-            2.index.json---页面配置文件
-            3.index.wxml---页面结构(web的html文件)
-            4.index.wxss---页面样式(web的css文件)
-        */*
-    -/logs----log信息页
-/untils
-    -/until.js---官方默认有格式化时间的代码
-    /*全局就是对整个程序所有页面作用*/
-app.js-----------小程序全局js文件
-app.json---------小程序全局配置文件
-app.wxss---------小程序全局css文件
-project.config.json--项目相关信息文件
-sitemap.json-----小程序内搜索配置相关文件</code></pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/07/19/%E8%B8%A9%E5%9D%91/%E7%86%9F%E6%82%89%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%AE%E5%BD%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/07/JS/js%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/07/JS/js%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">关于js深拷贝</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-07 12:11:14" itemprop="dateCreated datePublished" datetime="2019-07-07T12:11:14+08:00">2019-07-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>面试复习，复习到了深拷贝，记录一下</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="基本数据类型-amp-复杂数据类型-引用数据类型"><a href="#基本数据类型-amp-复杂数据类型-引用数据类型" class="headerlink" title="基本数据类型&amp;复杂数据类型(引用数据类型)"></a>基本数据类型&amp;复杂数据类型(引用数据类型)</h2><blockquote>
-<p>概念</p>
+          <h1 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h1><blockquote>
+<p><strong>作用</strong></p>
 </blockquote>
 <ul>
-<li>在js种，有2中数据类型：一类是基本数据类型，一类是复杂数据类型；</li>
-<li>基本数据类型有:null,undefined,number,string,boolean,symbol(ES6)</li>
-<li>复杂数据类型:Object/arrary等<blockquote>
-<p>区别</p>
-</blockquote>
-</li>
-<li>两者的区别就是在内存中的存储位置不同</li>
-<li>前者在栈中存储数据</li>
-<li>后者在堆中存储数据，而栈中存储的是数据在堆中存储的位置(引用)<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2>作用与复制复杂数据类型时，因为栈中只保存了数据的地址，所以如果只是简单赋值一样的复制，就会出现如下情况(浅拷贝)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one=&#123;</span><br><span class="line">    one:<span class="string">&quot;this is one&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> two=one</span><br><span class="line"><span class="built_in">console</span>.log(two)  <span class="comment">// &#123;one:&quot;this is one&quot;&#125;</span></span><br><span class="line">one.one=<span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(two)  <span class="comment">// &#123;one:1&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="深拷贝实现"><a href="#深拷贝实现" class="headerlink" title="深拷贝实现"></a>深拷贝实现</h2><blockquote>
-<p>思路</p>
-</blockquote>
-</li>
-<li>判断要复制的目标的数据类型</li>
-<li>1.简单数据类型，直接复制</li>
-<li>2.复杂数据类型(对象/数组)，遍历内部每一项</li>
-<li>3.在遍历复杂数据类型内部属性时，会出现情况上面2中情况，再次调用该函数就好(递归)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepCopy = <span class="function">(<span class="params">copyTarget</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="literal">null</span></span><br><span class="line">    <span class="comment">// 返回和复制对象一致的类型</span></span><br><span class="line">    <span class="keyword">if</span> (copyTarget <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">        res = []</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> copyTarget) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> copyTarget[key] === <span class="string">&#x27;object&#x27;</span> &amp;&amp; copyTarget[key] !== <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 1.复杂数据类型</span></span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&#x27;复杂数据类型&#x27;</span>)</span><br><span class="line">            res[key] = deepCopy(copyTarget[key])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&#x27;基本数据类型&#x27;</span>);</span><br><span class="line">            <span class="comment">// 2.基本数据类型/和函数</span></span><br><span class="line">            res[key] = copyTarget[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>这两个名词是两种解决方案的称呼，为了解决频繁触发某一个函数时，限制它的调用次数，让它不要那么频繁的被调用。</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B02/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---队列</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-02 23:04:43" itemprop="dateCreated datePublished" datetime="2019-07-02T23:04:43+08:00">2019-07-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%98%9F%E5%88%97.html">这里</a></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><font size=5>
-队列是单向操作，而且是先进先出，所以在队尾进行添加元素，队头移除元素。
-用数组来理解就是，从数组尾部添加，数组头部删除这样才能模拟先进先出。  
-</font>  
-
-<p><img src="/img/queue.png" alt="示例图"></p>
+<blockquote>
+<p><strong>为啥要这么做</strong></p>
+</blockquote>
+<ul>
+<li>首先呢，在浏览器中，有2个概念，一个叫<strong>重绘</strong>，一个叫**<em>回流**</em>。这两个现象，是在浏览器渲染页面的时候会发生的，当页面的布局不改变，仅仅是字体大小颜色等改变时就会发生重绘；当页面布局发生改变(比如width、height、margin、padding等)，会发生回流。</li>
+<li>上述的这两个现象挺影响性能的，所以当我们的操作会导致发生这两个现象时，一般就可以使用防抖和节流来，尽可能的减少这样的操作，不至于让我们的程序挂掉。当然不止这样情况下才能用哈，比如触发ajax请求的时候其实也可以用，根据需要来判断。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B02/#more" rel="contents">
+              <a class="btn" href="/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -857,7 +259,7 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -871,7 +273,7 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">《学习JavaScript数据结构与算法》笔记---栈</a>
+            <a href="/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/" class="post-title-link" itemprop="url">关于call,bind,apply</a>
         </h2>
 
         <div class="post-meta">
@@ -881,14 +283,14 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-02 11:38:10" itemprop="dateCreated datePublished" datetime="2019-07-02T11:38:10+08:00">2019-07-02</time>
+              <time title="创建时间：2019-11-20 19:23:11" itemprop="dateCreated datePublished" datetime="2019-11-20T19:23:11+08:00">2019-11-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -911,17 +313,10 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E6%A0%88.html">这里</a></h1><h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><font size=5> 
-栈的特点就是后进先出。栈有栈顶和栈底的概念。用数组举例子，数组第一个位置这边就是栈底，最后一个元素的位置就是栈顶，新添加的元素保存在栈顶，在
-js中基本数据类就是存储在栈中。
-数组模拟就是给数组尾部添加元素，移除元素也是从数组尾部移除。
-
-</font>
-
-<p><img src="/img/stack.png" alt="示例图"></p>
+          <h1 id="关于call-bind-apply的作用"><a href="#关于call-bind-apply的作用" class="headerlink" title="关于call,bind,apply的作用"></a>关于call,bind,apply的作用</h1><p>这三个方法都是只有函数才可以调用，作用就是改变函数执行时this的指向。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/07/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/#more" rel="contents">
+              <a class="btn" href="/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -945,7 +340,7 @@ js中基本数据类就是存储在栈中。
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/01/%E8%B8%A9%E5%9D%91/hexo%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%92%8C%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -959,7 +354,7 @@ js中基本数据类就是存储在栈中。
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/07/01/%E8%B8%A9%E5%9D%91/hexo%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%92%8C%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">hexo常用配置和命令</a>
+            <a href="/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/" class="post-title-link" itemprop="url">网页浏览进度条</a>
         </h2>
 
         <div class="post-meta">
@@ -969,24 +364,15 @@ js中基本数据类就是存储在栈中。
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-01 12:21:54" itemprop="dateCreated datePublished" datetime="2019-07-01T12:21:54+08:00">2019-07-01</time>
+              <time title="创建时间：2019-11-19 20:48:17" itemprop="dateCreated datePublished" datetime="2019-11-19T20:48:17+08:00">2019-11-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 10:24:07" itemprop="dateModified" datetime="2020-10-14T10:24:07+08:00">2020-10-14</time>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
-                </span>
-            </span>
 
           
 
@@ -999,10 +385,194 @@ js中基本数据类就是存储在栈中。
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>内容转载自(<a target="_blank" rel="noopener" href="https://chars.tech/blog/build-blog-by-hexo/">https://chars.tech/blog/build-blog-by-hexo/</a>)</p>
+          <h1 id="网页浏览进度条"><a href="#网页浏览进度条" class="headerlink" title="网页浏览进度条"></a>网页浏览进度条</h1><p>在很多网站都能看到网站的顶部，有一条会随着页面滚动条的滑动，边长变短的一栏区域，这个可以有效的让用户看到，自己已经浏览了这个文章内容的多少。虽然网站右边都有一个滚动条了，干嘛还要这个东西呢，大概就是为了好看吧！今天来实现这个小demo！</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/07/01/%E8%B8%A9%E5%9D%91/hexo%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%92%8C%E5%91%BD%E4%BB%A4/#more" rel="contents">
+              <a class="btn" href="/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/18/css/%E6%B5%AE%E5%8A%A8%E5%8A%9F%E8%83%BD%E6%A0%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/18/css/%E6%B5%AE%E5%8A%A8%E5%8A%9F%E8%83%BD%E6%A0%8F/" class="post-title-link" itemprop="url">浮动功能栏</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 22:05:33" itemprop="dateCreated datePublished" datetime="2019-11-18T22:05:33+08:00">2019-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="关于命名"><a href="#关于命名" class="headerlink" title="关于命名"></a>关于命名</h1><p>我也不知道这个具体的名字叫什么，就按照它的功能起了这么个简单的名字，防止说不清楚，大概解释一下是什么东西。就是在很多网页，我们往下滑时，会在页面的固定位置出现一个(一栏、一片等！)按钮，里面有帮助回到网页顶部的，还有联系网站客服等等的操作。</p>
+<p>像这样<br><img src="/img/juejin.png" alt="掘金"></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><blockquote>
+<p><strong>问题</strong></p>
+</blockquote>
+<ul>
+<li>首先就是根据喜好做一排这样的区域(自行发挥)</li>
+<li>其次就是确定它要出现的位置(<font color='red'> <em>重点</em></font> )即可。</li>
+<li>还有几个小细节，就是当回到页面顶部时，这一部分区域会隐藏，当再次滑动到页面非顶部的位置是，又会再一次出现。</li>
+</ul>
+<blockquote>
+<p><strong>解决</strong></p>
+</blockquote>
+<ul>
+<li>固定位置：通过position的fixed固定</li>
+<li>通过opacity控制显示显示/隐藏</li>
+<li>判断何时显示/隐藏:通过获取滚动条滚动的height判断</li>
+</ul>
+<h2 id="用到的知识"><a href="#用到的知识" class="headerlink" title="用到的知识"></a>用到的知识</h2><p>css</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/pr-class-position.html">position</a></p>
+</blockquote>
+<p>js</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop">scrollTop</a></p>
+</blockquote>
+<ul>
+<li>获取滚动条滚动过的height</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/met-win-scrollto.html">scrollTo</a></p>
+</blockquote>
+<ul>
+<li>scrollTo() 方法可把内容滚动到指定的坐标。</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/event-onwheel.html">onwheel</a></p>
+</blockquote>
+<ul>
+<li>鼠标滑轮滚动事件</li>
+<li>onmousewheel注意，有些文章是写的这个事件，该事件已经废弃(但是有的环境还是可以用)，换成了onwheel</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>CSS</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">/* 页面主要内容 */</span></span><br><span class="line"><span class="selector-class">.con</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">    <span class="comment">/* 让页面出现滚动条 */</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1100vh</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: lightcoral;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 浮动功能栏样式  */</span></span><br><span class="line"><span class="selector-class">.float</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">70vh</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">5vw</span>;</span><br><span class="line">    <span class="comment">/* 默认不显示 */</span></span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.5s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 其他样式 */</span></span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>HTML</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;con&quot;</span> <span class="attr">id</span>=<span class="string">&quot;con&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;float&quot;</span> <span class="attr">id</span>=<span class="string">&quot;float&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;backtop&quot;</span>&gt;</span>BACK<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>JS</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> con = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#con&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> float = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#float&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> backtop = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#backtop&#x27;</span>);</span><br><span class="line"><span class="comment">// des:设置浮动功能栏的显示/隐藏</span></span><br><span class="line"><span class="keyword">let</span> set = <span class="function"><span class="keyword">function</span> (<span class="params">op, zi</span>) </span>&#123;</span><br><span class="line">    float.style.opacity = op;</span><br><span class="line">    float.style.zIndex = zi;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 点击back返回顶部</span></span><br><span class="line">backtop.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.document.documentElement.scrollTop = 0;</span></span><br><span class="line">    <span class="comment">// 2.scrollTo返回</span></span><br><span class="line">    scrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 返回后隐藏</span></span><br><span class="line">    set(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 这里更好的效果是换成window的滚动条事件,这样无论是鼠标滑轮还是，键盘翻页键，还是点击滚动条都可以触发</span></span><br><span class="line"><span class="comment">// window.addEventListener(&quot;scroll&quot;,***)</span></span><br><span class="line">con.addEventListener(<span class="string">&#x27;wheel&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 获取可视区域宽高</span></span><br><span class="line">    <span class="keyword">let</span> viewHeight = <span class="built_in">document</span>.documentElement.clientHeight;</span><br><span class="line">    <span class="comment">// 获取已经滚动条滚动了的高度</span></span><br><span class="line">    <span class="keyword">let</span> scrowHeight = <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">    <span class="comment">// 获取文档高</span></span><br><span class="line">    <span class="keyword">let</span> documentHeight = <span class="built_in">document</span>.body.clientHeight;</span><br><span class="line">    <span class="keyword">if</span> (scrowHeight === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 隐藏按钮</span></span><br><span class="line">        set(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 显示按钮</span></span><br><span class="line">        set(<span class="number">10</span>, <span class="number">99</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/18/css/%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/18/css/%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F/" class="post-title-link" itemprop="url">动态设置背景图容器大小</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 21:11:49" itemprop="dateCreated datePublished" datetime="2019-11-18T21:11:49+08:00">2019-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 14:45:18" itemprop="dateModified" datetime="2020-10-14T14:45:18+08:00">2020-10-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>最近在做一个官网的效果的时候，出现了背景图过大，导致不同显示器显示的图片大小不一样，和影响下面内容的布局问题。所以记录一下这个坑。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/18/css/%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1025,7 +595,7 @@ js中基本数据类就是存储在栈中。
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
