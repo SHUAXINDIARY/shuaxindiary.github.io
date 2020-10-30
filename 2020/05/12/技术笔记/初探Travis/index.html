@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="初探cicd 什么是cicd？   cicd是持续集成和持续交付的缩写，全称为continuous integration &amp; continuous delivery   cicd怎么做   通过一些工具，来进行   这些工具做了哪些事   将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手 举个vue项目的例子：  1234# 本地：对项目打">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探Travis">
+<meta property="og:url" content="http://example.com/2020/05/12/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2Travis/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="初探cicd 什么是cicd？   cicd是持续集成和持续交付的缩写，全称为continuous integration &amp; continuous delivery   cicd怎么做   通过一些工具，来进行   这些工具做了哪些事   将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手 举个vue项目的例子：  1234# 本地：对项目打">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/jottings/travis.png">
+<meta property="article:published_time" content="2020-05-12T08:41:41.000Z">
+<meta property="article:modified_time" content="2020-10-30T06:28:23.122Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="踩坑">
+<meta property="article:tag" content="Travis">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="CICD">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/jottings/travis.png">
+
+<link rel="canonical" href="http://example.com/2020/05/12/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2Travis/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>初探Travis | 刷新</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">刷新</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/12/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2Travis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初探Travis
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-12 16:41:41" itemprop="dateCreated datePublished" datetime="2020-05-12T16:41:41+08:00">2020-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-30 14:28:23" itemprop="dateModified" datetime="2020-10-30T14:28:23+08:00">2020-10-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="初探cicd"><a href="#初探cicd" class="headerlink" title="初探cicd"></a>初探cicd</h1><blockquote>
+<p>什么是cicd？</p>
+</blockquote>
+<ul>
+<li>cicd是持续集成和持续交付的缩写，全称为continuous integration &amp; continuous delivery</li>
+</ul>
+<blockquote>
+<p>cicd怎么做</p>
+</blockquote>
+<ul>
+<li>通过一些工具，来进行</li>
+</ul>
+<blockquote>
+<p>这些工具做了哪些事</p>
+</blockquote>
+<ul>
+<li>将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手</li>
+<li>举个vue项目的例子：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 本地：对项目打包，（正规点还要跑一边测试）这些都没问题后，然后推送到远程仓库</span></span><br><span class="line">npm run build -&gt; git push </span><br><span class="line"><span class="meta">#</span><span class="bash"> 服务器：进入对应的目录，然后拉去仓库的代码</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></li>
+<li>如果做好cicd的流程后，只需要git push代码就好，剩下的都会在集成工具里去根据配置文件，去自动执行，这个过程哪一步出现问题都会有对应的log文件<a id="more"></a>
+
+</li>
+</ul>
+<blockquote>
+<p>目的</p>
+</blockquote>
+<ul>
+<li>将繁琐的体力劳动变化自动化，把精力集中在项目核心逻辑开发中，从而间接影响项目的质量<h1 id="Travis"><a href="#Travis" class="headerlink" title="Travis"></a>Travis</h1></li>
+<li>和github搭配比较好的cicd工具</li>
+<li>同样的工具还有Gitlab、Jenkins等</li>
+</ul>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><blockquote>
+<p>ci：集成部分</p>
+</blockquote>
+<ul>
+<li>用github登陆Travis，指定我们需要进行集成的仓库</li>
+<li>在该仓库的项目中添加.travis.yml配置文件</li>
+<li>在配置文件中，配置当我们git push后，需要travis去做的事</li>
+</ul>
+<blockquote>
+<p>cd：部署部分</p>
+</blockquote>
+<ul>
+<li>这里使用ssh密钥免密登陆服务器的原理，来让travis可以免密登陆指定服务器</li>
+<li>关于ssh登陆的流程和原理：在要登录服务器的机器生成一对秘钥，一公一私，公钥保存到目标服务器，私钥只能自己本地知道；然后当ssh连接目标服务器时，服务器会返回一段用公钥加密的字符串；客户端收到后，用私钥解密；然后在使用私钥加密该字符串，在发送给服务器，服务器使用公钥解密后，确认是自己之前传递的内容，确认成功进行连接</li>
+<li>关于ssh：安全外科协议，使用非对称加密来进行身份验证</li>
+</ul>
+<h1 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h1><blockquote>
+<p>项目</p>
+</blockquote>
+<ul>
+<li>创建项目，git初始化，添加.travis.yml文件</li>
+<li>git push到github</li>
+<li>登陆travis，在设置页中，找到对应的仓库，并打开后面的按钮，如图<br><img src="/img/jottings/travis.png" alt="travis">  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .travis.yml</span></span><br><span class="line"><span class="comment"># 指定项目语言</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="comment"># 指定版本</span></span><br><span class="line"><span class="attr">node_js:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">10</span></span><br><span class="line"><span class="comment"># 指定分支：这样只有该分支发生变动后，才会进行操作</span></span><br><span class="line"><span class="attr">branches:</span> </span><br><span class="line"><span class="attr">only:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">serverBackup</span></span><br><span class="line"><span class="comment"># 安装依赖：如果需要</span></span><br><span class="line"><span class="comment"># install:</span></span><br><span class="line"><span class="comment"># - npm install</span></span><br><span class="line"><span class="comment"># 运行脚本</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">echo</span> <span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明</p>
+</blockquote>
+</li>
+<li>travis的配置文件是YAML语法</li>
+<li>travis的执行阶段（生命周期）分为：（括号的为可选阶段）</li>
+<li>before_install -&gt; install -&gt;before_script -&gt; script -&gt; aftersuccess or afterfailure -&gt;(before_deploy-&gt;deploy-&gt;after_deploy)-&gt;after_script</li>
+<li>安装依赖前-&gt;安装依赖-&gt;执行脚本之前-&gt;执行脚本-&gt;脚本执行成功后 或者 执行失败后-&gt;（部署前-&gt;部署-&gt;部署后）-&gt;脚本执行完成后</li>
+<li>travis每一阶段执行成功后才继续下一步，如果失败立即停止</li>
+</ul>
+<h1 id="服务端操作"><a href="#服务端操作" class="headerlink" title="服务端操作"></a>服务端操作</h1><h3 id="Linux添加新用户-赋予root权限"><a href="#Linux添加新用户-赋予root权限" class="headerlink" title="Linux添加新用户/赋予root权限"></a>Linux添加新用户/赋予root权限</h3><ul>
+<li>这里不要换成root创建，用普通用户使用sudo命令添加新用户即可<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加用户</span></span><br><span class="line">sudo adduser 用户名</span><br><span class="line"><span class="meta">#</span><span class="bash"> 按提示操作</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 给该用户赋予root权限</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑该文件</span></span><br><span class="line">vim /etc/sudoers</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在改行注释下添加</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> User privilege specification</span></span><br><span class="line">用户名 ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="生成SSH秘钥"><a href="#生成SSH秘钥" class="headerlink" title="生成SSH秘钥"></a>生成SSH秘钥</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 回到根目录</span></span><br><span class="line">[~/home]:cd ~</span><br><span class="line">[~]:ssh-keygen -t rsa #-t意思选择生成的加密算法，RSA为非对称加密</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置该文件权限为700"><a href="#设置该文件权限为700" class="headerlink" title="设置该文件权限为700"></a>设置该文件权限为700</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -rw------- (600)      只有拥有者有读写权限。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -rw-r--r-- (644)      只有拥有者有读写权限；而属组用户和其他用户只有读权限。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -rwx------ (700)     只有拥有者有读、写、执行权限。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -rwxr-xr-x (755)    拥有者有读、写、执行权限；而属组用户和其他用户只有读、执行权限。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -rwx--x--x (711)    拥有者有读、写、执行权限；而属组用户和其他用户只有执行权限。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -rw-rw-rw- (666)   所有用户都有文件读、写权限。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -rwxrwxrwx (777)  所有用户都有读、写、执行权限。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 通过chmod命令可以修改权限</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -----------</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置该目录为700</span></span><br><span class="line">[~]:chmod 700 ~/.ssh/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置该目录下文件为600</span></span><br><span class="line">chmod 600 ~/.ssh/*</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看当前目录下文件信息 可以看到所有文件都属于travis</span></span><br><span class="line">[~]:ls -al</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加生成公钥为受信列表</span></span><br><span class="line">[~]:cd .ssh/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果没有authorized_keys先创建</span></span><br><span class="line">[~]:touch authorized_keys</span><br><span class="line">[~/.ssh]:cat id_rsa.pub &gt;&gt; authorized_keys # cat打印文件内容</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置连接"><a href="#配置连接" class="headerlink" title="配置连接"></a>配置连接</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建一个配置文件</span></span><br><span class="line">[~/.ssh]:vim config</span><br><span class="line"><span class="meta">#</span><span class="bash"> 内容如下</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试</span></span><br><span class="line">[~/.ssh]:ssh test</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看是否有known_hosts 有即成功 之后再登陆时就不需要yes</span></span><br><span class="line">[~/.ssh]:ls</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;!--</span> <span class="string">文件内容</span> <span class="string">--&gt;</span></span><br><span class="line"><span class="string">Host</span> <span class="string">test</span></span><br><span class="line"><span class="string">HostName</span> <span class="number">99.99</span><span class="number">.99</span><span class="number">.99</span><span class="string">(你的服务器ip)</span></span><br><span class="line"><span class="comment">#登陆的用户名</span></span><br><span class="line"><span class="string">User</span> <span class="string">travis</span></span><br><span class="line"><span class="string">IdentitiesOnly</span> <span class="literal">yes</span></span><br><span class="line"><span class="comment">#登陆使用的密钥</span></span><br><span class="line"><span class="string">IdentityFile</span> <span class="string">~/.ssh/id_rsa</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装travis"><a href="#安装travis" class="headerlink" title="安装travis"></a>安装travis</h3><p>travis是ruby写的，所以需要安装ruby环境</p>
+<blockquote>
+<p>安装rvm：ruby的版本管理工具，类似npx</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 切回root</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装公钥</span></span><br><span class="line">[root@~]gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB</span><br><span class="line"><span class="meta">#</span><span class="bash"> 会提示安装gpg2 安装就好</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装rvm</span></span><br><span class="line">[root@~]:curl -sSL https://get.rvm.io | bash -s stable</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装会提示需要添加用户到rvm分组</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加用户到新分组且不离开当前所在组</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> usermod -G groupA---离开当前所在组，到目标组</span></span><br><span class="line">[root@~]:usermod -a -G 分组名 待添加用户</span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行重新执行刚修改的初始化文件</span></span><br><span class="line">[root@~]:source /etc/profile.d/rvm.sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看rvm版本</span></span><br><span class="line">[root@~]:rvm --version</span><br><span class="line"><span class="meta">#</span><span class="bash"> rvm 1.29.10 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装ruby和gem—ruby的包管理工具</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@~]:rvm install ruby</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装完成后查看版本</span></span><br><span class="line">[root@~]:ruby --version</span><br><span class="line">[root@~]:gem -v</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看gem当前镜像</span></span><br><span class="line">[root@~]:gem sources -l # https://rubygems.org/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 切换为国内的镜像源</span></span><br><span class="line">[root@~]:gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装travis命令行工具</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@~]:gem install travis</span><br><span class="line"><span class="meta">#</span><span class="bash"> 切到travis 执行travis</span></span><br><span class="line">[travis@~]:travis</span><br><span class="line"><span class="meta">#</span><span class="bash"> 提示yes</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入项目目录，开始添加秘钥到仓库</span></span><br><span class="line">[travis@~/home/xxx]:travis login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入github登陆名和密码</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加秘钥到仓库的配置文件中</span></span><br><span class="line">[travis@~/home/xxx]:travis encrypt-file ~/.ssh/id_rsa  --add</span><br><span class="line"><span class="meta">#</span><span class="bash"> 打印配置文件看到多了几行</span></span><br><span class="line">before_install:</span><br><span class="line">- openssl aes-256-cbc -K $encrypted_ff98517d7fe4_key -iv $encrypted_ff98517d7fe4_iv</span><br><span class="line">  -in id_rsa.enc -out ~\/.ssh/id_rsa -d</span><br><span class="line"><span class="meta">#</span><span class="bash">   这里需要更改一下把out~后的\去掉，不然会报错这是traviscli的bug</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>添加目标服务器</p>
+</blockquote>
+<ul>
+<li>这里就在配置文件中添加一下目标服务器ip，和登陆后要进行的操作即可<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">10</span></span><br><span class="line"><span class="attr">branches:</span> </span><br><span class="line"><span class="attr">only:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">serverBackup</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">echo</span> <span class="string">&quot;test&quot;</span></span><br><span class="line"><span class="attr">before_install:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">openssl</span> <span class="string">aes-256-cbc</span> <span class="string">-K</span> <span class="string">$encrypted_5ec1b68e2d5b_key</span> <span class="string">-iv</span> <span class="string">$encrypted_5ec1b68e2d5b_iv</span></span><br><span class="line">  <span class="string">-in</span> <span class="string">id_rsa.enc</span> <span class="string">-out</span> <span class="string">~/.ssh/id_rsa</span> <span class="string">-d</span></span><br><span class="line"><span class="attr">addons:</span></span><br><span class="line"><span class="attr">ssh_known_hosts:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">ip地址或者域名</span></span><br><span class="line"><span class="attr">after_success:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">chmod</span> <span class="number">600</span> <span class="string">~/.ssh/id_rsa</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">ssh</span> <span class="string">publish@shuaxinjs.cn</span> <span class="string">-o</span> <span class="string">StrictHostKeyChecking=no</span> <span class="string">&#x27;cd /home/publish/data/shuaxindiary.github.io &amp;&amp; git pull&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://gems.ruby-china.com/">gem国内镜像</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html">阮一峰-cicd</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhaosaisai.com/blog/2019/travis%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2github%E9%A1%B9%E7%9B%AE%E5%88%B0server.html">travis自动化部署github项目到server</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag"># 踩坑</a>
+              <a href="/tags/Travis/" rel="tag"># Travis</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/CICD/" rel="tag"># CICD</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/" rel="prev" title="初探nginx">
+      <i class="fa fa-chevron-left"></i> 初探nginx
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/13/%E9%9A%8F%E7%AC%94/%E5%A1%9E%E5%B0%94%E8%BE%BE%E9%80%9A%E5%85%B3/" rel="next" title="塞尔达通关">
+      塞尔达通关 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E6%8E%A2cicd"><span class="nav-number">1.</span> <span class="nav-text">初探cicd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Travis"><span class="nav-number">2.</span> <span class="nav-text">Travis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">本地操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">服务端操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%94%A8%E6%88%B7-%E8%B5%8B%E4%BA%88root%E6%9D%83%E9%99%90"><span class="nav-number">5.0.1.</span> <span class="nav-text">Linux添加新用户&#x2F;赋予root权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90SSH%E7%A7%98%E9%92%A5"><span class="nav-number">5.0.2.</span> <span class="nav-text">生成SSH秘钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%A5%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%BA700"><span class="nav-number">5.0.3.</span> <span class="nav-text">设置该文件权限为700</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5"><span class="nav-number">5.0.4.</span> <span class="nav-text">配置连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85travis"><span class="nav-number">5.0.5.</span> <span class="nav-text">安装travis</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      前辈
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

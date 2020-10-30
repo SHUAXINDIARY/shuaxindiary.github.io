@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探nginx">
+<meta property="og:url" content="http://example.com/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-09T11:24:33.000Z">
+<meta property="article:modified_time" content="2020-10-30T06:28:23.122Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="踩坑">
+<meta property="article:tag" content="Nginx">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>初探nginx | 刷新</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">刷新</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初探nginx
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-09 19:24:33" itemprop="dateCreated datePublished" datetime="2020-05-09T19:24:33+08:00">2020-05-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-30 14:28:23" itemprop="dateModified" datetime="2020-10-30T14:28:23+08:00">2020-10-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客</p>
+<a id="more"></a>
+
+<h1 id="相关知识笔记"><a href="#相关知识笔记" class="headerlink" title="相关知识笔记"></a>相关知识笔记</h1><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><blockquote>
+<p>什么是nginx</p>
+</blockquote>
+<ul>
+<li>一个支持HTTP和反向代理的开源的web服务器</li>
+</ul>
+<blockquote>
+<p>web服务器</p>
+</blockquote>
+<ul>
+<li>基于HTTP协议，处理客户端请求，为客户端提供可供浏览内容的服务器</li>
+<li>举例：Nginx</li>
+</ul>
+<blockquote>
+<p>应用服务器</p>
+</blockquote>
+<ul>
+<li>用来运行那些可以访问、操作本机资源的应用程序的服务器</li>
+<li>举例：Tomact</li>
+</ul>
+<blockquote>
+<p>两者区别</p>
+</blockquote>
+<ul>
+<li>不同点：Web服务器只能处理静态资源，接受请求响应资源，结束；应用服务器也可以做请求处理，响应静态资源，但同时还可以处理动态内容，比如根据模板引擎生成页面等</li>
+<li>相同点：2者都可以处理请求</li>
+<li>以前开发中，会直接使用应用服务器处理用户请求，然后使用模板引擎动态生成页面给客户端；现在因为前后端分离的原因，以及为了减轻应用服务器压力的前提下；静态资源交给nginx这类web服务器来做，应用服务器只负责处理逻辑，提供数据</li>
+</ul>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
+<p>概念</p>
+</blockquote>
+<ul>
+<li>macOS和Windows之外的第三大操作系统，主要用于服务器等，而且开源</li>
+</ul>
+<blockquote>
+<p>版本</p>
+</blockquote>
+<ul>
+<li>Ubuntu、centos、debian等</li>
+</ul>
+<blockquote>
+<p>包安装工具</p>
+</blockquote>
+<ul>
+<li>因为使用的Linux不同，所使用的的包管理工具也不同</li>
+<li>Debian/Ubuntu：apt、apt-cache、apt-get、dpkg</li>
+<li>centos：yum</li>
+<li>备注1：apt是包管理平台，get负责包的安装更新删除管理；cache用于搜索</li>
+<li>备注2：dpkg是Debian的包管理工具，Ubuntu基于Debian，所以也可以使用；但是两个的区别是dpkg安装会绕过并覆盖apt安装的包，切不关心模块依赖问题；不关心Ubuntu软件库软件；简单理解Ubuntu专用apt，Debian专用dpkg</li>
+</ul>
+<blockquote>
+<p>apt常用命令</p>
+</blockquote>
+<ul>
+<li>安装包：apt-get install &lt;包名&gt;</li>
+<li>移除包：apt-get remove &lt;包名&gt;</li>
+<li>更新包列表：apt-get update </li>
+<li>更新系统、已安装包：apt-get upgrade</li>
+<li>列出已安装包：dpkg -l</li>
+<li>搜索某包：apt-cache search &lt;包名&gt;</li>
+<li>查看包信息：apt-cache show &lt;包名&gt;</li>
+</ul>
+<blockquote>
+<p>其他命令</p>
+</blockquote>
+<ul>
+<li>wget：用来从指定的URL下载文件；类似迅雷</li>
+<li></li>
+</ul>
+<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><ul>
+<li>进入/etc/nginx/conf.d/目录，该目录存放自己的配置文件，nginx的主配置文件(/etc/nginx/nginx.conf)会自动加载该目录的配置文件</li>
+<li>通过以下配置文件，就可以部署一个简单的静态项目<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    # 监听端口号，主配置文件默认监听了80</span><br><span class="line">    listen 2333;</span><br><span class="line">    # 制定ip地址或者域名</span><br><span class="line">    server_name shuaxinjs.cn;</span><br><span class="line">    # 配置对哪些url做出相应</span><br><span class="line">    location / &#123;</span><br><span class="line">        # 配置响应文件的目录</span><br><span class="line">        root /data;</span><br><span class="line">        # 配置目录下的响应文件</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明</p>
+</blockquote>
+</li>
+<li>当在浏览器输入的url匹配到location的url后，就会去内部定义的root或alias目录找要返回的文件</li>
+<li>如果没有匹配到对应的规则，就会去默认的目录找404.html并响应；这是nginx自带的，一般在/usr/share/nginx/html</li>
+<li>可以在/var/log/nginx下查看access和error日志文件，来查看访问状态</li>
+<li>root可以写在location也可以写在server中，如果内部有定义root，优先使用root的路径（精确匹配例外）</li>
+</ul>
+<blockquote>
+<p>alias和root的区别</p>
+</blockquote>
+<ul>
+<li>假设此时域名为 <a href="shuaxinjs.cn">shuaxinjs.cn</a><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> root</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这时浏览器输入www.shuxinjs.cn/dist后，nginx会去/data/dist/目录寻找文件</span></span><br><span class="line"></span><br><span class="line">location /dist&#123;</span><br><span class="line">    root /data/;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">alias</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这时浏览器输入www.shuxinjs.cn/dist2后，nginx会去/home/目录寻找文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">alias</span>指定目录时，结尾一定要加 /;root可有可无</span></span><br><span class="line">location /dist2&#123;</span><br><span class="line">    alias /home/;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1></li>
+<li>使用nginx命令管理  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload  # 向主进程发送信号，重新加载配置文件，热重启</span><br><span class="line">nginx -s reopen	 # 重启 Nginx</span><br><span class="line">nginx -s stop    # 快速关闭</span><br><span class="line">nginx -s quit    # 等待工作进程处理完成后关闭</span><br><span class="line">nginx -T         # 查看当前 Nginx 最终的配置</span><br><span class="line">nginx -t -c &lt;配置路径&gt;    # 检查配置是否有问题，如果已经在配置目录，则不需要-c</span><br></pre></td></tr></table></figure></li>
+<li>使用systemctl管理，这是Linux的系统应用管理工具  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx    # 启动 Nginx</span><br><span class="line">systemctl stop nginx     # 停止 Nginx</span><br><span class="line">systemctl restart nginx  # 重启 Nginx</span><br><span class="line">systemctl reload nginx   # 重新加载 Nginx，用于修改配置后</span><br><span class="line">systemctl enable nginx   # 设置开机启动 Nginx</span><br><span class="line">systemctl disable nginx  # 关闭开机启动 Nginx</span><br><span class="line">systemctl status nginx   # 查看 Nginx 运行状态</span><br></pre></td></tr></table></figure>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1></li>
+</ul>
+<h3 id="location配置规则"><a href="#location配置规则" class="headerlink" title="location配置规则"></a>location配置规则</h3><blockquote>
+<p>基本语法</p>
+</blockquote>
+<ul>
+<li>这里不需要像js一样需要用//把规则包裹起来，直接写在启用正则的符号后即可  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location [=|~|~*|^~]/uri/&#123;...&#125;&#123;</span><br><span class="line">    # 具体配置</span><br><span class="line">    # root/alias dist #响应文件目录</span><br><span class="line">    # index file  #响应文件</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="单独说明"><a href="#单独说明" class="headerlink" title="单独说明"></a>单独说明</h3><blockquote>
+<p>=</p>
+</blockquote>
+<ul>
+<li>精确匹配</li>
+<li>使用=的时候一定要在server中指定root，会无视location内部的路径</li>
+<li>下例：当访问shuaxinjs.cn/的时候，nginx就会去/home目录寻找index.html；但是当仅在location指定的时候就会去/usr/nginx/share/html寻找，当然那个目录不存在我们的文件，就会返回404  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">root /home;</span><br><span class="line">location = /login/ &#123;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>^~</p>
+</blockquote>
+<ul>
+<li>表示url以某个常规字符串开始的url，不区分大小写</li>
+<li>下例：代理后端请求，凡是携带/apis/的url，都会进行去请求转发；即：shuaxinjs.cn/apis/getData会变成localhost:3000/getData</li>
+<li>这里需要注意apis后面一定要跟/，不然apis会添加到url中  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ^~ /apis/ &#123;</span><br><span class="line">    proxy_pass http://localhost:3000/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>~</p>
+</blockquote>
+<ul>
+<li><strong><em>区分大小写</em></strong> 的正则匹配</li>
+<li>下例：匹配所有的.(css|js|png|jpg|jepg)的资源文件;</li>
+<li>正则说明：.为默认匹配除换行符以外的所有字符，*：默认对前一个规则执行0-n次；\对.号做转意；（css|js|png|jpg|jepg）意思是.后的字符必须是这几种任意一种  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    root /home/static/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>~*</p>
+</blockquote>
+</li>
+<li><strong><em>不区分大小写</em></strong> 的正则匹配</li>
+</ul>
+<blockquote>
+<p>!~ , !~*</p>
+</blockquote>
+<ul>
+<li>区分大小写不匹配；不区分大小写不匹配</li>
+</ul>
+<blockquote>
+<p>/</p>
+</blockquote>
+<ul>
+<li>通用匹配，任何请求都会匹配</li>
+</ul>
+<h3 id="匹配顺序"><a href="#匹配顺序" class="headerlink" title="匹配顺序"></a>匹配顺序</h3><p>多个location配置的情况下匹配顺序为：<br>首先匹配= ；<br>其次是完整路径；<br>然后匹配^~；<br>再其次是按文件中顺序的正则匹配；<br>最后是交给 / 通用匹配；<br>当有匹配成功时候，停止匹配，按当前匹配规则处理请求。</p>
+<h1 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h1><ul>
+<li><p>匹配静态资源</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(css|js|png|jpg|jepg)&#123;</span><br><span class="line">    root /home/static/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>代理后端请求，解决跨域</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> location ^~ /api/ &#123;</span><br><span class="line">    proxy_pass 后端地址;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断请求客户端为移动端还是pc，返回不同的页面</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name 域名/ip;</span><br><span class="line">    location / &#123;</span><br><span class="line">    root pc目录；</span><br><span class="line">    root /data/pc;</span><br><span class="line">    if ( $http_user_agent ~* &#x27;(Android|webOS|iPhone|iPod|BlackBerry)&#x27; ) &#123;</span><br><span class="line">            root 移动端目录;</span><br><span class="line">    &#125;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+<h1 id="可用全局变量"><a href="#可用全局变量" class="headerlink" title="可用全局变量"></a>可用全局变量</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">host ： 请求主机头字段，否则为服务器名称。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">http_user_agent ： 客户端agent信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash">http_cookie ： 客户端cookie信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_method ： 客户端请求的动作，通常为GET或POST。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">content_length ： 请求头中的Content-length字段。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">content_type ： 请求头中的Content-Type字段。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">uri ： 不包含请求参数的当前URI，<span class="variable">$uri</span>不包含主机名，如”/foo/bar.html”。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">document_uri ： 与<span class="variable">$uri</span>相同。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">query_string </span></span><br><span class="line"><span class="meta">$</span><span class="bash">args ： 这个变量等于请求行中的参数，同<span class="variable">$query_string</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash">document_root ： 当前请求在root指令中指定的值。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">limit_rate ： 这个变量可以限制连接速率。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_body_file </span></span><br><span class="line"><span class="meta">$</span><span class="bash">request_filename ： 当前请求的文件路径，由root或<span class="built_in">alias</span>指令与URI请求生成。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">remote_addr ： 客户端的IP地址。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">remote_port ： 客户端的端口。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">remote_user ： 已经经过Auth Basic Module验证的用户名。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">scheme ： HTTP方法（如http，https）。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_name ： 服务器名称。</span></span><br><span class="line"><span class="meta">$</span><span class="bash">server_port ： 请求到达服务器的端口号。</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag"># 踩坑</a>
+              <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/" rel="prev" title="vue原理学习1-响应式">
+      <i class="fa fa-chevron-left"></i> vue原理学习1-响应式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/12/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2Travis/" rel="next" title="初探Travis">
+      初探Travis <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%B7%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0"><span class="nav-number">2.</span> <span class="nav-text">相关知识笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx"><span class="nav-number">2.0.1.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-number">2.0.2.</span> <span class="nav-text">Linux</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#location%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99"><span class="nav-number">5.0.1.</span> <span class="nav-text">location配置规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E7%8B%AC%E8%AF%B4%E6%98%8E"><span class="nav-number">5.0.2.</span> <span class="nav-text">单独说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F"><span class="nav-number">5.0.3.</span> <span class="nav-text">匹配顺序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">6.</span> <span class="nav-text">常用配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E7%94%A8%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-number">7.</span> <span class="nav-text">可用全局变量</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      前辈
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

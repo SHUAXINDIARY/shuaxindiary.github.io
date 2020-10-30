@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="mongoose是什么？Mongoose是MongoDB的一个对象模型工具，是基于node-mongodb-native开发的MongoDB nodejs驱动，可以在异步的环境下执行。同时它也是针对MongoDB操作的一个对象模型库，封装了MongoDB对文档的的一些增删改查等常用方法，让NodeJS操作Mongodb数据库变得更加灵活简单。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongoose简单入门">
+<meta property="og:url" content="http://example.com/2019/08/14/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/mongoose%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="mongoose是什么？Mongoose是MongoDB的一个对象模型工具，是基于node-mongodb-native开发的MongoDB nodejs驱动，可以在异步的环境下执行。同时它也是针对MongoDB操作的一个对象模型库，封装了MongoDB对文档的的一些增删改查等常用方法，让NodeJS操作Mongodb数据库变得更加灵活简单。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-14T01:51:57.000Z">
+<meta property="article:modified_time" content="2020-10-30T06:28:23.122Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="踩坑">
+<meta property="article:tag" content="NodeJS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2019/08/14/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/mongoose%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>mongoose简单入门 | 刷新</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">刷新</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/08/14/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/mongoose%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mongoose简单入门
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-14 09:51:57" itemprop="dateCreated datePublished" datetime="2019-08-14T09:51:57+08:00">2019-08-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-30 14:28:23" itemprop="dateModified" datetime="2020-10-30T14:28:23+08:00">2020-10-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="mongoose是什么？"><a href="#mongoose是什么？" class="headerlink" title="mongoose是什么？"></a>mongoose是什么？</h1><p>Mongoose是MongoDB的一个对象模型工具，是基于node-mongodb-native开发的MongoDB nodejs驱动，可以在异步的环境下执行。同时它也是针对MongoDB操作的一个对象模型库，封装了MongoDB对文档的的一些增删改查等常用方法，让NodeJS操作Mongodb数据库变得更加灵活简单。</p>
+<a id="more"></a>
+<h1 id="基本增删改查使用-最近几天用过的一些基本的操作-中文文档"><a href="#基本增删改查使用-最近几天用过的一些基本的操作-中文文档" class="headerlink" title="基本增删改查使用(最近几天用过的一些基本的操作) 中文文档"></a>基本增删改查使用(最近几天用过的一些基本的操作) <a target="_blank" rel="noopener" href="http://www.mongoosejs.net/docs/index.html">中文文档</a></h1><p>1.安装mongoose</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mongoose --save</span><br></pre></td></tr></table></figure>
+<p>2.引入mongoose</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose=requie(<span class="string">&#x27;mongoose&#x27;</span>); </span><br></pre></td></tr></table></figure>
+<p>3.连接本地数据库</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数是mongodb:+数据库地址/数据库名称 </span></span><br><span class="line"><span class="comment">// useNewUrlParser 是设置新的url解析</span></span><br><span class="line">mongoose.connect(<span class="string">&#x27;mongodb://localhost:27017/mongo-relation&#x27;</span>, &#123; <span class="attr">useNewUrlParser</span>: <span class="literal">true</span> &#125;);</span><br></pre></td></tr></table></figure>
+<p>3.创建集合,以创建一个users集合(即数据库表)为例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mongoose通过model来对应数据库中的集合 </span></span><br><span class="line"><span class="comment">// 第一个参数时 是集合名 第二个参数是设置集合的键以及类型</span></span><br><span class="line"><span class="keyword">const</span> Users=mongoose.model(<span class="string">&#x27;Users&#x27;</span>,<span class="keyword">new</span> mongoose.Scema(&#123;</span><br><span class="line">    name:&#123;</span><br><span class="line">        type:<span class="built_in">String</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<p>4.插入数据，向users集合中插入2行文档(即数据)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> insert=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">await</span> Users.insertMany([&#123;</span><br><span class="line">        name:<span class="string">&#x27;刷新1&#x27;</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:<span class="string">&#x27;shuaxin&#x27;</span></span><br><span class="line">    &#125;]);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;插入成功&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">insert();</span><br></pre></td></tr></table></figure>
+<p>5.查找数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> find=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 查找集合中所有数据</span></span><br><span class="line">    <span class="keyword">const</span> users=<span class="keyword">await</span> Users.find();</span><br><span class="line">    cosnole.log(users);</span><br><span class="line">    <span class="comment">// 根据条件查找</span></span><br><span class="line">    <span class="keyword">const</span> findUser=<span class="keyword">await</span> Users.find().where(&#123;</span><br><span class="line">        name:<span class="string">&#x27;刷新1&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">    cosnole.log(findUser);</span><br><span class="line">    <span class="comment">// 限制条数查找</span></span><br><span class="line">    <span class="keyword">const</span> twoUsers = <span class="keyword">await</span> Users.find().limit(<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(twoUsers);</span><br><span class="line">    <span class="comment">// 更多使用可以看官网</span></span><br><span class="line">&#125;;</span><br><span class="line">find();</span><br></pre></td></tr></table></figure>
+<p>6.修改数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> updata=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 先查找要修改的数据</span></span><br><span class="line">    <span class="keyword">const</span> target=<span class="keyword">await</span> Users.find().where(&#123;</span><br><span class="line">        name:<span class="string">&#x27;刷新1&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">    target.name=<span class="string">&#x27;刷新2&#x27;</span>;</span><br><span class="line">    <span class="comment">// 保存修改的数据</span></span><br><span class="line">    <span class="keyword">await</span> Users.save();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;修改成功&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">update();</span><br></pre></td></tr></table></figure>
+<p>7.删除数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> del=aync <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 先查找要删除的数据</span></span><br><span class="line">    <span class="keyword">const</span> target=<span class="keyword">await</span> Users.find().where(&#123;</span><br><span class="line">        name:<span class="string">&#x27;刷新2&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 直接删除</span></span><br><span class="line">    <span class="keyword">await</span> product.remove();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;删除成功&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">del();</span><br></pre></td></tr></table></figure>
+<h1 id="4-集合之间的关联"><a href="#4-集合之间的关联" class="headerlink" title="4.集合之间的关联"></a>4.集合之间的关联</h1><p>1.创建一个性别集合(Gender)和用户(Users)集合<br>2.性别集合插入男(man)和女(woman)属性<br>3.在用户集合键类型设置时,性别类型性别集合中对应性别的id，ref为指向性别集合</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gender:&#123;<span class="attr">type</span>: mongoose.SchemaTypes.ObjectId, <span class="attr">ref</span>: <span class="string">&#x27;Gender&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>4.插入数据时，先获取性别集合中对应的性别，然后设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取性别</span></span><br><span class="line"><span class="keyword">const</span> man=<span class="keyword">await</span> Gender.findOne(&#123;<span class="attr">gender</span>:<span class="string">&#x27;男&#x27;</span>&#125;);</span><br><span class="line"><span class="keyword">const</span> woman=<span class="keyword">await</span> Gender.findOne(&#123;<span class="attr">gender</span>:<span class="string">&#x27;女&#x27;</span>&#125;);</span><br><span class="line"><span class="comment">// 插入数据</span></span><br><span class="line"><span class="keyword">const</span> res=<span class="keyword">await</span> Users.insertMany([&#123;</span><br><span class="line">    name:<span class="string">&#x27;刷新&#x27;</span>,</span><br><span class="line">    gender:man</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    name:<span class="string">&#x27;tao&#x27;</span>,</span><br><span class="line">    gender:man</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    name:<span class="string">&#x27;guiyi&#x27;</span>,</span><br><span class="line">    gender:woman</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose=<span class="built_in">require</span>(<span class="string">&#x27;mongoose&#x27;</span>);</span><br><span class="line">mongoose.connect(<span class="string">&#x27;mongodb://localhost:27017/userMsg&#x27;</span>, &#123; <span class="attr">useNewUrlParser</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 性别集合</span></span><br><span class="line"><span class="keyword">const</span> Gender=mongoose.model(<span class="string">&#x27;Gender&#x27;</span>,<span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    gender:&#123;</span><br><span class="line">        type:<span class="built_in">String</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)); </span><br><span class="line"><span class="comment">// 用户集合</span></span><br><span class="line"><span class="keyword">const</span> Users=mongoose.model(<span class="string">&#x27;Users&#x27;</span>,<span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name:&#123;<span class="attr">type</span>:<span class="built_in">String</span>&#125;,</span><br><span class="line">    gender:&#123;<span class="attr">type</span>: mongoose.SchemaTypes.ObjectId, <span class="attr">ref</span>: <span class="string">&#x27;Gender&#x27;</span>&#125;</span><br><span class="line">&#125;));</span><br><span class="line"><span class="comment">// 向gender中插入数据</span></span><br><span class="line"><span class="keyword">const</span> insertGender=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">await</span> Gender.insertMany([&#123;</span><br><span class="line">        gender:<span class="string">&#x27;男&#x27;</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        gender:<span class="string">&#x27;女&#x27;</span></span><br><span class="line">    &#125;]);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 向users中插入数据</span></span><br><span class="line"><span class="keyword">const</span> insertUser=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> man=<span class="keyword">await</span> Gender.findOne(&#123;<span class="attr">gender</span>:<span class="string">&#x27;男&#x27;</span>&#125;);</span><br><span class="line">    <span class="keyword">const</span> woman=<span class="keyword">await</span> Gender.findOne(&#123;<span class="attr">gender</span>:<span class="string">&#x27;女&#x27;</span>&#125;);</span><br><span class="line">    <span class="keyword">const</span> res=<span class="keyword">await</span> Users.insertMany([&#123;</span><br><span class="line">        name:<span class="string">&#x27;刷新&#x27;</span>,</span><br><span class="line">        gender:man</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:<span class="string">&#x27;tao&#x27;</span>,</span><br><span class="line">        gender:man</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:<span class="string">&#x27;guiyi&#x27;</span>,</span><br><span class="line">        gender:woman</span><br><span class="line">    &#125;]);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> main=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> gender=<span class="keyword">await</span> Gender.find();</span><br><span class="line">    <span class="keyword">const</span> users=<span class="keyword">await</span> Users.find();</span><br><span class="line">    <span class="comment">// 当Gender中没有数据时 执行insertGender</span></span><br><span class="line">    <span class="keyword">if</span> (gender.length==<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">await</span> insertGender();</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;插入成功&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 当Gender中有数据时 直接打印</span></span><br><span class="line">        <span class="built_in">console</span>.log(gender);</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">users.length==<span class="number">0</span></span>)</span>&#123;</span><br><span class="line">            <span class="comment">// 当Users中没有数据时 执行insertGender</span></span><br><span class="line">            <span class="keyword">await</span> insertUser();</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;用户插入成功&#x27;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//  当Users中有数据时 执行insertUsers</span></span><br><span class="line">            <span class="comment">//  populate(&#x27;gender&#x27;) 显示分类属性的详细信息</span></span><br><span class="line">            <span class="keyword">const</span> usersDeatl=<span class="keyword">await</span> Users.find().populate(<span class="string">&#x27;gender&#x27;</span>);</span><br><span class="line">            <span class="built_in">console</span>.log(usersDeatl);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">main();</span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag"># 踩坑</a>
+              <a href="/tags/NodeJS/" rel="tag"># NodeJS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/07/23/JS/js%E6%A8%A1%E6%8B%9F%E9%87%8D%E8%BD%BD/" rel="prev" title="关于js实现重载">
+      <i class="fa fa-chevron-left"></i> 关于js实现重载
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/09/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B03/" rel="next" title="《学习JavaScript数据结构与算法》笔记---队列之优先队列">
+      《学习JavaScript数据结构与算法》笔记---队列之优先队列 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mongoose%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">mongoose是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E4%BD%BF%E7%94%A8-%E6%9C%80%E8%BF%91%E5%87%A0%E5%A4%A9%E7%94%A8%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3"><span class="nav-number">2.</span> <span class="nav-text">基本增删改查使用(最近几天用过的一些基本的操作) 中文文档</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E9%9B%86%E5%90%88%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E8%81%94"><span class="nav-number">3.</span> <span class="nav-text">4.集合之间的关联</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      前辈
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

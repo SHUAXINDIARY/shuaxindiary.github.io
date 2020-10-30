@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/%E7%AC%94%E8%AE%B0/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/vue/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -181,7 +181,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/29/%E7%AC%94%E8%AE%B0/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">父子组件生命周期函数</a>
+            <a href="/2020/10/29/vue/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">父子组件生命周期函数</a>
         </h2>
 
         <div class="post-meta">
@@ -190,17 +190,23 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-10-29 20:25:09 / 修改时间：21:18:45" itemprop="dateCreated datePublished" datetime="2020-10-29T20:25:09+08:00">2020-10-29</time>
+              <time title="创建时间：2020-10-29 20:25:09" itemprop="dateCreated datePublished" datetime="2020-10-29T20:25:09+08:00">2020-10-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-30 14:28:23" itemprop="dateModified" datetime="2020-10-30T14:28:23+08:00">2020-10-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
                 </span>
             </span>
 
@@ -219,18 +225,15 @@
 <h1 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h1><ul>
 <li>beforeCreate、created、beforeMount、mounted</li>
 <li>beforeUpdate、updated、beforeDestroy、destroyed</li>
-<li>activated、deactivated</li>
-</ul>
-<h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> One=&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// ....</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeCreate</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.warn(<span class="string">&quot;子组件的beforeCreate&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.warn(<span class="string">&quot;子组件的created&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeMount</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.warn(<span class="string">&quot;子组件beforemount&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.warn(<span class="string">&quot;子组件mounted&quot;</span>)</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="comment">// ....</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// ...</span></span></span><br><span class="line">        components:&#123;</span><br><span class="line">            One</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeCreate</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&quot;父组件的beforeCreate&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&quot;父组件的created&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeMount</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&quot;父组件beforemount&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&quot;父组件mounted&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="comment">// ...</span></span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>上面的运行结果为:</li>
-<li><img src="http://img.shuaxinjs.cn//lifecycle.png"></li>
-</ul>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><ul>
-<li>因为Vue是从根组件（Vue实例）开始执行的，然后依次去读取目标dom下的模板字符串开始进行解析和生成vdom，然后在这个过程中开始执行一些生命钩子函数，依次从beforeCreate-&gt;created-&gt;beforeMount，这里就开始准备生成vdom了</li>
-<li>子组件是含括在父组件内部的，开始生成vdom时，每个组件都是一个实例，都会经历一圈生命周期函数，然后完成该组件的vdom后，才算整个vue的vdom完毕，所以父组件的mounted阶段才会在最后才执行</li>
-</ul>
-
+<li>activated、deactivated
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/29/vue/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -249,7 +252,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/13/%E6%9D%82%E6%96%87/%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E7%94%9F%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/13/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E7%94%9F%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -263,7 +266,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/13/%E6%9D%82%E6%96%87/%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E7%94%9F%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86/" class="post-title-link" itemprop="url">关于毕业生图像采集</a>
+            <a href="/2020/10/13/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E7%94%9F%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86/" class="post-title-link" itemprop="url">关于毕业生图像采集</a>
         </h2>
 
         <div class="post-meta">
@@ -280,7 +283,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-29 21:18:45" itemprop="dateModified" datetime="2020-10-29T21:18:45+08:00">2020-10-29</time>
+                <time title="修改时间：2020-10-30 14:28:23" itemprop="dateModified" datetime="2020-10-30T14:28:23+08:00">2020-10-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -310,7 +313,7 @@
 <li>记录一下没有参加集体拍摄的，个人怎么补拍
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/10/13/%E6%9D%82%E6%96%87/%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E7%94%9F%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86/#more" rel="contents">
+              <a class="btn" href="/2020/10/13/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E7%94%9F%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -365,7 +368,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-29 21:18:45" itemprop="dateModified" datetime="2020-10-29T21:18:45+08:00">2020-10-29</time>
+                <time title="修改时间：2020-10-30 14:28:23" itemprop="dateModified" datetime="2020-10-30T14:28:23+08:00">2020-10-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -373,7 +376,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
                 </span>
             </span>
 
@@ -450,7 +453,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-29 21:18:45" itemprop="dateModified" datetime="2020-10-29T21:18:45+08:00">2020-10-29</time>
+                <time title="修改时间：2020-10-30 14:28:23" itemprop="dateModified" datetime="2020-10-30T14:28:23+08:00">2020-10-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -458,7 +461,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
                 </span>
             </span>
 
@@ -479,7 +482,7 @@
 </ul>
 <h1 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h1><ul>
 <li>计划按着leetcode的探索/题库先来搞，先做点简单的可以暴力解的，然后循序渐进的学习一些基本的经典算法；</li>
-<li>笔记均为自己暴力破解的思路和看了看得懂的解题思路后，自己写出来的</li>
+<li>技术笔记均为自己暴力破解的思路和看了看得懂的解题思路后，自己写出来的</li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -507,7 +510,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/19/%E7%AC%94%E8%AE%B0/%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/19/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -521,7 +524,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/19/%E7%AC%94%E8%AE%B0/%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87/" class="post-title-link" itemprop="url">时间分片</a>
+            <a href="/2020/09/19/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87/" class="post-title-link" itemprop="url">时间分片</a>
         </h2>
 
         <div class="post-meta">
@@ -538,7 +541,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-29 21:18:45" itemprop="dateModified" datetime="2020-10-29T21:18:45+08:00">2020-10-29</time>
+                <time title="修改时间：2020-10-30 14:28:23" itemprop="dateModified" datetime="2020-10-30T14:28:23+08:00">2020-10-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -546,7 +549,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
                 </span>
             </span>
 
@@ -564,7 +567,7 @@
           <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>昨天（2020-9-19）看2019vueconf的时候，尤大在分享vue3的特点的时候，提到了vue和react在底层针对模板编译和jsx优化的一些不同的时候提到了一个词，时间分片；然后就做了一点功课，写个笔记。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/19/%E7%AC%94%E8%AE%B0/%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87/#more" rel="contents">
+              <a class="btn" href="/2020/09/19/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -660,13 +663,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
