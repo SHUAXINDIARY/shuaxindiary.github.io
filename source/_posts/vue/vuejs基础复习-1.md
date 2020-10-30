@@ -1,7 +1,7 @@
 ---
 title: vuejs基础复习1---指令/基本语法
 category:
-  - 笔记
+  - 技术笔记
 tag:
   - VUE
   - 前端

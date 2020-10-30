@@ -1,7 +1,7 @@
 ---
 title: http协议学习笔记
 category:
-  - 笔记
+  - 技术笔记
 tags:
   - 网络
 abbrlink: 39553

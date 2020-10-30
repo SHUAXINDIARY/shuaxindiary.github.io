@@ -1,7 +1,7 @@
 ---
 title: vuejs基础复习2---组件/组件通信
 category:
-  - 笔记
+  - 技术笔记
 tag:
   - VUE
   - 前端

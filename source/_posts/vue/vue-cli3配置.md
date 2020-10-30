@@ -1,9 +1,10 @@
 ---
 title: vue-cli3配置
 category:
-  - 踩坑
+  - 技术笔记
 tag:
   - VUE
+  - 踩坑
 abbrlink: 419
 date: 2019-10-14 19:26:57
 ---

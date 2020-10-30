@@ -1,10 +1,10 @@
 ---
 title: git笔记2
 category:
-  - 踩坑
+  - 技术笔记
 tag:
-  - 工具
   - Git
+  - 踩坑
 abbrlink: 2664
 date: 2020-05-29 16:18:17
 ---

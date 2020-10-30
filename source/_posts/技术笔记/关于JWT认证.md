@@ -1,7 +1,7 @@
 ---
 title: 关于JWT认证
 category:
-  - 笔记
+  - 技术笔记
 tags:
   - 踩坑
   - NodeJS

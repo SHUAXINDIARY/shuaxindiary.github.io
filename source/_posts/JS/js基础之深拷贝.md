@@ -1,7 +1,7 @@
 ---
 title: 关于js深拷贝
 category:
-  - 笔记
+  - 技术笔记
 tag:
   - JavaScript
   - 前端

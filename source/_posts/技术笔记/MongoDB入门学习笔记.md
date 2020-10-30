@@ -1,8 +1,9 @@
 ---
 title: MongoDB入门学习笔记
 category:
-  - 踩坑
+  - 技术笔记
 tag:
+  - 踩坑
   - NodeJS
 abbrlink: 841
 date: 2019-11-10 19:48:21

@@ -1,5 +1,7 @@
 ---
 title: nginx代理
+category:
+  - 技术笔记
 tag:
   - 工具
   - Nginx

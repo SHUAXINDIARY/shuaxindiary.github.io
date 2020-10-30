@@ -1,10 +1,10 @@
 ---
 title: hexo常用配置和命令
 categories:
-  - 踩坑
+  - 技术笔记
 tag:
+  - 踩坑
   - hexo
-  - 工具
 abbrlink: 28598
 date: 2019-07-01 12:21:54
 ---

@@ -1,7 +1,7 @@
 ---
 title: 《学习JavaScript数据结构与算法》笔记---队列之优先队列
 category:
-  - 笔记
+  - 技术笔记
 tag:
   - JavaScript
   - 数据结构

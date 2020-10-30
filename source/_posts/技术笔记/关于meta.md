@@ -1,10 +1,9 @@
 ---
 title: 关于meta
 category:
-  - 笔记
+  - 技术笔记
 tag:
   - 前端
-  - 踩坑
 abbrlink: 24893
 date: 2019-11-08 18:05:39
 ---

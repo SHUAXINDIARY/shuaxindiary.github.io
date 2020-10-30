@@ -1,10 +1,10 @@
 ---
 title: git笔记
 category:
-  - 踩坑
+  - 技术笔记
 tag:
-  - 工具
   - Git
+  - 踩坑
 abbrlink: 26666
 date: 2019-10-10 11:57:17
 ---

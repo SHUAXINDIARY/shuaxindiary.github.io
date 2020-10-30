@@ -1,7 +1,7 @@
 ---
 title: vue原理学习1-响应式
 category:
-  - 笔记
+  - 技术笔记
 tag:
   - VUE
   - 前端

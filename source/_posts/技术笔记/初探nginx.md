@@ -1,11 +1,11 @@
 ---
 title: 初探nginx
 category:
-  - 踩坑
+  - 技术笔记
 tag:
-  - 工具
   - Nginx
   - Linux
+  - 踩坑
 abbrlink: 20679
 date: 2020-05-09 19:24:33
 ---

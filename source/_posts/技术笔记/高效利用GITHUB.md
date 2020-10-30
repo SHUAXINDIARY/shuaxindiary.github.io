@@ -1,9 +1,9 @@
 ---
 title: 高效利用GITHUB
 category:
-  - 工具
+  - 技术笔记
 tag:
-  - 工具
+  - GIHUTB
 abbrlink: 9851
 date: 2019-11-15 10:40:03
 ---

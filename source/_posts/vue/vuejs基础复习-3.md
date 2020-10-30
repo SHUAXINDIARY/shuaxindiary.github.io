@@ -1,7 +1,7 @@
 ---
 title: vuejs基础复习3---vuex
 categories:
-  - 笔记
+  - 技术笔记
 tag:
   - VUE
   - 前端

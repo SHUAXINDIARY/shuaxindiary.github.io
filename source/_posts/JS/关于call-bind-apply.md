@@ -1,7 +1,7 @@
 ---
 title: '关于call,bind,apply'
 category:
-  - 笔记
+  - 技术笔记
 tag:
   - JavaScript
   - 前端

@@ -1,9 +1,9 @@
 ---
 title: 初探Travis
 category:
-  - 踩坑
+  - 技术笔记
 tag:
-  - 工具
+  - 踩坑
   - Travis
   - Linux
   - CICD

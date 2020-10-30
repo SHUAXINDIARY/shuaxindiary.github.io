@@ -1,9 +1,10 @@
 ---
 title: antd表格组件扩展行
 category:
-  - 踩坑
+  - 技术笔记
 tag:
   - React
+  - 踩坑
 abbrlink: 37055
 date: 2020-08-28 22:26:21
 ---

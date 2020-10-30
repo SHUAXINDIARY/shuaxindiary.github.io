@@ -1,10 +1,10 @@
 ---
 title: demo-cli
 category:
-  - 工具
+  - 技术笔记
 tag:
-  - 工具
   - 前端
+  - GULP
 abbrlink: 13818
 date: 2020-04-11 20:08:07
 ---

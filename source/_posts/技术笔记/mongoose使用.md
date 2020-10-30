@@ -1,8 +1,9 @@
 ---
 title: mongoose简单入门
 category:
-  - 踩坑
+  - 技术笔记
 tag:
+  - 踩坑
   - NodeJS
 abbrlink: 39885
 date: 2019-08-14 09:51:57

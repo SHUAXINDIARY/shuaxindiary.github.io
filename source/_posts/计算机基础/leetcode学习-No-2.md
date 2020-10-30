@@ -1,7 +1,7 @@
 ---
 title: leetcode学习-No.2
 category:
-  - 笔记
+  - 技术笔记
 tag:
   - 算法
   - javascript
