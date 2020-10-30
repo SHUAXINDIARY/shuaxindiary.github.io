@@ -3,7 +3,6 @@ title: nginx代理
 category:
   - 技术笔记
 tag:
-  - 工具
   - Nginx
 abbrlink: 21065
 date: 2020-05-14 23:01:18

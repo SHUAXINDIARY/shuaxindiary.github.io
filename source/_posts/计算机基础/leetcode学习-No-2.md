@@ -4,7 +4,7 @@ category:
   - 技术笔记
 tag:
   - 算法
-  - javascript
+  - JavaScript
 abbrlink: 19194
 date: 2020-10-07 21:43:15
 ---

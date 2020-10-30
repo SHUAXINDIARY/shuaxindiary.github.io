@@ -1,7 +1,7 @@
 ---
 title: FLIP做卡片弹窗动画
 tag:
-  - CSS
+  - CSS&HTML
   - JavaScript
 abbrlink: 11009
 date: 2019-11-08 18:29:49
