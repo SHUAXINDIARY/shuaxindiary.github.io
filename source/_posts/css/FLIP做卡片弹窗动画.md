@@ -6,6 +6,7 @@ tag:
 abbrlink: 11009
 date: 2019-11-08 18:29:49
 category:
+    - 技术笔记
 ---
 
 # 惯例BB
