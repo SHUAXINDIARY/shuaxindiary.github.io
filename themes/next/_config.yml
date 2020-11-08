@@ -137,7 +137,7 @@ menu_settings:
 # See: https://theme-next.org/docs/theme-settings/sidebar
 # ---------------------------------------------------------------
 
-sidebar:
+sidebar: 
   # Sidebar Position.
   position: left
   #position: right
@@ -152,7 +152,7 @@ sidebar:
   #  - always  expand for all pages automatically.
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  totally remove sidebar including sidebar toggle.
-  display: post
+  display: hide
 
   # Sidebar padding in pixels.
   padding: 18
