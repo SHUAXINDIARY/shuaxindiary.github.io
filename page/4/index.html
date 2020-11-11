@@ -167,6 +167,186 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/12/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2Travis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/12/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2Travis/" class="post-title-link" itemprop="url">初探Travis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-12 16:41:41" itemprop="dateCreated datePublished" datetime="2020-05-12T16:41:41+08:00">2020-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 22:23:52" itemprop="dateModified" datetime="2020-11-11T22:23:52+08:00">2020-11-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="初探cicd"><a href="#初探cicd" class="headerlink" title="初探cicd"></a>初探cicd</h1><blockquote>
+<p>什么是cicd？</p>
+</blockquote>
+<ul>
+<li>cicd是持续集成和持续交付的缩写，全称为continuous integration &amp; continuous delivery</li>
+</ul>
+<blockquote>
+<p>cicd怎么做</p>
+</blockquote>
+<ul>
+<li>通过一些工具，来进行</li>
+</ul>
+<blockquote>
+<p>这些工具做了哪些事</p>
+</blockquote>
+<ul>
+<li>将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手</li>
+<li>举个vue项目的例子：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 本地：对项目打包，（正规点还要跑一边测试）这些都没问题后，然后推送到远程仓库</span></span><br><span class="line">npm run build -&gt; git push </span><br><span class="line"><span class="meta">#</span><span class="bash"> 服务器：进入对应的目录，然后拉去仓库的代码</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></li>
+<li>如果做好cicd的流程后，只需要git push代码就好，剩下的都会在集成工具里去根据配置文件，去自动执行，这个过程哪一步出现问题都会有对应的log文件
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/12/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2Travis/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/" class="post-title-link" itemprop="url">初探nginx</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-09 19:24:33" itemprop="dateCreated datePublished" datetime="2020-05-09T19:24:33+08:00">2020-05-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 22:23:52" itemprop="dateModified" datetime="2020-11-11T22:23:52+08:00">2020-11-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -198,7 +378,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-08 14:53:30" itemprop="dateModified" datetime="2020-11-08T14:53:30+08:00">2020-11-08</time>
+                <time title="修改时间：2020-11-11 22:23:52" itemprop="dateModified" datetime="2020-11-11T22:23:52+08:00">2020-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,7 +462,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-08 14:53:30" itemprop="dateModified" datetime="2020-11-08T14:53:30+08:00">2020-11-08</time>
+                <time title="修改时间：2020-11-11 22:23:52" itemprop="dateModified" datetime="2020-11-11T22:23:52+08:00">2020-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -366,7 +546,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-08 14:53:30" itemprop="dateModified" datetime="2020-11-08T14:53:30+08:00">2020-11-08</time>
+                <time title="修改时间：2020-11-11 22:23:52" itemprop="dateModified" datetime="2020-11-11T22:23:52+08:00">2020-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -393,171 +573,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/04/19/JS/%E6%87%92%E5%8A%A0%E8%BD%BD/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/11/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/demo-cli/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/11/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/demo-cli/" class="post-title-link" itemprop="url">demo-cli</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-11 20:08:07" itemprop="dateCreated datePublished" datetime="2020-04-11T20:08:07+08:00">2020-04-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-08 14:53:30" itemprop="dateModified" datetime="2020-11-08T14:53:30+08:00">2020-11-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><ul>
-<li>习惯了基于集成了各种工具的cli，来进行开发后，有时候回到最最最原始的三剑客(HTML+CSS+JS)，纯手撸的时候觉得效率过于低下。</li>
-<li>尤其是写CSS的时候，为了避免因为标签权重问题导致的样式错乱，而不停的重复写选择器，还有没有全局管理样式的功能，导致不停的去查查改改。。。</li>
-<li>基于上述和还有很多一时没想起的问题，所以有了做一个自己的非SPA应用的脚手架的想法
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/11/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/demo-cli/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/04/JS/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/04/JS/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">关于对象</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-04 22:51:30" itemprop="dateCreated datePublished" datetime="2020-04-04T22:51:30+08:00">2020-04-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-08 14:53:30" itemprop="dateModified" datetime="2020-11-08T14:53:30+08:00">2020-11-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>因为js特性的原因，所以创建对象有很多中形式，各自有各自的优缺点/对应使用的场景，而且关于对象也会涉及到原型等比较重要的知识，所以总结一下</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/04/JS/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -646,7 +661,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
