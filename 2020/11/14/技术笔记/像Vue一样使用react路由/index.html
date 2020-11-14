@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="场景习惯了vue里面通过配置文件一样来使用路由，react路由跳转和vue一样都是通过对应的跳转组件进行跳转，没啥区别，但是响应url页面的时候，需要使用很多内置的组件来进行书写，有点繁琐，所以记录一下简单的封装一下常用的RouterView组件，来达到像vue一样简单使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="像Vue一样使用react路由">
+<meta property="og:url" content="http://example.com/2020/11/14/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%83%8FVue%E4%B8%80%E6%A0%B7%E4%BD%BF%E7%94%A8react%E8%B7%AF%E7%94%B1/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="场景习惯了vue里面通过配置文件一样来使用路由，react路由跳转和vue一样都是通过对应的跳转组件进行跳转，没啥区别，但是响应url页面的时候，需要使用很多内置的组件来进行书写，有点繁琐，所以记录一下简单的封装一下常用的RouterView组件，来达到像vue一样简单使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-14T01:26:55.000Z">
+<meta property="article:modified_time" content="2020-11-14T02:44:44.929Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="踩坑">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2020/11/14/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%83%8FVue%E4%B8%80%E6%A0%B7%E4%BD%BF%E7%94%A8react%E8%B7%AF%E7%94%B1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>像Vue一样使用react路由 | 刷新</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">刷新</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/14/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%83%8FVue%E4%B8%80%E6%A0%B7%E4%BD%BF%E7%94%A8react%E8%B7%AF%E7%94%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          像Vue一样使用react路由
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-14 09:26:55 / 修改时间：10:44:44" itemprop="dateCreated datePublished" datetime="2020-11-14T09:26:55+08:00">2020-11-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><p>习惯了vue里面通过配置文件一样来使用路由，react路由跳转和vue一样都是通过对应的跳转组件进行跳转，没啥区别，但是响应url页面的时候，需要使用很多内置的组件来进行书写，有点繁琐，所以记录一下简单的封装一下常用的RouterView组件，来达到像vue一样简单使用</p>
+<a id="more"></a>
+
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ul>
+<li>将复杂的这部分抽离成一个组件，然后传递需要让路由显示的路由对象就好</li>
+<li>作为刚入坑react的萌新，需要注意 Link和Switch 要对应在同一个Router下</li>
+<li>用到的React路由组件：详情见<a target="_blank" rel="noopener" href="https://reactrouter.com/web/guides/quick-start">文档</a></li>
+<li><ul>
+<li>BrowserRouter：浏览器里使用的路由</li>
+</ul>
+</li>
+<li><ul>
+<li>Link：跳转</li>
+</ul>
+</li>
+<li><ul>
+<li>Switch：切换显示的组件</li>
+</ul>
+</li>
+<li><ul>
+<li>Route：控制url对应的组件</li>
+</ul>
+</li>
+</ul>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a><a target="_blank" rel="noopener" href="https://codesandbox.io/s/broken-shadow-8hx9o?file=/src/index.js:96-109">代码</a></h1><ul>
+<li>使用codesandbox在线ide</li>
+<li>这里需要注意，每个jsx文件都需要单独引入一下React，不然会报错<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// RouterView.jsx</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Route, Switch &#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> RouterView = <span class="function">(<span class="params">&#123; routes &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Switch&gt;</span><br><span class="line">      &#123;routes.map(<span class="function">(<span class="params">item, i</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">          &lt;Route</span><br><span class="line">            key=&#123;i&#125;</span><br><span class="line">            path=&#123;item.path&#125;</span><br><span class="line">            <span class="comment">// 这里传递的为当前路由的子路由</span></span><br><span class="line">            component=&#123;<span class="function">() =&gt;</span> item.component(item.routes)&#125;</span><br><span class="line">          /&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;)&#125;</span><br><span class="line">    &lt;/Switch&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> RouterView;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="react路由的基本使用"><a href="#react路由的基本使用" class="headerlink" title="react路由的基本使用"></a>react路由的基本使用</h1><ul>
+<li>接受参数：useParams<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 路由</span></span><br><span class="line"><span class="keyword">const</span> routes=[</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">&quot;/home/:id&quot;</span>,</span><br><span class="line">    exact: <span class="literal">true</span>,</span><br><span class="line">    label: <span class="string">&quot;首页&quot;</span>,</span><br><span class="line">    component: Home</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"><span class="comment">// 组件</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useParams &#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(useParams());<span class="comment">//&#123;id:xxx&#125;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>将路由对象信息注入当前组件props：withRouter <a target="_blank" rel="noopener" href="https://blog.shuaxinjs.cn/2020/11/11/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/antd-menu%E7%BB%84%E4%BB%B6/">使用</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag"># 踩坑</a>
+              <a href="/tags/React/" rel="tag"># React</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/11/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/antd-menu%E7%BB%84%E4%BB%B6/" rel="prev" title="antd menu组件">
+      <i class="fa fa-chevron-left"></i> antd menu组件
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#react%E8%B7%AF%E7%94%B1%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">react路由的基本使用</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刷新</p>
+  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      前辈
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刷新</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

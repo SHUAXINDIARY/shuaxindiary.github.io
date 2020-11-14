@@ -167,6 +167,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="post-title-link" itemprop="url">关于防抖和节流</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-21 20:16:17" itemprop="dateCreated datePublished" datetime="2019-11-21T20:16:17+08:00">2019-11-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-14 10:44:44" itemprop="dateModified" datetime="2020-11-14T10:44:44+08:00">2020-11-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h1><blockquote>
+<p><strong>作用</strong></p>
+</blockquote>
+<ul>
+<li>这两个名词是两种解决方案的称呼，为了解决频繁触发某一个函数时，限制它的调用次数，让它不要那么频繁的被调用。</li>
+</ul>
+<blockquote>
+<p><strong>为啥要这么做</strong></p>
+</blockquote>
+<ul>
+<li>首先呢，在浏览器中，有2个概念，一个叫<strong>重绘</strong>，一个叫**<em>回流**</em>。这两个现象，是在浏览器渲染页面的时候会发生的，当页面的布局不改变，仅仅是字体大小颜色等改变时就会发生重绘；当页面布局发生改变(比如width、height、margin、padding等)，会发生回流。</li>
+<li>上述的这两个现象挺影响性能的，所以当我们的操作会导致发生这两个现象时，一般就可以使用防抖和节流来，尽可能的减少这样的操作，不至于让我们的程序挂掉。当然不止这样情况下才能用哈，比如触发ajax请求的时候其实也可以用，根据需要来判断。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/21/JS/%E5%85%B3%E4%BA%8E%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
     <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -198,7 +290,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-11 22:23:52" itemprop="dateModified" datetime="2020-11-11T22:23:52+08:00">2020-11-11</time>
+                <time title="修改时间：2020-11-14 10:44:44" itemprop="dateModified" datetime="2020-11-14T10:44:44+08:00">2020-11-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -279,7 +371,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-11 22:23:52" itemprop="dateModified" datetime="2020-11-11T22:23:52+08:00">2020-11-11</time>
+                <time title="修改时间：2020-11-14 10:44:44" itemprop="dateModified" datetime="2020-11-14T10:44:44+08:00">2020-11-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -360,7 +452,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-11 22:23:52" itemprop="dateModified" datetime="2020-11-11T22:23:52+08:00">2020-11-11</time>
+                <time title="修改时间：2020-11-14 10:44:44" itemprop="dateModified" datetime="2020-11-14T10:44:44+08:00">2020-11-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -442,7 +534,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-11 22:23:52" itemprop="dateModified" datetime="2020-11-11T22:23:52+08:00">2020-11-11</time>
+                <time title="修改时间：2020-11-14 10:44:44" itemprop="dateModified" datetime="2020-11-14T10:44:44+08:00">2020-11-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -469,87 +561,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/11/18/css/%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/15/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%AB%98%E6%95%88%E5%88%A9%E7%94%A8GITHUB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/15/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%AB%98%E6%95%88%E5%88%A9%E7%94%A8GITHUB/" class="post-title-link" itemprop="url">高效利用GITHUB</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-15 10:40:03" itemprop="dateCreated datePublished" datetime="2019-11-15T10:40:03+08:00">2019-11-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-11 22:23:52" itemprop="dateModified" datetime="2020-11-11T22:23:52+08:00">2020-11-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="高效的利用GITHUB"><a href="#高效的利用GITHUB" class="headerlink" title="高效的利用GITHUB"></a>高效的利用GITHUB</h1><p>整理自己平时使用github来学习的一些心得和小技巧</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/15/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%AB%98%E6%95%88%E5%88%A9%E7%94%A8GITHUB/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -638,7 +649,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
