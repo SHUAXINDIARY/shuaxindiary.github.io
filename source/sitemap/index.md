@@ -31,4 +31,13 @@ date: 2020-10-13 23:29:00
 | [数字尾巴](https://www.dgtle.com/)                    | [chiphell](https://www.chiphell.com/)                  | [装备前线](https://www.zfrontier.com/) | [机核网](https://www.gcores.com/)           | [站酷](https://www.zcool.com.cn/) |
 | [doyoudo-资源导航](https://www.doyoudo.com/resources) | [少数派](https://sspai.com/?utm_source=infinitynewtab) | [网易蜗牛读书](https://du.163.com/)    | [微信读书](https://weread.qq.com/)          | [值得买](https://www.smzdm.com/)  |
 
- 
+ **常用/不错的技术文档**
+
+| 名称                                         | 名称                                                         | 名称                                                         |
+| :------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Vue2.x](https://cn.vuejs.org/)              | [React](https://reactjs.org/)                                | [Redux](https://www.redux.org.cn/)                           |
+| [Vue3](https://vue3js.cn/)                   | [React-Router](https://reactrouter.com/web/guides/quick-start) | [Antd](https://ant.design/)                                  |
+| [Element](https://element.eleme.io/#/zh-CN)  | [ElementPlus](https://element-plus.org/#/zh-CN)              | [Glup](https://www.gulpjs.com.cn/)                           |
+| [H5视频组件-chimee](http://chimee.org/)      | [手绘图表库](https://timqian.com/chart.xkcd/)                | [express校验中间件](https://express-validator.github.io/docs/) |
+| [Vue源码学习](https://vue-js.com/learn-vue/) | [React技术揭秘](https://react.iamkasong.com/)                | [normalizr](https://github.com/paularmstrong/normalizr)      |
+
