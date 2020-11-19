@@ -3,7 +3,7 @@ title: vuejs基础复习4---生命周期函数
 categories:
   - 技术笔记
 tag:
-  - VUE
+  - Vue
   - 前端
 abbrlink: 50867
 date: 2019-10-31 18:35:16

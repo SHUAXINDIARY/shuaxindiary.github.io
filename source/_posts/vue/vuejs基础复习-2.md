@@ -3,7 +3,7 @@ title: vuejs基础复习2---组件/组件通信
 category:
   - 技术笔记
 tag:
-  - VUE
+  - Vue
   - 前端
 abbrlink: 47404
 date: 2019-09-26 11:26:06

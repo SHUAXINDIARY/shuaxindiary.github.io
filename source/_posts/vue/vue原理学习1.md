@@ -3,7 +3,7 @@ title: vue原理学习1-响应式
 category:
   - 技术笔记
 tag:
-  - VUE
+  - Vue
   - 前端
 abbrlink: 309
 date: 2020-05-02 11:01:38

@@ -3,7 +3,7 @@ title: vuejs基础复习-5
 categories:
   - 技术笔记
 tag:
-  - VUE
+  - Vue
   - 前端
 abbrlink: 38099
 date: 2020-02-10 14:12:58

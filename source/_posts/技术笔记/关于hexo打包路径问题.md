@@ -5,7 +5,7 @@ categories:
   - 技术笔记
 tag:
   - 踩坑
-  - hexo
+  - Hexo
 ---
 
 问题描述
