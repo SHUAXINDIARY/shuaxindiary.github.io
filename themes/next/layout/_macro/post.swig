@@ -1,5 +1,11 @@
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+{#<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">#}
+{#
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+#}
+<link href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.0/gitalk.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.0/gitalk.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
   {##################}
   {### POST BLOCK ###}
   {##################}
@@ -246,8 +252,32 @@
         {%- endif %}
         {# 评论系统 展示#}
         <div id="gitalk-container"></div>
-        {{ partial('_partials/post/post-footer.swig', {}, {cache: theme.cache.enable}) }}
+        {# 评论系统js#}
+        <script>
+        const issueDate = "2018-03-01";
+        let id='';
+        if (moment().isAfter(issueDate)) {
+          id = md5(location.pathname);
+        }
+        var gitalk = new Gitalk({
+          clientID: '273f78497de0aaa42bed',
+          clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
+          repo: 'shuaxindiary.github.io',
+          owner: 'SHUAXINDIARY',
+          admin: ['SHUAXINDIARY'],
+          // id: location.pathname,      // Ensure uniqueness and length less than 50
+          id,
+          labels:['gitalk'],
+          distractionFreeMode: false,  // Facebook-like distraction free mode
+          // 登陆者为仓库主人默认初始化评论
+          createIssueManually:true,
+          // 启用ctrl+enter回复
+          enableHotKey:true
+        })
 
+        gitalk.render('gitalk-container')
+        </script>
+        {{ partial('_partials/post/post-footer.swig', {}, {cache: theme.cache.enable}) }}
         {{ post_nav(post) }}
       </footer>
     {% else %}
@@ -261,18 +291,4 @@
   {######################}
 
 
-{# 评论系统js#}
-<script>
-var gitalk = new Gitalk({
-  clientID: '273f78497de0aaa42bed',
-  clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
-  repo: 'shuaxindiary.github.io',
-  owner: 'SHUAXINDIARY',
-  admin: ['SHUAXINDIARY'],
-  // id: location.pathname,      // Ensure uniqueness and length less than 50
-  distractionFreeMode: true,  // Facebook-like distraction free mode
-  createIssueManually:true
-})
 
-gitalk.render('gitalk-container')
-</script>
