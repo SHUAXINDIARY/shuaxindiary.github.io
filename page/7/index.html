@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -167,6 +167,96 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/28/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/28/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">关于浏览器缓存</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-28 13:15:54" itemprop="dateCreated datePublished" datetime="2019-11-28T13:15:54+08:00">2019-11-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-27 17:42:26" itemprop="dateModified" datetime="2020-12-27T17:42:26+08:00">2020-12-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="为什么要缓存"><a href="#为什么要缓存" class="headerlink" title="为什么要缓存"></a>为什么要缓存</h1><p>因为网站的所有资源都是放在服务器上的，每次访问一个页面的时候，都会通过http请求去请求该页面依赖的静态资源，这个过程会花费很多的时间，造成页面留白等响应过长的问题，导致用户体验不是非常的友好</p>
+<p>所以合理的利用浏览器缓存，将第一次请求后得到的一些静态资源合理的存储在本地，然后当用户下次访问的时候，可以直接从本地读取；加快页面的显示。</p>
+<p>举个例子：现在我们有一个html然后页面加载一个text.js文件；来看看使用和不使用缓存的区别</p>
+<ul>
+<li><p>没有使用缓存<br><img src="/img/cache.png" alt="图1"></p>
+</li>
+<li><p>使用了缓存<br><img src="/img/cache1.png" alt="图2"></p>
+</li>
+</ul>
+<p>通过上面两张图可以明显看到，使用缓存后，加载时间从8ms变成了0，效果肉眼可见！</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/28/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
     <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/28/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -198,7 +288,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 12:28:08" itemprop="dateModified" datetime="2020-11-29T12:28:08+08:00">2020-11-29</time>
+                <time title="修改时间：2020-12-27 17:42:26" itemprop="dateModified" datetime="2020-12-27T17:42:26+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,7 +372,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 12:28:08" itemprop="dateModified" datetime="2020-11-29T12:28:08+08:00">2020-11-29</time>
+                <time title="修改时间：2020-12-27 17:42:26" itemprop="dateModified" datetime="2020-12-27T17:42:26+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -363,7 +453,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 12:28:08" itemprop="dateModified" datetime="2020-11-29T12:28:08+08:00">2020-11-29</time>
+                <time title="修改时间：2020-12-27 17:42:26" itemprop="dateModified" datetime="2020-12-27T17:42:26+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -455,7 +545,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 12:28:08" itemprop="dateModified" datetime="2020-11-29T12:28:08+08:00">2020-11-29</time>
+                <time title="修改时间：2020-12-27 17:42:26" itemprop="dateModified" datetime="2020-12-27T17:42:26+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -482,87 +572,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/" class="post-title-link" itemprop="url">网页浏览进度条</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-19 20:48:17" itemprop="dateCreated datePublished" datetime="2019-11-19T20:48:17+08:00">2019-11-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 12:28:08" itemprop="dateModified" datetime="2020-11-29T12:28:08+08:00">2020-11-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="网页浏览进度条"><a href="#网页浏览进度条" class="headerlink" title="网页浏览进度条"></a>网页浏览进度条</h1><p>在很多网站都能看到网站的顶部，有一条会随着页面滚动条的滑动，边长变短的一栏区域，这个可以有效的让用户看到，自己已经浏览了这个文章内容的多少。虽然网站右边都有一个滚动条了，干嘛还要这个东西呢，大概就是为了好看吧！今天来实现这个小demo！</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -651,7 +660,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

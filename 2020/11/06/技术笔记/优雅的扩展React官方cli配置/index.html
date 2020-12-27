@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://img.shuaxinjs.cn//webpack.config.png">
 <meta property="og:image" content="https://img.shuaxinjs.cn//webpack.config2.png">
 <meta property="article:published_time" content="2020-11-06T12:52:43.000Z">
-<meta property="article:modified_time" content="2020-11-29T04:28:08.893Z">
+<meta property="article:modified_time" content="2020-12-27T09:42:26.453Z">
 <meta property="article:author" content="刷新">
 <meta property="article:tag" content="踩坑">
 <meta property="article:tag" content="React">
@@ -205,7 +205,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 12:28:08" itemprop="dateModified" datetime="2020-11-29T12:28:08+08:00">2020-11-29</time>
+                <time title="修改时间：2020-12-27 17:42:26" itemprop="dateModified" datetime="2020-12-27T17:42:26+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,10 +238,7 @@
 <li>根目录创建<strong>config-overrides.js</strong>文件</li>
 <li>修改package.json启动脚本命令，如下  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;start&quot;</span>: <span class="string">&quot;react-app-rewired start&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;react-app-rewired build&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;react-app-rewired test&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;eject&quot;</span>: <span class="string">&quot;react-app-rewired eject&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>支持less  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 当前文件：config-overrides.js --&gt;</span><br><span class="line">&lt;!-- 引入重写方法和添加lessloader的方法 --&gt;</span><br><span class="line"><span class="keyword">const</span> &#123; override, addLessLoader &#125; = <span class="built_in">require</span>(<span class="string">&#x27;customize-cra&#x27;</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    webpack: override(</span><br><span class="line">        &lt;!-- 可以传递一个配置对象作为参数 --&gt;</span><br><span class="line">        addLessLoader()</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="扩展配置"><a href="#扩展配置" class="headerlink" title="扩展配置"></a>扩展配置</h1><ul>
+<h1 id="扩展配置"><a href="#扩展配置" class="headerlink" title="扩展配置"></a>扩展配置</h1></li>
 <li>查看addLessLoader的源码，可以看到内部返回了一个函数，函数的参数是一个对象，即cli原本webpack配置的对象，然后在其基础上做我们想做的扩展，在返回该对象即可；下图为config对象<img src="https://img.shuaxinjs.cn//webpack.config.png"></li>
 <li>实战，添加一个支持解析md文件内容的loader，这里使用raw-loader来读取md文件原始内容，然后在具体的文件内部做其他操作</li>
 <li><ul>
@@ -254,7 +251,6 @@
 </li>
 <li><ul>
 <li>第一个参数是对解析器（parser）的<a target="_blank" rel="noopener" href="https://webpack.js.org/configuration/module/#ruleparser">配置</a>，图中为关闭require.entrue；第二个是对rules解析的<a target="_blank" rel="noopener" href="https://webpack.js.org/configuration/module/#ruleoneof">配置</a>， 配置当一类文件match某一个loader，处理完毕后就退出<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 当前文件：config-overrides.js --&gt;</span><br><span class="line"><span class="keyword">const</span> addMdLoader=<span class="function">()=&gt;</span><span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">    &lt;!-- 获取rules数组 --&gt;</span><br><span class="line">    <span class="keyword">let</span> rules=config.module.rules[<span class="number">1</span>].oneOf</span><br><span class="line">    rules.unshift(&#123;</span><br><span class="line">        test: <span class="regexp">/\.txt$/i</span>,</span><br><span class="line">        use: <span class="string">&#x27;raw-loader&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    webpack: override(</span><br><span class="line">        addMdLoader(),</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
 </li>
 </ul>
@@ -364,7 +360,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

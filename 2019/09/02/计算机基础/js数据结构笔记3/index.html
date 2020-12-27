@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="本文源码 这里概念 1.优先队列和队列的主要区别就是，队列中每个元素不仅含有自身的元素，还有一个代表该元素优先级的标识。2.在插入新的元素到队列时，根据该元素的优先级来决定它插入的正确位置。3.优先队列具有最高级先出队列的行为特征">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-09-02T06:51:44.000Z">
-<meta property="article:modified_time" content="2020-11-29T04:28:08.893Z">
+<meta property="article:modified_time" content="2020-12-27T09:42:26.457Z">
 <meta property="article:author" content="刷新">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="数据结构">
@@ -202,7 +202,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 12:28:08" itemprop="dateModified" datetime="2020-11-29T12:28:08+08:00">2020-11-29</time>
+                <time title="修改时间：2020-12-27 17:42:26" itemprop="dateModified" datetime="2020-12-27T17:42:26+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -230,9 +230,7 @@
 </blockquote>
 <a id="more"></a>
 <h3 id="封装优先级队列"><a href="#封装优先级队列" class="headerlink" title="封装优先级队列"></a>封装优先级队列</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PriorityQueue</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 封装属性 用数组来存储元素</span></span><br><span class="line">   <span class="built_in">this</span>.items = [];</span><br><span class="line">   <span class="comment">// 创建一个包含元素内容和优先级的类</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">QueueElement</span>(<span class="params">element, priority</span>) </span>&#123;</span><br><span class="line">       <span class="built_in">this</span>.element = element;</span><br><span class="line">       <span class="built_in">this</span>.priority = priority;</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="comment">// 实现插入方法</span></span><br><span class="line">   PriorityQueue.prototype.enqueue = <span class="function"><span class="keyword">function</span> (<span class="params">element, priority</span>) </span>&#123;</span><br><span class="line">       <span class="comment">// 创建QueueElement</span></span><br><span class="line">       <span class="keyword">let</span> queueElement = <span class="keyword">new</span> QueueElement(element, priority);</span><br><span class="line">       <span class="comment">// 判断队列是否为空?直接插入:和已有元素对比优先级后插入</span></span><br><span class="line">       <span class="keyword">if</span> (<span class="built_in">this</span>.items.length===<span class="number">0</span>) &#123;</span><br><span class="line">           <span class="built_in">this</span>.items.push(queueElement);</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">let</span> added=<span class="literal">false</span>;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> <span class="built_in">this</span>.items)&#123;</span><br><span class="line">               <span class="keyword">if</span>(queueElement.priority&lt;<span class="built_in">this</span>.items[i].priority)&#123;</span><br><span class="line">                   <span class="built_in">this</span>.items.splice(i,<span class="number">0</span>,queueElement);</span><br><span class="line">                   added=<span class="literal">true</span>;</span><br><span class="line">                   <span class="keyword">break</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;;</span><br><span class="line">           <span class="keyword">if</span> (!added) &#123;</span><br><span class="line">               <span class="built_in">this</span>.items.push(queueElement);</span><br><span class="line">           &#125;;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> pq = <span class="keyword">new</span> PriorityQueue();</span><br><span class="line">    pq.enqueue(<span class="string">&#x27;a&#x27;</span>,<span class="number">1</span>);</span><br><span class="line">    pq.enqueue(<span class="string">&#x27;b&#x27;</span>,<span class="number">20</span>);</span><br><span class="line">    pq.enqueue(<span class="string">&#x27;taotao&#x27;</span>,<span class="number">19</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(pq.items);</span><br><span class="line">    <span class="comment">/* 控制台打印内容</span></span><br><span class="line"><span class="comment">    (3) [QueueElement, QueueElement, QueueElement]</span></span><br><span class="line"><span class="comment">        0: QueueElement &#123;element: &quot;a&quot;, priority: 1&#125;</span></span><br><span class="line"><span class="comment">        1: QueueElement &#123;element: &quot;taotao&quot;, priority: 19&#125;</span></span><br><span class="line"><span class="comment">        2: QueueElement &#123;element: &quot;b&quot;, priority: 20&#125;</span></span><br><span class="line"><span class="comment">        length: 3</span></span><br><span class="line"><span class="comment">        __proto__: Array(0)</span></span><br><span class="line"><span class="comment">        */</span></span><br></pre></td></tr></table></figure>
-
     </div>
 
     
@@ -330,7 +328,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

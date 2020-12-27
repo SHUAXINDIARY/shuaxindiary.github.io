@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="开头因为js特性的原因，所以创建对象有很多中形式，各自有各自的优缺点&#x2F;对应使用的场景，而且关于对象也会涉及到原型等比较重要的知识，所以总结一下">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-04T14:51:30.000Z">
-<meta property="article:modified_time" content="2020-11-29T04:28:08.889Z">
+<meta property="article:modified_time" content="2020-12-27T09:42:26.453Z">
 <meta property="article:author" content="刷新">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="前端">
@@ -202,7 +202,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 12:28:08" itemprop="dateModified" datetime="2020-11-29T12:28:08+08:00">2020-11-29</time>
+                <time title="修改时间：2020-12-27 17:42:26" itemprop="dateModified" datetime="2020-12-27T17:42:26+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,10 +267,8 @@
 </li>
 <li>可以同时创建对多个属性的拦截器</li>
 <li>使用defineProperties<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">&quot;shuaxin&quot;</span>,</span><br><span class="line">    age: <span class="number">22</span>,</span><br><span class="line">    _sex: <span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        configurable: <span class="literal">false</span>,</span><br><span class="line">        enumerable: <span class="literal">false</span>,</span><br><span class="line">        writable: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    age: &#123;</span><br><span class="line">        configurable: <span class="literal">false</span>,</span><br><span class="line">        enumerable: <span class="literal">false</span>,</span><br><span class="line">        writable: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    sex: &#123;</span><br><span class="line">        <span class="function"><span class="title">get</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>._sex)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>._sex</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 当对sex属性进行写入操作时触发</span></span><br><span class="line">        <span class="function"><span class="title">set</span>(<span class="params">newVal</span>)</span> &#123;</span><br><span class="line">            <span class="comment">// 判断_sex和sex是否一致，否在做修改</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">this</span>._sex !== newVal) &#123;</span><br><span class="line">                <span class="built_in">this</span>._sex = newVal</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-</li>
+<h2 id="关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）"><a href="#关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）" class="headerlink" title="关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）"></a>关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）</h2><h3 id="无法识别对象类型的"><a href="#无法识别对象类型的" class="headerlink" title="无法识别对象类型的"></a>无法识别对象类型的</h3>无法识别对象类型的表现为，typeof的结果都是Object</li>
 </ul>
-<h2 id="关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）"><a href="#关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）" class="headerlink" title="关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）"></a>关于创建对象的各种方式（下面按创建对象实例后能否识别对象类型来划分）</h2><h3 id="无法识别对象类型的"><a href="#无法识别对象类型的" class="headerlink" title="无法识别对象类型的"></a>无法识别对象类型的</h3><p>无法识别对象类型的表现为，typeof的结果都是Object</p>
 <blockquote>
 <p>字面量创建</p>
 </blockquote>
@@ -344,42 +342,30 @@
 <ul>
 <li>给对象复制源对象的可枚举属性,返回操作完成后的目标对象</li>
 <li>参数：目标对象，源对象(可支持多个)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> man=&#123;</span><br><span class="line">    name:<span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> sex=&#123;</span><br><span class="line">    sex:<span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> res=<span class="built_in">Object</span>.assign(man,sex)</span><br><span class="line"><span class="built_in">console</span>.log(man)<span class="comment">// &#123;name:&quot;shuaxin&quot;,sex:&quot;男&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(res)<span class="comment">// &#123;name:&quot;shuaxin&quot;,sex:&quot;男&quot;&#125;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
 <blockquote>
 <p>Object.create(proto,{propertiesObject})</p>
 </blockquote>
-<ul>
+</li>
 <li>创建一个新对象</li>
 <li>参数：新建对象的原型对象，要添加到自身的属性(以及访问器属性)</li>
 <li>应用：实现继承<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> man=&#123;</span><br><span class="line">    sex:<span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = <span class="built_in">Object</span>.create(man, &#123;</span><br><span class="line">    <span class="comment">// 注：这里如果不设置枚举属性为true，默认为false，即不能被forin遍历到</span></span><br><span class="line">    age: &#123;</span><br><span class="line">        value: <span class="number">22</span></span><br><span class="line">    &#125;,</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(sx)<span class="comment">//&#123;name:&quot;shauxin&quot;,age:22&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.__proto__)<span class="comment">//&#123;sex:&quot;男&quot;&#125;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
 <blockquote>
 <p>Object.entries(target)</p>
 </blockquote>
-<ul>
-<li>返回目标对象的可枚举(enumerable)属性<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sx = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(sx, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;shuaxin&quot;</span>,</span><br><span class="line">        enumerable: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    idCard: &#123;</span><br><span class="line">        value: <span class="string">&#x27;199x-x-x-x&#x27;</span>,</span><br><span class="line">        enumerable: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.entries(sx)) <span class="comment">//[[&quot;name&quot;, &quot;shuaxin&quot;]]</span></span><br></pre></td></tr></table></figure>
-
 </li>
-</ul>
+<li>返回目标对象的可枚举(enumerable)属性<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sx = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(sx, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;shuaxin&quot;</span>,</span><br><span class="line">        enumerable: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    idCard: &#123;</span><br><span class="line">        value: <span class="string">&#x27;199x-x-x-x&#x27;</span>,</span><br><span class="line">        enumerable: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.entries(sx)) <span class="comment">//[[&quot;name&quot;, &quot;shuaxin&quot;]]</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Object.freeze(target)/Object.isFrozen(target)/ Object.isExtensible(targst)</p>
 </blockquote>
-<ul>
+</li>
 <li> freeze：冻结对象，使其属性不能删除、修改，也不能增加属性</li>
 <li> isFrozen：检查对象是否被冻结，返回Boolean </li>
 <li> isExtensible：判断对象是否可扩展（即也可以判断对象是否被冻结）</li>
 <li>注：影响对象是否可扩展的操作有 Object.preventExtensions，Object.seal 或 Object.freeze<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sx = &#123;</span><br><span class="line">    name: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.freeze(sx)</span><br><span class="line">sx.name = <span class="string">&#x27;update&#x27;</span></span><br><span class="line">sx.sex = <span class="string">&#x27;男&#x27;</span></span><br><span class="line"><span class="keyword">delete</span> sx.name</span><br><span class="line"><span class="built_in">console</span>.log(sx) <span class="comment">//&#123;name:&quot;shuaxin&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.isFrozen(sx))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
 <blockquote>
 <p>Object.fromEntries(obj)</p>
 </blockquote>
-<ul>
+</li>
 <li>把键值对结构(ES6的map)转换成对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [</span><br><span class="line">    [<span class="string">&quot;name&quot;</span>, <span class="string">&quot;shuaxin&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;sex&quot;</span>, <span class="string">&quot;男&quot;</span>]</span><br><span class="line">]</span><br><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="string">&quot;name&quot;</span>, <span class="string">&quot;shuaxin&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;sex&quot;</span>, <span class="string">&quot;男&quot;</span>]</span><br><span class="line">])</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.fromEntries(list)) <span class="comment">//&#123;name: &quot;shuaxin&quot;, sex: &quot;男&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.fromEntries(map)) <span class="comment">//&#123;name: &quot;shuaxin&quot;, sex: &quot;男&quot;&#125;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Object.getOwnPropertyDescriptor(obj)/Object.getOwnPropertyDescriptors(obj)</p>
@@ -387,40 +373,28 @@
 </li>
 <li>获取目标对象某个属性的访问器属性情况</li>
 <li>需注意：只能指定存储在对象自身的属性，原型的属性无效<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> shuaxin = &#123;</span><br><span class="line">    name: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &#123;value: &quot;shuaxin&quot;, writable: true, enumerable: true, configurable: true&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(shuaxin, <span class="string">&#x27;name&#x27;</span>))</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> sx = &#123;</span><br><span class="line">    name: <span class="string">&quot;shuaxin&quot;</span>,</span><br><span class="line">    sex: <span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &#123; name: &#123;value: &quot;shuaxin&quot;, writable: true, enumerable: true, configurable: true&#125;, sex: &#123;…&#125;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors(sx));</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
 <blockquote>
 <p>Object.values(target)</p>
 </blockquote>
-<ul>
+</li>
 <li>以数组形式返回对象自身所有属性的值</li>
 <li>symbol作key的无法获取到<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SEX=<span class="built_in">Symbol</span>()</span><br><span class="line"><span class="keyword">let</span> shuaxin=&#123;</span><br><span class="line">    [SEX]:<span class="string">&quot;男&quot;</span>,</span><br><span class="line">    name:<span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(shuaxin))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
 <blockquote>
 <p>Object.getOwnPropertyNames(target)/Object.getOwnPropertySymbols(target)/Object.keys(target)</p>
 </blockquote>
-<ul>
+</li>
 <li>getOwnPropertyNames:以数组形式返回对象自身的所有属性名,除过以symbol作为key的属性</li>
 <li>getOwnPropertySymbols:以数组形式返回对象自身的所有symbol做key的属性名</li>
 <li>keys:以数组格式返回对象自身可枚举的属性<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sex = <span class="built_in">Symbol</span>(<span class="string">&#x27;sex&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> sx = &#123;</span><br><span class="line">    [sex]: <span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(sx, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;shuaxin&quot;</span>,</span><br><span class="line">        enumerable: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    idCard: &#123;</span><br><span class="line">        value: <span class="string">&#x27;199x-x-x-x&#x27;</span>,</span><br><span class="line">        enumerable: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &#123;name: &quot;shuaxin&quot;, idCard: &quot;199x-x-x-x&quot;, Symbol(sex): &quot;男&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(sx)</span><br><span class="line"><span class="comment">// [&quot;name&quot;, &quot;idCard&quot;]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(sx));</span><br><span class="line"> <span class="comment">// [Symbol(sex)]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertySymbols(sx));</span><br><span class="line"><span class="comment">// [&quot;name&quot;]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(sx))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
 <blockquote>
 <p>Object.getPrototypeOf(target)</p>
 </blockquote>
-<ul>
-<li>获取对象的原型对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> man = &#123;</span><br><span class="line">    sex: <span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = <span class="built_in">Object</span>.create(man, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &#123;sex: &quot;男&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(sx))</span><br><span class="line"><span class="comment">// 同上</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.__proto__)</span><br></pre></td></tr></table></figure>
-
 </li>
-</ul>
+<li>获取对象的原型对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> man = &#123;</span><br><span class="line">    sex: <span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = <span class="built_in">Object</span>.create(man, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &#123;sex: &quot;男&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(sx))</span><br><span class="line"><span class="comment">// 同上</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.__proto__)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Object.is()</p>
 </blockquote>
-<ul>
+</li>
 <li>判断2个值是不是相同，判断规则如下</li>
 <li>两个值都是 undefined</li>
 <li>两个值都是 null</li>
@@ -459,21 +433,15 @@
 </blockquote>
 <ul>
 <li>判断一个对象是否存在于另一个对象的原型链上<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> man = &#123;</span><br><span class="line">    sex: <span class="string">&#x27;男&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = <span class="built_in">Object</span>.create(man)</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(man.isPrototypeOf(sx))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
 <blockquote>
 <p>hasOwnProperty</p>
 </blockquote>
-<ul>
-<li>判断对象自身是否含有某个属性<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> man = &#123;</span><br><span class="line">    sex: <span class="string">&#x27;男&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = <span class="built_in">Object</span>.create(man, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&#x27;shuaxin&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.hasOwnProperty(<span class="string">&#x27;sex&#x27;</span>))</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.hasOwnProperty(<span class="string">&#x27;name&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
 </li>
-</ul>
+<li>判断对象自身是否含有某个属性<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> man = &#123;</span><br><span class="line">    sex: <span class="string">&#x27;男&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sx = <span class="built_in">Object</span>.create(man, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&#x27;shuaxin&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.hasOwnProperty(<span class="string">&#x27;sex&#x27;</span>))</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(sx.hasOwnProperty(<span class="string">&#x27;name&#x27;</span>))</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>propertyIsEnumerable</p>
 </blockquote>
-<ul>
+</li>
 <li>判断该属性属性是否可枚举</li>
 <li>如果没有该属性，返回false</li>
 </ul>
@@ -575,7 +543,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="开头 前几天看到vue3.0的beta版本出来了，觉得在正式版出来之前，还是得把2.x版本的原理过一遍，让脑子有个印象。 大概了分了这么几个部分：响应式系统、观察者模式、模板编译、virtual dom、路由、vuex、vue插件开发">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-02T03:01:38.000Z">
-<meta property="article:modified_time" content="2020-11-29T04:28:08.889Z">
+<meta property="article:modified_time" content="2020-12-27T09:42:26.453Z">
 <meta property="article:author" content="刷新">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="Vue">
@@ -202,7 +202,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 12:28:08" itemprop="dateModified" datetime="2020-11-29T12:28:08+08:00">2020-11-29</time>
+                <time title="修改时间：2020-12-27 17:42:26" itemprop="dateModified" datetime="2020-12-27T17:42:26+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,10 +245,8 @@
 <li>bootstrap是针对显示设备的大小来对布局进行自动的调整；vue是针对数据，对视图进行自动的更新，所以vue也是数据驱动型框架</li>
 <li>举个例子：当前有个标签显示的内容是：*<strong>刷新*** ，换jq时代我们需要去手动获取该标签，然后把值为 *</strong>刷新*** 的这个变量插入进去；假设现在我们改变了这个变量的值，我们需要让页面同步变化，就需要重复上面操作,代码如下<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> div = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#name&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> name = <span class="string">&quot;刷新&quot;</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 渲染数据到页面</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> render = <span class="function">(<span class="params">dom, val</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            dom[<span class="string">&#x27;textContent&#x27;</span>] = val</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="comment">// 初始化</span></span></span><br><span class="line">        render(div, name)</span><br><span class="line"><span class="javascript">        <span class="comment">// 修改name后再次渲染</span></span></span><br><span class="line"><span class="javascript">        name = <span class="string">&quot;shuaxin&quot;</span></span></span><br><span class="line">        render(div, name)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure></li>
 <li>上述代码在要操作的dom变多的时候，维护起来就会很麻烦，而换到vue这边，就简单的多，只需要告诉vue数据显示在哪里即可，至于怎么去显示到对应的dom里，以及数据发生变化后的更新页面显示，都是由vue来完成的<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">        &#123;&#123;name&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> app=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">            el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="javascript">                name:<span class="string">&quot;刷新&quot;</span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-</li>
+<h1 id="关于vue的工作流程"><a href="#关于vue的工作流程" class="headerlink" title="关于vue的工作流程"></a>关于vue的工作流程</h1>在通过Vue构造函数实例化对象的过程中，vue同时做了2件事</li>
 </ul>
-<h1 id="关于vue的工作流程"><a href="#关于vue的工作流程" class="headerlink" title="关于vue的工作流程"></a>关于vue的工作流程</h1><p>在通过Vue构造函数实例化对象的过程中，vue同时做了2件事</p>
 <blockquote>
 <p>1.数据拦截</p>
 </blockquote>
@@ -372,7 +370,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
