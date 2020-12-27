@@ -1,0 +1,52 @@
+---
+title: textarea标签tab键无效
+date: 2020-12-27 16:51:58
+category:
+  - 技术笔记
+tag:
+  - JavaScript
+  - 前端
+---
+
+
+最近在实现一个自己的浏览器版md编辑器，初步是使用textarea作为输入端，但是textarea里tab键，会失效，记录一下这个坑
+<!-- more -->
+
+# 原因
+- 浏览器中使用tab键会自动将光标在当前页面的各个控件上进行切换
+
+# 解决思路
+- 在textarea上监听keydown事件
+- 监听每次的按键，是tab键时(code=9)，阻止默认事件
+- 然后书写添加对应的空格逻辑即可
+
+# 实现
+```html
+<textarea id="editor"/>
+<script>
+    // 阻止textarea默认事件
+    const preventTab = (e) => {
+        // 获取到textarea
+      let dom = e.target;
+      if (e.keyCode == 9) {
+        //   阻止默认事件
+        e.preventDefault();
+        // 几个空格
+        var indent = "    ";
+        // 获取光标选中or光标所处字符串中的起始和截止位置
+        var start = dom.selectionStart;
+        var end = dom.selectionEnd;
+        // 获取光标选中的内容
+        var selected = window.getSelection().toString();
+        selected = indent + selected.replace(/\n/g, "\n" + indent);
+        dom.value =
+          dom.value.substring(0, start) + selected + dom.value.substring(end);
+        dom.setSelectionRange(start + indent.length, start + selected.length);
+      }
+    };
+    let editor=document.querySelector('#editor')
+    editor.addEventListener('keydown',(e)=>{
+        preventTab(e)
+    })
+</script>
+```
