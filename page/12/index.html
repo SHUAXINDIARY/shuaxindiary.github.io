@@ -165,6 +165,8 @@
             
     <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/locale/af.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
   
   
   
@@ -200,7 +202,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 19:50:59" itemprop="dateModified" datetime="2020-12-27T19:50:59+08:00">2020-12-27</time>
+                <time title="修改时间：2020-12-27 20:05:31" itemprop="dateModified" datetime="2020-12-27T20:05:31+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,13 +255,19 @@
 
 
 <script>
+const issueDate = "2018-03-01";
+let id='';
+if (moment(createdDate).isAfter(issueDate)) {
+  id = md5(title);
+}
 var gitalk = new Gitalk({
   clientID: '273f78497de0aaa42bed',
   clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
   repo: 'shuaxindiary.github.io',
   owner: 'SHUAXINDIARY',
   admin: 'SHUAXINDIARY',
-  id: location.pathname,      // Ensure uniqueness and length less than 50
+  // id: location.pathname,      // Ensure uniqueness and length less than 50
+  id,
   distractionFreeMode: true,  // Facebook-like distraction free mode
   createIssueManually:true
 })
@@ -269,6 +277,8 @@ gitalk.render('gitalk-container')
 
     <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/locale/af.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
   
   
   
@@ -304,7 +314,7 @@ gitalk.render('gitalk-container')
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 19:50:59" itemprop="dateModified" datetime="2020-12-27T19:50:59+08:00">2020-12-27</time>
+                <time title="修改时间：2020-12-27 20:05:31" itemprop="dateModified" datetime="2020-12-27T20:05:31+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -353,13 +363,19 @@ gitalk.render('gitalk-container')
 
 
 <script>
+const issueDate = "2018-03-01";
+let id='';
+if (moment(createdDate).isAfter(issueDate)) {
+  id = md5(title);
+}
 var gitalk = new Gitalk({
   clientID: '273f78497de0aaa42bed',
   clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
   repo: 'shuaxindiary.github.io',
   owner: 'SHUAXINDIARY',
   admin: 'SHUAXINDIARY',
-  id: location.pathname,      // Ensure uniqueness and length less than 50
+  // id: location.pathname,      // Ensure uniqueness and length less than 50
+  id,
   distractionFreeMode: true,  // Facebook-like distraction free mode
   createIssueManually:true
 })
@@ -369,6 +385,8 @@ gitalk.render('gitalk-container')
 
     <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/locale/af.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
   
   
   
@@ -404,7 +422,7 @@ gitalk.render('gitalk-container')
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 19:50:59" itemprop="dateModified" datetime="2020-12-27T19:50:59+08:00">2020-12-27</time>
+                <time title="修改时间：2020-12-27 20:05:31" itemprop="dateModified" datetime="2020-12-27T20:05:31+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -460,13 +478,19 @@ gitalk.render('gitalk-container')
 
 
 <script>
+const issueDate = "2018-03-01";
+let id='';
+if (moment(createdDate).isAfter(issueDate)) {
+  id = md5(title);
+}
 var gitalk = new Gitalk({
   clientID: '273f78497de0aaa42bed',
   clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
   repo: 'shuaxindiary.github.io',
   owner: 'SHUAXINDIARY',
   admin: 'SHUAXINDIARY',
-  id: location.pathname,      // Ensure uniqueness and length less than 50
+  // id: location.pathname,      // Ensure uniqueness and length less than 50
+  id,
   distractionFreeMode: true,  // Facebook-like distraction free mode
   createIssueManually:true
 })
@@ -476,6 +500,8 @@ gitalk.render('gitalk-container')
 
     <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/locale/af.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
   
   
   
@@ -511,7 +537,7 @@ gitalk.render('gitalk-container')
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 19:50:59" itemprop="dateModified" datetime="2020-12-27T19:50:59+08:00">2020-12-27</time>
+                <time title="修改时间：2020-12-27 20:05:31" itemprop="dateModified" datetime="2020-12-27T20:05:31+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -560,13 +586,19 @@ gitalk.render('gitalk-container')
 
 
 <script>
+const issueDate = "2018-03-01";
+let id='';
+if (moment(createdDate).isAfter(issueDate)) {
+  id = md5(title);
+}
 var gitalk = new Gitalk({
   clientID: '273f78497de0aaa42bed',
   clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
   repo: 'shuaxindiary.github.io',
   owner: 'SHUAXINDIARY',
   admin: 'SHUAXINDIARY',
-  id: location.pathname,      // Ensure uniqueness and length less than 50
+  // id: location.pathname,      // Ensure uniqueness and length less than 50
+  id,
   distractionFreeMode: true,  // Facebook-like distraction free mode
   createIssueManually:true
 })
@@ -576,6 +608,8 @@ gitalk.render('gitalk-container')
 
     <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/locale/af.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
   
   
   
@@ -611,7 +645,7 @@ gitalk.render('gitalk-container')
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 19:50:59" itemprop="dateModified" datetime="2020-12-27T19:50:59+08:00">2020-12-27</time>
+                <time title="修改时间：2020-12-27 20:05:31" itemprop="dateModified" datetime="2020-12-27T20:05:31+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -662,13 +696,19 @@ gitalk.render('gitalk-container')
 
 
 <script>
+const issueDate = "2018-03-01";
+let id='';
+if (moment(createdDate).isAfter(issueDate)) {
+  id = md5(title);
+}
 var gitalk = new Gitalk({
   clientID: '273f78497de0aaa42bed',
   clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
   repo: 'shuaxindiary.github.io',
   owner: 'SHUAXINDIARY',
   admin: 'SHUAXINDIARY',
-  id: location.pathname,      // Ensure uniqueness and length less than 50
+  // id: location.pathname,      // Ensure uniqueness and length less than 50
+  id,
   distractionFreeMode: true,  // Facebook-like distraction free mode
   createIssueManually:true
 })
