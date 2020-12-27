@@ -173,6 +173,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/11/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/antd-menu%E7%BB%84%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刷新">
+      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刷新">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/antd-menu%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">antd menu组件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-11 21:22:08" itemprop="dateCreated datePublished" datetime="2020-11-11T21:22:08+08:00">2020-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-27 23:17:44" itemprop="dateModified" datetime="2020-12-27T23:17:44+08:00">2020-12-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="antd-menu组件"><a href="#antd-menu组件" class="headerlink" title="antd menu组件"></a>antd menu组件</h1><p>继续记录antd+react使用</p>
+<h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><p>1.每次刷新浏览器后，menu应该继续选中当前url对应的menuitem<br>2.限制只能打开一个menugroup</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/11/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/antd-menu%E7%BB%84%E4%BB%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+
+
+    
+
+<link href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.0/gitalk.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.0/gitalk.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
+  
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/11/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%9C%A8react%E4%B8%AD%E8%8E%B7%E5%8F%96Dom/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -204,7 +295,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 20:21:52" itemprop="dateModified" datetime="2020-12-27T20:21:52+08:00">2020-12-27</time>
+                <time title="修改时间：2020-12-27 23:17:44" itemprop="dateModified" datetime="2020-12-27T23:17:44+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,26 +340,6 @@
 
 
 
-<script>
-const issueDate = "2018-03-01";
-let id='';
-if (moment().isAfter(issueDate)) {
-  id = md5(location.pathname);
-}
-var gitalk = new Gitalk({
-  clientID: '273f78497de0aaa42bed',
-  clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
-  repo: 'shuaxindiary.github.io',
-  owner: 'SHUAXINDIARY',
-  admin: ['SHUAXINDIARY'],
-  // id: location.pathname,      // Ensure uniqueness and length less than 50
-  id,
-  distractionFreeMode: true,  // Facebook-like distraction free mode
-  createIssueManually:true
-})
-
-gitalk.render('gitalk-container')
-</script>
 
     
 
@@ -311,7 +382,7 @@ gitalk.render('gitalk-container')
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 20:21:52" itemprop="dateModified" datetime="2020-12-27T20:21:52+08:00">2020-12-27</time>
+                <time title="修改时间：2020-12-27 23:17:44" itemprop="dateModified" datetime="2020-12-27T23:17:44+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -358,26 +429,6 @@ gitalk.render('gitalk-container')
 
 
 
-<script>
-const issueDate = "2018-03-01";
-let id='';
-if (moment().isAfter(issueDate)) {
-  id = md5(location.pathname);
-}
-var gitalk = new Gitalk({
-  clientID: '273f78497de0aaa42bed',
-  clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
-  repo: 'shuaxindiary.github.io',
-  owner: 'SHUAXINDIARY',
-  admin: ['SHUAXINDIARY'],
-  // id: location.pathname,      // Ensure uniqueness and length less than 50
-  id,
-  distractionFreeMode: true,  // Facebook-like distraction free mode
-  createIssueManually:true
-})
-
-gitalk.render('gitalk-container')
-</script>
 
     
 
@@ -420,7 +471,7 @@ gitalk.render('gitalk-container')
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 20:21:52" itemprop="dateModified" datetime="2020-12-27T20:21:52+08:00">2020-12-27</time>
+                <time title="修改时间：2020-12-27 23:17:44" itemprop="dateModified" datetime="2020-12-27T23:17:44+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -468,26 +519,6 @@ gitalk.render('gitalk-container')
 
 
 
-<script>
-const issueDate = "2018-03-01";
-let id='';
-if (moment().isAfter(issueDate)) {
-  id = md5(location.pathname);
-}
-var gitalk = new Gitalk({
-  clientID: '273f78497de0aaa42bed',
-  clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
-  repo: 'shuaxindiary.github.io',
-  owner: 'SHUAXINDIARY',
-  admin: ['SHUAXINDIARY'],
-  // id: location.pathname,      // Ensure uniqueness and length less than 50
-  id,
-  distractionFreeMode: true,  // Facebook-like distraction free mode
-  createIssueManually:true
-})
-
-gitalk.render('gitalk-container')
-</script>
 
     
 
@@ -530,7 +561,7 @@ gitalk.render('gitalk-container')
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 20:21:52" itemprop="dateModified" datetime="2020-12-27T20:21:52+08:00">2020-12-27</time>
+                <time title="修改时间：2020-12-27 23:17:44" itemprop="dateModified" datetime="2020-12-27T23:17:44+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -578,140 +609,6 @@ gitalk.render('gitalk-container')
 
 
 
-<script>
-const issueDate = "2018-03-01";
-let id='';
-if (moment().isAfter(issueDate)) {
-  id = md5(location.pathname);
-}
-var gitalk = new Gitalk({
-  clientID: '273f78497de0aaa42bed',
-  clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
-  repo: 'shuaxindiary.github.io',
-  owner: 'SHUAXINDIARY',
-  admin: ['SHUAXINDIARY'],
-  // id: location.pathname,      // Ensure uniqueness and length less than 50
-  id,
-  distractionFreeMode: true,  // Facebook-like distraction free mode
-  createIssueManually:true
-})
-
-gitalk.render('gitalk-container')
-</script>
-
-    
-
-<link href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.0/gitalk.min.css" rel="stylesheet">
-<script src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.0/gitalk.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
-  
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/vue/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/29/vue/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">父子组件生命周期函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-29 20:25:09" itemprop="dateCreated datePublished" datetime="2020-10-29T20:25:09+08:00">2020-10-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 20:21:52" itemprop="dateModified" datetime="2020-12-27T20:21:52+08:00">2020-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近一次写Vue的时候，因为父子组件都有声明周期函数，在操作顺序上出现了一些之前没有想到的问题，特此记录一下</p>
-<h1 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h1><ul>
-<li>beforeCreate、created、beforeMount、mounted</li>
-<li>beforeUpdate、updated、beforeDestroy、destroyed</li>
-<li>activated、deactivated
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/29/vue/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-
-<script>
-const issueDate = "2018-03-01";
-let id='';
-if (moment().isAfter(issueDate)) {
-  id = md5(location.pathname);
-}
-var gitalk = new Gitalk({
-  clientID: '273f78497de0aaa42bed',
-  clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
-  repo: 'shuaxindiary.github.io',
-  owner: 'SHUAXINDIARY',
-  admin: ['SHUAXINDIARY'],
-  // id: location.pathname,      // Ensure uniqueness and length less than 50
-  id,
-  distractionFreeMode: true,  // Facebook-like distraction free mode
-  createIssueManually:true
-})
-
-gitalk.render('gitalk-container')
-</script>
 
 
   
@@ -782,7 +679,7 @@ gitalk.render('gitalk-container')
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
