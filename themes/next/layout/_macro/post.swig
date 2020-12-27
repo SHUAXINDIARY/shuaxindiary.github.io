@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
   {##################}
   {### POST BLOCK ###}
   {##################}
@@ -229,7 +231,6 @@
       {%- if theme.follow_me %}
         {{ partial('_partials/post/post-followme.swig', {}, {cache: theme.cache.enable}) }}
       {%- endif %}
-
       <footer class="post-footer">
         {%- if post.tags and post.tags.length %}
           {%- if theme.tag_icon %}
@@ -243,7 +244,8 @@
             {%- endfor %}
           </div>
         {%- endif %}
-
+        {# 评论系统 展示#}
+        <div id="gitalk-container"></div>
         {{ partial('_partials/post/post-footer.swig', {}, {cache: theme.cache.enable}) }}
 
         {{ post_nav(post) }}
@@ -257,3 +259,20 @@
   {######################}
   {### END POST BLOCK ###}
   {######################}
+
+
+{# 评论系统js#}
+<script>
+var gitalk = new Gitalk({
+  clientID: '273f78497de0aaa42bed',
+  clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
+  repo: 'shuaxindiary.github.io',
+  owner: 'SHUAXINDIARY',
+  admin: ['SHUAXINDIARY'],
+  // id: location.pathname,      // Ensure uniqueness and length less than 50
+  distractionFreeMode: true,  // Facebook-like distraction free mode
+  createIssueManually:true
+})
+
+gitalk.render('gitalk-container')
+</script>
