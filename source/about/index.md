@@ -1,10 +1,21 @@
 ---
-title: 关于我-刷新
+title: 刷新
 date: 2019-07-01 17:20:12
 ---
 # 关于本站
-- 记录
-- 笔记
+>  **本站内容**
+> - 学习
+> - 记录
+
+>  **建站信息**
+> 1. 建站：Hexo
+> 2. 主题：[next](http://theme-next.iissnan.com/)
+> 3. 部署：github+actions自动打包部署
+> 4. 评论：[gitalk](https://github.com/gitalk/gitalk)
+
+>  **曾经用过的第三方插件&主题**
+> - 统计：不蒜子统计
+> - 主题：[clover](https://github.com/esappear/hexo-theme-clover)
 
 --------------------
 # 关于我
@@ -14,20 +25,13 @@ date: 2019-07-01 17:20:12
 
 
 --------------------
+
 # FIND ME
 [GITHUB](https://github.com/SHUAXINDIARY)
 
 [DOUBAN](https://www.douban.com/people/91950904/)
 
 Email:986384495@qq.com
-
----------------------
-
-# 建站信息
-1.hexo驱动
-2.next主题 [相关文档](http://theme-next.iissnan.com/)
-3.github+actions自动打包部署
-<!-- 2.  使用 [clover](https://github.com/esappear/hexo-theme-clover) 主题 -->
 
 ----------
 

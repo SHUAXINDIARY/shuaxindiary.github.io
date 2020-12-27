@@ -254,7 +254,7 @@
         <div id="gitalk-container"></div>
         {# 评论系统js#}
         <script>
-        const issueDate = "2018-03-01";
+        const issueDate = "2020-11-01";
         let id='';
         if (moment().isAfter(issueDate)) {
           id = md5(location.pathname);
