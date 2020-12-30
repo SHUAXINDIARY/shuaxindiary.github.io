@@ -1,237 +1,247 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN,en,default">
+<html lang="zh-CN,en,default" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://blog.shuaxinjs.cn/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" href="https://blog.shuaxinjs.cn/images/favicon-16x16-next.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
+  <meta name="author" content="刷新">
+  <meta name="keywords" content="">
+  <title>vue原理学习1-响应式 - 刷新</title>
 
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="开头 前几天看到vue3.0的beta版本出来了，觉得在正式版出来之前，还是得把2.x版本的原理过一遍，让脑子有个印象。 大概了分了这么几个部分：响应式系统、观察者模式、模板编译、virtual dom、路由、vuex、vue插件开发">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vue原理学习1-响应式">
-<meta property="og:url" content="http://example.com/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/index.html">
-<meta property="og:site_name" content="刷新">
-<meta property="og:description" content="开头 前几天看到vue3.0的beta版本出来了，觉得在正式版出来之前，还是得把2.x版本的原理过一遍，让脑子有个印象。 大概了分了这么几个部分：响应式系统、观察者模式、模板编译、virtual dom、路由、vuex、vue插件开发">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-02T03:01:38.000Z">
-<meta property="article:modified_time" content="2020-12-27T15:17:44.464Z">
-<meta property="article:author" content="刷新">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="Vue">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://example.com/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  <title>vue原理学习1-响应式 | 刷新</title>
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   
 
 
 
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+<link  rel="stylesheet" href="/css/main.css" />
 
-</head>
+<!-- 自定义样式保持在最底部 -->
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>刷新</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">刷新</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-sitemap">
-
-    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
-
-  </li>
-  </ul>
 </nav>
 
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://img.shuaxinjs.cn//51590BF0-4E0B-4FCF-A188-D17D198D1AD0(20200924-103.JPG') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="vue原理学习1-响应式">
+              
+            </span>
 
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
             
-
-  
-
-<link href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.0/gitalk.min.css" rel="stylesheet">
-<script src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.0/gitalk.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
+              <div class="mt-3">
   
   
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-02 11:01" pubdate>
+        2020年5月2日 上午
+      </time>
     </span>
+  
+</div>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
     </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          vue原理学习1-响应式
-        </h1>
+  
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       分钟
+    </span>
+  
 
-              <time title="创建时间：2020-05-02 11:01:38" itemprop="dateCreated datePublished" datetime="2020-05-02T11:01:38+08:00">2020-05-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 23:17:44" itemprop="dateModified" datetime="2020-12-27T23:17:44+08:00">2020-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-            </span>
+  
+  
+</div>
+
+            
+          </div>
 
           
-
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
+  <main>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-        <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><ul>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">vue原理学习1-响应式</h1>
+            
+            <div class="markdown-body">
+              <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><ul>
 <li>前几天看到vue3.0的beta版本出来了，觉得在正式版出来之前，还是得把2.x版本的原理过一遍，让脑子有个印象。</li>
 <li>大概了分了这么几个部分：响应式系统、观察者模式、模板编译、virtual dom、路由、vuex、vue插件开发</li>
 </ul>
@@ -249,8 +259,40 @@
 <ul>
 <li>vue这类框架的响应式和bootstrap的响应式表现形式不一样，但是意思都是一样的，基于某个参考物进行相对变化。</li>
 <li>bootstrap是针对显示设备的大小来对布局进行自动的调整；vue是针对数据，对视图进行自动的更新，所以vue也是数据驱动型框架</li>
-<li>举个例子：当前有个标签显示的内容是：*<strong>刷新*** ，换jq时代我们需要去手动获取该标签，然后把值为 *</strong>刷新*** 的这个变量插入进去；假设现在我们改变了这个变量的值，我们需要让页面同步变化，就需要重复上面操作,代码如下<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> div = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#name&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> name = <span class="string">&quot;刷新&quot;</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 渲染数据到页面</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> render = <span class="function">(<span class="params">dom, val</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            dom[<span class="string">&#x27;textContent&#x27;</span>] = val</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="comment">// 初始化</span></span></span><br><span class="line">        render(div, name)</span><br><span class="line"><span class="javascript">        <span class="comment">// 修改name后再次渲染</span></span></span><br><span class="line"><span class="javascript">        name = <span class="string">&quot;shuaxin&quot;</span></span></span><br><span class="line">        render(div, name)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure></li>
-<li>上述代码在要操作的dom变多的时候，维护起来就会很麻烦，而换到vue这边，就简单的多，只需要告诉vue数据显示在哪里即可，至于怎么去显示到对应的dom里，以及数据发生变化后的更新页面显示，都是由vue来完成的<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">        &#123;&#123;name&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> app=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">            el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="javascript">                name:<span class="string">&quot;刷新&quot;</span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<li>举个例子：当前有个标签显示的内容是：*<strong>刷新*** ，换jq时代我们需要去手动获取该标签，然后把值为 *</strong>刷新*** 的这个变量插入进去；假设现在我们改变了这个变量的值，我们需要让页面同步变化，就需要重复上面操作,代码如下<div class="code-wrapper"><pre><code class="hljs html">...
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">        <span class="hljs-keyword">let</span> div = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#name&#x27;</span>)</span>
+<span class="javascript">        <span class="hljs-keyword">let</span> name = <span class="hljs-string">&quot;刷新&quot;</span></span>
+<span class="javascript">        <span class="hljs-comment">// 渲染数据到页面</span></span>
+<span class="javascript">        <span class="hljs-keyword">let</span> render = <span class="hljs-function">(<span class="hljs-params">dom, val</span>) =&gt;</span> &#123;</span>
+<span class="javascript">            dom[<span class="hljs-string">&#x27;textContent&#x27;</span>] = val</span>
+        &#125;
+<span class="javascript">        <span class="hljs-comment">// 初始化</span></span>
+        render(div, name)
+<span class="javascript">        <span class="hljs-comment">// 修改name后再次渲染</span></span>
+<span class="javascript">        name = <span class="hljs-string">&quot;shuaxin&quot;</span></span>
+        render(div, name)
+    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+...</code></pre></div></li>
+<li>上述代码在要操作的dom变多的时候，维护起来就会很麻烦，而换到vue这边，就简单的多，只需要告诉vue数据显示在哪里即可，至于怎么去显示到对应的dom里，以及数据发生变化后的更新页面显示，都是由vue来完成的<div class="code-wrapper"><pre><code class="hljs html">...
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+        &#123;&#123;name&#125;&#125;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">        <span class="hljs-keyword">let</span> app=<span class="hljs-keyword">new</span> Vue(&#123;</span>
+<span class="javascript">            el:<span class="hljs-string">&quot;#app&quot;</span>,</span>
+            data:&#123;
+<span class="javascript">                name:<span class="hljs-string">&quot;刷新&quot;</span></span>
+            &#125;
+        &#125;)
+    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+...</code></pre></div>
 <h1 id="关于vue的工作流程"><a href="#关于vue的工作流程" class="headerlink" title="关于vue的工作流程"></a>关于vue的工作流程</h1>在通过Vue构造函数实例化对象的过程中，vue同时做了2件事</li>
 </ul>
 <blockquote>
@@ -278,245 +320,240 @@
 <li>对对象：vue2.x通过数据拦截api（Object.defineProperty）来实现这一功能</li>
 <li>对数组：数据拦截是object的api，所以对数组那些操作数组本身内容的api就没什么用了，vue的做法是对数组的这些api进行一层封装，在里面执行数据依赖的一些操作和该api本身的操作</li>
 </ul>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以操作数组本身内容的api</span></span><br><span class="line"><span class="keyword">const</span> methodsToPatch = [</span><br><span class="line">            <span class="string">&#x27;push&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;pop&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;shift&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;unshift&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;splice&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;sort&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;reverse&#x27;</span></span><br><span class="line">]</span><br><span class="line"><span class="comment">// 创建一个新的数组对象，继承Array</span></span><br><span class="line"><span class="keyword">let</span> newArr = <span class="built_in">Object</span>.create(<span class="built_in">Array</span>.prototype)</span><br><span class="line"><span class="comment">// 遍历methodsToPatch，拦截每一个方法</span></span><br><span class="line">methodsToPatch.forEach(<span class="function">(<span class="params">method</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 保存的是原Array的对应调用的方法</span></span><br><span class="line">    <span class="keyword">let</span> oldMethod = newArr[method]</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(newArr, method, &#123;</span><br><span class="line">        <span class="comment">// 不可以枚举，不可被for in循环到</span></span><br><span class="line">        enumerable: <span class="literal">false</span>,</span><br><span class="line">        <span class="comment">// 可以被删除</span></span><br><span class="line">        configurable: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 可被重写</span></span><br><span class="line">        writable: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 将访问的元素换成函数，在这里执行通知watcher更新视图的操作</span></span><br><span class="line">        value: <span class="function"><span class="keyword">function</span> <span class="title">mutator</span>(<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">            <span class="comment">// (3) [1, 2, 3]  4</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>, ...rest)</span><br><span class="line">            <span class="comment">// 将函数的this指向绑定到当前操作的数组上，然后把调用该函数的参数一并传递过去</span></span><br><span class="line">            <span class="keyword">let</span> res = oldMethod.apply(<span class="built_in">this</span>, rest)</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">    name: <span class="string">&quot;vuejs&quot;</span>,</span><br><span class="line">    sx: &#123;</span><br><span class="line">        sex: <span class="string">&#x27;男&#x27;</span>,</span><br><span class="line">        name: <span class="string">&quot;shuaxin&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    arr: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 实现对数据的拦截</span></span><br><span class="line"><span class="keyword">let</span> defineReactive = <span class="function">(<span class="params">obj, key, value</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">        enumerable: <span class="literal">true</span>,</span><br><span class="line">        configurable: <span class="literal">true</span>,</span><br><span class="line">        <span class="function"><span class="title">get</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="comment">// 下面代码替代增加watcher操作</span></span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&quot;get&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> value</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">set</span>(<span class="params">newVal</span>)</span> &#123;</span><br><span class="line">            <span class="comment">// 以下代替通知watcher更新视图操作</span></span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&quot;set&quot;</span>);</span><br><span class="line">            value = newVal</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 判断传递的data的每个属性的类型</span></span><br><span class="line"><span class="comment">// 这里会有三种类型:对象,基本数据类型,数组</span></span><br><span class="line"><span class="keyword">let</span> observe = <span class="function">(<span class="params">obj</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!obj || (<span class="keyword">typeof</span> obj !== <span class="string">&#x27;object&#x27;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">Object</span>.keys(obj).forEach(<span class="function">(<span class="params">key</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 还是一个对象，递归调用该函数</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> obj[key] === <span class="string">&#x27;object&#x27;</span> &amp;&amp; (obj[key] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) !== <span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&quot;对象&quot;</span>);</span><br><span class="line">            observe(obj[key])</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj[key] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">            <span class="comment">// 是数组的话，改变数组原型为我们新创建的数组对象newArr</span></span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&quot;数组&quot;</span>);</span><br><span class="line">            obj[key].__proto__ = newArr</span><br><span class="line">            <span class="comment">// 对内部的元素执行拦截</span></span><br><span class="line">            defineReactive(obj, key, obj[key])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 基本数据直接进行拦截</span></span><br><span class="line">            <span class="built_in">console</span>.warn(<span class="string">&quot;基本数据类型&quot;</span>);</span><br><span class="line">            defineReactive(obj, key, obj[key])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line">observe(data)</span><br><span class="line"><span class="comment">// 执行该操作的时候，控制台会打印 get</span></span><br><span class="line">data.arr.push(<span class="number">4</span>)</span><br><span class="line"><span class="built_in">console</span>.log(data.arr);</span><br></pre></td></tr></table></figure>
-    </div>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><div class="code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 可以操作数组本身内容的api</span>
+<span class="hljs-keyword">const</span> methodsToPatch = [
+            <span class="hljs-string">&#x27;push&#x27;</span>,
+            <span class="hljs-string">&#x27;pop&#x27;</span>,
+            <span class="hljs-string">&#x27;shift&#x27;</span>,
+            <span class="hljs-string">&#x27;unshift&#x27;</span>,
+            <span class="hljs-string">&#x27;splice&#x27;</span>,
+            <span class="hljs-string">&#x27;sort&#x27;</span>,
+            <span class="hljs-string">&#x27;reverse&#x27;</span>
+]
+<span class="hljs-comment">// 创建一个新的数组对象，继承Array</span>
+<span class="hljs-keyword">let</span> newArr = <span class="hljs-built_in">Object</span>.create(<span class="hljs-built_in">Array</span>.prototype)
+<span class="hljs-comment">// 遍历methodsToPatch，拦截每一个方法</span>
+methodsToPatch.forEach(<span class="hljs-function">(<span class="hljs-params">method</span>) =&gt;</span> &#123;
+    <span class="hljs-comment">// 保存的是原Array的对应调用的方法</span>
+    <span class="hljs-keyword">let</span> oldMethod = newArr[method]
+    <span class="hljs-built_in">Object</span>.defineProperty(newArr, method, &#123;
+        <span class="hljs-comment">// 不可以枚举，不可被for in循环到</span>
+        enumerable: <span class="hljs-literal">false</span>,
+        <span class="hljs-comment">// 可以被删除</span>
+        configurable: <span class="hljs-literal">true</span>,
+        <span class="hljs-comment">// 可被重写</span>
+        writable: <span class="hljs-literal">true</span>,
+        <span class="hljs-comment">// 将访问的元素换成函数，在这里执行通知watcher更新视图的操作</span>
+        value: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mutator</span>(<span class="hljs-params">...rest</span>) </span>&#123;
+            <span class="hljs-comment">// (3) [1, 2, 3]  4</span>
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>, ...rest)
+            <span class="hljs-comment">// 将函数的this指向绑定到当前操作的数组上，然后把调用该函数的参数一并传递过去</span>
+            <span class="hljs-keyword">let</span> res = oldMethod.apply(<span class="hljs-built_in">this</span>, rest)
+            <span class="hljs-keyword">return</span> res
+        &#125;
+    &#125;)
+&#125;)
+<span class="hljs-comment">// 测试</span>
+<span class="hljs-keyword">let</span> data = &#123;
+    name: <span class="hljs-string">&quot;vuejs&quot;</span>,
+    sx: &#123;
+        sex: <span class="hljs-string">&#x27;男&#x27;</span>,
+        name: <span class="hljs-string">&quot;shuaxin&quot;</span>
+    &#125;,
+    arr: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+&#125;
+<span class="hljs-comment">// 实现对数据的拦截</span>
+<span class="hljs-keyword">let</span> defineReactive = <span class="hljs-function">(<span class="hljs-params">obj, key, value</span>) =&gt;</span> &#123;
+    <span class="hljs-built_in">Object</span>.defineProperty(obj, key, &#123;
+        enumerable: <span class="hljs-literal">true</span>,
+        configurable: <span class="hljs-literal">true</span>,
+        <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span> &#123;
+            <span class="hljs-comment">// 下面代码替代增加watcher操作</span>
+            <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">&quot;get&quot;</span>);
+            <span class="hljs-keyword">return</span> value
+        &#125;,
+        <span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params">newVal</span>)</span> &#123;
+            <span class="hljs-comment">// 以下代替通知watcher更新视图操作</span>
+            <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">&quot;set&quot;</span>);
+            value = newVal
+        &#125;
+    &#125;)
+&#125;
+<span class="hljs-comment">// 判断传递的data的每个属性的类型</span>
+<span class="hljs-comment">// 这里会有三种类型:对象,基本数据类型,数组</span>
+<span class="hljs-keyword">let</span> observe = <span class="hljs-function">(<span class="hljs-params">obj</span>) =&gt;</span> &#123;
+    <span class="hljs-keyword">if</span> (!obj || (<span class="hljs-keyword">typeof</span> obj !== <span class="hljs-string">&#x27;object&#x27;</span>)) &#123;
+        <span class="hljs-keyword">return</span>
+    &#125;
+    <span class="hljs-built_in">Object</span>.keys(obj).forEach(<span class="hljs-function">(<span class="hljs-params">key</span>) =&gt;</span> &#123;
+        <span class="hljs-comment">// 还是一个对象，递归调用该函数</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> obj[key] === <span class="hljs-string">&#x27;object&#x27;</span> &amp;&amp; (obj[key] <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>) !== <span class="hljs-literal">true</span>) &#123;
+            <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">&quot;对象&quot;</span>);
+            observe(obj[key])
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (obj[key] <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>) &#123;
+            <span class="hljs-comment">// 是数组的话，改变数组原型为我们新创建的数组对象newArr</span>
+            <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">&quot;数组&quot;</span>);
+            obj[key].__proto__ = newArr
+            <span class="hljs-comment">// 对内部的元素执行拦截</span>
+            defineReactive(obj, key, obj[key])
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-comment">// 基本数据直接进行拦截</span>
+            <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">&quot;基本数据类型&quot;</span>);
+            defineReactive(obj, key, obj[key])
+        &#125;
+    &#125;)
+&#125;
+<span class="hljs-comment">// 初始化</span>
+observe(data)
+<span class="hljs-comment">// 执行该操作的时候，控制台会打印 get</span>
+data.arr.push(<span class="hljs-number">4</span>)
+<span class="hljs-built_in">console</span>.log(data.arr);</code></pre></div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Vue/">Vue</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">初探nginx</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/29/%E9%9A%8F%E7%AC%94/%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90/">
+                        <span class="hidden-mobile">资源推荐</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
-              <a href="/tags/Vue/" rel="tag"># Vue</a>
-          </div>
-        
-        <div id="gitalk-container"></div>
-        
-        <script>
-        const issueDate = "2020-11-01";
-        let id='';
-        if (moment().isAfter(issueDate)) {
-          id = md5(location.pathname);
-        }
-        var gitalk = new Gitalk({
-          clientID: '273f78497de0aaa42bed',
-          clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
-          repo: 'shuaxindiary.github.io',
-          owner: 'SHUAXINDIARY',
-          admin: ['SHUAXINDIARY'],
-          // id: location.pathname,      // Ensure uniqueness and length less than 50
-          id,
-          labels:['gitalk'],
-          distractionFreeMode: false,  // Facebook-like distraction free mode
-          // 登陆者为仓库主人默认初始化评论
-          createIssueManually:true,
-          // 启用ctrl+enter回复
-          enableHotKey:true
-        })
-
-        gitalk.render('gitalk-container')
-        </script>
-        
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/04/29/%E9%9A%8F%E7%AC%94/%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90/" rel="prev" title="资源推荐">
-      <i class="fa fa-chevron-left"></i> 资源推荐
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/" rel="next" title="初探nginx">
-      初探nginx <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+            
+          </article>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%A4%B4"><span class="nav-number">1.</span> <span class="nav-text">开头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">响应式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Evue%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">关于vue的工作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">关于响应式的原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
       </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">刷新</p>
-  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">69</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">29</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      前辈
     </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">刷新</span>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
-
-        
-
-
-
-
-
-
-
 
       </div>
-    </footer>
+    
   </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+  
+</footer>
 
-<script src="/js/motion.js"></script>
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
 
 
-<script src="/js/next-boot.js"></script>
-
+  
+    
+      <script  src="/js/lazyload.js" ></script>
+    
+  
 
 
 
@@ -524,6 +561,49 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
 
 
 
@@ -536,9 +616,13 @@
 
 
 
-  
 
-  
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 
 </body>
 </html>

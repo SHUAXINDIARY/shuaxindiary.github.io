@@ -1,246 +1,252 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN,en,default">
+<html lang="zh-CN,en,default" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://blog.shuaxinjs.cn/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" href="https://blog.shuaxinjs.cn/images/favicon-16x16-next.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
+  <meta name="author" content="刷新">
+  <meta name="keywords" content="">
+  <title>关于浏览器存储 - 刷新</title>
 
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="前言之前为了应付上课的作业，要做一个包含有留言板功能的官网。其实仅仅就HTML+CSS+JS做类似功能倒也不是很复杂，但是自己想着怎么可以做出线上那样，如果数据库存储留言的表有数据，当加载留言板页面时就会显示这些数据这样的效果。于是就想到了浏览器缓存，来模拟这个效果，所以顺带的去补了补浏览器存储相关的知识。来记录一下。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于浏览器存储">
-<meta property="og:url" content="http://example.com/2019/12/08/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/index.html">
-<meta property="og:site_name" content="刷新">
-<meta property="og:description" content="前言之前为了应付上课的作业，要做一个包含有留言板功能的官网。其实仅仅就HTML+CSS+JS做类似功能倒也不是很复杂，但是自己想着怎么可以做出线上那样，如果数据库存储留言的表有数据，当加载留言板页面时就会显示这些数据这样的效果。于是就想到了浏览器缓存，来模拟这个效果，所以顺带的去补了补浏览器存储相关的知识。来记录一下。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/liuyan.png">
-<meta property="og:image" content="http://example.com/img/liuyan2.png">
-<meta property="og:image" content="http://example.com/img/liuyan3.png">
-<meta property="article:published_time" content="2019-12-08T06:26:10.000Z">
-<meta property="article:modified_time" content="2020-12-27T15:17:44.464Z">
-<meta property="article:author" content="刷新">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="浏览器存储">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/liuyan.png">
-
-<link rel="canonical" href="http://example.com/2019/12/08/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  <title>关于浏览器存储 | 刷新</title>
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   
 
 
 
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+<link  rel="stylesheet" href="/css/main.css" />
 
-</head>
+<!-- 自定义样式保持在最底部 -->
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>刷新</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">刷新</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-sitemap">
-
-    <a href="/sitemap/" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
-
-  </li>
-  </ul>
 </nav>
 
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://img.shuaxinjs.cn//51590BF0-4E0B-4FCF-A188-D17D198D1AD0(20200924-103.JPG') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="关于浏览器存储">
+              
+            </span>
 
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
             
-
-  
-
-<link href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.0/gitalk.min.css" rel="stylesheet">
-<script src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.0/gitalk.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
+              <div class="mt-3">
   
   
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/12/08/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刷新">
-      <meta itemprop="description" content="学习笔记&&踩坑记录">
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-12-08 14:26" pubdate>
+        2019年12月8日 下午
+      </time>
     </span>
+  
+</div>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刷新">
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
     </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          关于浏览器存储
-        </h1>
+  
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
 
-              <time title="创建时间：2019-12-08 14:26:10" itemprop="dateCreated datePublished" datetime="2019-12-08T14:26:10+08:00">2019-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-27 23:17:44" itemprop="dateModified" datetime="2020-12-27T23:17:44+08:00">2020-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-            </span>
+  
+  
+</div>
+
+            
+          </div>
 
           
-
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
+  <main>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前为了应付上课的作业，要做一个包含有留言板功能的官网。其实仅仅就HTML+CSS+JS做类似功能倒也不是很复杂，但是自己想着怎么可以做出线上那样，如果数据库存储留言的表有数据，当加载留言板页面时就会显示这些数据这样的效果。于是就想到了浏览器缓存，来模拟这个效果，所以顺带的去补了补浏览器存储相关的知识。来记录一下。</p>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">关于浏览器存储</h1>
+            
+            <div class="markdown-body">
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前为了应付上课的作业，要做一个包含有留言板功能的官网。其实仅仅就HTML+CSS+JS做类似功能倒也不是很复杂，但是自己想着怎么可以做出线上那样，如果数据库存储留言的表有数据，当加载留言板页面时就会显示这些数据这样的效果。于是就想到了浏览器缓存，来模拟这个效果，所以顺带的去补了补浏览器存储相关的知识。来记录一下。</p>
 <a id="more"></a>
 
 <hr>
 <h1 id="使用浏览器缓存实现一个伪留言板效果"><a href="#使用浏览器缓存实现一个伪留言板效果" class="headerlink" title="使用浏览器缓存实现一个伪留言板效果"></a>使用浏览器缓存实现一个伪留言板效果</h1><p>HTML+CSS+JS基础三件套！</p>
-<h2 id="页面如下-不是重点一笔带过"><a href="#页面如下-不是重点一笔带过" class="headerlink" title="页面如下,不是重点一笔带过"></a>页面如下,不是重点一笔带过</h2><p><img src="/img/liuyan.png" alt="页面"></p>
+<h2 id="页面如下-不是重点一笔带过"><a href="#页面如下-不是重点一笔带过" class="headerlink" title="页面如下,不是重点一笔带过"></a>页面如下,不是重点一笔带过</h2><p><img src="/img/liuyan.png" srcset="/img/loading.gif" alt="页面"></p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><blockquote>
 <p>功能</p>
 </blockquote>
@@ -261,12 +267,120 @@
 <p>代码实现</p>
 </blockquote>
 <ul>
-<li>封装Dom一系列操作,为了省事(jq也可以更省事！)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @param&#123;dom:object,创建的dom&#125;</span></span><br><span class="line"><span class="comment">// @param&#123;att:object要给dom设置的属性&#125;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dom</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">dom, ...rest</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.target = <span class="built_in">document</span>.createElement(dom);</span><br><span class="line">        <span class="keyword">if</span> (rest[<span class="number">0</span>] <span class="keyword">instanceof</span> <span class="built_in">Object</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.initDom(rest[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> rest[<span class="number">0</span>] === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.addText(rest[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> rest[<span class="number">1</span>] === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.addText(rest[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 初始化dom属性</span></span><br><span class="line">    <span class="function"><span class="title">initDom</span>(<span class="params">atts</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (atts <span class="keyword">instanceof</span> <span class="built_in">Object</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> atts) &#123;</span><br><span class="line">                <span class="built_in">this</span>.target.setAttribute(i, atts[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 添加文本节点</span></span><br><span class="line">    <span class="function"><span class="title">addText</span>(<span class="params">txt</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> t = <span class="built_in">document</span>.createTextNode(txt);</span><br><span class="line">        <span class="built_in">this</span>.target.appendChild(t);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 添加子节点</span></span><br><span class="line">    <span class="function"><span class="title">addChild</span>(<span class="params">dom</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.target.appendChild(dom.target);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>获取用户留言，并存储该留言数据<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">placeholder</span>=<span class="string">&quot;留言&quot;</span> <span class="attr">id</span>=<span class="string">&quot;context&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;enter&quot;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="javascript">    <span class="comment">// 获取提交按钮</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> context=<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#context&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 存储留言数据的数组</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> comment=[];</span></span><br><span class="line"><span class="javascript">    <span class="comment">//添加新评论</span></span></span><br><span class="line"><span class="javascript">    submit.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 获取留言框</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> submit=<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#submit&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 创建时间戳  图中看出 每一条留言要显示留言时间和内容</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> now = <span class="string">`<span class="subst">$&#123;d.getFullYear()&#125;</span>-<span class="subst">$&#123;d.getMonth() + <span class="number">1</span>&#125;</span>-<span class="subst">$&#123;d.getDate()&#125;</span>`</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> time = <span class="string">`<span class="subst">$&#123;d.getHours()&#125;</span>:<span class="subst">$&#123;d.getMinutes()&#125;</span>:<span class="subst">$&#123;d.getSeconds()&#125;</span>`</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 创建新评论信息</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> obj = &#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">// 留言时间</span></span></span><br><span class="line"><span class="javascript">            time: <span class="string">`<span class="subst">$&#123;now&#125;</span> <span class="subst">$&#123;time&#125;</span>`</span>,</span></span><br><span class="line"><span class="javascript">            <span class="comment">// 具体留言内容</span></span></span><br><span class="line">            text: context.value</span><br><span class="line">        &#125;;</span><br><span class="line"><span class="javascript">        <span class="comment">// 存储当前评论到评论数组</span></span></span><br><span class="line">        comment.push(obj);</span><br><span class="line"><span class="javascript">        <span class="comment">// 存储到评论数据到session  </span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 键值对形式存储 值为string，所以转换对象为json格式存储</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">localStorage</span>.setItem(comment.length, <span class="built_in">JSON</span>.stringify(obj));</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 清空输入框</span></span></span><br><span class="line"><span class="javascript">        context.value = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 渲染新添加评论到页面</span></span></span><br><span class="line">        initComment(comment);</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="javascript">    <span class="comment">// 卸载页面dom</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> clear = <span class="function"><span class="keyword">function</span> (<span class="params">targetDom</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 通过文档碎片API来卸载dom</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> frag = <span class="built_in">document</span>.createDocumentFragment(), child;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">while</span> (child = targetDom.children) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (child.length === <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">break</span>;</span></span><br><span class="line">            &#125;</span><br><span class="line">            frag.appendChild(child[0]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="comment">// 渲染评论到页面</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> initComment = <span class="function"><span class="keyword">function</span> (<span class="params">arr</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 卸载上一次渲染的页面 </span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 因为每次都是渲染当前comment数组的内容插入到页面中，所以插入前，需要删除上一次的页面下的留言相关信息</span></span></span><br><span class="line">        clear(list);</span><br><span class="line"><span class="javascript">        <span class="comment">// 重新渲染评论到页面</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> div = <span class="keyword">new</span> Dom(<span class="string">&#x27;div&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> h3 = <span class="keyword">new</span> Dom(<span class="string">&#x27;h3&#x27;</span>, arr[i].time);</span></span><br><span class="line"><span class="javascript">            <span class="comment">// 把h3添加到div节点下</span></span></span><br><span class="line">            div.addChild(h3);</span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> p = <span class="keyword">new</span> Dom(<span class="string">&#x27;p&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> span = <span class="keyword">new</span> Dom(<span class="string">&#x27;span&#x27;</span>, arr[i].text);</span></span><br><span class="line">            p.addChild(span);</span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> button = <span class="keyword">new</span> Dom(<span class="string">&#x27;button&#x27;</span>, &#123; <span class="attr">class</span>: <span class="string">&#x27;reply&#x27;</span> &#125;, <span class="string">&#x27;回复&#x27;</span>);</span></span><br><span class="line">            p.addChild(button);</span><br><span class="line">            div.addChild(p);</span><br><span class="line">            list.appendChild(div.target);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"><span class="javascript">    <span class="comment">// 初始化页面</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 判断localStorage中是否有数据 有就获取装入到commonent数组</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 这里转换是因为localstrong不是一个纯数据对象</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> obj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(<span class="built_in">localStorage</span>));</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 遍历localstrong数据装进comment</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> obj) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 因为是json格式存储，这里需要转换成js对象</span></span></span><br><span class="line"><span class="javascript">        comment.push(<span class="built_in">JSON</span>.parse(obj[i]));</span></span><br><span class="line">    &#125;</span><br><span class="line">    initComment(comment);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>封装Dom一系列操作,为了省事(jq也可以更省事！)<div class="code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// @param&#123;dom:object,创建的dom&#125;</span>
+<span class="hljs-comment">// @param&#123;att:object要给dom设置的属性&#125;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dom</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">dom, ...rest</span>)</span> &#123;
+        <span class="hljs-built_in">this</span>.target = <span class="hljs-built_in">document</span>.createElement(dom);
+        <span class="hljs-keyword">if</span> (rest[<span class="hljs-number">0</span>] <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>) &#123;
+            <span class="hljs-built_in">this</span>.initDom(rest[<span class="hljs-number">0</span>]);
+        &#125;
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> rest[<span class="hljs-number">0</span>] === <span class="hljs-string">&#x27;string&#x27;</span>) &#123;
+            <span class="hljs-built_in">this</span>.addText(rest[<span class="hljs-number">0</span>]);
+        &#125;
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> rest[<span class="hljs-number">1</span>] === <span class="hljs-string">&#x27;string&#x27;</span>) &#123;
+            <span class="hljs-built_in">this</span>.addText(rest[<span class="hljs-number">1</span>]);
+        &#125;
+    &#125;
+    <span class="hljs-comment">// 初始化dom属性</span>
+    <span class="hljs-function"><span class="hljs-title">initDom</span>(<span class="hljs-params">atts</span>)</span> &#123;
+        <span class="hljs-keyword">if</span> (atts <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> atts) &#123;
+                <span class="hljs-built_in">this</span>.target.setAttribute(i, atts[i]);
+            &#125;
+        &#125;
+    &#125;
+    <span class="hljs-comment">// 添加文本节点</span>
+    <span class="hljs-function"><span class="hljs-title">addText</span>(<span class="hljs-params">txt</span>)</span> &#123;
+        <span class="hljs-keyword">let</span> t = <span class="hljs-built_in">document</span>.createTextNode(txt);
+        <span class="hljs-built_in">this</span>.target.appendChild(t);
+    &#125;
+    <span class="hljs-comment">// 添加子节点</span>
+    <span class="hljs-function"><span class="hljs-title">addChild</span>(<span class="hljs-params">dom</span>)</span> &#123;
+        <span class="hljs-built_in">this</span>.target.appendChild(dom.target);
+    &#125;
+&#125;</code></pre></div></li>
+<li>获取用户留言，并存储该留言数据<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;留言&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;context&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;enter&quot;</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+    
+<span class="javascript">    <span class="hljs-comment">// 获取提交按钮</span></span>
+<span class="javascript">    <span class="hljs-keyword">let</span> context=<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#context&#x27;</span>);</span>
+<span class="javascript">    <span class="hljs-comment">// 存储留言数据的数组</span></span>
+<span class="javascript">    <span class="hljs-keyword">let</span> comment=[];</span>
+<span class="javascript">    <span class="hljs-comment">//添加新评论</span></span>
+<span class="javascript">    submit.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;</span>
+<span class="javascript">        <span class="hljs-comment">// 获取留言框</span></span>
+<span class="javascript">        <span class="hljs-keyword">let</span> submit=<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#submit&#x27;</span>);</span>
+<span class="javascript">        <span class="hljs-comment">// 创建时间戳  图中看出 每一条留言要显示留言时间和内容</span></span>
+<span class="javascript">        <span class="hljs-keyword">const</span> d = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();</span>
+<span class="javascript">        <span class="hljs-keyword">const</span> now = <span class="hljs-string">`<span class="hljs-subst">$&#123;d.getFullYear()&#125;</span>-<span class="hljs-subst">$&#123;d.getMonth() + <span class="hljs-number">1</span>&#125;</span>-<span class="hljs-subst">$&#123;d.getDate()&#125;</span>`</span></span>
+<span class="javascript">        <span class="hljs-keyword">const</span> time = <span class="hljs-string">`<span class="hljs-subst">$&#123;d.getHours()&#125;</span>:<span class="hljs-subst">$&#123;d.getMinutes()&#125;</span>:<span class="hljs-subst">$&#123;d.getSeconds()&#125;</span>`</span></span>
+<span class="javascript">        <span class="hljs-comment">// 创建新评论信息</span></span>
+<span class="javascript">        <span class="hljs-keyword">let</span> obj = &#123;</span>
+<span class="javascript">            <span class="hljs-comment">// 留言时间</span></span>
+<span class="javascript">            time: <span class="hljs-string">`<span class="hljs-subst">$&#123;now&#125;</span> <span class="hljs-subst">$&#123;time&#125;</span>`</span>,</span>
+<span class="javascript">            <span class="hljs-comment">// 具体留言内容</span></span>
+            text: context.value
+        &#125;;
+<span class="javascript">        <span class="hljs-comment">// 存储当前评论到评论数组</span></span>
+        comment.push(obj);
+<span class="javascript">        <span class="hljs-comment">// 存储到评论数据到session  </span></span>
+<span class="javascript">        <span class="hljs-comment">// 键值对形式存储 值为string，所以转换对象为json格式存储</span></span>
+<span class="javascript">        <span class="hljs-built_in">localStorage</span>.setItem(comment.length, <span class="hljs-built_in">JSON</span>.stringify(obj));</span>
+<span class="javascript">        <span class="hljs-comment">// 清空输入框</span></span>
+<span class="javascript">        context.value = <span class="hljs-string">&#x27;&#x27;</span>;</span>
+<span class="javascript">        <span class="hljs-comment">// 渲染新添加评论到页面</span></span>
+        initComment(comment);
+    &#125;);
+<span class="javascript">    <span class="hljs-comment">// 卸载页面dom</span></span>
+<span class="javascript">    <span class="hljs-keyword">let</span> clear = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">targetDom</span>) </span>&#123;</span>
+<span class="javascript">        <span class="hljs-comment">// 通过文档碎片API来卸载dom</span></span>
+<span class="javascript">        <span class="hljs-keyword">let</span> frag = <span class="hljs-built_in">document</span>.createDocumentFragment(), child;</span>
+<span class="javascript">        <span class="hljs-keyword">while</span> (child = targetDom.children) &#123;</span>
+<span class="javascript">            <span class="hljs-keyword">if</span> (child.length === <span class="hljs-number">0</span>) &#123;</span>
+<span class="javascript">                <span class="hljs-keyword">break</span>;</span>
+            &#125;
+            frag.appendChild(child[0]);
+        &#125;
+    &#125;
+<span class="javascript">    <span class="hljs-comment">// 渲染评论到页面</span></span>
+<span class="javascript">    <span class="hljs-keyword">let</span> initComment = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">arr</span>) </span>&#123;</span>
+<span class="javascript">        <span class="hljs-comment">// 卸载上一次渲染的页面 </span></span>
+<span class="javascript">        <span class="hljs-comment">// 因为每次都是渲染当前comment数组的内容插入到页面中，所以插入前，需要删除上一次的页面下的留言相关信息</span></span>
+        clear(list);
+<span class="javascript">        <span class="hljs-comment">// 重新渲染评论到页面</span></span>
+<span class="javascript">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) &#123;</span>
+<span class="javascript">            <span class="hljs-keyword">let</span> div = <span class="hljs-keyword">new</span> Dom(<span class="hljs-string">&#x27;div&#x27;</span>);</span>
+<span class="javascript">            <span class="hljs-keyword">let</span> h3 = <span class="hljs-keyword">new</span> Dom(<span class="hljs-string">&#x27;h3&#x27;</span>, arr[i].time);</span>
+<span class="javascript">            <span class="hljs-comment">// 把h3添加到div节点下</span></span>
+            div.addChild(h3);
+<span class="javascript">            <span class="hljs-keyword">let</span> p = <span class="hljs-keyword">new</span> Dom(<span class="hljs-string">&#x27;p&#x27;</span>);</span>
+<span class="javascript">            <span class="hljs-keyword">let</span> span = <span class="hljs-keyword">new</span> Dom(<span class="hljs-string">&#x27;span&#x27;</span>, arr[i].text);</span>
+            p.addChild(span);
+<span class="javascript">            <span class="hljs-keyword">let</span> button = <span class="hljs-keyword">new</span> Dom(<span class="hljs-string">&#x27;button&#x27;</span>, &#123; <span class="hljs-attr">class</span>: <span class="hljs-string">&#x27;reply&#x27;</span> &#125;, <span class="hljs-string">&#x27;回复&#x27;</span>);</span>
+            p.addChild(button);
+            div.addChild(p);
+            list.appendChild(div.target);
+        &#125;
+    &#125;;
+<span class="javascript">    <span class="hljs-comment">// 初始化页面</span></span>
+<span class="javascript">    <span class="hljs-comment">// 判断localStorage中是否有数据 有就获取装入到commonent数组</span></span>
+<span class="javascript">    <span class="hljs-comment">// 这里转换是因为localstrong不是一个纯数据对象</span></span>
+<span class="javascript">    <span class="hljs-keyword">let</span> obj = <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-built_in">JSON</span>.stringify(<span class="hljs-built_in">localStorage</span>));</span>
+<span class="javascript">    <span class="hljs-comment">// 遍历localstrong数据装进comment</span></span>
+<span class="javascript">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> obj) &#123;</span>
+<span class="javascript">        <span class="hljs-comment">// 因为是json格式存储，这里需要转换成js对象</span></span>
+<span class="javascript">        comment.push(<span class="hljs-built_in">JSON</span>.parse(obj[i]));</span>
+    &#125;
+    initComment(comment);
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
 <h2 id="该demo源码"><a href="#该demo源码" class="headerlink" title="该demo源码"></a><a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/tree/master/js%E7%BB%83%E4%B9%A0demo/js-%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A">该demo源码</a></h2></li>
 </ul>
 <hr>
-<h1 id="localstrong"><a href="#localstrong" class="headerlink" title="localstrong"></a>localstrong</h1><p>是浏览器缓存的一种,可以F12打开chrome的  调试面板&gt;application 查看<br><img src="/img/liuyan2.png" alt="浏览器存储"></p>
+<h1 id="localstrong"><a href="#localstrong" class="headerlink" title="localstrong"></a>localstrong</h1><p>是浏览器缓存的一种,可以F12打开chrome的  调试面板&gt;application 查看<br><img src="/img/liuyan2.png" srcset="/img/loading.gif" alt="浏览器存储"></p>
 <blockquote>
 <p>特点</p>
 </blockquote>
@@ -281,7 +395,22 @@
 <blockquote>
 <p>使用</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 存储一条数据 第一个参数为&#123;key:String| Number&#125;</span></span><br><span class="line"><span class="comment">// 第二个参数为要存储的值 &#123;value:String&#125; 存储对象的话，通过json转换一下来存储就好</span></span><br><span class="line"><span class="built_in">localStorage</span>.setItem(<span class="number">1</span>,<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line"><span class="comment">// 读取 参数为要读取数据的key</span></span><br><span class="line"><span class="built_in">localStorage</span>.getItem(<span class="number">1</span>)</span><br><span class="line"><span class="comment">// 修改</span></span><br><span class="line"><span class="built_in">localStorage</span>.setItem(<span class="number">1</span>,<span class="string">&#x27;10&#x27;</span>);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    删除</span></span><br><span class="line"><span class="comment">        1.在调试面板鼠标点击删除</span></span><br><span class="line"><span class="comment">        2.代码删除</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// 参数为 目标数据的key</span></span><br><span class="line"><span class="built_in">localStorage</span>.removeItem(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// 删除所有localStorage的数据</span></span><br><span class="line"><span class="built_in">localStorage</span>.clear();</span><br></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 存储一条数据 第一个参数为&#123;key:String| Number&#125;</span>
+<span class="hljs-comment">// 第二个参数为要存储的值 &#123;value:String&#125; 存储对象的话，通过json转换一下来存储就好</span>
+<span class="hljs-built_in">localStorage</span>.setItem(<span class="hljs-number">1</span>,<span class="hljs-string">&#x27;1&#x27;</span>);
+<span class="hljs-comment">// 读取 参数为要读取数据的key</span>
+<span class="hljs-built_in">localStorage</span>.getItem(<span class="hljs-number">1</span>)
+<span class="hljs-comment">// 修改</span>
+<span class="hljs-built_in">localStorage</span>.setItem(<span class="hljs-number">1</span>,<span class="hljs-string">&#x27;10&#x27;</span>);
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment">    删除</span>
+<span class="hljs-comment">        1.在调试面板鼠标点击删除</span>
+<span class="hljs-comment">        2.代码删除</span>
+<span class="hljs-comment">*/</span>
+<span class="hljs-comment">// 参数为 目标数据的key</span>
+<span class="hljs-built_in">localStorage</span>.removeItem(<span class="hljs-number">1</span>);
+<span class="hljs-comment">// 删除所有localStorage的数据</span>
+<span class="hljs-built_in">localStorage</span>.clear();</code></pre></div>
 <blockquote>
 <p>使用场景</p>
 </blockquote>
@@ -310,7 +439,29 @@
 <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><blockquote>
 <p>使用</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置cookie</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name, value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!name || !value) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">var</span> Days = <span class="number">30</span>; <span class="comment">//默认30天</span></span><br><span class="line">    <span class="keyword">var</span> exp = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    exp.setTime(exp.getTime() + Days * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">document</span>.cookie = name + <span class="string">&quot;=&quot;</span> + <span class="built_in">encodeURIComponent</span>(value) + <span class="string">&quot;;expires=&quot;</span> + exp.toUTCString();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取cookie</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = <span class="built_in">document</span>.cookie.match(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;(^| )&quot;</span> + name + <span class="string">&quot;=([^;]*)(;|$)&quot;</span>));</span><br><span class="line">    <span class="keyword">if</span> (arr != <span class="literal">null</span>) <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(arr[<span class="number">2</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除cookie</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delCookie</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> exp = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    exp.setTime(exp.getTime() - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">var</span> cval = getCookie(name);</span><br><span class="line">    <span class="keyword">if</span> (!cval) <span class="built_in">document</span>.cookie = name + <span class="string">&quot;=&quot;</span> + cval + <span class="string">&quot;;expires=&quot;</span> + exp.toUTCString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">//设置cookie</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCookie</span>(<span class="hljs-params">name, value</span>) </span>&#123;
+    <span class="hljs-keyword">if</span> (!name || !value) <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">var</span> Days = <span class="hljs-number">30</span>; <span class="hljs-comment">//默认30天</span>
+    <span class="hljs-keyword">var</span> exp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+    exp.setTime(exp.getTime() + Days * <span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>);
+    <span class="hljs-built_in">document</span>.cookie = name + <span class="hljs-string">&quot;=&quot;</span> + <span class="hljs-built_in">encodeURIComponent</span>(value) + <span class="hljs-string">&quot;;expires=&quot;</span> + exp.toUTCString();
+&#125;
+
+<span class="hljs-comment">//获取cookie</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCookie</span>(<span class="hljs-params">name</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> arr = <span class="hljs-built_in">document</span>.cookie.match(<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&quot;(^| )&quot;</span> + name + <span class="hljs-string">&quot;=([^;]*)(;|$)&quot;</span>));
+    <span class="hljs-keyword">if</span> (arr != <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-built_in">decodeURIComponent</span>(arr[<span class="hljs-number">2</span>]);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+&#125;
+
+<span class="hljs-comment">//删除cookie</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delCookie</span>(<span class="hljs-params">name</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> exp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+    exp.setTime(exp.getTime() - <span class="hljs-number">1</span>);
+    <span class="hljs-keyword">var</span> cval = getCookie(name);
+    <span class="hljs-keyword">if</span> (!cval) <span class="hljs-built_in">document</span>.cookie = name + <span class="hljs-string">&quot;=&quot;</span> + cval + <span class="hljs-string">&quot;;expires=&quot;</span> + exp.toUTCString();
+&#125;</code></pre></div>
 <blockquote>
 <p>特点</p>
 </blockquote>
@@ -329,246 +480,154 @@
 <blockquote>
 <p>cookie算是另一种用途了，单独写笔记</p>
 </blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>根据业务需要合理使用,可以结合使用,三者对比图如下<br><img src="/img/liuyan3.png" alt="留言"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>根据业务需要合理使用,可以结合使用,三者对比图如下<br><img src="/img/liuyan3.png" srcset="/img/loading.gif" alt="留言"></p>
 
-    </div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/">浏览器存储</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/02/10/vue/vuejs%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0-5/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">vuejs基础复习-5</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/11/28/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">
+                        <span class="hidden-mobile">关于浏览器缓存</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
-              <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/" rel="tag"># 浏览器存储</a>
-          </div>
-        
-        <div id="gitalk-container"></div>
-        
-        <script>
-        const issueDate = "2020-11-01";
-        let id='';
-        if (moment().isAfter(issueDate)) {
-          id = md5(location.pathname);
-        }
-        var gitalk = new Gitalk({
-          clientID: '273f78497de0aaa42bed',
-          clientSecret: 'dbe890db0f3528a2995ab5fdf292460c35b39df3',
-          repo: 'shuaxindiary.github.io',
-          owner: 'SHUAXINDIARY',
-          admin: ['SHUAXINDIARY'],
-          // id: location.pathname,      // Ensure uniqueness and length less than 50
-          id,
-          labels:['gitalk'],
-          distractionFreeMode: false,  // Facebook-like distraction free mode
-          // 登陆者为仓库主人默认初始化评论
-          createIssueManually:true,
-          // 启用ctrl+enter回复
-          enableHotKey:true
-        })
-
-        gitalk.render('gitalk-container')
-        </script>
-        
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2019/11/28/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" rel="prev" title="关于浏览器缓存">
-      <i class="fa fa-chevron-left"></i> 关于浏览器缓存
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/02/10/vue/vuejs%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0-5/" rel="next" title="vuejs基础复习-5">
-      vuejs基础复习-5 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+            
+          </article>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%BC%AA%E7%95%99%E8%A8%80%E6%9D%BF%E6%95%88%E6%9E%9C"><span class="nav-number">2.</span> <span class="nav-text">使用浏览器缓存实现一个伪留言板效果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%A6%82%E4%B8%8B-%E4%B8%8D%E6%98%AF%E9%87%8D%E7%82%B9%E4%B8%80%E7%AC%94%E5%B8%A6%E8%BF%87"><span class="nav-number">2.1.</span> <span class="nav-text">页面如下,不是重点一笔带过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%A5demo%E6%BA%90%E7%A0%81"><span class="nav-number">2.3.</span> <span class="nav-text">该demo源码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#localstrong"><span class="nav-number">3.</span> <span class="nav-text">localstrong</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%AD%98%E5%82%A8"><span class="nav-number">4.</span> <span class="nav-text">其他存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sessionstrong"><span class="nav-number">4.1.</span> <span class="nav-text">sessionstrong</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">4.2.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
       </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">刷新</p>
-  <div class="site-description" itemprop="description">学习笔记&&踩坑记录</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">69</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">29</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/SHUAXINDIARY" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SHUAXINDIARY" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      前辈
     </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/yyx990803" title="https:&#x2F;&#x2F;github.com&#x2F;yyx990803" rel="noopener" target="_blank">尤雨溪</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://soulteary.com/" title="https:&#x2F;&#x2F;soulteary.com&#x2F;" rel="noopener" target="_blank">soulteary</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://overreacted.io/" title="https:&#x2F;&#x2F;overreacted.io&#x2F;" rel="noopener" target="_blank">DanAbramov</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://joyeecheung.github.io/blog/" title="https:&#x2F;&#x2F;joyeecheung.github.io&#x2F;blog&#x2F;" rel="noopener" target="_blank">张秋怡</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://ewind.us/" title="https:&#x2F;&#x2F;ewind.us&#x2F;" rel="noopener" target="_blank">雪碧</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/yujiangshui?tab=repositories" title="https:&#x2F;&#x2F;github.com&#x2F;yujiangshui?tab&#x3D;repositories" rel="noopener" target="_blank">于江水</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://tonghuashuo.github.io/" title="https:&#x2F;&#x2F;tonghuashuo.github.io&#x2F;" rel="noopener" target="_blank">童话</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">刷新</span>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
-
-        
-
-
-
-
-
-
-
 
       </div>
-    </footer>
+    
   </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+  
+</footer>
 
-<script src="/js/motion.js"></script>
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
 
 
-<script src="/js/next-boot.js"></script>
-
+  
+    
+      <script  src="/js/lazyload.js" ></script>
+    
+  
 
 
 
@@ -576,6 +635,49 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
 
 
 
@@ -588,9 +690,13 @@
 
 
 
-  
 
-  
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 
 </body>
 </html>
