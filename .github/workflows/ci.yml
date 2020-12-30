@@ -27,6 +27,11 @@ jobs:
       run: |
         npm install
 
+    - name: clean cache 
+      # 下载 hexo-cli 脚手架及相关安装包
+      run: |
+        npm run clean
+
     - name: Generate files
       run: npm run build
 
