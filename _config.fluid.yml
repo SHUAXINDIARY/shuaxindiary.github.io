@@ -298,8 +298,8 @@ navbar:
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
-    - { key: "站点", link: "/sitemap/", icon: "iconfont icon-users" }
-    #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+    # - { key: "站点", link: "/sitemap/", icon: "iconfont icon-users" }
+    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -846,28 +846,66 @@ links:
   banner_img: https://img.shuaxinjs.cn//51590BF0-4E0B-4FCF-A188-D17D198D1AD0(20200924-103.JPG
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  subtitle:
+  subtitle: 前辈&&朋友
   # 友链的成员项
   # Member item of page
   items:
     - {
-      title: "Fluid Blog",
-      intro: "主题博客",
-      link: "https://hexo.fluid-dev.com/",
-      image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+      title: "soulteary",
+      intro: "博客",
+      link: "https://soulteary.com/",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
     }
+
     - {
-      title: "Fluid Docs",
-      intro: "主题使用指南",
-      link: "https://hexo.fluid-dev.com/docs/",
-      image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+      title: "公子",
+      intro: "博客",
+      link: "https://imnerd.org/",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
     }
+
     - {
-      title: "Fluid Repo",
-      intro: "主题 GitHub 仓库",
-      link: "https://github.com/fluid-dev/hexo-theme-fluid",
-      image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+      title: "雪碧",
+      intro: "博客",
+      link: "https://ewind.us/",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
     }
+
+    - {
+      title: "youli",
+      intro: "GitHub",
+      link: "https://github.com/youliso",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+    }
+
+    - {
+      title: "DanAbramov",
+      intro: "博客",
+      link: "https://overreacted.io/",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+    }
+
+    - {
+      title: "于江水",
+      intro: "GitHub",
+      link: "https://github.com/yujiangshui?tab=repositories",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+    }
+
+    - {
+      title: "张秋怡",
+      intro: "博客",
+      link: "https://joyeecheung.github.io/blog/",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+    }
+
+    - {
+      title: "敖天羽",
+      intro: "博客",
+      link: "https://www.codesky.me/",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+    }
+    
 
 
 #---------------------------
