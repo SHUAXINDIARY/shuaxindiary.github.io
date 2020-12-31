@@ -19,7 +19,7 @@
   <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
   <meta name="author" content="刷新">
   <meta name="keywords" content="">
-  <title>Hexo接评论系统记录 - 刷新</title>
+  <title>2020总结 - 刷新</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -171,12 +171,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://img.shuaxinjs.cn//51590BF0-4E0B-4FCF-A188-D17D198D1AD0(20200924-103.JPG') no-repeat center center;
+         style="background: url('https://img.shuaxinjs.cn//avatar.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hexo接评论系统记录">
+            <span class="h2" id="subtitle" title="2020总结">
               
             </span>
 
@@ -186,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-27 22:02" pubdate>
-        2020年12月27日 晚上
+      <time datetime="2020-12-31 10:56" pubdate>
+        2020年12月31日 上午
       </time>
     </span>
   
@@ -198,7 +198,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      595 字
+      1.5k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      15
        分钟
     </span>
   
@@ -238,54 +238,15 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hexo接评论系统记录</h1>
+            <h1 style="display: none">2020总结</h1>
             
             <div class="markdown-body">
-              <p>之前因为建站是为了当笔记本，就没有搞些花里胡哨的社交属性的功能；后来无意间看到过一个老哥在挂载该博客的仓库留言过，后来一想，还是加一个吧，方便实时看到一些可能不太会有的留言。。</p>
-<a id="more"></a>
-<h1 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">gitalk</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/xCss/Valine">Valine</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/lizheming/waline">waline</a></li>
-<li><a target="_blank" rel="noopener" href="https://livere.com/">来必力</a></li>
-</ul>
-<hr>
-<ul>
-<li>以上都是觉得很不错的选择的评论系统，因为是静态博客，都需要借助其他平台来存数据；gitalk是使用仓库的issue来存储，Valine是通过<a target="_blank" rel="noopener" href="https://www.leancloud.cn/">Leancloud</a>，<a target="_blank" rel="noopener" href="https://waline.js.org/">Waline</a>支持的就更多了；<a target="_blank" rel="noopener" href="https://livere.com/">来必力</a>用的应该是自己的服务器存储；</li>
-<li>最后选了gitalk，主要考虑到留言的数量不会很多，其次博客也是挂载github，不想在接入一个平台来搞相关的(目前)，用issue，因为github是每天都会上去的，会很直观的可以看到，所以还是方便</li>
-</ul>
-<h1 id="接入"><a href="#接入" class="headerlink" title="接入"></a>接入</h1><blockquote>
-<p>具体使用很简单，文档都有描述，这里记录一下Hexo中Next主题里如何使用</p>
-<ul>
-<li>找到Next下负责渲染文章的模板文件：themes-&gt;layout-&gt;_macro-&gt;post.swig</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>中间嵌入放评论的容器代码就好</li>
-</ul>
-</blockquote>
-<h1 id="关于初始化评论失败"><a href="#关于初始化评论失败" class="headerlink" title="关于初始化评论失败"></a>关于初始化评论失败</h1><p>原因是gitalk是借助github的接口来存取仓库issues的数据的，然后每个文章对应仓库的一个issues，但是这个长度不能超过50个字符，不然就会导致初始化失败并返回，422错误，这是github的限制；官方是使用location.pathname来作为id的</p>
-<blockquote>
-<ul>
-<li><strong>解决</strong></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>思路就是把id缩短，通过md5转义下就好</li>
-<li>直接在模板引擎引入对应md5的cdn就好</li>
-</ul>
-</blockquote>
-<h1 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h1><p>因为是通过github的接口在配置的仓库创建对应的issue来保存每篇文章的评论，这就涉及到谁创建的问题，gitalk也提供了对应的配置选项，这就带来了，每篇文章需要该仓库权限拥有者去初始化该文章对应的issue这一操作，这就很繁琐，计划写个小服务来解决一下这个问题</p>
-<blockquote>
-<p><em>目前思路</em></p>
-<ul>
-<li>使用node，在github ci部署后，在跑一下node服务</li>
-<li>服务主要就是去自动请求一下github的接口，自动初始化一下新文章的评论区</li>
-<li>写好在抛出来…</li>
-</ul>
-</blockquote>
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>与其说是年终总结，不如说是下半年的总结。今年5月份，春招期间有写对春招期间面试的总结顺带的对上半年做了简单的回顾，最后也有写了对下半年的一些期望和补足的计划，转眼就已经到了2020的最后一天。半年里待过了2座城市，也在2个不同规模的团队经历了两段实习；也参加了秋招，遇到了喜欢的女孩子，杂七杂八一堆琐碎的事情，感觉也有不少东西可以梳理一下。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="对于上半年总结的不足计划"><a href="#对于上半年总结的不足计划" class="headerlink" title="对于上半年总结的不足计划"></a>对于上半年总结的不足计划</h2><p>春招的时候让自己发现了自己的基础十分不扎实，不仅仅是计算机基础，还有对前端技术栈的基础知识，完全停留在了语言、框架的api调用，没有去深究其中原因和底层的原理是怎样；<br>春招之后到现在，一直有在提醒自己，当遇到问题的时候多去了解一下出现的原因，以及探索更多的解决方案并对比其中的优劣选择最适合当前场景的，这个过程中不仅可以复习到基础的知识，也会在对比各种方案时带来更多的思考和扩大知识面；除过这方面，也有看了几本js相关的书籍，来补足：《你不知道的javascript》、《JavaScript权威指南》这是在前端技术上的补足。<br>计算机基础方面的知识，也越来越觉得十分重要，数据结构基本算法能力和网络操作系统、编译原理相关的知识的不扎实甚至是没有，让自己在很多方面都会很束手束脚，不过这是个长期的内功修炼，这段时间也算是意识到了问题的存在，之后也需要慢慢持续的投入来学习，这下半年主要是整理了相关需要自己接下来投入学习的方面，再就是阅读了网络相关的几本书籍，《图解HTTP》、《HTTP权威指南》。</p>
+<h2 id="关于实习"><a href="#关于实习" class="headerlink" title="关于实习"></a>关于实习</h2><p>今年先后在杭州和北京2地的2家公司进行了实习，不同的团队规模，不同的工作方式，也是让自己很有收获。算上去年寒假的实习，一共是有三段实习经验。三家公司也是从小公司-&gt;小独角兽-&gt;大公司都有待过，三段给我的感受都大不相同。<br>第一段实习，是接触前端不久后去的，第一次参与了线上项目的开发，虽然都是在写HTML&amp;&amp;CSS这些静态页面，但是大量的编写，让我对前端三件套中有了更熟悉的掌握，对于ui图的还原几乎可以独立完成。<br>第二段实习去了一家安全公司，团队也是有了一定的规模，在这里算是正式的接触了如何去和其他成员协作开发，以及怎么更规范的开发；还有一点就是，快速学习能力吧，来这里之前完全没接触过react以及相关生态，一周的时间过了一遍文档和公司在使用的相关生态的文档，之后就顺利的融入了开发，虽然中间还有不熟练带来的一些坑，但是整体还是比较顺利。<br>第三段实习是来了之前很向往的一个团队，在这里技术上主要还是在阅读之前项目代码的效率上提升了很多，以前没有这么大面积的读过别人的代码，来了这里要维护和迭代很多老项目，保证不影响之前逻辑基础上二次开发或者维护就需要很快速的过一遍之前的逻辑，然后开始思考怎么开发新需求；其次最大的收货应该是沟通上，之前都是leader告诉我应该开发什么，给定期限做完即可。来了这里，自己开始独立参与排期，讨论需求的可行性，给出具体排期时间，以及开发过程中实时的和QA、PD、后端进行沟通，这是之前实习所不曾有的经历。</p>
+<h2 id="关于技术上"><a href="#关于技术上" class="headerlink" title="关于技术上"></a>关于技术上</h2><p>今年主要集中在下半年，学习了TS+React+Vue3，也有尝试使用express写一些后端服务，也初步涉猎了一下服务器部署相关：Linux基本操作和Nginx。<br>最近在写毕设，主要是用React做一个集图床客户端+md在线编辑器+todo的一个任务平台。下半年的话，想专注在Node上面，多了解和使用Node做一些有趣的尝试，初步想法是把之前gulp封装的cli，进行一下优化，让实用性提起来，然后使用node封装一下，做成类似Vue-cli那样。</p>
+<h2 id="关于最近在做的"><a href="#关于最近在做的" class="headerlink" title="关于最近在做的"></a>关于最近在做的</h2><p>因为一直在实习，导致时间只有晚上，有一段时间还在复习面试和学校考试的事，所以写自己代码的时间比较有限，但还是写了一部分，首先毕设的前端基本架构已经搭建完毕，然后自己写的在线MD编辑器，在用Vue3在写，也写了一部分；剩下的只能明年写了。然后有clone（自己写）了一下，之前google的一个前端工程师用grid布局来实现常见布局的一个demo站点，不过也是写了一部分，写完在放链接吧。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>最近冬天，疫情又开始反反复复，不知道是因为什么，随着年龄越来越大，反而更在乎健康情况，反正新的一年还是希望大家都平平安安，快快乐乐！</p>
 
             </div>
             <hr>
@@ -295,7 +256,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                      <a class="hover-with-bg" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
                     
                   </div>
                 
@@ -303,11 +264,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
+                      <a class="hover-with-bg" href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
                     
                   </div>
                 
@@ -320,18 +277,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/31/%E9%9A%8F%E7%AC%94/2020%E6%80%BB%E7%BB%93/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2020总结</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/27/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/textarea%E6%A0%87%E7%AD%BEtab%E9%94%AE%E6%97%A0%E6%95%88/">
-                        <span class="hidden-mobile">textarea标签tab键无效</span>
+                      <a href="/2020/12/27/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">
+                        <span class="hidden-mobile">Hexo接评论系统记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
