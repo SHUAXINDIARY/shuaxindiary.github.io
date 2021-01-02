@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://blog.shuaxinjs.cn/images/favicon-16x16-next.png">
-  <link rel="icon" type="image/png" href="https://blog.shuaxinjs.cn/images/favicon-16x16-next.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
+  <link rel="icon" type="image/png" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -188,6 +188,59 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/09/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B09/">《学习JavaScript数据结构与算法》笔记---红黑树</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/09/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B09/">
+          
+          
+            
+          
+          什么是红黑树
+1.为了解决二叉搜索树出现非平衡树的情况而出现的优化方案；2.当插入一个节点使树不平衡时，通过一些规则和一些处理方式来让树保持平衡；这个平衡后的树叫做红黑树
+
+为什么需要红黑树？1.假如现在要向一颗BST插入10 9 8 7 6 5 4 3 2 1这样一组数，最后的结果就是每个数依次出现在上一个节点的左子树的情况，这样就相当于一个链表，体现不出我们使用树结构的优势，所以需要一些措施让
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-09-22 08:51" pubdate>
+              2019-09-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
   <div class="row mx-auto index-card">
     
@@ -411,68 +464,11 @@ key值不可以重复哈希表没有顺序，不能以一定的顺序遍历
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B05/">《学习JavaScript数据结构与算法》笔记---(双向)链表</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B05/">
-          
-          
-            
-          
-          本文源码 这里和单向链表区别1.每个节点有两个指针，一个指向上一个节点，一个指向下一个节点2.除过链表头head还多了一链表尾tail属性
-
-双向链表的优点1.从双向链表中的任意一个结点开始，都可以很方便地访问它的前节点和后节点，单向链表都得从第一个节点开始2.既可以从头遍历，又可以从尾部遍历
-
-
-
-双向链表的缺点1.每次插入删除节点时，需要处理四个引用2.相比较单向链表，存储空间要求更大
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-09-03 19:42" pubdate>
-              2019-09-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/JavaScript/">JavaScript</a>
-            
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/11/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/13/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/11/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/13/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
