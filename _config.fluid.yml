@@ -905,6 +905,13 @@ links:
       link: "https://www.codesky.me/",
       # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
     }
+
+    - {
+      title: "童话",
+      intro: "博客",
+      link: "http://www.thewashingtonhua.com/",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+    }
     
 
 
