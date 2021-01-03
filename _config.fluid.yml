@@ -616,7 +616,8 @@ post:
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
-    type: valine
+    # type: valine
+    type: waline
 
 
 #---------------------------
@@ -692,7 +693,7 @@ valine:
 # A comment plugin with backend derived from Valine
 # See: https://waline.js.org/
 waline:
-  serverURL: ''
+  serverURL: 'http://blog.shuaxindiary.cn/'
   placeholder: 说点什么
   path: window.location.pathname
   avatar: retro
@@ -701,7 +702,7 @@ waline:
   lang: zh-CN
   highlight: true
   avatarForce: false
-  requiredFields: ['nick','mail']
+  requiredFields: ["nick","mail"]
   emojiCDN: ''
   emojiMaps: {}
   visitor: true
