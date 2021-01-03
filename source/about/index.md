@@ -2,6 +2,7 @@
 title: about
 date: 2020-12-30 21:13:24
 layout: about
+comment: true
 ---
 
 # 关于本站

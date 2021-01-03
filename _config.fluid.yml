@@ -702,7 +702,7 @@ waline:
   lang: zh-CN
   highlight: true
   avatarForce: false
-  requiredFields: ["nick","mail"]
+  # requiredFields: ["nick","mail"]
   emojiCDN: ''
   emojiMaps: {}
   visitor: true
