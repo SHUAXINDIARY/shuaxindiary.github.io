@@ -703,7 +703,7 @@ waline:
   highlight: true
   avatarForce: false
   # requiredFields: ["nick","mail"]
-  emojiCDN: ''
+  emojiCDN: 'https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/'
   emojiMaps: {}
   visitor: true
 
