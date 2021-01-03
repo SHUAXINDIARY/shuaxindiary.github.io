@@ -10,16 +10,20 @@ layout: about
 > - 踩坑记录
 
 >  **建站信息**
-> 1. 建站：Hexo
-> 2. 主题：[next](http://theme-next.iissnan.com/)
-> 3. 部署：1.github+actions自动打包部署2.vercel
-> 4. 评论：[valine](https://valine.js.org/)
-> 5. 访问统计：[leancloud](https://www.leancloud.cn/)
+> - 建站：Hexo
+> - 部署：
+> - - gh-pages:[访问博客-ghpages](https://blog.shuaxinjs.cn)
+> - - [vercel](https://vercel.com):[访问博客-vercel](https://blog.shuaxindiary.cn)
+> - 主题：[fluid](https://hexo.fluid-dev.com/docs/)
+> - 评论：[valine](https://valine.js.org/)
+> - 访问统计：[leancloud](https://www.leancloud.cn/)
+> - 图床：[七牛云](https://www.qiniu.com/)
 
 
 >  **曾经用过的第三方插件&主题**
 > - 统计：不蒜子统计
 > - 主题：[clover](https://github.com/esappear/hexo-theme-clover)
+> - 主题：[next](http://theme-next.iissnan.com/)
 > - 评论：[gitalk](https://github.com/gitalk/gitalk)
 
 
