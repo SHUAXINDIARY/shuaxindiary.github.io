@@ -16,9 +16,9 @@ comment: true
 > - - gh-pages:[访问博客-ghpages](https://blog.shuaxinjs.cn)
 > - - [vercel](https://vercel.com):[访问博客-vercel](https://blog.shuaxindiary.cn)
 > - 主题：[fluid](https://hexo.fluid-dev.com/docs/)
-> - 评论：[valine](https://valine.js.org/)
 > - 访问统计：[leancloud](https://www.leancloud.cn/)
 > - 图床：[七牛云](https://www.qiniu.com/)
+> - 评论：[Waline](https://waline.js.org/)
 
 
 >  **曾经用过的第三方插件&主题**
@@ -26,6 +26,8 @@ comment: true
 > - 主题：[clover](https://github.com/esappear/hexo-theme-clover)
 > - 主题：[next](http://theme-next.iissnan.com/)
 > - 评论：[gitalk](https://github.com/gitalk/gitalk)
+> - 评论：[valine](https://valine.js.org/)
+
 
 
 # 关于我
