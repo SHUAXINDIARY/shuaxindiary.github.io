@@ -616,7 +616,7 @@ post:
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
-    type: waline
+    type: valine
 
 
 #---------------------------
@@ -674,17 +674,18 @@ gitalk:
 # Based on LeanCloud
 # See: https://valine.js.org/configuration.html
 valine:
-  appid:
-  appkey:
-  placeholder: 说点什么
+  appid: a77vNpDBXG5kJNlAImeiELci-MdYXbMMI
+  appkey: yKqx0zUimnfoz2PSdSlgOrO6
+  placeholder: 网址也可以留GitHub哦~
   path: window.location.pathname
   avatar: retro
   meta: ['nick', 'mail', 'link']
   pageSize: 10
   lang: zh-CN
-  highlight: false
-  recordIP: false
+  highlight: true
+  recordIP: true
   serverURLs:
+  requiredFields: ['nick', 'mail']
 
 # Waline
 # 一款从 Valine 衍生的带后端的评论插件
