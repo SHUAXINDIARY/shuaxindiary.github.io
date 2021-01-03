@@ -475,29 +475,30 @@
               <article class="comments" id="comments">
                 
                 
-  <div id="vcomments"></div>
+  <div id="waline"></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('vcomments', function() {
-      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
-        new Valine({
-          el: "#vcomments",
-          app_id: "a77vNpDBXG5kJNlAImeiELci-MdYXbMMI",
-          app_key: "yKqx0zUimnfoz2PSdSlgOrO6",
-          placeholder: "网址也可以留GitHub哦~",
+    Fluid.utils.waitElementVisible('waline', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@waline/client@0.4.2/dist/Waline.min.js', function () {
+        new Waline({
+          el: "#waline",
+          placeholder: "说点什么",
           path: window.location.pathname,
           avatar: "retro",
           meta: ["nick","mail","link"],
           pageSize: "10",
           lang: "zh-CN",
           highlight: true,
-          recordIP: true,
-          serverURLs: "",
+          serverURL: "http://blog.shuaxindiary.cn/",
+          avatarForce: false,
+          requiredFields: [&#34;nick&#34;,&#34;mail&#34;],
+          emojiCDN: "",
+          emojiMaps: {},
         });
       });
     });
   </script>
   <noscript>Please enable JavaScript to view the
-    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+    <a target="_blank" href="https://waline.js.org" rel="nofollow noopener noopener">comments powered by Waline.</a>
   </noscript>
 
 
