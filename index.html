@@ -192,6 +192,61 @@
   <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/01/06/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/textarea%E4%B8%AD%E5%A4%8D%E5%88%B6%E5%85%89%E6%A0%87%E6%89%80%E5%9C%A8%E8%A1%8C%E6%96%87%E6%9C%AC/">textarea中复制光标所在行文本</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/01/06/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/textarea%E4%B8%AD%E5%A4%8D%E5%88%B6%E5%85%89%E6%A0%87%E6%89%80%E5%9C%A8%E8%A1%8C%E6%96%87%E6%9C%AC/">
+          
+          
+            
+          
+          前言最近在写一个在线md编辑器，使用的textarea作为文本编辑器，来让用户进行输入；但是textarea并不具备很多日常所见到的编辑器所具备的功能，例如复制剪切光标所在行文本，甚至tab键都会带来一些意外的情况，所以记录一下这些坑。
+相关textarea中tab健失效问题
+需求常见的编辑器中有个功能，是ctrl+c的时候，自动复制/剪切光标所在行的文本。
+实现思路
+获取光标在文本中的位置
+同时
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-06 13:55" pubdate>
+              2021-01-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+              <a href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/01/02/%E9%9A%8F%E7%AC%94/%E5%8C%97%E4%BA%AC%E6%B8%B8%E7%8E%A9%E6%8C%87%E5%8D%97/" target="_self">
           <img src="https://img.shuaxinjs.cn//2021.png" alt="北京">
@@ -373,7 +428,13 @@
           
             
           
-          最近在实现一个自己的浏览器版md编辑器，初步是使用textarea作为输入端，但是textarea里tab键，会失效，记录一下这个坑
+          前言最近在写一个在线md编辑器，使用的textarea作为文本编辑器，来让用户进行输入；但是textarea并不具备很多日常所见到的编辑器所具备的功能，例如复制剪切光标所在行文本，甚至tab键都会带来一些意外的情况，所以记录一下这些坑。
+原因
+浏览器中使用tab键会自动将光标在当前页面的各个控件上进行切换
+
+解决思路
+在textarea上监听keydown事件
+监听每次的按键，是tab键时(cod
         </a>
       </p>
 
@@ -403,56 +464,6 @@
               <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
             
               <a href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/11/29/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%B7%A5%E4%BD%9C%E6%BC%82%E6%B5%81/">工作漂流</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/29/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%B7%A5%E4%BD%9C%E6%BC%82%E6%B5%81/">
-          
-          
-            
-          
-          新坑学校的事情几乎就剩下走流程等待着毕业拿证了，工作的事情也在实习的公司顺利拿到了转正的机会；工作的环境也慢慢开始适应，因为工作性质导致的每天还是会有零散的一些时间可以支配，于是开始准备重新规律的拾起读书的习惯，顺带的简单的记录一些读书笔记
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-29 11:48" pubdate>
-              2020-11-29
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-            
-              <a href="/tags/%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%A6/">日本文学</a>
             
           </div>
         
