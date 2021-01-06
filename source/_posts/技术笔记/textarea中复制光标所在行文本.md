@@ -35,6 +35,17 @@ tag:
 
 ## 获取光标位置代码
 ```html
+<textarea id="editor" cols="30" rows="10"></textarea>
+<script>
+  editor.addEventListener('keydown', (e) => {
+    // 光标起始位置
+    let start = e.target.selectionStart
+    // 光标结束位置
+    let end = e.target.selectionEnd
+    // 获取鼠标选中的文本
+    let text=window.getSelection().toString()
+  })
+</script>
 ```
 
 
@@ -49,8 +60,8 @@ tag:
 > execCommand
 ```html
 <input type="text" id="text">
-  <button id="copy">copy</button>
-  <script>
+<button id="copy">copy</button>
+<script>
     const copy = document.querySelector('#copy')
     const text = document.querySelector('#text')
     copy.addEventListener('click', () => {
@@ -61,7 +72,7 @@ tag:
       document.execCommand('copy')
       console.log('复制成功')
     })
-  </script>
+</script>
 ```
 
 > Clipboard
@@ -74,14 +85,14 @@ tag:
     copy.addEventListener('click', () => {
       navigator.clipboard.writeText(text.value)
     })
-  </script>
+</script>
 ```
 
 
 # 复制光标所在行代码
 ```html
 <textarea id="editor" cols="30" rows="10"></textarea>
-  <script>
+<script>
     const editor = document.querySelector('#editor')
     // 复制文本 创建input来选中内容
     function copyText(text) {
@@ -130,5 +141,5 @@ tag:
         }
       }
     })
-  </script>
+</script>
 ```
