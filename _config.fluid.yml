@@ -915,7 +915,19 @@ links:
       link: "http://www.thewashingtonhua.com/",
       # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
     }
-    
+
+    - {
+      title: "张鑫旭",
+      intro: "博客",
+      link: "https://www.zhangxinxu.com/",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+    }
+    - {
+      title: "zcbenz",
+      intro: "GitHub",
+      link: "https://github.com/zcbenz",
+      # image: "https://blog.shuaxinjs.cn/images/favicon-16x16-next.png"
+    }
 
 
 #---------------------------
