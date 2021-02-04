@@ -46,3 +46,4 @@ comment: true
 - [练习CLI](https://github.com/SHUAXINDIARY/demo-cli)
 - [色卡](https://github.com/SHUAXINDIARY/colorGuide)
 - [布局站点](https://layout-sigma.vercel.app/)
+- [Chrome批量删除微博插件](https://github.com/SHUAXINDIARY/Weibo-plugin)
