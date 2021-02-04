@@ -260,12 +260,14 @@
 <span class="hljs-comment">// main.js</span>
 <span class="hljs-comment">/*真实开发时注意导入路径*/</span>
 <span class="hljs-keyword">let</span> one=<span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;one.js&#x27;</span>);
-one.sayhi();<span class="hljs-comment">//控制台打印 这是one.js文件的sayhi函数</span></code></pre></div></code></pre>
+one.sayhi();<span class="hljs-comment">//控制台打印 这是one.js文件的sayhi函数</span></code></pre></div>
+</code></pre>
 <h1 id="ES6-学习更多"><a href="#ES6-学习更多" class="headerlink" title="ES6  学习更多"></a>ES6  <a target="_blank" rel="noopener" href="http://es6.ruanyifeng.com/#docs/module">学习更多</a></h1><p>1.一个文件就是一个模块<br>2.通过export和export default导出模块</p>
 <div class="code-wrapper"><pre><code>两个的区别：
     1.  通过export导出的对象属性方法，在导入时也必须安其导出时的名字进行导入
     2.  通过export default 导出的对象属性方法时，
-        导入可以任意起名，然后通过该名来调用导入文件内部的成员</code></pre></div>
+        导入可以任意起名，然后通过该名来调用导入文件内部的成员
+</code></pre></div>
 <p>3.通过import {<strong>*}  from *</strong>导入模块<br>4.编译时加载，ES6模块不时对象，而是通过export指定输出的代码，再通过import输入</p>
 <p><strong><em>实例：在vue-cli脚手架环境中编写</em></strong></p>
 <div class="code-wrapper"><pre><code><pre><code class="hljs javascript"><span class="hljs-comment">/**使用export导出  */</span>
@@ -289,7 +291,8 @@ one.sayhi();<span class="hljs-comment">//控制台打印 这是one.js文件的sa
 <span class="hljs-comment">// main.js</span>
 <span class="hljs-comment">/*真实开发时注意导入路径*/</span>
 <span class="hljs-keyword">import</span> one <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;one&#x27;</span>;
-one.sayhi();<span class="hljs-comment">//这是one.js文件的sayhi函数</span></code></pre></div></code></pre>
+one.sayhi();<span class="hljs-comment">//这是one.js文件的sayhi函数</span></code></pre></div>
+</code></pre>
 <h1 id="AMD-的-RequireJS-学习更多"><a href="#AMD-的-RequireJS-学习更多" class="headerlink" title="AMD 的 RequireJS 学习更多"></a>AMD 的 RequireJS <a target="_blank" rel="noopener" href="http://javascript.ruanyifeng.com/tool/requirejs.html">学习更多</a></h1><p>1.在es6出来之前，主要使用就是CommonJS和RequireJS<br>2.不同于CommonJS的同步加载，RequireJS是异步加载(所以支持回调函数)<br>3.通过defin定义模块<br>4.通过require加载模块(注意require中的依赖是一个数组，即使只有一个依赖，你也必须使用数组来定义))</p>
 <p><strong><em>实例：引入requirejs后编写</em></strong></p>
 <div class="code-wrapper"><pre><code><pre><code class="hljs javascript"><span class="hljs-comment">// one.js</span>
@@ -312,7 +315,8 @@ one.sayhi();<span class="hljs-comment">//这是one.js文件的sayhi函数</span>
     <span class="hljs-built_in">require</span>([<span class="hljs-string">&#x27;a&#x27;</span>],<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a</span>)</span>&#123;
         a.sayhi();<span class="hljs-comment">//这是sayhi</span>
     &#125;);
-&lt;/script&gt;</code></pre></div></code></pre>
+&lt;/script&gt;</code></pre></div>
+</code></pre>
 <p>5.当定义模块中依赖其他模块时，把导入的模块当作参数传递进去，再使用</p>
 <div class="code-wrapper"><pre><code> <pre><code class="hljs javascript"><span class="hljs-comment">// one.js</span>
     define([<span class="hljs-string">&#x27;./b&#x27;</span>],<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">b</span>) </span>&#123;
@@ -329,7 +333,8 @@ one.sayhi();<span class="hljs-comment">//这是one.js文件的sayhi函数</span>
     <span class="hljs-built_in">require</span>([<span class="hljs-string">&#x27;a&#x27;</span>],<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a</span>)</span>&#123;
         a.sayhi();<span class="hljs-comment">//这是sayhi</span>
     &#125;);
-&lt;/script&gt;</code></pre></div></code></pre>
+&lt;/script&gt;</code></pre></div>
+</code></pre>
 
             </div>
             <hr>

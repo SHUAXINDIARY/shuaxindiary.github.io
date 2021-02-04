@@ -261,7 +261,8 @@ app.js-----------小程序全局js文件
 app.json---------小程序全局配置文件
 app.wxss---------小程序全局css文件
 project.config.json--项目相关信息文件
-sitemap.json-----小程序内搜索配置相关文件</code></pre></div>
+sitemap.json-----小程序内搜索配置相关文件
+</code></pre></div>
 <a id="more"></a>
 
 <h1 id="和传统web开发的区别"><a href="#和传统web开发的区别" class="headerlink" title="和传统web开发的区别"></a>和传统web开发的区别</h1><p>1.json文件不再是模拟数据时使用,而是作为配置小程序使用</p>
@@ -279,7 +280,8 @@ sitemap.json-----小程序内搜索配置相关文件</code></pre></div>
         <span class="hljs-string">&quot;navigationBarTextStyle&quot;</span>: <span class="hljs-string">&quot;black&quot;</span>
     &#125;,
     <span class="hljs-string">&quot;sitemapLocation&quot;</span>: <span class="hljs-string">&quot;sitemap.json&quot;</span>
-&#125;</code></pre></div></code></pre>
+&#125;</code></pre></div>
+</code></pre>
 <h1 id="语法上和vue的一些使用区别"><a href="#语法上和vue的一些使用区别" class="headerlink" title="语法上和vue的一些使用区别"></a>语法上和vue的一些使用区别</h1><p>1.更改data属性时</p>
 <div class="code-wrapper"><pre><code><pre><code class="hljs javascript"> <span class="hljs-comment">//vue里更改data属性</span>
  data:&#123;
@@ -299,7 +301,8 @@ data:&#123;
     <span class="hljs-built_in">this</span>.setData(&#123;
         name:<span class="hljs-string">&#x27;test3&#x27;</span>
     &#125;)
- &#125;</code></pre></div></code></pre>
+ &#125;</code></pre></div>
+</code></pre>
 <p>2.点击事件传值</p>
 <div class="code-wrapper"><pre><code><pre><code class="hljs javascript"><span class="hljs-comment">//vue 绑定一个事件是 v-on:(js原生事件名)click=&#x27;方法名&#x27;</span>
 <span class="hljs-comment">// 传递参数向普通js一样传递即可</span>
@@ -315,7 +318,8 @@ methods:&#123;
 &lt;view data-hintstr=<span class="hljs-string">&#x27;hi&#x27;</span> bindTap=<span class="hljs-string">&#x27;hint&#x27;</span>&gt;&lt;/view&gt;
 <span class="hljs-function"><span class="hljs-title">hint</span>(<span class="hljs-params">e</span>)</span>&#123;
     <span class="hljs-built_in">console</span>.log(e.currentTarget.dataset.hintstr);<span class="hljs-comment">//hi</span>
-&#125;</code></pre></div></code></pre>
+&#125;</code></pre></div>
+</code></pre>
 <p>3.微信里的页面标签<br>    view==div<br>    text==p<br>    block用wx:for时使用<br>    wxss和js都是和传统web一致</p>
 <p>4.小程序官方封装好了ajax的请求，类似axios那样的</p>
 <p>5。。。继续摸索中。。。</p>
