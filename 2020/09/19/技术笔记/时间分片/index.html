@@ -279,7 +279,7 @@
 <span class="javascript">    <span class="hljs-keyword">let</span> list = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.list&#x27;</span>)</span>
 <span class="javascript">    <span class="hljs-keyword">let</span> total = <span class="hljs-number">100000</span></span>
 <span class="javascript">    <span class="hljs-keyword">const</span> render = <span class="hljs-function">(<span class="hljs-params">start, end</span>) =&gt;</span> &#123;</span>
-<span class="javascript">        <span class="hljs-keyword">if</span> (end &lt; total) &#123;</span>
+        if (end &lt; total) &#123;
 <span class="javascript">            <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;</span>
 <span class="javascript">                <span class="hljs-keyword">let</span> frag = <span class="hljs-built_in">document</span>.createDocumentFragment()</span>
 <span class="javascript">                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = start; i &lt; end; ++i) &#123;</span>
@@ -303,7 +303,7 @@
 <span class="javascript">    <span class="hljs-keyword">let</span> size = <span class="hljs-number">20</span></span>
 <span class="javascript">    <span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span></span>
 <span class="javascript">    <span class="hljs-keyword">const</span> render = <span class="hljs-function">(<span class="hljs-params">total, index</span>) =&gt;</span> &#123;</span>
-<span class="javascript">        <span class="hljs-keyword">if</span> (total &lt;= <span class="hljs-number">0</span>) &#123;</span>
+        if (total &lt;= 0) &#123;
 <span class="javascript">            <span class="hljs-keyword">return</span></span>
         &#125;
 <span class="javascript">        <span class="hljs-keyword">let</span> curPage = <span class="hljs-built_in">Math</span>.min(total, size)</span>

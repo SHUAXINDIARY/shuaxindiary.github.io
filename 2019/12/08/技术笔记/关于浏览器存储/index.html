@@ -340,7 +340,7 @@
 <span class="javascript">        <span class="hljs-comment">// 通过文档碎片API来卸载dom</span></span>
 <span class="javascript">        <span class="hljs-keyword">let</span> frag = <span class="hljs-built_in">document</span>.createDocumentFragment(), child;</span>
 <span class="javascript">        <span class="hljs-keyword">while</span> (child = targetDom.children) &#123;</span>
-<span class="javascript">            <span class="hljs-keyword">if</span> (child.length === <span class="hljs-number">0</span>) &#123;</span>
+            if (child.length === 0) &#123;
 <span class="javascript">                <span class="hljs-keyword">break</span>;</span>
             &#125;
             frag.appendChild(child[0]);
