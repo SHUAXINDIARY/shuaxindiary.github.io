@@ -2,7 +2,7 @@
 title: 在react中获取Dom
 date: 2020-11-11 20:31:20
 category:
-  - 技术笔记
+  - 日常
 tag:
   - React
   - 踩坑
