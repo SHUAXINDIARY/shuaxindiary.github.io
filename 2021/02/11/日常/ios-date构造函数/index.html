@@ -19,7 +19,7 @@
   <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
   <meta name="author" content="刷新">
   <meta name="keywords" content="">
-  <title>在react中获取Dom - 刷新</title>
+  <title>ios-date构造函数 - 刷新</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -176,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="在react中获取Dom">
+            <span class="h2" id="subtitle" title="ios-date构造函数">
               
             </span>
 
@@ -186,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-11 20:31" pubdate>
-        2020年11月11日 晚上
+      <time datetime="2021-02-11 09:33" pubdate>
+        2021年2月11日 上午
       </time>
     </span>
   
@@ -198,7 +198,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      94 字
+      133 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      2
        分钟
     </span>
   
@@ -238,30 +238,32 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">在react中获取Dom</h1>
+            <h1 style="display: none">ios-date构造函数</h1>
             
             <div class="markdown-body">
-              <h1 id="在react中获取Dom节点"><a href="#在react中获取Dom节点" class="headerlink" title="在react中获取Dom节点"></a>在react中获取Dom节点</h1><p>用到的api：</p>
+              <p>在apple的js环境中，Date函数的一个坑</p>
+<blockquote>
+<p><strong>V8</strong></p>
 <ul>
-<li>ref</li>
-<li>createRef</li>
+<li>以下两种格式都可以</li>
 </ul>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// demo组件</span>
-<span class="hljs-keyword">import</span> &#123;createRef&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>
-<span class="hljs-keyword">const</span> Demo=<span class="hljs-function">()=&gt;</span>&#123;
-    <span class="hljs-keyword">const</span> Dom_P=createRef(<span class="hljs-literal">null</span>)
-    <span class="hljs-keyword">const</span> getDom=<span class="hljs-function">()=&gt;</span>&#123;
-        <span class="hljs-built_in">console</span>.log(Dom_P)<span class="hljs-comment">//&#123;current:p&#125;</span>
-        <span class="hljs-built_in">console</span>.log(Dom_P.current)<span class="hljs-comment">// &lt;p&gt;This is P&lt;/p&gt;</span>
-    &#125;
-    <span class="hljs-keyword">return</span> (
-        &lt;div&gt;
-            &lt;p ref=&#123;Dom_P&#125;&gt;This is P&lt;/p&gt;
-            &lt;button onClick=&#123;getDom&#125;&gt;Get P&lt;/button&gt;
-        &lt;/div&gt;
-    )
-&#125;
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Demo</code></pre></div>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> one=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&#x27;2020-1-1&#x27;</span>)
+<span class="hljs-built_in">console</span>.log(one) <span class="hljs-comment">// Wed Jan 01 2020 00:00:00 GMT+0800 (中国标准时间)</span>
+<span class="hljs-keyword">let</span> two=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&#x27;2020/1/1&#x27;</span>)
+<span class="hljs-built_in">console</span>.log(d) <span class="hljs-comment">// Wed Jan 01 2020 00:00:00 GMT+0800 (中国标准时间)</span></code></pre></div>
+<blockquote>
+<p><strong>Apple</strong></p>
+<ul>
+<li>只能使用 xxxx/xx/xx这样的格式传递</li>
+</ul>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> one=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&#x27;2020-1-1&#x27;</span>)
+<span class="hljs-built_in">console</span>.log(d) <span class="hljs-comment">// Invalid value</span>
+<span class="hljs-keyword">let</span> two=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&#x27;2020/1/1&#x27;</span>)
+<span class="hljs-built_in">console</span>.log(d) <span class="hljs-comment">// Wed Jan 01 2020 00:00:00 GMT+0800 (中国标准时间)</span></code></pre></div>
+
+
             </div>
             <hr>
             <div>
@@ -270,7 +272,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                      <a class="hover-with-bg" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
                     
                   </div>
                 
@@ -278,9 +280,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
-                    
-                      <a class="hover-with-bg" href="/tags/React/">React</a>
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
                     
                   </div>
                 
@@ -293,18 +293,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/11/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/antd-menu%E7%BB%84%E4%BB%B6/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">antd menu组件</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/11/08/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8Ehexo%E6%89%93%E5%8C%85%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">
-                        <span class="hidden-mobile">关于hexo打包路径问题</span>
+                      <a href="/2021/02/10/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/">
+                        <span class="hidden-mobile">记一次跨平台开发</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
