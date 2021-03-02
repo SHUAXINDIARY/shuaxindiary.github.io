@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
-  <link rel="icon" type="image/png" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
+  <link rel="icon" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,9 +16,29 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
+  
+    <meta name="description" content="初探cicd
+什么是cicd？
+
+
+cicd是持续集成和持续交付的缩写，全称为continuous integration &amp;amp; continuous delivery
+
+
+cicd怎么做
+
+
+通过一些工具，来进行
+
+
+这些工具做了哪些事
+
+
+将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手
+举个vue项目的例子：  # 本地：对项目打包，（正">
+  
   <meta name="author" content="刷新">
   <meta name="keywords" content="">
+  
   <title>初探Travis - 刷新</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
@@ -57,11 +77,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"a77vNpDBXG5kJNlAImeiELci-MdYXbMMI","app_key":"yKqx0zUimnfoz2PSdSlgOrO6","server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"a77vNpDBXG5kJNlAImeiELci-MdYXbMMI","app_key":"yKqx0zUimnfoz2PSdSlgOrO6","server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -262,7 +282,7 @@
 npm run build -&gt; git push 
 <span class="hljs-meta">#</span><span class="bash"> 服务器：进入对应的目录，然后拉去仓库的代码</span>
 git pull</code></pre></div></li>
-<li>如果做好cicd的流程后，只需要git push代码就好，剩下的都会在集成工具里去根据配置文件，去自动执行，这个过程哪一步出现问题都会有对应的log文件<a id="more"></a>
+<li>如果做好cicd的流程后，只需要git push代码就好，剩下的都会在集成工具里去根据配置文件，去自动执行，这个过程哪一步出现问题都会有对应的log文件<span id="more"></span>
 
 </li>
 </ul>
@@ -332,9 +352,13 @@ vim /etc/sudoers
 <span class="hljs-meta">#</span><span class="bash"> 在改行注释下添加</span>
 <span class="hljs-meta">#</span><span class="bash"> User privilege specification</span>
 用户名 ALL=(ALL:ALL) ALL</code></pre></div>
+
+</li>
+</ul>
 <h3 id="生成SSH秘钥"><a href="#生成SSH秘钥" class="headerlink" title="生成SSH秘钥"></a>生成SSH秘钥</h3><div class="code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 回到根目录</span>
 [~/home]:cd ~
 [~]:ssh-keygen -t rsa #-t意思选择生成的加密算法，RSA为非对称加密</code></pre></div>
+
 <h3 id="设置该文件权限为700"><a href="#设置该文件权限为700" class="headerlink" title="设置该文件权限为700"></a>设置该文件权限为700</h3><div class="code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> -rw------- (600)      只有拥有者有读写权限。</span>
 <span class="hljs-meta">#</span><span class="bash"> -rw-r--r-- (644)      只有拥有者有读写权限；而属组用户和其他用户只有读权限。</span>
 <span class="hljs-meta">#</span><span class="bash"> -rwx------ (700)     只有拥有者有读、写、执行权限。</span>
@@ -355,6 +379,7 @@ chmod 600 ~/.ssh/*
 <span class="hljs-meta">#</span><span class="bash"> 如果没有authorized_keys先创建</span>
 [~]:touch authorized_keys
 [~/.ssh]:cat id_rsa.pub &gt;&gt; authorized_keys # cat打印文件内容</code></pre></div>
+
 <h3 id="配置连接"><a href="#配置连接" class="headerlink" title="配置连接"></a>配置连接</h3><div class="code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 创建一个配置文件</span>
 [~/.ssh]:vim config
 <span class="hljs-meta">#</span><span class="bash"> 内容如下</span>
@@ -370,8 +395,8 @@ chmod 600 ~/.ssh/*
 <span class="hljs-string">IdentitiesOnly</span> <span class="hljs-literal">yes</span>
 <span class="hljs-comment">#登陆使用的密钥</span>
 <span class="hljs-string">IdentityFile</span> <span class="hljs-string">~/.ssh/id_rsa</span></code></pre></div>
-<h3 id="安装travis"><a href="#安装travis" class="headerlink" title="安装travis"></a>安装travis</h3>travis是ruby写的，所以需要安装ruby环境</li>
-</ul>
+
+<h3 id="安装travis"><a href="#安装travis" class="headerlink" title="安装travis"></a>安装travis</h3><p>travis是ruby写的，所以需要安装ruby环境</p>
 <blockquote>
 <p>安装rvm：ruby的版本管理工具，类似npx</p>
 </blockquote>
@@ -440,6 +465,7 @@ before_install:
 <span class="hljs-bullet">-</span> <span class="hljs-string">chmod</span> <span class="hljs-number">600</span> <span class="hljs-string">~/.ssh/id_rsa</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">ssh</span> <span class="hljs-string">publish@shuaxinjs.cn</span> <span class="hljs-string">-o</span> <span class="hljs-string">StrictHostKeyChecking=no</span> <span class="hljs-string">&#x27;cd /home/publish/data/shuaxindiary.github.io &amp;&amp; git pull&#x27;</span></code></pre></div>
 
+
 </li>
 </ul>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
@@ -476,7 +502,11 @@ before_install:
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
                 <div class="post-prevnext">
@@ -507,6 +537,8 @@ before_install:
             
               <!-- Comments -->
               <article class="comments" id="comments">
+                
+                  
                 
                 
   <div id="waline"></div>
@@ -701,11 +733,12 @@ before_install:
   <script>
     (function () {
       var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
+      $('#local-search-input').on('click', function() {
         searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
     })()
   </script>
 

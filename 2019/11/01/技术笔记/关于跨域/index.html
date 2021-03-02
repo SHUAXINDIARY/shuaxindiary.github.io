@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
-  <link rel="icon" type="image/png" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
+  <link rel="icon" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,9 +16,18 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
+  
+    <meta name="description" content="跨域跨域是浏览器为了保证服务数据的安全性，而存在的一种限制请求的一种机制，只存在于浏览器。
+主要工作原理就是根据有没有遵循同源策略(当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域)，来判断一个请求是否跨域，然后决定是否允许这个请求。
+同源策略
+概念
+
+
+1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的">
+  
   <meta name="author" content="刷新">
   <meta name="keywords" content="">
+  
   <title>关于跨域 - 刷新</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
@@ -57,11 +66,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"a77vNpDBXG5kJNlAImeiELci-MdYXbMMI","app_key":"yKqx0zUimnfoz2PSdSlgOrO6","server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"a77vNpDBXG5kJNlAImeiELci-MdYXbMMI","app_key":"yKqx0zUimnfoz2PSdSlgOrO6","server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -248,7 +257,7 @@
 </blockquote>
 <ul>
 <li>1.同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。</li>
-<li>2.同源指，发请求和接受请求的两端处在：同一协议，同一域名，同一端口下。<a id="more"></a>
+<li>2.同源指，发请求和接受请求的两端处在：同一协议，同一域名，同一端口下。<span id="more"></span>
 <img src="/img/tongyuan.png" srcset="/img/loading.gif" alt="一个域名的组成"><blockquote>
 <p>作用</p>
 </blockquote>
@@ -295,6 +304,7 @@ app.use(<span class="hljs-keyword">async</span> (ctx) =&gt; &#123;
 app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> &#123;
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ok&#x27;</span>);
 &#125;);</code></pre></div>
+
 <p>列举一下跨域默认不需要预请求就可以发送的方法(Mthods)和内容类型(Content-Type)</p>
 <blockquote>
 <p>跨域默认允许的请求方法(Method)</p>
@@ -413,10 +423,14 @@ app.use(cors(&#123;
     <span class="hljs-comment">// ctx.set(...);</span>
 &#125;));
 </code></pre></div>
-<h2 id="Node-nginx做代理"><a href="#Node-nginx做代理" class="headerlink" title="Node/nginx做代理"></a>Node/nginx做代理</h2>因为服务器之间不用遵守同源策略,所以可以通过node或者nginx来转发请求，实现跨域<blockquote>
+
+</li>
+</ul>
+<h2 id="Node-nginx做代理"><a href="#Node-nginx做代理" class="headerlink" title="Node/nginx做代理"></a>Node/nginx做代理</h2><p>因为服务器之间不用遵守同源策略,所以可以通过node或者nginx来转发请求，实现跨域</p>
+<blockquote>
 <p>步骤</p>
 </blockquote>
-</li>
+<ul>
 <li>接受客户端请求 。</li>
 <li>将请求 转发给服务器。</li>
 <li>拿到服务器 响应 数据。</li>
@@ -447,7 +461,11 @@ app.use(cors(&#123;
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
                 <div class="post-prevnext">
@@ -478,6 +496,8 @@ app.use(cors(&#123;
             
               <!-- Comments -->
               <article class="comments" id="comments">
+                
+                  
                 
                 
   <div id="waline"></div>
@@ -672,11 +692,12 @@ app.use(cors(&#123;
   <script>
     (function () {
       var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
+      $('#local-search-input').on('click', function() {
         searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
     })()
   </script>
 

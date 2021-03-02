@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
-  <link rel="icon" type="image/png" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
+  <link rel="icon" href="http://img.shuaxinjs.cn//favicon-16x16-next.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,9 +16,19 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
+  
+    <meta name="description" content="基本概念
+1.在每一个组件内部，都有一份属于该组件的data，页面显示的数据也依赖于此，我们也可以通过函数等来改变data中的数据，整个流程就像下图一样
+
+
+state相当于组件的data
+view相当于显示data数据的html结构
+action相当于一些事件触发的函数
+">
+  
   <meta name="author" content="刷新">
   <meta name="keywords" content="">
+  
   <title>vuejs基础复习3---vuex - 刷新</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
@@ -57,11 +67,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"a77vNpDBXG5kJNlAImeiELci-MdYXbMMI","app_key":"yKqx0zUimnfoz2PSdSlgOrO6","server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"a77vNpDBXG5kJNlAImeiELci-MdYXbMMI","app_key":"yKqx0zUimnfoz2PSdSlgOrO6","server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -249,7 +259,7 @@
 <li>view相当于显示data数据的html结构</li>
 <li>action相当于一些事件触发的函数</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 <blockquote>
 <p>2.通过action改变state的数据，view来实时显示state中的数据<br>3.vuex就是一个所有组件一起维护的一个data<br>4.因为3，所以他是最强大的组件通信方式</p>
 </blockquote>
@@ -290,7 +300,8 @@
 <p><strong><em>在A组件中获取state的数据并显示</em></strong> </p>
 </blockquote>
 <ul>
-<li>A组件($store.state.name—获取vuex的数据)<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<li><p>A组件($store.state.name—获取vuex的数据)</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
         &#123;&#123;$store.state.name&#125;&#125;
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -299,8 +310,10 @@
 <span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>&#123;</span>
 <span class="javascript">    name:<span class="hljs-string">&#x27;A&#x27;</span></span>
 &#125;
-<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div></li>
-<li>store.js<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store=<span class="hljs-keyword">new</span> Vuex.Store(&#123;
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+</li>
+<li><p>store.js</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store=<span class="hljs-keyword">new</span> Vuex.Store(&#123;
     state:&#123;
         name:<span class="hljs-string">&#x27;Vuex学习&#x27;</span>
     &#125;,
@@ -313,7 +326,8 @@
 <p><strong>获取数据后添加一段字符串在显示</strong> </p>
 </blockquote>
 </li>
-<li>A组件<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<li><p>A组件</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
         &#123;&#123;$store.getters.addStr&#125;&#125;
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -321,8 +335,10 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
 <span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>&#123;</span>
 <span class="javascript">    name:<span class="hljs-string">&#x27;A&#x27;</span></span>
-&#125;</code></pre></div></li>
-<li>store.js<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store=<span class="hljs-keyword">new</span> Vuex.Store(&#123;
+&#125;</code></pre></div>
+</li>
+<li><p>store.js</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store=<span class="hljs-keyword">new</span> Vuex.Store(&#123;
     state:&#123;
         name:<span class="hljs-string">&#x27;Vuex学习&#x27;</span>
     &#125;,
@@ -341,7 +357,8 @@
 <p><strong>获取数据后添加一段字符串在显示，添加的字符串是组件传递过去的</strong> </p>
 </blockquote>
 </li>
-<li>A组件<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<li><p>A组件</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
         &#123;&#123;$store.getters.addStr(&#x27;A组件&#x27;)&#125;&#125;
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -349,8 +366,10 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
 <span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>&#123;</span>
 <span class="javascript">    name:<span class="hljs-string">&#x27;A&#x27;</span></span>
-&#125;</code></pre></div></li>
-<li>store.js</li>
+&#125;</code></pre></div>
+</li>
+<li><p>store.js</p>
+</li>
 </ul>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store=<span class="hljs-keyword">new</span> Vuex.Store(&#123;
     state:&#123;
@@ -372,7 +391,8 @@
 <p><strong>当点击按钮后，改变state中的name</strong> </p>
 </blockquote>
 <ul>
-<li>A组件<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<li><p>A组件</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
         &#123;&#123;$store.state.name&#125;&#125;
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -394,8 +414,10 @@
             &#125;);
         &#125;
     &#125;
-&#125;</code></pre></div></li>
-<li>store.js<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store=<span class="hljs-keyword">new</span> Vuex.Store(&#123;
+&#125;</code></pre></div>
+</li>
+<li><p>store.js</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store=<span class="hljs-keyword">new</span> Vuex.Store(&#123;
     state:&#123;
         name:<span class="hljs-string">&#x27;Vuex学习&#x27;</span>
     &#125;,
@@ -415,7 +437,8 @@
 <p><strong>当点击按钮后，先发送actions，进行异步操作后，触发mutations的事件，在改变state的name</strong> </p>
 </blockquote>
 </li>
-<li>A组件<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<li><p>A组件</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
         &#123;&#123;$store.state.name&#125;&#125;
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -429,8 +452,10 @@
 <span class="javascript">            <span class="hljs-built_in">this</span>.$sotre.dispatch(<span class="hljs-string">&#x27;asyncChange&#x27;</span>);</span>
         &#125;
     &#125;
-&#125;</code></pre></div></li>
-<li>store.js<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store=<span class="hljs-keyword">new</span> Vuex.Store(&#123;
+&#125;</code></pre></div>
+</li>
+<li><p>store.js</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store=<span class="hljs-keyword">new</span> Vuex.Store(&#123;
     state:&#123;
         name:<span class="hljs-string">&#x27;Vuex学习&#x27;</span>
     &#125;,
@@ -458,9 +483,12 @@
 <p>说明</p>
 </blockquote>
 </li>
-<li>用来模块化state中的数据的</li>
-<li>store.js</li>
-<li> A组件<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<li><p>用来模块化state中的数据的</p>
+</li>
+<li><p>store.js</p>
+</li>
+<li><p> A组件</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
         &#123;&#123;$store.state.personInfo.name&#125;&#125;
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -469,6 +497,9 @@
 <span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>&#123;</span>
 <span class="javascript">    name:<span class="hljs-string">&#x27;A&#x27;</span>,</span>
 &#125;</code></pre></div>
+
+</li>
+</ul>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store=<span class="hljs-keyword">new</span> Vuex.Store(&#123;
     state:&#123;
         name:<span class="hljs-string">&#x27;Vuex学习&#x27;</span>
@@ -499,9 +530,8 @@
         &#125;
     &#125;
 &#125;)</code></pre></div>
-<h1 id="以上就是vuex基本使用，详细可以参考官方文档"><a href="#以上就是vuex基本使用，详细可以参考官方文档" class="headerlink" title="以上就是vuex基本使用，详细可以参考官方文档"></a>以上就是vuex基本使用，详细可以参考官方文档</h1></li>
-</ul>
 
+<h1 id="以上就是vuex基本使用，详细可以参考官方文档"><a href="#以上就是vuex基本使用，详细可以参考官方文档" class="headerlink" title="以上就是vuex基本使用，详细可以参考官方文档"></a>以上就是vuex基本使用，详细可以参考官方文档</h1>
             </div>
             <hr>
             <div>
@@ -526,7 +556,11 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
                 <div class="post-prevnext">
@@ -557,6 +591,8 @@
             
               <!-- Comments -->
               <article class="comments" id="comments">
+                
+                  
                 
                 
   <div id="waline"></div>
@@ -751,11 +787,12 @@
   <script>
     (function () {
       var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
+      $('#local-search-input').on('click', function() {
         searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
     })()
   </script>
 
