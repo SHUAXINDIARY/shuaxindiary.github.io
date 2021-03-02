@@ -180,7 +180,11 @@ router.post('/testToken', (req, res, next) => {
 
 >JWT缺点
 - 注销登录、忘记密码等后，token还有效，这样服务端需要加一些额外操作来处理
+- - 使用UID和token对应
+- - 每个用户加密token使用单独的salt，过期改一下salt即可
 - token有效期续签问题，续签的目的就是为了防止用户频繁需要登录，token也需要额外的一些解决方案
+- - 每次请求，都更新一个新token，如果之间没有请求，过了token有效期，就需要重新登录了
 
 >参考文章
 [JWT优缺点](https://zhuanlan.zhihu.com/p/85873228)
+[JWT详解](https://learnku.com/articles/17883?order_by=vote_count&)
