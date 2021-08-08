@@ -1,8 +1,8 @@
 ---
 title: textarea中复制光标所在行文本
 date: 2021-01-06 13:55:37
-index_img: https://img.shuaxinjs.cn/thomas-tastet-hSODeSbvzE0-unsplash.jpg
-banner_img: https://img.shuaxinjs.cn/thomas-tastet-hSODeSbvzE0-unsplash.jpg
+index_img: https://raw.githubusercontent.com/SHUAXINDIARY/img_store/main/thomas-tastet-hSODeSbvzE0-unsplash.jpg
+banner_img: https://raw.githubusercontent.com/SHUAXINDIARY/img_store/main/thomas-tastet-hSODeSbvzE0-unsplash.jpg
 category:
   - 技术笔记
 tag:
