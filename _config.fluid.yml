@@ -617,7 +617,7 @@ post:
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
     # type: valine
-    type: waline
+    # type: waline
 
 
 #---------------------------
