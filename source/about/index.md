@@ -11,23 +11,24 @@ comment: true
 > - 踩坑记录
 
 >  **建站信息**
-> - 建站：Hexo
+> - 建站：[Hexo](https://hexo.io/zh-cn/)
 > - 部署：
 > - - gh-pages:[访问博客-ghpages](https://blog.shuaxinjs.cn)
 > - - [vercel](https://vercel.com):[访问博客-vercel](https://blog.shuaxindiary.cn)
 > - 主题：[fluid](https://hexo.fluid-dev.com/docs/)
 > - 访问统计：[leancloud](https://www.leancloud.cn/)
-> - ~图床：[七牛云](https://www.qiniu.com/)~
-> - ~评论：[Waline](https://waline.js.org/)~
+> - 图床：[七牛云](https://www.qiniu.com/)
+
 
 
 >  **曾经用过的第三方插件&主题**
-> - 统计：不蒜子统计
-> - 主题：[clover](https://github.com/esappear/hexo-theme-clover)
-> - 主题：[next](http://theme-next.iissnan.com/)
-> - 评论：[gitalk](https://github.com/gitalk/gitalk)
-> - 评论：[valine](https://valine.js.org/)
-
+> - ~统计：不蒜子统计~
+> - ~主题：[clover](https://github.com/esappear/hexo-theme-clover)~
+> - ~主题：[next](http://theme-next.iissnan.com/)~
+> - ~评论：[gitalk](https://github.com/gitalk/gitalk)~
+> - ~评论：[valine](https://valine.js.org/)~
+> - ~评论：[Waline](https://waline.js.org/)~
+> - ~图床：github~
 
 
 # 关于我
@@ -48,3 +49,5 @@ comment: true
 - [色卡](https://github.com/SHUAXINDIARY/colorGuide)
 - [布局站点](https://layout-sigma.vercel.app/)
 - [Chrome批量删除微博插件](https://github.com/SHUAXINDIARY/Weibo-plugin)
+- [vuepress-theme-stella](https://github.com/SHUAXINDIARY/vuepress-theme-stella) --- 开发中
+- [md编辑器-ol](https://github.com/SHUAXINDIARY/md-editor-ol) ---开发中
