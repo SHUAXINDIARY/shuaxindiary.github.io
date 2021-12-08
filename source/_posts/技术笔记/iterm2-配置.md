@@ -64,4 +64,4 @@ ls
 
 ##### git扩展
 
-- 插件地址：https://github.com/unixorn/git-extra-commands#installing
+- 插件地址：https://github.com/tj/git-extras
