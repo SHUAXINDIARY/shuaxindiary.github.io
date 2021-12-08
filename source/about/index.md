@@ -16,6 +16,7 @@ comment: true
 > - - gh-pages:[访问博客-ghpages](https://blog.shuaxinjs.cn)
 > - - [vercel](https://vercel.com):[访问博客-vercel](https://blog.shuaxindiary.cn)
 > - 主题：[fluid](https://hexo.fluid-dev.com/docs/)
+> - - 现在改成了自己fork fluid（1.8.2）魔改的版本，加了一些自己需要的特性
 > - 访问统计：[leancloud](https://www.leancloud.cn/)
 > - 图床：[七牛云](https://www.qiniu.com/)
 
