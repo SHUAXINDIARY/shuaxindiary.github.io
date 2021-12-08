@@ -6,8 +6,8 @@ date: 2021-12-08 09:16:38
 tag:
   - 工具
   - zsh
-index_img:
-banner_img:
+index_img: https://img.shuaxinjs.cn/zsh.png
+banner_img: https://img.shuaxinjs.cn/zsh.png
 ---
 
 # 记录iterm2配置
