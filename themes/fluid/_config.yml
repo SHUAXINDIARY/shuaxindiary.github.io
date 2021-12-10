@@ -1023,6 +1023,10 @@ links:
 #---------------------------
 articlecount:
   enable: true
+  date:
+    year: ture
+    month: false
+    week: ture
   banner_img: https://img.shuaxinjs.cn/E39CA8C9-4D65-4A7D-9E70-F3E1DB53254E(20200403-180.JPG
   banner_img_height: 60
   banner_mask_alpha: 0.3

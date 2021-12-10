@@ -10,9 +10,15 @@
 <div>
     <div>
         <p class="h4" style="font-family: ZCOOL KuaiLe;"><%= __('articlecount.des') %></p>
-        <svg class="line-chart-year charts"></svg>
-        <svg class="bar-chart-month charts"></svg>
-        <svg class="pie-chart-week charts"></svg>
+        <% if (theme.articlecount.date.year) { %>
+            <svg class="line-chart-year charts"></svg>
+        <% } %>
+        <% if (theme.articlecount.date.month) { %>
+            <svg class="bar-chart-month charts"></svg>
+        <% } %>
+        <% if (theme.articlecount.date.week) { %>
+            <svg class="pie-chart-week charts"></svg>
+        <% } %>
     </div>
 </div>
 
@@ -84,6 +90,19 @@
             }
         });
     }
+    const renderChart = ({options, chartsData = {} }) => {
+        if(Object.keys(chartsData).length){
+            <% if (theme.articlecount.date.year) { %>
+                loadLineChart(options, chartsData.year)
+            <% } %>
+            <% if (theme.articlecount.date.month) { %>
+                loadBarChart(options, chartsData.month)
+            <% } %>
+            <% if (theme.articlecount.date.week) { %>
+                loadPieChart(options, chartsData.week)
+            <% } %>
+        }
+    }
     // 加载zcool-kuaile 字体
     // chart.xkcd原本字体没有中文 找了个风格比较接近的 zcool-kuaile
     Fluid.utils.createCssLink("<%= theme.static_prefix.kuaile %>")
@@ -91,14 +110,10 @@
         const options = takeOptionsByMode(commonOptions)
         // 获取helper函数计算后的数据 参数为获取翻译文案的函数
         const chartsData = <%- countArticle(__) %>
-        loadLineChart(options, chartsData.year)
-        loadBarChart(options, chartsData.month)
-        loadPieChart(options, chartsData.week)
+        renderChart({options, chartsData})
         document.getElementById('color-toggle-btn').addEventListener('click',() => {
             const options = takeOptionsByMode(commonOptions)
-            loadLineChart(options, chartsData.year)
-            loadBarChart(options, chartsData.month)
-            loadPieChart(options, chartsData.week)
+            renderChart({options, chartsData})
         })
     })
 </script>
