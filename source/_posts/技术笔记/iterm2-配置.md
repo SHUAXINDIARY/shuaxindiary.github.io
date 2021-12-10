@@ -6,15 +6,15 @@ date: 2021-12-08 09:16:38
 tag:
   - 工具
   - zsh
-index_img: https://img.shuaxinjs.cn/zsh.png
-banner_img: https://img.shuaxinjs.cn/zsh.png
+index_img: https://img.shuaxindiary.cn/zsh.png
+banner_img: https://img.shuaxindiary.cn/zsh.png
 ---
 
 # 记录iterm2配置
 
 记录一下自己常用的 **iterm** 终端的配置，效果图如下，主要分为两部分：针对外观和功能扩展
 
-![preview](https://img.shuaxinjs.cn/iterm%E9%85%8D%E7%BD%AE.png)
+![preview](https://img.shuaxindiary.cn/iterm%E9%85%8D%E7%BD%AE.png)
 
 ### 外观
 
@@ -40,7 +40,7 @@ banner_img: https://img.shuaxinjs.cn/zsh.png
 
 #### 安装 oh-my-zsh
 
-- 下载安装文件：https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh 
+- 下载安装文件：https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 - 建议访问copy内容到本地文件然后 sh运行直接安装
 
 #### 插件
@@ -50,7 +50,7 @@ oh-my-zsh 的插件和主题都有单独的目录：
 # 进入
 cd $ZSH_CUSTOM
 
-# 当前目录 下会有一个theme和plugin分别存放oh-my-zsh的主题和插件 
+# 当前目录 下会有一个theme和plugin分别存放oh-my-zsh的主题和插件
 ls
 # theme plugins
 

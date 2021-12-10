@@ -52,10 +52,10 @@ customize-cra
 
 扩展配置
 =========
-- 查看addLessLoader的源码，可以看到内部返回了一个函数，函数的参数是一个对象，即cli原本webpack配置的对象，然后在其基础上做我们想做的扩展，在返回该对象即可；下图为config对象![](https://img.shuaxinjs.cn/webpack.config.png)
+- 查看addLessLoader的源码，可以看到内部返回了一个函数，函数的参数是一个对象，即cli原本webpack配置的对象，然后在其基础上做我们想做的扩展，在返回该对象即可；下图为config对象![](https://img.shuaxindiary.cn/webpack.config.png)
 - 实战，添加一个支持解析md文件内容的loader，这里使用raw-loader来读取md文件原始内容，然后在具体的文件内部做其他操作
 - - 安装raw-loader
-- - 获取原始配置下rules ![](https://img.shuaxinjs.cn/webpack.config2.png)
+- - 获取原始配置下rules ![](https://img.shuaxindiary.cn/webpack.config2.png)
 - - 第一个参数是对解析器（parser）的[配置](https://webpack.js.org/configuration/module/#ruleparser)，图中为关闭require.entrue；第二个是对rules解析的[配置](https://webpack.js.org/configuration/module/#ruleoneof)， 配置当一类文件match某一个loader，处理完毕后就退出
     ```js
     <!-- 当前文件：config-overrides.js -->
