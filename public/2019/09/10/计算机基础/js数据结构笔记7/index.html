@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <link rel="icon" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="本文源码 这里理论特点
+
+1.基于数组创建的一种数据结构2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)
+
+和数组对比
+
+优点
+
+比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)
+
+
+
+缺点
+
+key值不可以重复哈希表没有顺序，不能以一定的顺序遍历
+
+">
+  <meta name="author" content="刷新">
+  <meta name="keywords" content="">
+  <meta name="description" content="本文源码 这里理论特点  1.基于数组创建的一种数据结构2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)  和数组对比  优点  比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)    缺点  key值不可以重复哈希表没有顺序，不能以一定的顺序遍历">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《学习JavaScript数据结构与算法》笔记---哈希表">
+<meta property="og:url" content="http://example.com/2019/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B07/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="本文源码 这里理论特点  1.基于数组创建的一种数据结构2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)  和数组对比  优点  比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)    缺点  key值不可以重复哈希表没有顺序，不能以一定的顺序遍历">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/hash.jpg">
+<meta property="article:published_time" content="2019-09-10T13:20:45.000Z">
+<meta property="article:modified_time" content="2021-12-31T12:01:59.687Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/hash.jpg">
+  
+  <title>《学习JavaScript数据结构与算法》笔记---哈希表 - 刷新</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>SHUAXINDIARY</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/articlecount/">
+                <i class="iconfont icon-codeforces"></i>
+                统计
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://img.shuaxindiary.cn/51590BF0-4E0B-4FCF-A188-D17D198D1AD0(20200924-103.JPG') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="《学习JavaScript数据结构与算法》笔记---哈希表">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-09-10 21:20" pubdate>
+        2019年9月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">《学习JavaScript数据结构与算法》笔记---哈希表</h1>
+            
+            <div class="markdown-body">
+              <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%A1%88%E4%BE%8B.html">这里</a></h1><h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h1><p><strong><em>特点</em></strong></p>
+<blockquote>
+<p>1.基于数组创建的一种数据结构<br>2.存储元素时，对每一个元素通过哈希函数，进行哈希化后存储<br>3.存储后的这个数组就叫做哈希表(HashTable，也有叫散列表的)</p>
+</blockquote>
+<p><strong><em>和数组对比</em></strong></p>
+<blockquote>
+<p><strong>优点</strong></p>
+<blockquote>
+<p>比数组更快的查找速度(因为删除，修改基于查找所以效率也提高)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>缺点</strong></p>
+<blockquote>
+<p>key值不可以重复<br>哈希表没有顺序，不能以一定的顺序遍历</p>
+</blockquote>
+</blockquote>
+<a id="more"></a>
+<p><strong><em>哈希函数</em></strong></p>
+<blockquote>
+<p>1.当在一百万数据的数组中，根据内容查找一个元素和根据那个元素的下标来查找时，时间差距很大<br><img src="/img/hash.jpg" srcset="/img/loading.gif" lazyload alt="对比图"><br>2.哈希函数做的事就是把一个元素的key值转换成一个数字，然后在数组中以这个数字为下表存入数据<br>3.查找时，也是根据存入时哈希化(使用哈希函数对key进行转换的过程)的key值条件,先对其哈希化然后通过哈希化后的数字去数组中查找<br>4.一个好的哈希函数应该具有2个特点:</p>
+</blockquote>
+<ul>
+<li>1.快速计算(减少乘法，乘法比加法在计算机中更耗费性能)</li>
+<li>2.哈希后的数组下标要尽可能平均</li>
+</ul>
+<p><strong><em>冲突</em></strong></p>
+<blockquote>
+<p>当哈希化key值后出现的数字发生重复时这种现象叫做冲突<br>冲突的解决方案</p>
+<blockquote>
+<p>1.链地址法(用的更多，下文代码实现也使用这种方式)</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>存储元素时，用数组或链表进行存储</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>2.开放地址法(寻找还是空的位置来存储)</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>线性探测：以一定的规则来寻找下一个空位置来存储，这个规则得出的数一般是一个质数，称做步长.</li>
+</ul>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><strong><em>封装哈希表</em></strong></p>
+<blockquote>
+<p>封装方法：</p>
+<blockquote>
+<p>哈希函数—hash(key)</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>传入要哈希的key，然后将该key值每个字母转换成ASCII码做和在进行一定的处理，以下函数规则参考自《学习JavaScript数据结构与算法》</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>存储元素—put(obj)</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>传入要存储的元素(下文是存储一个对象)，存储时先通过哈希函数将某个属性(下文是name)哈希化得到要存储的位置，然后在存储时进行判断：1.该位置为空，直接插入；2.不为空，对比查看name值是否相同，不同插入在最后，若相同，覆盖；</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>获取元素—get(str)</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>传入要查找的的内容(存储时哈希化的属性name)，查找时先通过哈希函数将查找值哈希化得到目标位置，然后直接查找，有返回整个对象；无，返回null</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">HashTable</span>(<span class="hljs-params"></span>) </span>&#123;<br>            <span class="hljs-comment">//  存储元素的数组</span><br>            <span class="hljs-built_in">this</span>.items = [];<br>            <span class="hljs-comment">// 哈希函数</span><br>            HashTable.prototype.hash = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">key</span>) </span>&#123;<br>                <span class="hljs-keyword">let</span> hashCode = <span class="hljs-number">5381</span>;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; key.length; i++) &#123;<br>                    hashCode = <span class="hljs-number">33</span> * hashCode + key.charCodeAt();<br>                &#125;;<br>                <span class="hljs-keyword">return</span> hashCode % <span class="hljs-number">1013</span>;<br>            &#125;;<br>            <span class="hljs-comment">// 存和改</span><br>            HashTable.prototype.put = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj</span>) </span>&#123;<br>                <span class="hljs-keyword">let</span> index = <span class="hljs-built_in">this</span>.hash(obj.name);<br>                <span class="hljs-comment">// 初始化该位置</span><br>                <span class="hljs-keyword">let</span> current = <span class="hljs-built_in">this</span>.items[index];<br>                <span class="hljs-comment">// 判断要存储位置是否为空</span><br>                <span class="hljs-keyword">if</span> (current == <span class="hljs-literal">null</span>) &#123;<br>                    <span class="hljs-built_in">this</span>.items[index] = [];<br>                    current = <span class="hljs-built_in">this</span>.items[index];<br>                    <span class="hljs-comment">// 为空 直接插入到第一个位置</span><br>                    current.push(obj);<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-comment">// 不为空 判断和里面的元素是否相同</span><br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; current.length; i++) &#123;<br>                        <span class="hljs-comment">// 相同修改</span><br>                        <span class="hljs-keyword">if</span> (current[i].name == obj.name) &#123;<br>                            current[i] = obj;<br>                            <span class="hljs-keyword">return</span>;<br>                        &#125;<br>                    &#125;;<br>                    <span class="hljs-comment">// 不同 插入到最后</span><br>                    current.push(obj);<br>                &#125;<br>            &#125;;<br>            <span class="hljs-comment">// 取</span><br>            HashTable.prototype.get = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">str</span>) </span>&#123;<br>                <span class="hljs-keyword">let</span> index = <span class="hljs-built_in">this</span>.hash(str);<br>                <span class="hljs-keyword">let</span> current = <span class="hljs-built_in">this</span>.items[index];<br>                <span class="hljs-keyword">if</span> (current != <span class="hljs-literal">null</span>) &#123;<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; current.length; i++) &#123;<br>                        <span class="hljs-keyword">if</span> (current[i].name == str) &#123;<br>                            <span class="hljs-keyword">return</span> current[i];<br>                        &#125;<br>                    &#125;;<br>                &#125;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>            &#125;;<br>    &#125;;<br>    <span class="hljs-comment">// 测试代码  </span><br><br>        <span class="hljs-keyword">let</span> hs = <span class="hljs-keyword">new</span> HashTable();<br>        <span class="hljs-comment">// 创建一个对象并存如</span><br>        <span class="hljs-keyword">let</span> shuaxin = &#123;<br>            name: <span class="hljs-string">&quot;shuaxin&quot;</span>,<br>            phone: <span class="hljs-string">&#x27;158****26**&#x27;</span><br>        &#125;;<br>        hs.put(shuaxin);<br><span class="hljs-comment">// 测试哈希表和数组查找效率对比</span><br><span class="hljs-comment">// 先给数组空的位置插入模拟数据 100w</span><br>        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">insert</span>(<span class="hljs-params"></span>) </span>&#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000000</span>; i++) &#123;<br>                <span class="hljs-keyword">if</span> (hs.items[i] == <span class="hljs-literal">null</span>) &#123;<br>                    hs.items[i] = [&#123;<br>                        name: <span class="hljs-string">&quot;demo&quot;</span>,<br>                        phone: <span class="hljs-string">&quot;456&quot;</span><br>                    &#125;];<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br>            &#125;;<br>        &#125;;<br>        insert();<br>        <span class="hljs-comment">// 数组普通的对比查找</span><br>        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">find</span>(<span class="hljs-params">str</span>) </span>&#123;<br>            <span class="hljs-comment">// console.log(str);</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> hs.items) &#123;<br>                <span class="hljs-keyword">if</span> (str == hs.items[i][<span class="hljs-number">0</span>].name) &#123;<br>                    <span class="hljs-keyword">return</span> hs.items[i][<span class="hljs-number">0</span>];<br>                &#125;<br>            &#125;;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;;<br><br>        <span class="hljs-comment">// 上文图片的结果</span><br>        <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">&#x27;100w数据中效率对比&#x27;</span>);<br>        <span class="hljs-comment">// 250+ms</span><br>        <span class="hljs-built_in">console</span>.time(<span class="hljs-string">&#x27;遍历查找&#x27;</span>);<br>        <span class="hljs-built_in">console</span>.log(find(<span class="hljs-string">&#x27;shuaxin&#x27;</span>));<br>        <span class="hljs-built_in">console</span>.timeEnd(<span class="hljs-string">&#x27;遍历查找&#x27;</span>);<br>        <span class="hljs-comment">// 1ms左右</span><br>        <span class="hljs-built_in">console</span>.time(<span class="hljs-string">&#x27;哈希查找&#x27;</span>);<br>        <span class="hljs-built_in">console</span>.log(hs.get(<span class="hljs-string">&#x27;shuaxin&#x27;</span>));<br>        <span class="hljs-built_in">console</span>.timeEnd(<span class="hljs-string">&#x27;哈希查找&#x27;</span>);<br></code></pre></div></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B08/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">《学习JavaScript数据结构与算法》笔记---树</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B06/">
+                        <span class="hidden-mobile">《学习JavaScript数据结构与算法》笔记---集合</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <link rel="icon" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="网页浏览进度条在很多网站都能看到网站的顶部，有一条会随着页面滚动条的滑动，边长变短的一栏区域，这个可以有效的让用户看到，自己已经浏览了这个文章内容的多少。虽然网站右边都有一个滚动条了，干嘛还要这个东西呢，大概就是为了好看吧！今天来实现这个小demo！">
+  <meta name="author" content="刷新">
+  <meta name="keywords" content="">
+  <meta name="description" content="网页浏览进度条在很多网站都能看到网站的顶部，有一条会随着页面滚动条的滑动，边长变短的一栏区域，这个可以有效的让用户看到，自己已经浏览了这个文章内容的多少。虽然网站右边都有一个滚动条了，干嘛还要这个东西呢，大概就是为了好看吧！今天来实现这个小demo！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网页浏览进度条">
+<meta property="og:url" content="http://example.com/2019/11/19/css/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E8%BF%9B%E5%BA%A6/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="网页浏览进度条在很多网站都能看到网站的顶部，有一条会随着页面滚动条的滑动，边长变短的一栏区域，这个可以有效的让用户看到，自己已经浏览了这个文章内容的多少。虽然网站右边都有一个滚动条了，干嘛还要这个东西呢，大概就是为了好看吧！今天来实现这个小demo！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/19-11-19.jpg">
+<meta property="article:published_time" content="2019-11-19T12:48:17.000Z">
+<meta property="article:modified_time" content="2021-12-31T12:01:59.677Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="CSS&amp;HTML">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/19-11-19.jpg">
+  
+  <title>网页浏览进度条 - 刷新</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>SHUAXINDIARY</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/articlecount/">
+                <i class="iconfont icon-codeforces"></i>
+                统计
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://img.shuaxindiary.cn/51590BF0-4E0B-4FCF-A188-D17D198D1AD0(20200924-103.JPG') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="网页浏览进度条">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-11-19 20:48" pubdate>
+        2019年11月19日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">网页浏览进度条</h1>
+            
+            <div class="markdown-body">
+              <h1 id="网页浏览进度条"><a href="#网页浏览进度条" class="headerlink" title="网页浏览进度条"></a>网页浏览进度条</h1><p>在很多网站都能看到网站的顶部，有一条会随着页面滚动条的滑动，边长变短的一栏区域，这个可以有效的让用户看到，自己已经浏览了这个文章内容的多少。虽然网站右边都有一个滚动条了，干嘛还要这个东西呢，大概就是为了好看吧！今天来实现这个小demo！</p>
+<a id="more"></a>
+
+<h2 id="用到的知识"><a href="#用到的知识" class="headerlink" title="用到的知识"></a>用到的知识</h2><p>css</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/pr-class-position.html">position:fixed</a></p>
+</blockquote>
+<ul>
+<li>固定div在某个位置</li>
+</ul>
+<p>js</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop">document.documentElement.scrollTop</a></p>
+</blockquote>
+<ul>
+<li>获取滚动条滚动过的height(width)</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/js/js-window.html">document.body.clientHeight</a></p>
+</blockquote>
+<ul>
+<li>获取当前文档的height(width)</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/js/js-window.html">document.documentElement.clientHeight</a></p>
+</blockquote>
+<ul>
+<li>获取当前可视窗口的height(width)</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/event-onscroll.html">scroll</a></p>
+</blockquote>
+<ul>
+<li>当页面滚动条发生移动时，触发</li>
+</ul>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><blockquote>
+<p>问题</p>
+</blockquote>
+<ul>
+<li>固定我们的进度条在页面的顶部</li>
+<li>如何让进度条在每次滚动条滚动时，发生变化</li>
+<li>变化时，变化多少</li>
+</ul>
+<blockquote>
+<p>解决</p>
+</blockquote>
+<ul>
+<li>通过设置position:fixed;top:0;固定位置</li>
+<li>通过给window绑定scoll事件来实时改变进度条长度</li>
+<li>变化多少：设置进度条初始长度为100vw，这样在什么显示器，宽度都会占满显示器，其次在获取当前可视窗口的height和当前网页的总height；之后通过 (文档总长-屏幕可视窗口height)/当前屏width；计算出进度条和文档长的比例关系。来控制每次进度条应该变化多少。</li>
+</ul>
+<p><img src="/img/19-11-19.jpg" srcset="/img/loading.gif" lazyload alt="实例"></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>CSS</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">overflow-x</span>: hidden;<br>    <span class="hljs-attribute">position</span>: relative;<br>&#125;<br><br><span class="hljs-selector-class">.con</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">100vw</span>;<br>    <span class="hljs-comment">/* 让页面出现滚动条 */</span><br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">1000vh</span>;<br>    <span class="hljs-attribute">background-color</span>: lightblue;<br>&#125;<br><br><span class="hljs-selector-class">.top</span> &#123;<br>    <span class="hljs-attribute">position</span>: fixed;<br>    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">100vw</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">5px</span>;<br>    <span class="hljs-attribute">background-color</span>: lightcoral;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p>HTML</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 进度条 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;top&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;top&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 网站内容 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;con&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;con&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>JS</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> slip = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#top&#x27;</span>);<br><span class="hljs-keyword">let</span> con = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#con&#x27;</span>);<br><span class="hljs-keyword">let</span> viewHeight = <span class="hljs-built_in">document</span>.documentElement.clientHeight;<br><span class="hljs-comment">// 获取当前屏宽</span><br><span class="hljs-keyword">let</span> slipWidth = slip.clientWidth;<br><span class="hljs-comment">// 获取文档总长</span><br><span class="hljs-keyword">let</span> documentHeight = <span class="hljs-built_in">document</span>.body.clientHeight;<br><span class="hljs-comment">// (文档总长-屏幕可视窗口height)/当前屏width</span><br><span class="hljs-keyword">let</span> prop = slipWidth / (documentHeight - viewHeight);<br><span class="hljs-comment">// 初始化 让top宽度变为0</span><br>slip.style.width = <span class="hljs-number">0</span>;<br><span class="hljs-comment">// 设置宽度</span><br><span class="hljs-keyword">let</span> setWith = <span class="hljs-function">(<span class="hljs-params">dom, h</span>) =&gt;</span> &#123;<br>    dom.style.width = <span class="hljs-string">`<span class="hljs-subst">$&#123;h&#125;</span>px`</span>;<br>    dom.style.transition = <span class="hljs-string">&quot;width 0.5s&quot;</span>;<br>&#125;;<br><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&quot;scroll&quot;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-comment">// 实时获取滑动的高度</span><br>    <span class="hljs-keyword">let</span> scroHeight = <span class="hljs-built_in">document</span>.documentElement.scrollTop;<br>    setWith(slip, scroHeight * prop);<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/tags/CSS-HTML/">CSS&HTML</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/11/20/JS/%E5%85%B3%E4%BA%8Ecall-bind-apply/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">关于call,bind,apply</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/11/18/css/%E6%B5%AE%E5%8A%A8%E5%8A%9F%E8%83%BD%E6%A0%8F/">
+                        <span class="hidden-mobile">浮动功能栏</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

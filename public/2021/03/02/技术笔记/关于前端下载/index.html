@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <link rel="icon" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于本文记录如何在前端来下载文件的几种解决方案
+正文关于前端下载文件，有两种方案：
+
+1.不发请求：使用a标签设置 download 后去访问下载url，浏览器会自动开始下载
+2.发请求，然后拿到blob数据，创建一个blob的url，通过a去访问该url，设置 download 下载
+
+代码演示以下示范的后端代码
+12345678router.get(&amp;#x27;/dolFile&amp;#x27;, ">
+  <meta name="author" content="刷新">
+  <meta name="keywords" content="">
+  <meta name="description" content="关于本文记录如何在前端来下载文件的几种解决方案 正文关于前端下载文件，有两种方案：  1.不发请求：使用a标签设置 download 后去访问下载url，浏览器会自动开始下载 2.发请求，然后拿到blob数据，创建一个blob的url，通过a去访问该url，设置 download 下载  代码演示以下示范的后端代码 12345678router.get(&amp;#x27;&#x2F;dolFile&amp;#x27;,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于前端下载">
+<meta property="og:url" content="http://example.com/2021/03/02/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="关于本文记录如何在前端来下载文件的几种解决方案 正文关于前端下载文件，有两种方案：  1.不发请求：使用a标签设置 download 后去访问下载url，浏览器会自动开始下载 2.发请求，然后拿到blob数据，创建一个blob的url，通过a去访问该url，设置 download 下载  代码演示以下示范的后端代码 12345678router.get(&amp;#x27;&#x2F;dolFile&amp;#x27;,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.shuaxindiary.cn/guimie.jpg">
+<meta property="article:published_time" content="2021-03-02T02:35:41.000Z">
+<meta property="article:modified_time" content="2021-12-31T12:01:59.682Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="前端下载">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.shuaxindiary.cn/guimie.jpg">
+  
+  <title>关于前端下载 - 刷新</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>SHUAXINDIARY</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/articlecount/">
+                <i class="iconfont icon-codeforces"></i>
+                统计
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://img.shuaxindiary.cn/guimie.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="关于前端下载">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-02 10:35" pubdate>
+        2021年3月2日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">关于前端下载</h1>
+            
+            <div class="markdown-body">
+              <h1 id="关于本文"><a href="#关于本文" class="headerlink" title="关于本文"></a>关于本文</h1><p>记录如何在前端来下载文件的几种解决方案</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>关于前端下载文件，有两种方案：</p>
+<ul>
+<li>1.不发请求：使用a标签设置 <code>download</code> 后去访问下载url，浏览器会自动开始下载</li>
+<li>2.发请求，然后拿到blob数据，创建一个blob的url，通过a去访问该url，设置 <code>download</code> 下载</li>
+</ul>
+<h1 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h1><p>以下示范的后端代码</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">router.get(<span class="hljs-string">&#x27;/dolFile&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res, next</span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> ops = &#123;<br>    <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;image/png&#x27;</span><br>  &#125;<br>  res<br>    .status(<span class="hljs-number">200</span>)<br>    .sendFile(path.join(__dirname, <span class="hljs-string">&#x27;p-1.jpg&#x27;</span>))<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="不发送请求"><a href="#不发送请求" class="headerlink" title="不发送请求"></a>不发送请求</h3><figure class="highlight html"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn&quot;</span>&gt;</span>下载<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">  <span class="hljs-comment">// 获取下载按钮</span></span><br><span class="javascript">  <span class="hljs-keyword">const</span> dolBtn = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;#btn&quot;</span>)</span><br><span class="javascript">  <span class="hljs-comment">// 下载函数</span></span><br><span class="javascript">  <span class="hljs-keyword">const</span> dolFile = <span class="hljs-function">(<span class="hljs-params">url</span>) =&gt;</span> &#123;</span><br><span class="javascript">    <span class="hljs-comment">// 创建a标签</span></span><br><span class="javascript">    <span class="hljs-keyword">const</span> a = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;a&#x27;</span>)</span><br><span class="javascript">    <span class="hljs-comment">// 为a标签设置请求地址和下载属性</span></span><br><span class="javascript">    a.setAttribute(<span class="hljs-string">&#x27;href&#x27;</span>, url)</span><br><span class="javascript">    <span class="hljs-comment">// 该参数提供一个值 为该文件保存的默认名</span></span><br><span class="javascript">    a.setAttribute(<span class="hljs-string">&#x27;download&#x27;</span>, <span class="hljs-string">&#x27;图片&#x27;</span>)</span><br><span class="javascript">    <span class="hljs-comment">// 添加到页面</span></span><br><span class="javascript">    <span class="hljs-built_in">document</span>.body.appendChild(a)</span><br><span class="javascript">    <span class="hljs-comment">// 点击该a标签进行下载</span></span><br>    a.click()<br><span class="javascript">    <span class="hljs-comment">// 最后要卸载该dom</span></span><br>    a.remove()<br>  &#125;<br><span class="javascript">  dolBtn.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="javascript">    dolFile(<span class="hljs-string">&#x27;http://localhost:3000/api/dolFile&#x27;</span>)</span><br>  &#125;)<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="发送请求"><a href="#发送请求" class="headerlink" title="发送请求"></a>发送请求</h3><figure class="highlight html"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn&quot;</span>&gt;</span>下载<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">  <span class="hljs-comment">// 获取下载按钮</span></span><br><span class="javascript">  <span class="hljs-keyword">const</span> dolBtn = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;#btn&quot;</span>)</span><br><span class="javascript">  <span class="hljs-comment">// 下载函数</span></span><br><span class="javascript">  <span class="hljs-keyword">const</span> dolFile = <span class="hljs-function">(<span class="hljs-params">url</span>) =&gt;</span> &#123;</span><br><span class="javascript">      <span class="hljs-keyword">let</span> data = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&#x27;http://localhost:3000/api/dolFile&#x27;</span>)</span><br><span class="javascript">        .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;</span><br><span class="javascript">          <span class="hljs-comment">// 直接返回一个blob即可</span></span><br><span class="javascript">          <span class="hljs-keyword">return</span> res.blob()</span><br>        &#125;)<br><span class="javascript">      <span class="hljs-keyword">var</span> a = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;a&#x27;</span>);</span><br><span class="javascript">      <span class="hljs-comment">//文件的名称为时间戳加文件名后缀</span></span><br><span class="javascript">      a.download = <span class="hljs-string">`<span class="hljs-subst">$&#123;+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()&#125;</span>.jpg`</span>;</span><br><span class="javascript">      <span class="hljs-comment">// 创建一个blob链接 理解成类似base64那样的</span></span><br>      a.href = URL.createObjectURL(data);<br><span class="javascript">      <span class="hljs-built_in">document</span>.body.appendChild(a);</span><br>      a.click();<br><span class="javascript">      <span class="hljs-built_in">document</span>.body.removeChild(a);</span><br>  &#125;<br><span class="javascript">  dolBtn.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="javascript">    dolFile(<span class="hljs-string">&#x27;http://localhost:3000/api/dolFile&#x27;</span>)</span><br>  &#125;)<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h3 id="关于Blob"><a href="#关于Blob" class="headerlink" title="关于Blob"></a>关于Blob</h3><ul>
+<li>是web提供的一个对象，表示一个不可变、原始数据的类文件对象。数据按二进制或文本读存</li>
+<li>一般包含2个属性：<code>size</code> ：文件大小， <code>type</code>：文件类型</li>
+<li>使用场景：大文件分割上传、上述场景一样作为一个url去下载文件</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob">MDN-Blob</a></li>
+<li><a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/9974df9a229e5c28679c77773">一文学会Blob</a></li>
+</ul>
+<h3 id="URL对象"><a href="#URL对象" class="headerlink" title="URL对象"></a>URL对象</h3><ul>
+<li>用于解析，构造，规范化和编码</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/URL">URL</a></li>
+</ul>
+<h3 id="关于fetch"><a href="#关于fetch" class="headerlink" title="关于fetch"></a>关于fetch</h3><ul>
+<li>因为一直习惯了 <code>axios</code> 不太理解为什么fetch，一直需要第一个then，接着这个时候打印了第一个then的callback的对象看了下，如下：<br><img src="https://img.shuaxindiary.cn/fetch_res.png" srcset="/img/loading.gif" lazyload alt="fetch_res"><br>这个对象其实包含了本次请求响应的各种信息，响应头、url、状态等等；然后默认提供了很多对数据的处理形式，比如：json、text、blob、formData等。有点自带拦截器一样的感觉，默认做了一层封装。</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD/">前端下载</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/08/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/iterm2-%E9%85%8D%E7%BD%AE/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">iterm2-配置</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/11/%E6%97%A5%E5%B8%B8/ios-date%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
+                        <span class="hidden-mobile">ios-date构造函数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

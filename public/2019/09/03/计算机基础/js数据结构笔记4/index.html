@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <link rel="icon" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="本文源码 这里概念1.类似于数组一样存储多个数据的数据结构2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针">
+  <meta name="author" content="刷新">
+  <meta name="keywords" content="">
+  <meta name="description" content="本文源码 这里概念1.类似于数组一样存储多个数据的数据结构2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《学习JavaScript数据结构与算法》笔记---(单向)链表">
+<meta property="og:url" content="http://example.com/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B04/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="本文源码 这里概念1.类似于数组一样存储多个数据的数据结构2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/linked.jpg">
+<meta property="og:image" content="http://example.com/img/insert0.png">
+<meta property="og:image" content="http://example.com/img/insert1.png">
+<meta property="article:published_time" content="2019-09-03T11:04:43.000Z">
+<meta property="article:modified_time" content="2021-12-31T12:01:59.687Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/linked.jpg">
+  
+  <title>《学习JavaScript数据结构与算法》笔记---(单向)链表 - 刷新</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>SHUAXINDIARY</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/articlecount/">
+                <i class="iconfont icon-codeforces"></i>
+                统计
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://img.shuaxindiary.cn/51590BF0-4E0B-4FCF-A188-D17D198D1AD0(20200924-103.JPG') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="《学习JavaScript数据结构与算法》笔记---(单向)链表">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-09-03 19:04" pubdate>
+        2019年9月3日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">《学习JavaScript数据结构与算法》笔记---(单向)链表</h1>
+            
+            <div class="markdown-body">
+              <h1 id="本文源码-这里"><a href="#本文源码-这里" class="headerlink" title="本文源码 这里"></a>本文源码 <a target="_blank" rel="noopener" href="https://github.com/SHUAXINDIARY/demo/blob/master/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%85%B3%E4%BA%8E%E9%93%BE%E8%A1%A8.html">这里</a></h1><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>1.类似于数组一样存储多个数据的数据结构<br>2.链表中每个元素称为节点，每个节点包含元素内容和指向下一个节点的指针<br><img src="/img/linked.jpg" srcset="/img/loading.gif" lazyload alt="示例图"></p>
+<a id="more"></a>
+<h1 id="和数组对比"><a href="#和数组对比" class="headerlink" title="和数组对比"></a>和数组对比</h1><blockquote>
+<p><strong><em>链表的优点</em></strong><br>1.内存空间不是必须连续的。可以实现灵活的内存管理<br>2.链表不必再创建时就确定大小，并且大小可以无限延伸下去<br>3.链表再插入和删除数据时，时间复杂度低，效率高</p>
+</blockquote>
+<blockquote>
+<p><strong><em>链表的缺点</em></strong><br>1.访问任何一个位置的元素时，都需要从头开始访问(无法跳过第一或任何一个元素)<br>2.无法通过下标直接访问元素</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong><em>数组的优点</em></strong><br>1.占用内存空间少<br>2.数组内的数据可以随机访问<br>3.数据查找效率较高（内存连续）</p>
+</blockquote>
+<blockquote>
+<p><strong><em>数组的缺点</em></strong><br>1.插入和删除效率低，因为要移动操作元素之后的所有元素(无法跳过第一或任何一个元素)<br>2.数组大小固定，不能动态拓展(大多数语言是这样js的是动态的)</p>
+</blockquote>
+<h1 id="封装一个单向链表"><a href="#封装一个单向链表" class="headerlink" title="封装一个单向链表"></a>封装一个单向链表</h1><figure class="highlight javascript"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">LinkedList</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-comment">// 链表头</span><br>    <span class="hljs-built_in">this</span>.head=<span class="hljs-literal">null</span>;<br>    <span class="hljs-comment">// 链表长度</span><br>    <span class="hljs-built_in">this</span>.length=<span class="hljs-number">0</span>;<br>    <span class="hljs-comment">// 节点类 </span><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Node</span>(<span class="hljs-params">data</span>)</span>&#123;<br>        <span class="hljs-comment">// 存储节点包含的数据</span><br>        <span class="hljs-built_in">this</span>.data=data;<br>        <span class="hljs-comment">// 存储指向下一个节点的指针(引用)</span><br>        <span class="hljs-built_in">this</span>.next=<span class="hljs-literal">null</span>;<br>    &#125;;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+
+<h1 id="封装一些基本方法"><a href="#封装一些基本方法" class="headerlink" title="封装一些基本方法"></a>封装一些基本方法</h1><p><strong><em>只列举插入、添加、删除三个方法，其他方法可以查看源代码</em></strong><br>1.append(data)—-给链表尾部追加节点方法，参数:节点数据 不返回结果<br>    <figure class="highlight javascript"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">LinkedList.prototype.append = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;<br>    <span class="hljs-comment">// 1.创建新节点</span><br>    <span class="hljs-keyword">let</span> node = <span class="hljs-keyword">new</span> Node(data);<br>    <span class="hljs-comment">// 2.判断是否是第一个节点  也可以根据heae是否为空判断</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.length === <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-built_in">this</span>.head = node;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// 当前第一个节点</span><br>        <span class="hljs-keyword">let</span> current = <span class="hljs-built_in">this</span>.head;<br>        <span class="hljs-comment">// 通过判断每个节点的next是否为空来找到最后一个元素 </span><br>        <span class="hljs-keyword">while</span> (current.next) &#123;<br>            current = current.next;<br>        &#125;;<br>        <span class="hljs-comment">// 然后给将最后一个元素的next指向我们新添加的元素</span><br>        current.next = node;<br>    &#125;<br>    <span class="hljs-comment">// 3.更新长度</span><br>    <span class="hljs-built_in">this</span>.length++;<br>&#125;;<br></code></pre></div></td></tr></table></figure><br><img src="/img/insert0.png" srcset="/img/loading.gif" lazyload alt="第一种情况"><br><img src="/img/insert1.png" srcset="/img/loading.gif" lazyload alt="第二种情况"></p>
+<p><strong><em>不理解的时候画图就好了</em></strong></p>
+<p>2.toString()—-打印每个节点data内容<br>3.insert(position,data)—-向特定位置插入节点，参数:位置索引,插入数据  成功返回1，失败返回0</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">LinkedList.prototype.insert = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">position, data</span>) </span>&#123;<br>    <span class="hljs-comment">// 1.对position做越界判断  即插入位置是否存在</span><br>    <span class="hljs-keyword">if</span> (position &gt;= <span class="hljs-number">0</span> &amp;&amp; position &lt;= <span class="hljs-built_in">this</span>.length) &#123;<br>        <span class="hljs-keyword">let</span> node = <span class="hljs-keyword">new</span> Node(data);<br>        <span class="hljs-comment">// 2.插入位置是第一个时</span><br>        <span class="hljs-keyword">if</span> (position === <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-comment">// 让要插入的节点的指针指向原来的第一个节点</span><br>            node.next = <span class="hljs-built_in">this</span>.head;<br>            <span class="hljs-comment">// 让head指向要插入的节点</span><br>            <span class="hljs-built_in">this</span>.head = node;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// 标识每一个节点的位置  previous保存前一个节点 </span><br>            <span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>,<br>                current = <span class="hljs-built_in">this</span>.head,<br>                previous;<br>                <span class="hljs-comment">// 当index=position时跳出循环</span><br>            <span class="hljs-keyword">while</span> (index++ &lt; position) &#123;<br>                previous = current;<br>                current = current.next;<br>            &#125;;<br>            node.next = current;<br>            previous.next = node;<br>        &#125;;<br>        <span class="hljs-built_in">this</span>.length++;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+<p>4.get(position)—–获取指定位置节点的数据 参数:位置索引  返回获取到的数据或-1<br>5.indexof(data)—–在链表中查找指定数据 参数:要查找的数据 返回目标数据节点位置 ，没有返回-1<br>6.update(position,data)—–修改指定位置的数据 参数:位置索引,要修改的数据  成功返回1，失败返回0<br>7.removeAt(position)—–删除指定位置的节点 参数:位置索引 成功返回删除节点data，失败返回-1</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">LinkedList.prototype.removeAt = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">position</span>) </span>&#123;<br>    <span class="hljs-comment">// 越界判断</span><br>    <span class="hljs-keyword">if</span> (position &gt;= <span class="hljs-number">0</span> &amp;&amp; position &lt;= <span class="hljs-built_in">this</span>.length) &#123;<br>        <span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>,<br>            current = <span class="hljs-built_in">this</span>.head,<br>            previous;<br>        <span class="hljs-keyword">if</span> (position === <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-built_in">this</span>.head = current.next;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">while</span> (index++ &lt; position) &#123;<br>                previous = current;<br>                current = current.next;<br>            &#125;;<br>            previous.next = current.next;<br>        &#125;<br>        <span class="hljs-comment">// 更新长度</span><br>        <span class="hljs-built_in">this</span>.length--;<br>        <span class="hljs-keyword">return</span> current.data;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+<p>8.remove(data)—–根据data移除该data所在节点 参数:要删除的数据 成功返回删除节点data，失败返回-1<br>9.size()—–返回链表对的元素个数<br>10.isEmpty()——判断链表是否为空</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B05/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">《学习JavaScript数据结构与算法》笔记---(双向)链表</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B03/">
+                        <span class="hidden-mobile">《学习JavaScript数据结构与算法》笔记---队列之优先队列</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <link rel="icon" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="为什么要缓存因为网站的所有资源都是放在服务器上的，每次访问一个页面的时候，都会通过http请求去请求该页面依赖的静态资源，这个过程会花费很多的时间，造成页面留白等响应过长的问题，导致用户体验不是非常的友好
+所以合理的利用浏览器缓存，将第一次请求后得到的一些静态资源合理的存储在本地，然后当用户下次访问的时候，可以直接从本地读取；加快页面的显示。
+举个例子：现在我们有一个html然后页面加载一个tex">
+  <meta name="author" content="刷新">
+  <meta name="keywords" content="">
+  <meta name="description" content="为什么要缓存因为网站的所有资源都是放在服务器上的，每次访问一个页面的时候，都会通过http请求去请求该页面依赖的静态资源，这个过程会花费很多的时间，造成页面留白等响应过长的问题，导致用户体验不是非常的友好 所以合理的利用浏览器缓存，将第一次请求后得到的一些静态资源合理的存储在本地，然后当用户下次访问的时候，可以直接从本地读取；加快页面的显示。 举个例子：现在我们有一个html然后页面加载一个tex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于浏览器缓存">
+<meta property="og:url" content="http://example.com/2019/11/28/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="为什么要缓存因为网站的所有资源都是放在服务器上的，每次访问一个页面的时候，都会通过http请求去请求该页面依赖的静态资源，这个过程会花费很多的时间，造成页面留白等响应过长的问题，导致用户体验不是非常的友好 所以合理的利用浏览器缓存，将第一次请求后得到的一些静态资源合理的存储在本地，然后当用户下次访问的时候，可以直接从本地读取；加快页面的显示。 举个例子：现在我们有一个html然后页面加载一个tex">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cache.png">
+<meta property="og:image" content="http://example.com/img/cache1.png">
+<meta property="article:published_time" content="2019-11-28T05:15:54.000Z">
+<meta property="article:modified_time" content="2021-12-31T12:01:59.682Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="踩坑">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/cache.png">
+  
+  <title>关于浏览器缓存 - 刷新</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>SHUAXINDIARY</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/articlecount/">
+                <i class="iconfont icon-codeforces"></i>
+                统计
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://img.shuaxindiary.cn/51590BF0-4E0B-4FCF-A188-D17D198D1AD0(20200924-103.JPG') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="关于浏览器缓存">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-11-28 13:15" pubdate>
+        2019年11月28日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">关于浏览器缓存</h1>
+            
+            <div class="markdown-body">
+              <h1 id="为什么要缓存"><a href="#为什么要缓存" class="headerlink" title="为什么要缓存"></a>为什么要缓存</h1><p>因为网站的所有资源都是放在服务器上的，每次访问一个页面的时候，都会通过http请求去请求该页面依赖的静态资源，这个过程会花费很多的时间，造成页面留白等响应过长的问题，导致用户体验不是非常的友好</p>
+<p>所以合理的利用浏览器缓存，将第一次请求后得到的一些静态资源合理的存储在本地，然后当用户下次访问的时候，可以直接从本地读取；加快页面的显示。</p>
+<p>举个例子：现在我们有一个html然后页面加载一个text.js文件；来看看使用和不使用缓存的区别</p>
+<ul>
+<li><p>没有使用缓存<br><img src="/img/cache.png" srcset="/img/loading.gif" lazyload alt="图1"></p>
+</li>
+<li><p>使用了缓存<br><img src="/img/cache1.png" srcset="/img/loading.gif" lazyload alt="图2"></p>
+</li>
+</ul>
+<p>通过上面两张图可以明显看到，使用缓存后，加载时间从8ms变成了0，效果肉眼可见！</p>
+<a id="more"></a>
+<h1 id="怎么来使用缓存？"><a href="#怎么来使用缓存？" class="headerlink" title="怎么来使用缓存？"></a>怎么来使用缓存？</h1><p>通过在服务端设置响应头(header)来告诉浏览器，该资源可以被缓存</p>
+<p>控制缓存资源的header： </p>
+<blockquote>
+<p><strong><em>Expries</em></strong> </p>
+</blockquote>
+<ul>
+<li>于HTTP1.0中添加，值为服务端本地设置的时间+请求时间；然后客户端在该时间之前，可以一直使用该缓存</li>
+</ul>
+<blockquote>
+<p><strong><em>Cache-Control</em></strong></p>
+</blockquote>
+<ul>
+<li>于HTTP1.1中添加，和Expries共存时，会覆盖前者；</li>
+<li>为了兼容1.0和1.1会和Expries共同存在</li>
+<li>值有以下几种：</li>
+<li>1.max-age=100—100秒后缓存过期</li>
+<li>2.no-cache—每次使用缓存前都要去服务端进行一次验证，以此来检查本地缓存是否过期；</li>
+<li>3.no-store—强制不进行缓存</li>
+<li>4.public—资源可以被客户端和代理服务器缓存</li>
+<li>5.private—资源只能被客户端缓存</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control">更多</a></li>
+</ul>
+<blockquote>
+<p><strong><em>Last-Modified/If-Modified-Since</em></strong></p>
+</blockquote>
+<ul>
+<li>Last-Modified为服务端设置，值是这个资源在服务器上的最后修改时间，下次客户端请求该资源时会自动携带该值并通过If-Modified-Since提交给服务端</li>
+<li>服务端会对比返回的值和该资源最后修改时间，若没有变化，则返回空响应，告诉客户端可以直接使用缓存</li>
+<li>如果返回给服务端的值小于该资源最后修改时间，则返回新的资源</li>
+</ul>
+<blockquote>
+<p><strong><em>ETag/If-None-Match</em></strong></p>
+</blockquote>
+<ul>
+<li>前者在服务端设置，后者在客户端请求时通过该首部返回给服务端</li>
+<li>Etag的值，为当前资源在服务端生成的一个关于该资源文件的一个唯一标识符；前后通过比对该标识符是否一致，来决定是否使用缓存</li>
+</ul>
+<h1 id="这几种缓存手段有什么区别呢"><a href="#这几种缓存手段有什么区别呢" class="headerlink" title="这几种缓存手段有什么区别呢"></a>这几种缓存手段有什么区别呢</h1><blockquote>
+<p>Expries、Cache-Control属于 <strong><em>强缓存</em></strong></p>
+</blockquote>
+<ul>
+<li>意思就是可以直接把资源缓存，然后设置一个过期时间，在这时间之前，就可以一直使用。</li>
+<li>这2者区别就是设置值的方式不同，然后各自对应的协议版本不同，为了兼容1.0/1.1 两者都会使用</li>
+</ul>
+<blockquote>
+<p>Last-Modified、ETag属于 <strong><em>协商缓存</em></strong></p>
+</blockquote>
+<ul>
+<li>意思就是即使缓存了，每次使用缓存前，都必须要去服务端进行一次验证，判断该缓存是否可用</li>
+<li>2者的区别：前者记录时间，后者记录根据文件生成的标识符；导致的结果就是，后者会更精确</li>
+</ul>
+<blockquote>
+<p>2种缓存的区别：强缓存优先于协商缓存</p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/12/08/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">关于浏览器存储</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/11/28/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/">
+                        <span class="hidden-mobile">从输入url到页面展示发生了什么</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <link rel="icon" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
+  <meta name="author" content="刷新">
+  <meta name="keywords" content="">
+  <meta name="description" content="学习笔记&amp;&amp;踩坑记录">
+<meta property="og:type" content="website">
+<meta property="og:title" content="刷新">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="学习笔记&amp;&amp;踩坑记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="刷新">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>刷新</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>SHUAXINDIARY</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/articlecount/">
+                <i class="iconfont icon-codeforces"></i>
+                统计
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://img.shuaxindiary.cn/apple.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="学习是一条令人时而喜极若狂、时而郁郁寡欢的道路">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/01/06/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/textarea%E4%B8%AD%E5%A4%8D%E5%88%B6%E5%85%89%E6%A0%87%E6%89%80%E5%9C%A8%E8%A1%8C%E6%96%87%E6%9C%AC/" target="_self">
+          <img src="https://img.shuaxindiary.cn/thomas-tastet-hSODeSbvzE0-unsplash.jpg" srcset="/img/loading.gif" lazyload alt="textarea中复制光标所在行文本">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/01/06/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/textarea%E4%B8%AD%E5%A4%8D%E5%88%B6%E5%85%89%E6%A0%87%E6%89%80%E5%9C%A8%E8%A1%8C%E6%96%87%E6%9C%AC/" target="_self">
+          textarea中复制光标所在行文本
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/01/06/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/textarea%E4%B8%AD%E5%A4%8D%E5%88%B6%E5%85%89%E6%A0%87%E6%89%80%E5%9C%A8%E8%A1%8C%E6%96%87%E6%9C%AC/" target="_self">
+          
+          
+            
+          
+          前言最近在写一个在线md编辑器，使用的textarea作为文本编辑器，来让用户进行输入；但是textarea并不具备很多日常所见到的编辑器所具备的功能，例如复制剪切光标所在行文本，甚至tab键都会带来一些意外的情况，所以记录一下这些坑。
+相关textarea中tab健失效问题
+需求常见的编辑器中有个功能，是ctrl+c的时候，自动复制/剪切光标所在行的文本。
+实现思路
+获取光标在文本中的位置
+同时
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-06 13:55" pubdate>
+              2021-01-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+              <a href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/01/02/%E9%9A%8F%E7%AC%94/%E5%8C%97%E4%BA%AC%E6%B8%B8%E7%8E%A9%E6%8C%87%E5%8D%97/" target="_self">
+          <img src="https://img.shuaxindiary.cn/2021.png" srcset="/img/loading.gif" lazyload alt="北京">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/01/02/%E9%9A%8F%E7%AC%94/%E5%8C%97%E4%BA%AC%E6%B8%B8%E7%8E%A9%E6%8C%87%E5%8D%97/" target="_self">
+          北京
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/01/02/%E9%9A%8F%E7%AC%94/%E5%8C%97%E4%BA%AC%E6%B8%B8%E7%8E%A9%E6%8C%87%E5%8D%97/" target="_self">
+          
+          
+            
+          
+          
+封面图作者：AJIU_
+
+前言新年的第一天，想从记录点不一样的开始，来帝都三个月了，零零散散和女票一起也打卡了不少北京的景点；人尽皆知的、不为人知的都有；所以想着以北京开始，之后也记录一些出去旅游的“游记”，也算是除过照片之外的另一种记录回忆的方式。
+正文天安门/故宫这两个可以安排在同一天，因为去故宫，选择从天安门那边进去就好，天安门附近有地铁站可直达；天安门不要门票，故宫门票微信公众号可预约；
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-02 10:24" pubdate>
+              2021-01-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%97%85%E6%B8%B8/">旅游</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2020/12/31/%E9%9A%8F%E7%AC%94/2020%E6%80%BB%E7%BB%93/" target="_self">
+          <img src="https://img.shuaxindiary.cn/avatar.jpg" srcset="/img/loading.gif" lazyload alt="2020总结">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/31/%E9%9A%8F%E7%AC%94/2020%E6%80%BB%E7%BB%93/" target="_self">
+          2020总结
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/31/%E9%9A%8F%E7%AC%94/2020%E6%80%BB%E7%BB%93/" target="_self">
+          
+          
+            
+          
+          
+封面图作者：待秋日繁星满天
+
+
+前言与其说是年终总结，不如说是下半年的总结。今年5月份，春招期间有写对春招期间面试的总结顺带的对上半年做了简单的回顾，最后也有写了对下半年的一些期望和补足的计划，转眼就已经到了2020的最后一天。半年里待过了2座城市，也在2个不同规模的团队经历了两段实习；也参加了秋招，遇到了喜欢的女孩子，杂七杂八一堆琐碎的事情，感觉也有不少东西可以梳理一下。
+正文对于上半年总结的
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-31 10:56" pubdate>
+              2020-12-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/27/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" target="_self">
+          Hexo接评论系统记录
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/27/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" target="_self">
+          
+          
+            
+          
+          之前因为建站是为了当笔记本，就没有搞些花里胡哨的社交属性的功能；后来无意间看到过一个老哥在挂载该博客的仓库留言过，后来一想，还是加一个吧，方便实时看到一些可能不太会有的留言。。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-27 22:02" pubdate>
+              2020-12-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
+            
+              <a href="/tags/Hexo/">Hexo</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/27/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/textarea%E6%A0%87%E7%AD%BEtab%E9%94%AE%E6%97%A0%E6%95%88/" target="_self">
+          textarea标签tab键无效
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/27/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/textarea%E6%A0%87%E7%AD%BEtab%E9%94%AE%E6%97%A0%E6%95%88/" target="_self">
+          
+          
+            
+          
+          前言最近在写一个在线md编辑器，使用的textarea作为文本编辑器，来让用户进行输入；但是textarea并不具备很多日常所见到的编辑器所具备的功能，例如复制剪切光标所在行文本，甚至tab键都会带来一些意外的情况，所以记录一下这些坑。
+原因
+浏览器中使用tab键会自动将光标在当前页面的各个控件上进行切换
+
+解决思路
+在textarea上监听keydown事件
+监听每次的按键，是tab键时(cod
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-27 16:51" pubdate>
+              2020-12-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/#board">16</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

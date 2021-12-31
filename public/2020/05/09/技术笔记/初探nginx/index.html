@@ -1,0 +1,637 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <link rel="icon" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
+  <meta name="author" content="刷新">
+  <meta name="keywords" content="">
+  <meta name="description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探nginx">
+<meta property="og:url" content="http://example.com/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="起因接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-09T11:24:33.000Z">
+<meta property="article:modified_time" content="2021-12-31T12:01:59.682Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="踩坑">
+<meta property="article:tag" content="Nginx">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>初探nginx - 刷新</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>SHUAXINDIARY</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/articlecount/">
+                <i class="iconfont icon-codeforces"></i>
+                统计
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://img.shuaxindiary.cn/51590BF0-4E0B-4FCF-A188-D17D198D1AD0(20200924-103.JPG') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="初探nginx">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-09 19:24" pubdate>
+        2020年5月9日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      37 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">初探nginx</h1>
+            
+            <div class="markdown-body">
+              <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>接触前端学习一年出头，慢慢的也了解到了很多与前端紧密相关的一些非前端本职，但却很感兴趣的技术，比如docker啊、nginx啊、linux啊、cicd什么的；所以趁着疫情在家，买了服务器、域名，昨天备案也通过了；今天就准备先来试水一下，使用nginx部署一直托管在github的博客</p>
+<a id="more"></a>
+
+<h1 id="相关知识笔记"><a href="#相关知识笔记" class="headerlink" title="相关知识笔记"></a>相关知识笔记</h1><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><blockquote>
+<p>什么是nginx</p>
+</blockquote>
+<ul>
+<li>一个支持HTTP和反向代理的开源的web服务器</li>
+</ul>
+<blockquote>
+<p>web服务器</p>
+</blockquote>
+<ul>
+<li>基于HTTP协议，处理客户端请求，为客户端提供可供浏览内容的服务器</li>
+<li>举例：Nginx</li>
+</ul>
+<blockquote>
+<p>应用服务器</p>
+</blockquote>
+<ul>
+<li>用来运行那些可以访问、操作本机资源的应用程序的服务器</li>
+<li>举例：Tomact</li>
+</ul>
+<blockquote>
+<p>两者区别</p>
+</blockquote>
+<ul>
+<li>不同点：Web服务器只能处理静态资源，接受请求响应资源，结束；应用服务器也可以做请求处理，响应静态资源，但同时还可以处理动态内容，比如根据模板引擎生成页面等</li>
+<li>相同点：2者都可以处理请求</li>
+<li>以前开发中，会直接使用应用服务器处理用户请求，然后使用模板引擎动态生成页面给客户端；现在因为前后端分离的原因，以及为了减轻应用服务器压力的前提下；静态资源交给nginx这类web服务器来做，应用服务器只负责处理逻辑，提供数据</li>
+</ul>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
+<p>概念</p>
+</blockquote>
+<ul>
+<li>macOS和Windows之外的第三大操作系统，主要用于服务器等，而且开源</li>
+</ul>
+<blockquote>
+<p>版本</p>
+</blockquote>
+<ul>
+<li>Ubuntu、centos、debian等</li>
+</ul>
+<blockquote>
+<p>包安装工具</p>
+</blockquote>
+<ul>
+<li>因为使用的Linux不同，所使用的的包管理工具也不同</li>
+<li>Debian/Ubuntu：apt、apt-cache、apt-get、dpkg</li>
+<li>centos：yum</li>
+<li>备注1：apt是包管理平台，get负责包的安装更新删除管理；cache用于搜索</li>
+<li>备注2：dpkg是Debian的包管理工具，Ubuntu基于Debian，所以也可以使用；但是两个的区别是dpkg安装会绕过并覆盖apt安装的包，切不关心模块依赖问题；不关心Ubuntu软件库软件；简单理解Ubuntu专用apt，Debian专用dpkg</li>
+</ul>
+<blockquote>
+<p>apt常用命令</p>
+</blockquote>
+<ul>
+<li>安装包：apt-get install &lt;包名&gt;</li>
+<li>移除包：apt-get remove &lt;包名&gt;</li>
+<li>更新包列表：apt-get update </li>
+<li>更新系统、已安装包：apt-get upgrade</li>
+<li>列出已安装包：dpkg -l</li>
+<li>搜索某包：apt-cache search &lt;包名&gt;</li>
+<li>查看包信息：apt-cache show &lt;包名&gt;</li>
+</ul>
+<blockquote>
+<p>其他命令</p>
+</blockquote>
+<ul>
+<li>wget：用来从指定的URL下载文件；类似迅雷</li>
+<li></li>
+</ul>
+<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><ul>
+<li>进入/etc/nginx/conf.d/目录，该目录存放自己的配置文件，nginx的主配置文件(/etc/nginx/nginx.conf)会自动加载该目录的配置文件</li>
+<li>通过以下配置文件，就可以部署一个简单的静态项目<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">server&#123;<br>    # 监听端口号，主配置文件默认监听了80<br>    listen 2333;<br>    # 制定ip地址或者域名<br>    server_name shuaxinjs.cn;<br>    # 配置对哪些url做出相应<br>    location / &#123;<br>        # 配置响应文件的目录<br>        root /data;<br>        # 配置目录下的响应文件<br>        index index.html;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>说明</p>
+</blockquote>
+</li>
+<li>当在浏览器输入的url匹配到location的url后，就会去内部定义的root或alias目录找要返回的文件</li>
+<li>如果没有匹配到对应的规则，就会去默认的目录找404.html并响应；这是nginx自带的，一般在/usr/share/nginx/html</li>
+<li>可以在/var/log/nginx下查看access和error日志文件，来查看访问状态</li>
+<li>root可以写在location也可以写在server中，如果内部有定义root，优先使用root的路径（精确匹配例外）</li>
+</ul>
+<blockquote>
+<p>alias和root的区别</p>
+</blockquote>
+<ul>
+<li>假设此时域名为 <a href="shuaxinjs.cn">shuaxinjs.cn</a><figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> root</span><br><span class="hljs-meta">#</span><span class="bash"> 这时浏览器输入www.shuxinjs.cn/dist后，nginx会去/data/dist/目录寻找文件</span><br><br>location /dist&#123;<br>    root /data/;<br>    index index.html;<br>&#125;<br><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-built_in">alias</span></span><br><span class="hljs-meta">#</span><span class="bash"> 这时浏览器输入www.shuxinjs.cn/dist2后，nginx会去/home/目录寻找文件</span><br><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-built_in">alias</span>指定目录时，结尾一定要加 /;root可有可无</span><br>location /dist2&#123;<br>    alias /home/;<br>    index index.html;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1></li>
+<li>使用nginx命令管理  <figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">nginx -s reload  # 向主进程发送信号，重新加载配置文件，热重启<br>nginx -s reopen	 # 重启 Nginx<br>nginx -s stop    # 快速关闭<br>nginx -s quit    # 等待工作进程处理完成后关闭<br>nginx -T         # 查看当前 Nginx 最终的配置<br>nginx -t -c &lt;配置路径&gt;    # 检查配置是否有问题，如果已经在配置目录，则不需要-c<br></code></pre></div></td></tr></table></figure></li>
+<li>使用systemctl管理，这是Linux的系统应用管理工具  <figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">systemctl start nginx    # 启动 Nginx<br>systemctl stop nginx     # 停止 Nginx<br>systemctl restart nginx  # 重启 Nginx<br>systemctl reload nginx   # 重新加载 Nginx，用于修改配置后<br>systemctl enable nginx   # 设置开机启动 Nginx<br>systemctl disable nginx  # 关闭开机启动 Nginx<br>systemctl status nginx   # 查看 Nginx 运行状态<br></code></pre></div></td></tr></table></figure>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1></li>
+</ul>
+<h3 id="location配置规则"><a href="#location配置规则" class="headerlink" title="location配置规则"></a>location配置规则</h3><blockquote>
+<p>基本语法</p>
+</blockquote>
+<ul>
+<li>这里不需要像js一样需要用//把规则包裹起来，直接写在启用正则的符号后即可  <figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">location [=|~|~*|^~]/uri/&#123;...&#125;&#123;<br>    # 具体配置<br>    # root/alias dist #响应文件目录<br>    # index file  #响应文件<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="单独说明"><a href="#单独说明" class="headerlink" title="单独说明"></a>单独说明</h3><blockquote>
+<p>=</p>
+</blockquote>
+<ul>
+<li>精确匹配</li>
+<li>使用=的时候一定要在server中指定root，会无视location内部的路径</li>
+<li>下例：当访问shuaxinjs.cn/的时候，nginx就会去/home目录寻找index.html；但是当仅在location指定的时候就会去/usr/nginx/share/html寻找，当然那个目录不存在我们的文件，就会返回404  <figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">...<br>root /home;<br>location = /login/ &#123;<br>    index index.html;<br>&#125;<br>...<br></code></pre></div></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>^~</p>
+</blockquote>
+<ul>
+<li>表示url以某个常规字符串开始的url，不区分大小写</li>
+<li>下例：代理后端请求，凡是携带/apis/的url，都会进行去请求转发；即：shuaxinjs.cn/apis/getData会变成localhost:3000/getData</li>
+<li>这里需要注意apis后面一定要跟/，不然apis会添加到url中  <figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">location ^~ /apis/ &#123;<br>    proxy_pass http://localhost:3000/;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>~</p>
+</blockquote>
+<ul>
+<li><strong><em>区分大小写</em></strong> 的正则匹配</li>
+<li>下例：匹配所有的.(css|js|png|jpg|jepg)的资源文件;</li>
+<li>正则说明：.为默认匹配除换行符以外的所有字符，*：默认对前一个规则执行0-n次；\对.号做转意；（css|js|png|jpg|jepg）意思是.后的字符必须是这几种任意一种  <figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">location ~.*\.(css|js|png|jpg|jepg)&#123;<br>    root /home/static/;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>~*</p>
+</blockquote>
+</li>
+<li><strong><em>不区分大小写</em></strong> 的正则匹配</li>
+</ul>
+<blockquote>
+<p>!~ , !~*</p>
+</blockquote>
+<ul>
+<li>区分大小写不匹配；不区分大小写不匹配</li>
+</ul>
+<blockquote>
+<p>/</p>
+</blockquote>
+<ul>
+<li>通用匹配，任何请求都会匹配</li>
+</ul>
+<h3 id="匹配顺序"><a href="#匹配顺序" class="headerlink" title="匹配顺序"></a>匹配顺序</h3><p>多个location配置的情况下匹配顺序为：<br>首先匹配= ；<br>其次是完整路径；<br>然后匹配^~；<br>再其次是按文件中顺序的正则匹配；<br>最后是交给 / 通用匹配；<br>当有匹配成功时候，停止匹配，按当前匹配规则处理请求。</p>
+<h1 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h1><ul>
+<li><p>匹配静态资源</p>
+  <figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">location ~.*\.(css|js|png|jpg|jepg)&#123;<br>    root /home/static/;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li><p>代理后端请求，解决跨域</p>
+  <figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"> location ^~ /api/ &#123;<br>    proxy_pass 后端地址;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>判断请求客户端为移动端还是pc，返回不同的页面</p>
+  <figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">server&#123;<br>    listen 80;<br>    server_name 域名/ip;<br>    location / &#123;<br>    root pc目录；<br>    root /data/pc;<br>    if ( $http_user_agent ~* &#x27;(Android|webOS|iPhone|iPod|BlackBerry)&#x27; ) &#123;<br>            root 移动端目录;<br>    &#125;<br>        index index.html;<br>    &#125;<br>&#125;   <br></code></pre></div></td></tr></table></figure>
+<h1 id="可用全局变量"><a href="#可用全局变量" class="headerlink" title="可用全局变量"></a>可用全局变量</h1><figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash">host ： 请求主机头字段，否则为服务器名称。</span><br><span class="hljs-meta">$</span><span class="bash">http_user_agent ： 客户端agent信息</span><br><span class="hljs-meta">$</span><span class="bash">http_cookie ： 客户端cookie信息</span><br><span class="hljs-meta">$</span><span class="bash">request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="hljs-meta">$</span><span class="bash">content_length ： 请求头中的Content-length字段。</span><br><span class="hljs-meta">$</span><span class="bash">content_type ： 请求头中的Content-Type字段。</span><br><span class="hljs-meta">$</span><span class="bash">request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="hljs-meta">$</span><span class="bash">uri ： 不包含请求参数的当前URI，<span class="hljs-variable">$uri</span>不包含主机名，如”/foo/bar.html”。</span><br><span class="hljs-meta">$</span><span class="bash">document_uri ： 与<span class="hljs-variable">$uri</span>相同。</span><br><span class="hljs-meta">$</span><span class="bash">query_string </span><br><span class="hljs-meta">$</span><span class="bash">args ： 这个变量等于请求行中的参数，同<span class="hljs-variable">$query_string</span></span><br><span class="hljs-meta">$</span><span class="bash">document_root ： 当前请求在root指令中指定的值。</span><br><span class="hljs-meta">$</span><span class="bash">limit_rate ： 这个变量可以限制连接速率。</span><br><span class="hljs-meta">$</span><span class="bash">request_body_file </span><br><span class="hljs-meta">$</span><span class="bash">request_filename ： 当前请求的文件路径，由root或<span class="hljs-built_in">alias</span>指令与URI请求生成。</span><br><span class="hljs-meta">$</span><span class="bash">remote_addr ： 客户端的IP地址。</span><br><span class="hljs-meta">$</span><span class="bash">remote_port ： 客户端的端口。</span><br><span class="hljs-meta">$</span><span class="bash">remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="hljs-meta">$</span><span class="bash">scheme ： HTTP方法（如http，https）。</span><br><span class="hljs-meta">$</span><span class="bash">server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="hljs-meta">$</span><span class="bash">server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="hljs-meta">$</span><span class="bash">server_name ： 服务器名称。</span><br><span class="hljs-meta">$</span><span class="bash">server_port ： 请求到达服务器的端口号。</span><br></code></pre></div></td></tr></table></figure>
+
+
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Nginx/">Nginx</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/12/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2Travis/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">初探Travis</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/02/vue/vue%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A01/">
+                        <span class="hidden-mobile">vue原理学习1-响应式</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

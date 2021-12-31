@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <link rel="icon" href="https://img.shuaxindiary.cn/newavatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="初探cicd
+什么是cicd？
+
+
+cicd是持续集成和持续交付的缩写，全称为continuous integration &amp;amp; continuous delivery
+
+
+cicd怎么做
+
+
+通过一些工具，来进行
+
+
+这些工具做了哪些事
+
+
+将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手
+举个vue项目的例子：  1234# 本地：对项目打">
+  <meta name="author" content="刷新">
+  <meta name="keywords" content="">
+  <meta name="description" content="初探cicd 什么是cicd？   cicd是持续集成和持续交付的缩写，全称为continuous integration &amp; continuous delivery   cicd怎么做   通过一些工具，来进行   这些工具做了哪些事   将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手 举个vue项目的例子：  1234# 本地：对项目打">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探Travis">
+<meta property="og:url" content="http://example.com/2020/05/12/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2Travis/index.html">
+<meta property="og:site_name" content="刷新">
+<meta property="og:description" content="初探cicd 什么是cicd？   cicd是持续集成和持续交付的缩写，全称为continuous integration &amp; continuous delivery   cicd怎么做   通过一些工具，来进行   这些工具做了哪些事   将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手 举个vue项目的例子：  1234# 本地：对项目打">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/jottings/travis.png">
+<meta property="article:published_time" content="2020-05-12T08:41:41.000Z">
+<meta property="article:modified_time" content="2021-12-31T12:01:59.682Z">
+<meta property="article:author" content="刷新">
+<meta property="article:tag" content="踩坑">
+<meta property="article:tag" content="Travis">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="CICD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/jottings/travis.png">
+  
+  <title>初探Travis - 刷新</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>SHUAXINDIARY</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/articlecount/">
+                <i class="iconfont icon-codeforces"></i>
+                统计
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://img.shuaxindiary.cn/51590BF0-4E0B-4FCF-A188-D17D198D1AD0(20200924-103.JPG') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="初探Travis">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-12 16:41" pubdate>
+        2020年5月12日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      34 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">初探Travis</h1>
+            
+            <div class="markdown-body">
+              <h1 id="初探cicd"><a href="#初探cicd" class="headerlink" title="初探cicd"></a>初探cicd</h1><blockquote>
+<p>什么是cicd？</p>
+</blockquote>
+<ul>
+<li>cicd是持续集成和持续交付的缩写，全称为continuous integration &amp; continuous delivery</li>
+</ul>
+<blockquote>
+<p>cicd怎么做</p>
+</blockquote>
+<ul>
+<li>通过一些工具，来进行</li>
+</ul>
+<blockquote>
+<p>这些工具做了哪些事</p>
+</blockquote>
+<ul>
+<li>将我们平时手动去跑的测试、打包、部署，全部通过前期配置，然后在以后的开发中，自动去执行，解放双手</li>
+<li>举个vue项目的例子：  <figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 本地：对项目打包，（正规点还要跑一边测试）这些都没问题后，然后推送到远程仓库</span><br>npm run build -&gt; git push <br><span class="hljs-meta">#</span><span class="bash"> 服务器：进入对应的目录，然后拉去仓库的代码</span><br>git pull<br></code></pre></div></td></tr></table></figure></li>
+<li>如果做好cicd的流程后，只需要git push代码就好，剩下的都会在集成工具里去根据配置文件，去自动执行，这个过程哪一步出现问题都会有对应的log文件<a id="more"></a>
+
+</li>
+</ul>
+<blockquote>
+<p>目的</p>
+</blockquote>
+<ul>
+<li>将繁琐的体力劳动变化自动化，把精力集中在项目核心逻辑开发中，从而间接影响项目的质量<h1 id="Travis"><a href="#Travis" class="headerlink" title="Travis"></a>Travis</h1></li>
+<li>和github搭配比较好的cicd工具</li>
+<li>同样的工具还有Gitlab、Jenkins等</li>
+</ul>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><blockquote>
+<p>ci：集成部分</p>
+</blockquote>
+<ul>
+<li>用github登陆Travis，指定我们需要进行集成的仓库</li>
+<li>在该仓库的项目中添加.travis.yml配置文件</li>
+<li>在配置文件中，配置当我们git push后，需要travis去做的事</li>
+</ul>
+<blockquote>
+<p>cd：部署部分</p>
+</blockquote>
+<ul>
+<li>这里使用ssh密钥免密登陆服务器的原理，来让travis可以免密登陆指定服务器</li>
+<li>关于ssh登陆的流程和原理：在要登录服务器的机器生成一对秘钥，一公一私，公钥保存到目标服务器，私钥只能自己本地知道；然后当ssh连接目标服务器时，服务器会返回一段用公钥加密的字符串；客户端收到后，用私钥解密；然后在使用私钥加密该字符串，在发送给服务器，服务器使用公钥解密后，确认是自己之前传递的内容，确认成功进行连接</li>
+<li>关于ssh：安全外科协议，使用非对称加密来进行身份验证</li>
+</ul>
+<h1 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h1><blockquote>
+<p>项目</p>
+</blockquote>
+<ul>
+<li>创建项目，git初始化，添加.travis.yml文件</li>
+<li>git push到github</li>
+<li>登陆travis，在设置页中，找到对应的仓库，并打开后面的按钮，如图<br><img src="/img/jottings/travis.png" srcset="/img/loading.gif" lazyload alt="travis">  <figure class="highlight yaml"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs YAML"><span class="hljs-comment"># .travis.yml</span><br><span class="hljs-comment"># 指定项目语言</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">node_js</span><br><span class="hljs-comment"># 指定版本</span><br><span class="hljs-attr">node_js:</span><br><span class="hljs-bullet">-</span> <span class="hljs-number">10</span><br><span class="hljs-comment"># 指定分支：这样只有该分支发生变动后，才会进行操作</span><br><span class="hljs-attr">branches:</span> <br><span class="hljs-attr">only:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">serverBackup</span><br><span class="hljs-comment"># 安装依赖：如果需要</span><br><span class="hljs-comment"># install:</span><br><span class="hljs-comment"># - npm install</span><br><span class="hljs-comment"># 运行脚本</span><br><span class="hljs-attr">script:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">echo</span> <span class="hljs-string">&quot;test&quot;</span><br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>说明</p>
+</blockquote>
+</li>
+<li>travis的配置文件是YAML语法</li>
+<li>travis的执行阶段（生命周期）分为：（括号的为可选阶段）</li>
+<li>before_install -&gt; install -&gt;before_script -&gt; script -&gt; aftersuccess or afterfailure -&gt;(before_deploy-&gt;deploy-&gt;after_deploy)-&gt;after_script</li>
+<li>安装依赖前-&gt;安装依赖-&gt;执行脚本之前-&gt;执行脚本-&gt;脚本执行成功后 或者 执行失败后-&gt;（部署前-&gt;部署-&gt;部署后）-&gt;脚本执行完成后</li>
+<li>travis每一阶段执行成功后才继续下一步，如果失败立即停止</li>
+</ul>
+<h1 id="服务端操作"><a href="#服务端操作" class="headerlink" title="服务端操作"></a>服务端操作</h1><h3 id="Linux添加新用户-赋予root权限"><a href="#Linux添加新用户-赋予root权限" class="headerlink" title="Linux添加新用户/赋予root权限"></a>Linux添加新用户/赋予root权限</h3><ul>
+<li>这里不要换成root创建，用普通用户使用sudo命令添加新用户即可<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 添加用户</span><br>sudo adduser 用户名<br><span class="hljs-meta">#</span><span class="bash"> 按提示操作</span><br><span class="hljs-meta">#</span><span class="bash"> 给该用户赋予root权限</span><br><span class="hljs-meta">#</span><span class="bash"> 编辑该文件</span><br>vim /etc/sudoers<br><span class="hljs-meta">#</span><span class="bash"> 在改行注释下添加</span><br><span class="hljs-meta">#</span><span class="bash"> User privilege specification</span><br>用户名 ALL=(ALL:ALL) ALL<br></code></pre></div></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="生成SSH秘钥"><a href="#生成SSH秘钥" class="headerlink" title="生成SSH秘钥"></a>生成SSH秘钥</h3><figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 回到根目录</span><br>[~/home]:cd ~<br>[~]:ssh-keygen -t rsa #-t意思选择生成的加密算法，RSA为非对称加密<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="设置该文件权限为700"><a href="#设置该文件权限为700" class="headerlink" title="设置该文件权限为700"></a>设置该文件权限为700</h3><figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> -rw------- (600)      只有拥有者有读写权限。</span><br><span class="hljs-meta">#</span><span class="bash"> -rw-r--r-- (644)      只有拥有者有读写权限；而属组用户和其他用户只有读权限。</span><br><span class="hljs-meta">#</span><span class="bash"> -rwx------ (700)     只有拥有者有读、写、执行权限。</span><br><span class="hljs-meta">#</span><span class="bash"> -rwxr-xr-x (755)    拥有者有读、写、执行权限；而属组用户和其他用户只有读、执行权限。</span><br><span class="hljs-meta">#</span><span class="bash"> -rwx--x--x (711)    拥有者有读、写、执行权限；而属组用户和其他用户只有执行权限。</span><br><span class="hljs-meta">#</span><span class="bash"> -rw-rw-rw- (666)   所有用户都有文件读、写权限。</span><br><span class="hljs-meta">#</span><span class="bash"> -rwxrwxrwx (777)  所有用户都有读、写、执行权限。</span><br><span class="hljs-meta">#</span><span class="bash"> 通过chmod命令可以修改权限</span><br><span class="hljs-meta">#</span><span class="bash"> -----------</span><br><span class="hljs-meta">#</span><span class="bash"> 设置该目录为700</span><br>[~]:chmod 700 ~/.ssh/<br><span class="hljs-meta">#</span><span class="bash"> 设置该目录下文件为600</span><br>chmod 600 ~/.ssh/*<br><span class="hljs-meta">#</span><span class="bash"> 查看当前目录下文件信息 可以看到所有文件都属于travis</span><br>[~]:ls -al<br><span class="hljs-meta">#</span><span class="bash"> 添加生成公钥为受信列表</span><br>[~]:cd .ssh/<br><span class="hljs-meta">#</span><span class="bash"> 如果没有authorized_keys先创建</span><br>[~]:touch authorized_keys<br>[~/.ssh]:cat id_rsa.pub &gt;&gt; authorized_keys # cat打印文件内容<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="配置连接"><a href="#配置连接" class="headerlink" title="配置连接"></a>配置连接</h3><figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 创建一个配置文件</span><br>[~/.ssh]:vim config<br><span class="hljs-meta">#</span><span class="bash"> 内容如下</span><br><span class="hljs-meta">#</span><span class="bash"> 测试</span><br>[~/.ssh]:ssh test<br><span class="hljs-meta">#</span><span class="bash"> 查看是否有known_hosts 有即成功 之后再登陆时就不需要yes</span><br>[~/.ssh]:ls<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs YAML"><span class="hljs-string">&lt;!--</span> <span class="hljs-string">文件内容</span> <span class="hljs-string">--&gt;</span><br><span class="hljs-string">Host</span> <span class="hljs-string">test</span><br><span class="hljs-string">HostName</span> <span class="hljs-number">99.99</span><span class="hljs-number">.99</span><span class="hljs-number">.99</span><span class="hljs-string">(你的服务器ip)</span><br><span class="hljs-comment">#登陆的用户名</span><br><span class="hljs-string">User</span> <span class="hljs-string">travis</span><br><span class="hljs-string">IdentitiesOnly</span> <span class="hljs-literal">yes</span><br><span class="hljs-comment">#登陆使用的密钥</span><br><span class="hljs-string">IdentityFile</span> <span class="hljs-string">~/.ssh/id_rsa</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="安装travis"><a href="#安装travis" class="headerlink" title="安装travis"></a>安装travis</h3><p>travis是ruby写的，所以需要安装ruby环境</p>
+<blockquote>
+<p>安装rvm：ruby的版本管理工具，类似npx</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 切回root</span><br><span class="hljs-meta">#</span><span class="bash"> 安装公钥</span><br>[root@~]gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB<br><span class="hljs-meta">#</span><span class="bash"> 会提示安装gpg2 安装就好</span><br><span class="hljs-meta">#</span><span class="bash"> 安装rvm</span><br>[root@~]:curl -sSL https://get.rvm.io | bash -s stable<br><span class="hljs-meta">#</span><span class="bash"> 安装会提示需要添加用户到rvm分组</span><br><span class="hljs-meta">#</span><span class="bash"> 添加用户到新分组且不离开当前所在组</span><br><span class="hljs-meta">#</span><span class="bash"> usermod -G groupA---离开当前所在组，到目标组</span><br>[root@~]:usermod -a -G 分组名 待添加用户<br><span class="hljs-meta">#</span><span class="bash"> 执行重新执行刚修改的初始化文件</span><br>[root@~]:source /etc/profile.d/rvm.sh<br><span class="hljs-meta">#</span><span class="bash"> 查看rvm版本</span><br>[root@~]:rvm --version<br><span class="hljs-meta">#</span><span class="bash"> rvm 1.29.10 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]</span><br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>安装ruby和gem—ruby的包管理工具</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">[root@~]:rvm install ruby<br><span class="hljs-meta">#</span><span class="bash"> 安装完成后查看版本</span><br>[root@~]:ruby --version<br>[root@~]:gem -v<br><span class="hljs-meta">#</span><span class="bash"> 查看gem当前镜像</span><br>[root@~]:gem sources -l # https://rubygems.org/<br><span class="hljs-meta">#</span><span class="bash"> 切换为国内的镜像源</span><br>[root@~]:gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>安装travis命令行工具</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">[root@~]:gem install travis<br><span class="hljs-meta">#</span><span class="bash"> 切到travis 执行travis</span><br>[travis@~]:travis<br><span class="hljs-meta">#</span><span class="bash"> 提示yes</span><br><span class="hljs-meta">#</span><span class="bash"> 进入项目目录，开始添加秘钥到仓库</span><br>[travis@~/home/xxx]:travis login<br><span class="hljs-meta">#</span><span class="bash"> 输入github登陆名和密码</span><br><span class="hljs-meta">#</span><span class="bash"> 添加秘钥到仓库的配置文件中</span><br>[travis@~/home/xxx]:travis encrypt-file ~/.ssh/id_rsa  --add<br><span class="hljs-meta">#</span><span class="bash"> 打印配置文件看到多了几行</span><br>before_install:<br>- openssl aes-256-cbc -K $encrypted_ff98517d7fe4_key -iv $encrypted_ff98517d7fe4_iv<br>  -in id_rsa.enc -out ~\/.ssh/id_rsa -d<br><span class="hljs-meta">#</span><span class="bash">   这里需要更改一下把out~后的\去掉，不然会报错这是traviscli的bug</span><br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>添加目标服务器</p>
+</blockquote>
+<ul>
+<li>这里就在配置文件中添加一下目标服务器ip，和登陆后要进行的操作即可<figure class="highlight yaml"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs YAML"><span class="hljs-attr">language:</span> <span class="hljs-string">node_js</span><br><span class="hljs-attr">node_js:</span><br><span class="hljs-bullet">-</span> <span class="hljs-number">10</span><br><span class="hljs-attr">branches:</span> <br><span class="hljs-attr">only:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">serverBackup</span><br><span class="hljs-attr">script:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">echo</span> <span class="hljs-string">&quot;test&quot;</span><br><span class="hljs-attr">before_install:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">openssl</span> <span class="hljs-string">aes-256-cbc</span> <span class="hljs-string">-K</span> <span class="hljs-string">$encrypted_5ec1b68e2d5b_key</span> <span class="hljs-string">-iv</span> <span class="hljs-string">$encrypted_5ec1b68e2d5b_iv</span><br>  <span class="hljs-string">-in</span> <span class="hljs-string">id_rsa.enc</span> <span class="hljs-string">-out</span> <span class="hljs-string">~/.ssh/id_rsa</span> <span class="hljs-string">-d</span><br><span class="hljs-attr">addons:</span><br><span class="hljs-attr">ssh_known_hosts:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">ip地址或者域名</span><br><span class="hljs-attr">after_success:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">chmod</span> <span class="hljs-number">600</span> <span class="hljs-string">~/.ssh/id_rsa</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">ssh</span> <span class="hljs-string">publish@shuaxinjs.cn</span> <span class="hljs-string">-o</span> <span class="hljs-string">StrictHostKeyChecking=no</span> <span class="hljs-string">&#x27;cd /home/publish/data/shuaxindiary.github.io &amp;&amp; git pull&#x27;</span><br></code></pre></div></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://gems.ruby-china.com/">gem国内镜像</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html">阮一峰-cicd</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhaosaisai.com/blog/2019/travis%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2github%E9%A1%B9%E7%9B%AE%E5%88%B0server.html">travis自动化部署github项目到server</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Travis/">Travis</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                      <a class="hover-with-bg" href="/tags/CICD/">CICD</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/13/%E9%9A%8F%E7%AC%94/%E5%A1%9E%E5%B0%94%E8%BE%BE%E9%80%9A%E5%85%B3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">塞尔达通关</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/09/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%88%9D%E6%8E%A2nginx/">
+                        <span class="hidden-mobile">初探nginx</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
