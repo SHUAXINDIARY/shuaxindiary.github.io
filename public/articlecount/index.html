@@ -207,7 +207,10 @@
 
 <div>
     <div>
-        <p class="h4" style="font-family: ZCOOL KuaiLe;">文章数统计</p>
+        <p class="h4" style="font-family: ZCOOL KuaiLe;">今年</p>
+        <svg class="line-chart-thisYear charts"></svg>
+        <svg class="pie-chart-thisYear charts"></svg>
+        <p class="h4" style="font-family: ZCOOL KuaiLe;">文章总数数统计</p>
         
             <svg class="line-chart-year charts"></svg>
         
@@ -260,8 +263,8 @@
             }
         });
     }
-    const loadPieChart = (commonOptions = {}, data = {}) => {
-        const svg = document.querySelector('.pie-chart-week')
+    const loadPieChart = (commonOptions = {}, data = {}, domName) => {
+        const svg = document.querySelector(domName || '.pie-chart-week')
         const pieChart = new chartXkcd.Pie(svg, {
             title: '按周',
             data: {
@@ -274,8 +277,8 @@
             },
         });
     }
-    const loadLineChart = (commonOptions = {}, data = {}) => {
-        const svg = document.querySelector('.line-chart-year')
+    const loadLineChart = (commonOptions = {}, data = {}, domName) => {
+        const svg = document.querySelector(domName || '.line-chart-year')
         const lineChart = new chartXkcd.Line(svg, {
             title: '按年',
             data: {
@@ -299,6 +302,8 @@
             
                 loadPieChart(options, chartsData.week)
             
+            loadLineChart(options, chartsData.thisYearByLine, '.line-chart-thisYear')
+            loadPieChart(options, chartsData.thisYearByPine, '.pie-chart-thisYear')
         }
     }
     // 加载zcool-kuaile 字体
@@ -307,9 +312,9 @@
     Fluid.utils.createScript("https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min.js", function () {
         const options = takeOptionsByMode(commonOptions)
         // 获取helper函数计算后的数据 参数为获取翻译文案的函数
-        const chartsData = {"year":{"labels":["2019","2020","2021","2022"],"datasets":[{"label":"文章","data":[39,31,8,1]}]},"month":{"labels":["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],"datasets":[{"label":"文章","data":[3,3,3,4,7,1,7,3,11,9,21,7]}]},"week":{"labels":["周一","周二","周三","周四","周五","周六","周日"],"datasets":[{"label":"文章","data":[12,10,14,10,7,16,10]}]},"length":79}
+        const chartsData = {"year":{"labels":["2019","2020","2021","2022"],"datasets":[{"label":"文章","data":[39,31,8,1]}]},"month":{"labels":["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],"datasets":[{"label":"文章","data":[3,3,3,4,7,1,7,3,11,9,21,7]}]},"week":{"labels":["周一","周二","周三","周四","周五","周六","周日"],"datasets":[{"label":"文章","data":[12,10,14,10,7,16,10]}]},"length":79,"thisYearByLine":{"labels":["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],"datasets":[{"label":"文章","data":[1,0,0,0,0,0,0,0,0,0,0,0]}]},"thisYearByPine":{"labels":["周一","周二","周三","周四","周五","周六","周日"],"datasets":[{"label":"文章","data":[0,0,0,0,0,0,1]}]}}
         renderChart({options, chartsData})
-        document.getElementById('color-toggle-btn').addEventListener('click',() => {
+        document.getElementById('color-toggle-btn').addEventListener('click', () => {
             const options = takeOptionsByMode(commonOptions)
             renderChart({options, chartsData})
         })
