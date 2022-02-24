@@ -3,7 +3,7 @@ title: 高效利用GITHUB
 category:
   - 技术笔记
 tag:
-  - GIHUTB
+  - Github
 abbrlink: 9851
 date: 2019-11-15 10:40:03
 ---
