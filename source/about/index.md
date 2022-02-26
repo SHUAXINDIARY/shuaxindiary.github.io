@@ -82,9 +82,11 @@ comment: true
 
 --------
 
-> GitHub统计
+> [Github Resume](https://toy.shuaxinjs.cn/loginGithub)
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SHUAXINDIARY&card_width=445"/>
+<!-- <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SHUAXINDIARY&card_width=445"/> -->
+![GithubResume](https://img.shuaxindiary.cn/1645875196515.png)
+
 
 # 做过的小东西 
 
@@ -97,3 +99,4 @@ comment: true
 - [Chrome批量删除微博插件[新版微博]](https://github.com/SHUAXINDIARY/Weibo-plugin)
 - [vuepress-theme-stella](https://github.com/SHUAXINDIARY/vuepress-theme-stella)
 <!-- - [md编辑器-ol](https://github.com/SHUAXINDIARY/md-editor-ol) ---开发中 -->
+- [github-resume](https://toy.shuaxinjs.cn/loginGithub)
