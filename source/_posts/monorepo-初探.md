@@ -57,6 +57,7 @@ lerna add xxx
 lerna add xxx --scope=xxx
 
 # 发布一个包
+# 发布之前先登录npm
 lerna publish
 
 ```
@@ -77,5 +78,8 @@ lerna publish
 }
 ```
 
+# 总结
+
+算是简单入门一下这个模式的开发和简单尝试一下lerna，暂时也就用了这些简单的，关于主题和相关的一些生态还在开发中，其中遇到一些没尝试过的继续更新...
 
 
