@@ -6,7 +6,7 @@ date: 2022-03-04 22:11:46
 tag:
   - postcss
   - css
-  - tailwindcs
+  - tailwindcss
 index_img: https://img.shuaxindiary.cn/IMG_0371.JPG
 banner_img: https://img.shuaxindiary.cn/IMG_0371.JPG
 ---
