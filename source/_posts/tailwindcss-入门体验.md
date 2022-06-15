@@ -7,8 +7,8 @@ tag:
   - postcss
   - css
   - tailwindcss
-index_img: https://img.shuaxindiary.cn/IMG_0371.JPG
-banner_img: https://img.shuaxindiary.cn/IMG_0371.JPG
+index_img: http://img.shuaxinjs.cn/IMG_0371.JPG
+banner_img: http://img.shuaxinjs.cn/IMG_0371.JPG
 ---
 
 > 图片来源 - [黑板Black](https://weibo.com/u/1908957877?from=myfollow_all)
@@ -20,7 +20,7 @@ banner_img: https://img.shuaxindiary.cn/IMG_0371.JPG
 
 # 简介
 
-![tailwind-css](https://img.shuaxindiary.cn/1646448840236.png)
+![tailwind-css](http://img.shuaxinjs.cn/1646448840236.png)
 
 - **tailwindcss** 是一个通过组合多个有语义的 *class* 来构建ui的css库。
 
@@ -84,7 +84,7 @@ npx tailwindcss init -p
 - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)：提供lint、语法高亮、命令补全等
 - [Tailwind Docs](https://marketplace.visualstudio.com/items?itemName=austenc.tailwind-docs)：在vs指令中，搜索对应class的使用，然后会自动跳转到文档对应位置查看
 
-![Tailwind Docs](https://img.shuaxindiary.cn/1646465880287.png)
+![Tailwind Docs](http://img.shuaxinjs.cn/1646465880287.png)
 
 ### 基本使用
 

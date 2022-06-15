@@ -52,7 +52,7 @@ comment: true
 > 我的[Github Resume](https://toy.shuaxinjs.cn/loginGithub)
 
 <!-- <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SHUAXINDIARY&card_width=445"/> -->
-![GithubResume](https://img.shuaxindiary.cn/1645875196515.png)
+![GithubResume](http://img.shuaxinjs.cn/1645875196515.png)
 
 
 # 做过的小东西 

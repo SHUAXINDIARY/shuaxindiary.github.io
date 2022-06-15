@@ -5,8 +5,8 @@ category:
 date: 2022-03-20 09:29:03
 tag:
  - monorepo
-index_img: https://img.shuaxindiary.cn/black.jpeg
-banner_img: https://img.shuaxindiary.cn/black.jpeg
+index_img: http://img.shuaxinjs.cn/black.jpeg
+banner_img: http://img.shuaxinjs.cn/black.jpeg
 ---
 
 > [banner图出处](https://weibo.com/u/1908957877?topnav=1&wvr=6&topsug=1)
@@ -15,7 +15,7 @@ banner_img: https://img.shuaxindiary.cn/black.jpeg
 
 最近再开发一个 [vuepress-next](https://v2.vuepress.vuejs.org/) 的主题 - [stella](https://github.com/SHUAXINDIARY/vuepress-theme-stella)，开发的过程中除过主题本身还需要开发与之相关的一些工具生态（例如快速生成应用该主题的vuepress模板、一些主题开发中用到的公用工具库逻辑等），但是零散在多个仓库维护，带来每次都需要打开多个编辑器、github仓库页，以及每次扩展对应工具的逻辑的时候，还需要单独再发包，再安装才能使用等问题，实在有些繁琐，于是开始了解 [monorepo](https://en.wikipedia.org/wiki/Monorepo) 这种单仓库维护多个包的开发模式，至此记录一下学习笔记。
 
-![stella](https://img.shuaxindiary.cn/1647741458691.png)
+![stella](http://img.shuaxinjs.cn/1647741458691.png)
 
 # 正文
 

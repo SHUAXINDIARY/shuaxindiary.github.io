@@ -6,8 +6,8 @@ date: 2022-02-22 09:18:38
 tag:
  - Github
  - OAuth
-index_img: https://img.shuaxindiary.cn/lglFcriXMY77ziSt1EcwcUoCB_7B.jpeg
-banner_img: https://img.shuaxindiary.cn/lglFcriXMY77ziSt1EcwcUoCB_7B.jpeg
+index_img: http://img.shuaxinjs.cn/lglFcriXMY77ziSt1EcwcUoCB_7B.jpeg
+banner_img: http://img.shuaxinjs.cn/lglFcriXMY77ziSt1EcwcUoCB_7B.jpeg
 ---
 
 > [壁纸出处](https://www.zfrontier.com/app/flow/45MLjxYGzzQ9)

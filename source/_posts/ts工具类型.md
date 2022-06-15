@@ -4,8 +4,8 @@ category:
   - 技术笔记
 date: 2022-05-03 09:05:01
 tag:
-index_img: https://img.shuaxindiary.cn/WechatIMG117.jpeg
-banner_img: https://img.shuaxindiary.cn/WechatIMG117.jpeg
+index_img: http://img.shuaxinjs.cn/WechatIMG117.jpeg
+banner_img: http://img.shuaxinjs.cn/WechatIMG117.jpeg
 ---
 
 > [banner和cover图片出处](https://twitter.com/ethfinch/media)
@@ -102,7 +102,7 @@ export interface People {
 type BaseInfo = Pick<People, "name" | "age" | "sex">;
 ```
 
-![](https://img.shuaxindiary.cn/1651544591294.png)
+![](http://img.shuaxinjs.cn/1651544591294.png)
 
 #### 获取指定类型的某个类型
 
@@ -125,7 +125,7 @@ export interface People {
 
 type BodyInfo = People["bodyInfo"];
 ```
-![](https://img.shuaxindiary.cn/1651544558466.png)
+![](http://img.shuaxinjs.cn/1651544558466.png)
 
 #### Omit
 
@@ -154,7 +154,7 @@ const dog: Dog = {
   age: 100,
 };
 ```
-![](https://img.shuaxindiary.cn/1651544992920.png)
+![](http://img.shuaxinjs.cn/1651544992920.png)
 
 #### Partial
 
@@ -181,7 +181,7 @@ export interface Man extends Partial<People> {
 }
 ```
 
-![](https://img.shuaxindiary.cn/1651545569044.png)
+![](http://img.shuaxinjs.cn/1651545569044.png)
 
 #### Required
 
@@ -202,7 +202,7 @@ type _People = Partial<People>;
 
 type Req_People = Required<_People>;
 ```
-![](https://img.shuaxindiary.cn/1651545880299.png)
+![](http://img.shuaxinjs.cn/1651545880299.png)
 
 #### Record
 
@@ -235,7 +235,7 @@ export interface People {
 
 type Man = Readonly<People>;
 ```
-![](https://img.shuaxindiary.cn/1651546170656.png)
+![](http://img.shuaxinjs.cn/1651546170656.png)
 
 #### Exclude
 

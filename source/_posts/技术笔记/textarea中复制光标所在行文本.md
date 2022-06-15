@@ -1,8 +1,8 @@
 ---
 title: textarea中复制光标所在行文本
 date: 2021-01-06 13:55:37
-index_img: https://img.shuaxindiary.cn/thomas-tastet-hSODeSbvzE0-unsplash.jpg
-banner_img: https://img.shuaxindiary.cn/thomas-tastet-hSODeSbvzE0-unsplash.jpg
+index_img: http://img.shuaxinjs.cn/thomas-tastet-hSODeSbvzE0-unsplash.jpg
+banner_img: http://img.shuaxinjs.cn/thomas-tastet-hSODeSbvzE0-unsplash.jpg
 category:
   - 技术笔记
 tag:
@@ -14,7 +14,7 @@ tag:
 最近在写一个在线md编辑器，使用的textarea作为文本编辑器，来让用户进行输入；但是textarea并不具备很多日常所见到的编辑器所具备的功能，例如复制剪切光标所在行文本，甚至tab键都会带来一些意外的情况，所以记录一下这些坑。
 
 # 相关
-[textarea中tab健失效问题](https://blog.shuaxindiary.cn/2020/12/27/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/textarea%E6%A0%87%E7%AD%BEtab%E9%94%AE%E6%97%A0%E6%95%88/)
+[textarea中tab健失效问题](https://blog.shuaxinjs.cn/2020/12/27/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/textarea%E6%A0%87%E7%AD%BEtab%E9%94%AE%E6%97%A0%E6%95%88/)
 
 # 需求
 常见的编辑器中有个功能，是ctrl+c的时候，自动复制/剪切光标所在行的文本。

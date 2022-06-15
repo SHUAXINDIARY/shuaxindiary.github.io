@@ -6,15 +6,15 @@ date: 2021-12-08 09:16:38
 tag:
   - 工具
   - zsh
-index_img: https://img.shuaxindiary.cn/zsh.png
-banner_img: https://img.shuaxindiary.cn/zsh.png
+index_img: http://img.shuaxinjs.cn/zsh.png
+banner_img: http://img.shuaxinjs.cn/zsh.png
 ---
 
 # 记录iterm2配置
 
 记录一下自己常用的 **iterm** 终端的配置，效果图如下，主要分为两部分：针对外观和功能扩展
 
-![preview](https://img.shuaxindiary.cn/iterm%E9%85%8D%E7%BD%AE.png)
+![preview](http://img.shuaxinjs.cn/iterm%E9%85%8D%E7%BD%AE.png)
 
 ### 外观
 

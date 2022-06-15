@@ -5,8 +5,8 @@ category:
 date: 2022-05-08 17:11:23
 tag:
   - docker
-index_img: https://img.shuaxindiary.cn/baman.jpeg
-banner_img: https://img.shuaxindiary.cn/baman.jpeg
+index_img: http://img.shuaxinjs.cn/baman.jpeg
+banner_img: http://img.shuaxinjs.cn/baman.jpeg
 ---
 
 > 封面图来源：[SouthCity87](https://twitter.com/SouthCity87)
@@ -83,7 +83,7 @@ docker image ls -q
 
 更多操作
 
-![](https://img.shuaxindiary.cn/1652003566629.png)
+![](http://img.shuaxinjs.cn/1652003566629.png)
 
 ### 容器管理
 
