@@ -7,13 +7,15 @@ comment: true
 
 # 关于我
 
-一个很 **很可爱**、**很好看** 的女孩子的 **胶佬** 男朋友；**95后**、帝都某厂 **切图** 中，平时混（潜）迹（水）各个社区，散播自己的 *胶（玩具）片* 和 *胡言乱语* ，如果感兴趣可以再以下地方找到我：[78](https://bbs.78dm.net/space/index.html)、[zf](https://www.zfrontier.com/app/user/QoGaQR2AR9kjRq)、[Twitter](https://twitter.com/qq_tf)、[小红书](https://www.xiaohongshu.com/user/profile/617ce3ac000000000201bc2c?xhsshare=CopyLink&appuid=617ce3ac000000000201bc2c&apptime=1652512227)；喜欢的事情有很多，有正在尝试的也因为一些原因还没去做的，但一定会去尝试的，目前在玩 **剑玉**、**悠悠球**，以前学过一点 **bbox**！
+- 一个很 **很可爱**、**很好看** 的女孩子的 **胶佬** 男友；
+- **95后**、帝都某厂 **切图** 中，平时混（潜）迹（水）各个社区，散播自己的 *胶（玩具）片* 和 *胡言乱语* 
+- 如果感兴趣可以再以下地方找到我：[78](https://bbs.78dm.net/space/index.html)、[zf](https://www.zfrontier.com/app/user/QoGaQR2AR9kjRq)、[Twitter](https://twitter.com/qq_tf)、[小红书](https://www.xiaohongshu.com/user/profile/617ce3ac000000000201bc2c?xhsshare=CopyLink&appuid=617ce3ac000000000201bc2c&apptime=1652512227)、[bilibili](https://space.bilibili.com/6517765?spm_id_from=333.1007.0.0)
 
 
 # 关于技术
 
 
-> 我用的语言 ...
+> 我能写 ...
 
 <code>
     <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
@@ -24,7 +26,7 @@ comment: true
 
 -----------
 
-> 我用的框架/库 ...
+> 我再用 ...
 
 <code>
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
@@ -32,12 +34,12 @@ comment: true
     <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
     <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-    <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" />
+    <!-- <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" /> -->
 </code>
 
 ----------
 
-> 我正在学的技术 ...
+> 准备学 ...
 
 <code>
     <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" />
@@ -49,15 +51,12 @@ comment: true
 
 --------
 
-> 我的[Github Resume](https://toy.shuaxinjs.cn/loginGithub)
+<!-- > 我的[Github Resume](https://toy.shuaxinjs.cn/loginGithub) -->
 
-<!-- <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SHUAXINDIARY&card_width=445"/> -->
-![GithubResume](http://img.shuaxinjs.cn/1645875196515.png)
+<!-- ![GithubResume](http://img.shuaxinjs.cn/1645875196515.png) -->
 
 
 # 做过的小东西 
-
-> 基本都是刚入前端坑时练手的 看看就好 （狗头
 
 - [vuex持久化插件](https://github.com/SHUAXINDIARY/cacheState)
 - [gulp-cli](https://github.com/SHUAXINDIARY/demo-cli)
@@ -72,7 +71,7 @@ comment: true
 
 ### **本站内容**
 
-学习笔记、胡言乱语、踩坑指南...
+学习笔记、胡言乱语、踩坑指南、随缘更新...
 
 ### **建站信息**
 - 驱动：<img src="https://img.shields.io/badge/Hexo-0E83CD?style=for-the-badge&logo=hexo&logoColor=white" />
