@@ -7,8 +7,8 @@ tag:
   - 模型
   - 玩具
   - 摄影
-index_img: http://img.shuaxinjs.cn/toys/2F_1000922.JPG
-banner_img: http://img.shuaxinjs.cn/toys/2F_1000919.JPG
+index_img: https://img.shuaxinjs.cn/toys/20230915-DSC_7877.jpg
+banner_img: https://img.shuaxinjs.cn/toys/20230915-DSC_7877.jpg
 ---
 
 # 说明
