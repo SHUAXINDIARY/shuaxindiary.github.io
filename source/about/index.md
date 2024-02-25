@@ -9,8 +9,8 @@ comment: true
 
 - 一个很 **很可爱**、**很好看** 的女孩子的 **胶佬** 男友；
 - **95后**、~~帝都某厂~~ **切图** 中，平时混（潜）迹（水）各个社区，散播自己的 *胶（玩具）片* 和 *胡言乱语* 
-- 如果感兴趣可以再以下地方找到我：[78](https://bbs.78dm.net/space/index.html)、[zf](https://www.zfrontier.com/app/user/QoGaQR2AR9kjRq)、[Twitter](https://twitter.com/qq_tf)、[小红书](https://www.xiaohongshu.com/user/profile/617ce3ac000000000201bc2c?xhsshare=CopyLink&appuid=617ce3ac000000000201bc2c&apptime=1652512227)、[bilibili](https://space.bilibili.com/6517765?spm_id_from=333.1007.0.0)
-
+<!-- - 如果感兴趣可以再以下地方找到我：[78](https://bbs.78dm.net/space/index.html)、[zf](https://www.zfrontier.com/app/user/QoGaQR2AR9kjRq)、[Twitter](https://twitter.com/qq_tf)、[小红书](https://www.xiaohongshu.com/user/profile/617ce3ac000000000201bc2c?xhsshare=CopyLink&appuid=617ce3ac000000000201bc2c&apptime=1652512227)、[bilibili](https://space.bilibili.com/6517765?spm_id_from=333.1007.0.0) -->
+- 这是我的 [bento](https://bento.me/shuaxin)
 
 # 关于技术
 
@@ -37,8 +37,6 @@ comment: true
     <!-- <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" /> -->
 </code>
 
-----------
-
 <!-- > 准备学 ...
 
 <code>
@@ -56,6 +54,17 @@ comment: true
 <!-- ![GithubResume](http://img.shuaxinjs.cn/1645875196515.png) -->
 
 
+# 工作
+
+### 2021 - 2023
+
+- 某厂内部平台修炼 **React** 各种打工技巧
+
+### 2023 - 至今
+
+- chrome debugger 
+- 图形学入门ing
+
 # 做过的小东西 
 
 - [vuex持久化插件](https://github.com/SHUAXINDIARY/cacheState)
@@ -66,6 +75,8 @@ comment: true
 - [vuepress-theme-stella](https://github.com/SHUAXINDIARY/vuepress-theme-stella)
 <!-- - [md编辑器-ol](https://github.com/SHUAXINDIARY/md-editor-ol) ---开发中 -->
 - [github-resume](https://toy.shuaxinjs.cn/loginGithub)
+
+
 
 # 关于本站
 
