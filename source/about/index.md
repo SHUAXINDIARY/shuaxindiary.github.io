@@ -84,6 +84,8 @@ comment: true
 
 学习笔记、胡言乱语、踩坑指南、随缘更新...
 
+**所有博客内容中的插入如果没有说明出处，则均为本人拍摄或制作，转载请申明出处，谢谢**
+
 ### **建站信息**
 - 驱动：<img src="https://img.shields.io/badge/Hexo-0E83CD?style=for-the-badge&logo=hexo&logoColor=white" />
 - 部署：<img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
