@@ -2,6 +2,8 @@
 layout: post
 title: 区分工作和私人github账号
 date: 2024-03-06 09:42:15
+category:
+  - 技术笔记
 tags:
     - Git
     - 随笔
