@@ -7,7 +7,7 @@ comment: true
 
 # 关于我
 
-- 一个很 **很可爱**、**很好看** 的女孩子的 **胶佬** 男友；
+- 一个很 **很可爱**、**很好看** 的女孩子的 **胶佬**、**摄影佬** 男票；
 - **95后**、~~帝都某厂~~ **切图** 中，平时混（潜）迹（水）各个社区，散播自己的 *胶（玩具）片* 和 *胡言乱语* 
 <!-- - 如果感兴趣可以再以下地方找到我：[78](https://bbs.78dm.net/space/index.html)、[zf](https://www.zfrontier.com/app/user/QoGaQR2AR9kjRq)、[Twitter](https://twitter.com/qq_tf)、[小红书](https://www.xiaohongshu.com/user/profile/617ce3ac000000000201bc2c?xhsshare=CopyLink&appuid=617ce3ac000000000201bc2c&apptime=1652512227)、[bilibili](https://space.bilibili.com/6517765?spm_id_from=333.1007.0.0) -->
 - 这是我的 [bento](https://bento.me/shuaxin)
