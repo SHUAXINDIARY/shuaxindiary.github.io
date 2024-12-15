@@ -67,7 +67,9 @@ comment: true
 
 # 做过的小东西 
 
-- [明日方舟生涯表 - 在线版](https://arknights.shuaxinjs.cn/)
+- [明日方舟生涯表](https://arknights.shuaxinjs.cn/)
+- [瀑布流拼图](https://picturepuzzle.shuaxinjs.cn/)
+- [终端文件分类](https://github.com/SHUAXINDIARY/fs-killer)
 - [vuex持久化插件](https://github.com/SHUAXINDIARY/cacheState)
 - [gulp-cli](https://github.com/SHUAXINDIARY/demo-cli)
 - [色卡](https://github.com/SHUAXINDIARY/colorGuide)
