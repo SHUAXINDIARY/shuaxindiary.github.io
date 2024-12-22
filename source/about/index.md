@@ -7,10 +7,8 @@ comment: true
 
 # 关于我
 
-- 一个很 **很可爱**、**很好看** 的女孩子的 **胶佬**、**摄影佬** 男票；
-- **95后**、~~帝都某厂~~ **切图** 中，平时混（潜）迹（水）各个社区，散播自己的 *胶（玩具）片* 和 *胡言乱语* 
-<!-- - 如果感兴趣可以再以下地方找到我：[78](https://bbs.78dm.net/space/index.html)、[zf](https://www.zfrontier.com/app/user/QoGaQR2AR9kjRq)、[Twitter](https://twitter.com/qq_tf)、[小红书](https://www.xiaohongshu.com/user/profile/617ce3ac000000000201bc2c?xhsshare=CopyLink&appuid=617ce3ac000000000201bc2c&apptime=1652512227)、[bilibili](https://space.bilibili.com/6517765?spm_id_from=333.1007.0.0) -->
-- 这是我的 [bento](https://bento.me/shuaxin)
+- 一个很 **很可爱**、**很好看** 的女孩子的 **胶佬**、**摄影佬** 、**粥p** 男票；
+- **98**、~~帝都某厂~~ **切图** 中，平时混（潜）迹（水）各个社区，散播自己的 *胶（玩具）片* 和 *胡言乱语* ，更多可以查看 [bento](https://bento.me/shuaxin)
 
 # 关于技术
 
@@ -34,6 +32,7 @@ comment: true
     <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
     <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+    <img src="https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white" />
     <!-- <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" /> -->
 </code>
 
@@ -56,11 +55,15 @@ comment: true
 
 # 工作
 
-### 2021 - 2023
+### 2020/2021 - 360 - 实习
 
-- 某宇宙厂内部平台修炼 **React** 各种打工技巧
+- 修炼 **Vue** 打工技巧
 
-### 2023 - 至今
+### 2021/2023 - 字节跳动
+
+- 修炼 **React** 、**Node** 各种打工技巧
+
+### 2023/至今 - 即时设计
 
 - chrome debugger 
 - 各种工程打杂ing..
