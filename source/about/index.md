@@ -98,7 +98,7 @@ comment: true
 
 ### **建站信息**
 - 驱动：<img src="https://img.shields.io/badge/Hexo-0E83CD?style=for-the-badge&logo=hexo&logoColor=white" />
-- 部署：<img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
+- 部署：<img src="https://camo.githubusercontent.com/b709b385d5e956a7299e4657eca82be4ac00ea534bc9884daa6c5f07f02724e6/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f436c6f7564666c6172652d4633383032303f7374796c653d666f722d7468652d6261646765266c6f676f3d436c6f7564666c617265266c6f676f436f6c6f723d7768697465"/>
 - 主题：[fluid](https://hexo.fluid-dev.com/docs/)
 - - 现在改成了自己fork fluid（1.8.2）魔改的版本，加了一些自己需要的特性
 - 图床：[七牛云](https://www.qiniu.com/)
